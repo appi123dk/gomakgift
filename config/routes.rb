@@ -4,6 +4,10 @@ Myapp::Application.routes.draw do
   root to: 'dashboards#dashboard_1'
 
   # All routes
+  # 고막기프트 routes
+  get "gifts/index"
+
+  # 대시보드
   get "dashboards/dashboard_1"
   get "dashboards/dashboard_2"
   get "dashboards/dashboard_3"
