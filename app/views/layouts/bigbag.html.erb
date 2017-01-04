@@ -23,11 +23,21 @@
 
 </head>
 <body class="body-wrapper">
+    <div class="main-wrapper">
+        <div class="header clearfix">
 
-<!-- Main view  -->
-<%= yield %>
+        <!-- Navigation -->
+            <%= render 'layouts/bignavigation' %>
 
-
+        <!-- Main view  -->
+            <%= yield %>
+            
+        <!-- Footer -->
+            
+        </div>
+        <%= render 'layouts/bigfooter' %>
+    </div>
+    <%= render 'layouts/bigmodal' %>
     <!-- Include javascript per-controller - vendor plugins -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <%= javascript_include_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.js") %>

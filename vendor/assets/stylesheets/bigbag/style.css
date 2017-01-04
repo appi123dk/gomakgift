@@ -97,7 +97,7 @@ p {
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Helvetica', sans-serif;
   text-transform: uppercase;
   color: #252525;
   margin-top: 0;
@@ -722,7 +722,7 @@ a:hover, a:focus {
 @media (min-width: 768px) {
   .navbar-default .navbar-header .navbar-brand {
     padding: 0 15px;
-    margin-top: 27px;
+    margin-top: 15px;
   }
 }
 .navbar-default .navbar-collapse {
@@ -742,7 +742,7 @@ a:hover, a:focus {
   .navbar-default .navbar-collapse {
     height: auto;
     float: right;
-    padding: 18px 0 0;
+    padding: 10px 0 0;
   }
 }
 .navbar-default .navbar-collapse li a {
@@ -763,7 +763,7 @@ a:hover, a:focus {
 }
 @media (min-width: 768px) {
   .navbar-default .navbar-collapse li a {
-    padding: 20px  15px 33px;
+    padding: 12px  15px 20px;
   }
 }
 .navbar-default .navbar-collapse li a:hover, .navbar-default .navbar-collapse li a.focus, .navbar-default .navbar-collapse li a:focus {
@@ -3695,9 +3695,9 @@ body.bodyColor.container {
 /*=== 5.1 FORM COMMON ===*/
 .form-field .form-group .form-control, .form-body .panel .panel-body .form-group .form-control, .signUp .panel .panel-body .form-group .form-control, .lostPassword .panel .panel-body .form-group .form-control, .logIn .panel .panel-body .form-group .form-control, .commentsForm .form-group .form-control, #login .modal-dialog .modal-content .modal-body .form-group .form-control, #signup .modal-dialog .modal-content .modal-body .form-group .form-control, .stepsPage form .form-group .form-control, .profile .form-horizontal .form-group .form-control {
   border-radius: 0;
-  background-color: #f0f0f0;
-  border: none;
-  height: 50px;
+  background-color: #FFFEFE;
+  border: 1px solid #C8C9CE;
+  height: 35px;
   box-shadow: none;
 }
 .form-field .form-group .form-control:focus, .form-body .panel .panel-body .form-group .form-control:focus, .signUp .panel .panel-body .form-group .form-control:focus, .lostPassword .panel .panel-body .form-group .form-control:focus, .logIn .panel .panel-body .form-group .form-control:focus, .commentsForm .form-group .form-control:focus, #login .modal-dialog .modal-content .modal-body .form-group .form-control:focus, #signup .modal-dialog .modal-content .modal-body .form-group .form-control:focus, .stepsPage form .form-group .form-control:focus, .profile .form-horizontal .form-group .form-control:focus {
@@ -4969,7 +4969,7 @@ body.bodyColor.container {
   box-shadow: none;
   height: 40px;
   background-color: #ffffff;
-  border: 2px solid #d0d0d0;
+  border: 1px solid #d0d0d0;
 }
 
 .cartListInner .updateArea .input-group .input-group-addon, .cartListInner .updateArea .btn {
@@ -4991,27 +4991,26 @@ body.bodyColor.container {
 .cartListInner .table-responsive .table thead tr th, .orderBox .table-responsive .table thead tr th {
   background-color: #47bac1;
   padding: 0;
-  height: 55px;
+  height: 40px;
   vertical-align: middle;
-  text-align: left;
-  font-size: 15px;
+  text-align: center;
+  font-size: 14px;
   color: #ffffff;
-  padding-left: 20px;
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  padding-left: 0px;
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
   border-bottom: none;
 }
 
 .cartListInner .table-responsive .table tbody tr td, .orderBox .table-responsive .table tbody tr td {
   vertical-align: middle;
-  text-transform: uppercase;
-  font-weight: 700;
-  border-bottom: 3px solid #f0f0f0;
+  font-weight: 500;
+  border-bottom: 1px solid #f0f0f0;
   border-top: none;
 }
 
 .cartListInner .table-responsive .table tbody tr td .close, .orderBox.myAddress .table-responsive .table tbody tr td .close {
   display: inline-block;
-  float: left;
+  float: right;
   font-size: 35px;
   margin-right: 30px;
   color: #47bac1;
@@ -5802,7 +5801,7 @@ body.bodyColor.container {
 }
 
 .darkSection {
-  background-image: url("../img/about-us/store-bg.jpg");
+  background-image: url("../bigbag/about-us/store-bg.jpg");
   background-attachment: fixed;
   width: 100%;
   -webkit-background-size: cover;
@@ -5839,12 +5838,12 @@ body.bodyColor.container {
 }
 @media (min-width: 992px) {
   .darkSection .thumbnail .caption address {
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 @media (min-width: 1200px) {
   .darkSection .thumbnail .caption address {
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 .darkSection .btn-default {

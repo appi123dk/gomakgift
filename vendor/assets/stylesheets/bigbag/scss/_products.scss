@@ -413,7 +413,7 @@
 			}
 			tbody{
 				tr{
-					@include add-border(5px, $light-color, right-left);
+					@include add-border(1px, $light-color, right-left);
 					td{
 						@extend %tableData;
 						@include mobile{

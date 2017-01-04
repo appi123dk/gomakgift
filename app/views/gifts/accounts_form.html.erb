@@ -1,0 +1,241 @@
+<!-- MAIN CONTENT SECTION -->
+<section class="mainContent clearfix stepsWrapper signUp">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="innerWrapper clearfix stepsPage">
+          <div class="page-header" style="border-bottom: 0; text-align:center;">
+            <h2>주문현황</h2>
+            <h6>Step 1. 주문 상품과 갯수를 다시 한 번 확인해주세요</h6>
+          </div>
+
+          <!-- Wizard -->
+          <div class="row progress-wizard" style="border-bottom:0; margin-top: 20px ">
+
+            <div class="col-xs-3 progress-wizard-step complete">
+              <div class="text-center progress-wizard-stepnum">주문 및 고객정보 입력</div>
+              <div class="progress"><div class="progress-bar"></div></div>
+              <a href="checkout-step-1.html" class="progress-wizard-dot"></a>
+            </div>
+
+            <div class="col-xs-3 progress-wizard-step disabled">
+              <div class="text-center progress-wizard-stepnum">결제</div>
+              <div class="progress"><div class="progress-bar"></div></div>
+              <a href="checkout-step-2.html" class="progress-wizard-dot"></a>
+            </div>
+
+            <div class="col-xs-3 progress-wizard-step disabled">
+              <div class="text-center progress-wizard-stepnum">시안 확인</div>
+              <div class="progress"><div class="progress-bar"></div></div>
+              <a href="checkout-step-3.html" class="progress-wizard-dot"></a>
+            </div>
+
+            <div class="col-xs-3 progress-wizard-step disabled">
+              <div class="text-center progress-wizard-stepnum">제작 및 배송</div>
+              <div class="progress"><div class="progress-bar"></div></div>
+              <a href="checkout-step-4.html" class="progress-wizard-dot"></a>
+            </div>
+          </div>
+
+          <!-- MAIN CONTENT SECTION -->
+          <div class="page-header">
+            <h4>장바구니 목록</h4>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="cartListInner">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>주문상품</th>
+                        <th>상품명</th>
+                        <th>가격</th>
+                        <th>수량</th>
+                        <th>소계</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="col-xs-2">
+                          <span class="cartImage"><img src="<%= image_path('bigbag/products/cart-image.jpg') %>" alt="image"></span>
+                        </td>
+                        <td class="col-xs-4">Italian Winter Hat</td>
+                        <td class="col-xs-2">230 원</td>
+                        <td class="col-xs-2">100 개</td>
+                        <td class="col-xs-2">23,000 원</td>
+                      </tr>
+                      <tr>
+                        <td class="col-xs-2">
+                          <span class="cartImage"><img src="<%= image_path('bigbag/products/cart-image.jpg') %>" alt="image"></span>
+                        </td>
+                        <td class="col-xs-4">Italian Winter Hat</td>
+                        <td class="col-xs-2">230 원</td>
+                        <td class="col-xs-2">100 개</td>
+                        <td class="col-xs-2">23,000 원</td>
+                      </tr>
+                      <tr>
+                        <td class="col-xs-2">
+                          <span class="cartImage"><img src="<%= image_path('bigbag/products/cart-image.jpg') %>" alt="image"></span>
+                        </td>
+                        <td class="col-xs-4">Italian Winter Hat</td>
+                        <td class="col-xs-2">230 원</td>
+                        <td class="col-xs-2">100 개</td>
+                        <td class="col-xs-2">23,000 원</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="row totalAmountArea" style="margin-left: 0px; margin-right: 0px;">
+                  <div class="col-sm-4 col-sm-offset-8 col-xs-12">
+                    <ul class="list-unstyled">
+                      <li>Sub Total <span>$ 792.00</span></li>
+                      <li>Grand Total <span class="grandTotal">$ 810.00</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form method="POST" class="form-horizontal" role="form">
+            <!-- 주문자 정보 입력 -->
+            <div class="col-sm-6">
+              <div class="page-header">
+                <h4>주문자 정보</h4>
+                주문하시는 분의 정보를 입력해 주세요
+              </div>
+              <div class="form-group" style="margin-left: 0px; margin-right: 0px;">
+                <label class="col-sm-3 control-label">주문 고객명</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" name="username">
+                </div>
+                <label class="col-sm-3 control-label" style="margin-top: 10px">이메일</label>
+                <div class="col-sm-9" style="margin-top: 10px">
+                  <input type="email" class="form-control" name="useremail" placeholder = "cctv@gomak.com">
+                </div>
+                <label class="col-sm-3 control-label" style="margin-top: 10px">전화번호</label>
+                <div class="col-sm-9" style="margin-top: 10px">
+                  <input type="tel" class="form-control" name="usernumber" placeholder="'-' 없이 입력해주세요">
+                </div>
+                <label class="col-sm-3 control-label" style="margin-top: 10px">배송희망일</label>
+                <div class="col-sm-9" style="margin-top: 10px">
+                  <input type="date" class="form-control" name="delivery_date">
+                </div>
+              </div>
+            </div>
+            <!-- 받는사람 정보 입력 -->
+            <div class="col-sm-6">
+              <div class="page-header">
+                <h4>수령인 정보</h4>
+                <input id="same_info" type="checkbox" name="same_info"> 주문자 정보와 동일 
+              </div>
+              <div class="form-group" style="margin-left: 0px; margin-right: 0px;">
+                <label class="col-sm-3 control-label">수령인 성명 </label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" name="receiver_name">
+                </div>
+                <label class="col-sm-3 control-label" style="margin-top: 10px">이메일</label>
+                <div class="col-sm-9" style="margin-top: 10px">
+                  <input type="email" class="form-control" name="receiver_email" placeholder = "cctv@gomak.com">
+                </div>
+                <label class="col-sm-3 control-label" style="margin-top: 10px">전화번호</label>
+                <div class="col-sm-9" style="margin-top: 10px">
+                  <input type="tel" class="form-control" name="receiver_number" placeholder="'-' 없이 입력해주세요">
+                </div>
+                <label class="col-sm-3 control-label" style="margin-top: 10px">우편번호</label>
+                <div class="col-sm-3" style="margin-top: 10px">
+                  <input type="text" class="form-control postcodify_postcode5" name="postcode" id = "postcode">
+                </div>
+                <div class="panel panel-default" style="border: 0px; margin-bottom: 0px;">
+                  <div class="panel-body" style="border: 0px; padding-bottom: 0px">
+                    <button type="button" data-toggle="modal" href=".login-modal" class="btn btn-primary btn-address" style = "font-size: 12px; font-weight: 400; height: 35px; line-height:35px; width: 80px; margin-top: 10px">검색</button>
+                    <!-- <li><a data-toggle="modal" href=".login-modal" class="btn btn-default"><i class="fa fa-heart"></i></a></li> -->
+                  </div>
+                </div>
+                <label class="col-sm-3 control-label" style="margin-top: 10px">주소</label>
+                <div class="col-sm-9" style="margin-top: 10px">
+                  <input type="text" class="form-control postcodify_address" name="postcode_address" id="address">
+                </div>
+                <label class="col-sm-3 control-label" style="margin-top: 10px">상세주소</label>
+                <div class="col-sm-9" style="margin-top: 10px">
+                  <input type="text" class="form-control postcodify_details" name="postcode_detail" id="details">
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12">
+              <div class="well well-lg clearfix">
+                <ul class="pager">
+                <li class="previous"><a href="javascript:history.back()">취소</a></li>
+                  <li class="next"><a href="payment">주문완료</a></li>
+                </ul>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<% content_for :javascript do %>
+<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+<script type="text/javascript">
+
+
+$(function() {
+  $(".btn-address").click(function(){
+    $(".keyword").addClass("form-control");
+    $(".search_button").addClass("btn btn-primary btn-block");
+    $(".keyword").css({"display":"inline", "width":"80%"});
+    $(".search_button").css({"width":"15%", "display":"inline", "height":"35px", "line-height":"35px"});
+  });
+  
+
+  $("#postcodify_search_button").postcodifyPopUp();
+  $("#postcodify").postcodify({
+        insertPostcode5 : "#postcode",
+        insertAddress : "#address",
+        insertDetails : "#details",
+        hideOldAddresses : false,
+        afterSelect : function(selectedEntry) {
+          $("#login").removeClass("in").css("display","none");
+          $("body").removeClass("modal-open");
+          $(".modal-backdrop").fadeOut(300);
+        }
+    });
+
+  $("#same_info").click(function(){
+    var isTrue = $(this).is(':checked');
+    if (!isTrue) {
+      $("[name='receiver_name']").val("");
+      $("[name='receiver_email']").val("");
+      $("[name='receiver_number']").val("");
+    } else {
+      $("[name='receiver_name']").val($("[name='username']").val());
+      $("[name='receiver_email']").val($("[name='useremail']").val());
+      $("[name='receiver_number']").val($("[name='usernumber']").val());  
+    }
+  });
+});
+
+</script>
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

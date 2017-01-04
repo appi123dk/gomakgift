@@ -6,6 +6,11 @@ Myapp::Application.routes.draw do
   # All routes
   # 고막기프트 routes
   get "gifts/index"
+  get "gifts/accounts_form"
+  get "gifts/payment"
+  get "gifts/design"
+  get "gifts/print_product"
+
 
   # 대시보드
   get "dashboards/dashboard_1"
