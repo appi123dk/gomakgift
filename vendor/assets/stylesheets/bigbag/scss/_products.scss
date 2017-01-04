@@ -342,12 +342,12 @@
 %tableHead{
 	background-color: $primary-color;
 	padding: 0;
-	height: 55px;
+	height: 40px;
 	vertical-align: middle;
-	text-align: left;
+	text-align: center;
 	font-size: 15px;
-	color: $white-color;
-	padding-left: 20px;
+	color: $black-color;
+	// padding-left: 20px;
 	@include add-border(1px, rgba(255,255,255,0.2), right);
 	border-bottom: none;
 }
@@ -413,7 +413,7 @@
 			}
 			tbody{
 				tr{
-					@include add-border(1px, $light-color, right-left);
+					@include add-border(5px, $light-color, right-left);
 					td{
 						@extend %tableData;
 						@include mobile{
