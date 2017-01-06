@@ -18,4 +18,16 @@ class GiftsController < ApplicationController
 	def print_product
 		render :layout => "bigbag"
 	end
+
+	def support
+		render :layout => "bigbag"
+	end
+
+	def inquire
+		render :layout => "bigbag"
+	end
+
+	def login
+		render :layout => "bigbag_login"
+	end
 end

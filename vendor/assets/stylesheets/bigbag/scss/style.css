@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ====== index =====
 1. COMMON
 2.HEADER
@@ -97,9 +98,15 @@ h1, h2, h3, h4, h5 {
   color: #252525;
   margin-top: 0; }
 
+h1 {
+  font-weight: 300; }
+
+h2 {
+  font-weight: 300; }
+
 h4 {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 25px; }
 
 h5 {
@@ -555,7 +562,7 @@ a:hover, a:focus {
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
   margin-bottom: 0;
   border: none; }
   .navbar-default .container {
@@ -573,14 +580,21 @@ a:hover, a:focus {
       height: 4px; }
   .navbar-default .navbar-header .navbar-brand {
     display: inline-block; }
+    @media (max-width: 479px) {
+      .navbar-default .navbar-header .navbar-brand {
+        padding: 0 15px;
+        margin-top: 10px;
+        margin-left: -40px; } }
     @media (min-width: 480px) {
       .navbar-default .navbar-header .navbar-brand {
         padding: 0 15px;
-        margin-top: 10px; } }
+        margin-top: 10px;
+        margin-left: -40px; } }
     @media (min-width: 768px) {
       .navbar-default .navbar-header .navbar-brand {
         padding: 0 15px;
-        margin-top: 15px; } }
+        margin-top: 15px;
+        margin-left: -55px; } }
   @media (max-width: 479px) {
     .navbar-default .navbar-collapse {
       max-height: 250px; } }
@@ -594,9 +608,9 @@ a:hover, a:focus {
       padding: 0px 0 0; } }
   .navbar-default .navbar-collapse li a {
     font-size: 14px;
-    color: #ffffff;
+    color: #252525;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 500;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
@@ -607,7 +621,7 @@ a:hover, a:focus {
         padding: 6px 15px; } }
     @media (min-width: 768px) {
       .navbar-default .navbar-collapse li a {
-        padding: 20px  15px 33px; } }
+        padding: 20px  15px 20px; } }
     .navbar-default .navbar-collapse li a:hover, .navbar-default .navbar-collapse li a.focus, .navbar-default .navbar-collapse li a:focus {
       color: #fee032; }
   .navbar-default .navbar-collapse li.dropdown .dropdown-menu {
@@ -656,15 +670,15 @@ a:hover, a:focus {
     background-color: transparent;
     color: #fee032; }
   .navbar-default .navbar-collapse li.dropdown.open .dropdown-menu {
-    border: none;
-    background-color: rgba(0, 0, 0, 0.8);
+    border: 0px 1px 1px 0px solid #f1f1f1;
+    background-color: rgba(255, 255, 255, 0.8);
     box-shadow: none;
     border-radius: 0;
     margin-top: -2px;
     min-width: 200px;
     display: block; }
     .navbar-default .navbar-collapse li.dropdown.open .dropdown-menu li a {
-      color: #ffffff;
+      color: #252525;
       padding: 10px 25px;
       font-weight: 300;
       text-transform: capitalize;
@@ -768,10 +782,10 @@ a:hover, a:focus {
   height: 60px; }
   .navbar-default .navbar-nav > .open > a {
     height: 60px;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #ffffff; }
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #252525; }
     .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(255, 255, 255, 0.8);
       color: #fee032; }
 
 body.bodyColor {
@@ -793,6 +807,9 @@ body.bodyColor.container {
 @media (min-width: 1200px) {
   .container {
     width: 1170px !important; }
+
+  .container-custom {
+    width: 100% !important; }
 
   body.bodyColor .header {
     max-width: 1170px; } }
@@ -1261,7 +1278,7 @@ body.bodyColor.container {
 
 .bannerV1 .tp-caption.rs-caption-2 {
   text-transform: uppercase;
-  color: #797979 !important;
+  color: #000000 !important;
   font-size: 14px !important;
   line-height: 20px !important; }
   @media (min-width: 480px) {
@@ -1270,12 +1287,12 @@ body.bodyColor.container {
       line-height: 22px !important; } }
   @media (min-width: 768px) {
     .bannerV1 .tp-caption.rs-caption-2 {
-      font-size: 36px !important;
+      font-size: 50px !important;
       line-height: 42px !important; } }
 
 .bannerV1 .tp-caption.rs-caption-3 {
   text-transform: uppercase;
-  color: #704664 !important;
+  color: rbga(0, 0, 0, 0.9) !important;
   font-weight: 300;
   font-size: 12px !important;
   line-height: 18px !important; }
@@ -1355,7 +1372,7 @@ body.bodyColor.container {
 
 .captionCenter .tp-caption.rs-caption-2 {
   text-transform: uppercase;
-  color: #704664 !important;
+  color: rgba(0, 0, 0, 0.9) !important;
   font-weight: 300; }
   @media (min-width: 480px) {
     .captionCenter .tp-caption.rs-caption-2 {
@@ -1363,18 +1380,18 @@ body.bodyColor.container {
       line-height: 18px !important; } }
   @media (min-width: 768px) {
     .captionCenter .tp-caption.rs-caption-2 {
-      font-size: 24px !important;
-      line-height: 36px !important; } }
+      font-size: 36px !important;
+      line-height: 46px !important; } }
 .captionCenter .tp-caption.rs-caption-3 {
   text-transform: uppercase;
-  color: #797979 !important; }
+  color: #000000 !important; }
   @media (min-width: 480px) {
     .captionCenter .tp-caption.rs-caption-3 {
       font-size: 14px !important;
       line-height: 20px !important; } }
   @media (min-width: 768px) {
     .captionCenter .tp-caption.rs-caption-3 {
-      font-size: 36px !important;
+      font-size: 50px !important;
       line-height: 42px !important; } }
 
 /*=== BANNER V2 ===*/
@@ -1459,7 +1476,7 @@ body.bodyColor.container {
   .bannerV2 .para {
     font-size: 12px;
     line-height: 18px;
-    color: #797979;
+    color: #000000;
     margin: 15px auto 25px;
     display: block;
     clear: both; }
@@ -1872,6 +1889,11 @@ body.bodyColor.container {
 
 /*================= 3.1 HOME ==================*/
 /*=== 3.1.1 WHITE SECTION ===*/
+.small-line {
+  width: 3em;
+  border-bottom: 3px solid #000000;
+  margin-bottom: 20px; }
+
 .page-header {
   margin: 0 0 17px 0;
   border-bottom: 5px solid #e4e4e4; }
@@ -2020,8 +2042,86 @@ body.bodyColor.container {
     background-color: #ffffff;
     color: #fee032; }
 
+@media (max-width: 479px) {
+  .m-t-60 {
+    margin-top: 60px; } }
+
 .whiteSection, .mainContent {
   background-color: #ffffff; }
+  .whiteSection textarea, .mainContent textarea {
+    padding: 10px;
+    border: 1px solid #000000; }
+    .whiteSection textarea:focus, .mainContent textarea:focus {
+      border-color: #fed328; }
+  .whiteSection .select-custom, .mainContent .select-custom {
+    width: 100%;
+    /* 원하는 너비설정 */
+    height: 38px;
+    padding: .8em .5em;
+    /* 여백으로 높이 설정 */
+    font-family: inherit;
+    /* 폰트 상속 */
+    background: url("../arrows/arrow-down-1.png") no-repeat 95% 50%;
+    /* 네이티브 화살표를 커스텀 화살표로 대체 */
+    border: 1px solid #000000;
+    border-radius: 0px;
+    /* iOS 둥근모서리 제거 */
+    -webkit-appearance: none;
+    /* 네이티브 외형 감추기 */
+    -moz-appearance: none;
+    appearance: none; }
+    .whiteSection .select-custom:focus, .mainContent .select-custom:focus {
+      border-color: #fed328; }
+  .whiteSection .btn-submit, .mainContent .btn-submit {
+    width: 100%;
+    background-color: #000000;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px; }
+    .whiteSection .btn-submit:hover, .mainContent .btn-submit:hover {
+      background-color: #fed328;
+      color: #000000;
+      -moz-transition: all .2s ease-in;
+      -o-transition: all .2s ease-in;
+      -webkit-transition: all .2s ease-in;
+      transition: all .2s ease-in; }
+  .whiteSection .inquire-table thead th, .mainContent .inquire-table thead th {
+    text-align: center;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    background-color: rgba(0, 0, 0, 0.1); }
+  .whiteSection .inquire-table tbody tr:last-child, .mainContent .inquire-table tbody tr:last-child {
+    border-bottom: 1px solid #000000; }
+  .whiteSection .inquire-table tbody td:nth-child(1), .mainContent .inquire-table tbody td:nth-child(1) {
+    text-align: center;
+    width: 10%;
+    border-right: 1px solid rgba(221, 221, 221, 0.15); }
+  .whiteSection .inquire-table tbody td:nth-child(2), .mainContent .inquire-table tbody td:nth-child(2) {
+    width: 60%;
+    border-right: 1px solid rgba(221, 221, 221, 0.15); }
+  .whiteSection .inquire-table tbody td:nth-child(3), .mainContent .inquire-table tbody td:nth-child(3) {
+    text-align: center;
+    width: 10%;
+    border-right: 1px solid rgba(221, 221, 221, 0.15); }
+  .whiteSection .inquire-table tbody td:nth-child(4), .mainContent .inquire-table tbody td:nth-child(4) {
+    text-align: center;
+    width: 20%; }
+  .whiteSection .col-sm-6, .mainContent .col-sm-6 {
+    padding-left: 0px;
+    padding-right: 0px;
+    border: 1px solid #ffffff; }
+  .whiteSection .page-header, .mainContent .page-header {
+    margin-left: 15px; }
+  .whiteSection .small-line, .mainContent .small-line {
+    margin-left: 15px; }
+  .whiteSection .row, .mainContent .row {
+    margin-left: 0px;
+    margin-right: 0px; }
   @media (max-width: 479px) {
     .whiteSection, .mainContent {
       padding: 40px 0 40px 0; } }
@@ -2847,7 +2947,7 @@ body.bodyColor.container {
 .form-field .form-group .form-control, .form-body .panel .panel-body .form-group .form-control, .signUp .panel .panel-body .form-group .form-control, .lostPassword .panel .panel-body .form-group .form-control, .logIn .panel .panel-body .form-group .form-control, .commentsForm .form-group .form-control, #login .modal-dialog .modal-content .modal-body .form-group .form-control, #signup .modal-dialog .modal-content .modal-body .form-group .form-control, .stepsPage form .form-group .form-control, .profile .form-horizontal .form-group .form-control {
   border-radius: 0;
   background-color: #ffffff;
-  border: 1px solid #f0f0f0;
+  border: 1px solid rgba(37, 37, 37, 0.25);
   height: 35px;
   box-shadow: none; }
   .form-field .form-group .form-control:focus, .form-body .panel .panel-body .form-group .form-control:focus, .signUp .panel .panel-body .form-group .form-control:focus, .lostPassword .panel .panel-body .form-group .form-control:focus, .logIn .panel .panel-body .form-group .form-control:focus, .commentsForm .form-group .form-control:focus, #login .modal-dialog .modal-content .modal-body .form-group .form-control:focus, #signup .modal-dialog .modal-content .modal-body .form-group .form-control:focus, .stepsPage form .form-group .form-control:focus, .profile .form-horizontal .form-group .form-control:focus {
@@ -2859,7 +2959,8 @@ body.bodyColor.container {
   .form-field .form-group, .form-body .panel .panel-body .form-group, .signUp .panel .panel-body .form-group, .lostPassword .panel .panel-body .form-group, .logIn .panel .panel-body .form-group, .commentsForm .form-group, #login .modal-dialog .modal-content .modal-body .form-group, #signup .modal-dialog .modal-content .modal-body .form-group {
     margin-bottom: 30px; }
     .form-field .form-group label, .form-body .panel .panel-body .form-group label, .signUp .panel .panel-body .form-group label, .lostPassword .panel .panel-body .form-group label, .logIn .panel .panel-body .form-group label, .commentsForm .form-group label, #login .modal-dialog .modal-content .modal-body .form-group label, #signup .modal-dialog .modal-content .modal-body .form-group label {
-      font-size: 13px; }
+      font-size: 13px;
+      font-weight: 500; }
   .form-field .checkbox, .form-body .panel .panel-body .checkbox, .signUp .panel .panel-body .checkbox, .lostPassword .panel .panel-body .checkbox, .logIn .panel .panel-body .checkbox, .commentsForm .checkbox, #login .modal-dialog .modal-content .modal-body .checkbox, #signup .modal-dialog .modal-content .modal-body .checkbox {
     margin: 0 0 30px 0; }
     .form-field .checkbox label, .form-body .panel .panel-body .checkbox label, .signUp .panel .panel-body .checkbox label, .lostPassword .panel .panel-body .checkbox label, .logIn .panel .panel-body .checkbox label, .commentsForm .checkbox label, #login .modal-dialog .modal-content .modal-body .checkbox label, #signup .modal-dialog .modal-content .modal-body .checkbox label {
@@ -2909,10 +3010,10 @@ body.bodyColor.container {
       color: #ffffff;
       line-height: 60px; }
   .form-body .panel .panel-body, .signUp .panel .panel-body, .lostPassword .panel .panel-body, .logIn .panel .panel-body {
-    border: 5px solid #f0f0f0;
+    border: 1px solid #f0f0f0;
     border-top: none; }
     .form-body .panel .panel-body .btn-link span, .signUp .panel .panel-body .btn-link span, .lostPassword .panel .panel-body .btn-link span, .logIn .panel .panel-body .btn-link span {
-      color: #797979; }
+      color: #000000; }
 
 /*=== 5.2 FORM SIGN UP ===*/
 @media (min-width: 480px) {
@@ -2944,15 +3045,23 @@ body.bodyColor.container {
   line-height: 45px;
   border-radius: 0;
   border: none;
-  margin: 30px 0 0 0;
+  margin: 20px 0 0 0;
   color: #ffffff;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 500;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out; }
+  .logIn .btn-default.btn-login {
+    background-color: #000000;
+    font-weight: 300;
+    width: 100%; }
+    .logIn .btn-default.btn-login:hover {
+      background-color: #fee032;
+      color: #000000;
+      font-weight: 700; }
   .logIn .btn-default.pull-left {
     background-color: #46639f; }
   .logIn .btn-default.pull-right {
@@ -3008,7 +3117,8 @@ body.bodyColor.container {
     margin-bottom: 30px; }
     .stepsPage form .form-group label {
       font-size: 13px;
-      display: block; }
+      display: block;
+      font-weight: 500; }
     .stepsPage form .form-group textarea.form-control {
       height: 150px; }
   .stepsPage form .checkboxArea {
@@ -3077,7 +3187,7 @@ body.bodyColor.container {
   .quick-view .modal-dialog .modal-content .modal-body .media .media-body p, .singleProduct .media .media-body p {
     font-size: font-size3px;
     line-height: 24px;
-    color: #797979;
+    color: #000000;
     margin-bottom: 37px; }
   .quick-view .modal-dialog .modal-content .modal-body .media .media-body .quick-drop, .singleProduct .media .media-body .quick-drop {
     margin: 0 12px 38px 0;
@@ -3188,7 +3298,7 @@ body.bodyColor.container {
 .pageHeader {
   height: 70px; }
   .pageHeader .page-title h2 {
-    color: #797979;
+    color: #000000;
     text-transform: uppercase;
     font-weight: 400;
     margin-bottom: 0; }
@@ -3475,7 +3585,7 @@ body.bodyColor.container {
   .recentBlogPosts .media-heading a {
     color: #252525; }
 .recentBlogPosts p {
-  color: #797979; }
+  color: #000000; }
   .recentBlogPosts p i {
     margin-right: 8px; }
   @media (min-width: 480px) {
@@ -4033,7 +4143,7 @@ body.bodyColor.container {
   margin-bottom: 30px;
   font-weight: 400; }
 .genricContent p {
-  color: #797979;
+  color: #000000;
   font-size: 14px;
   line-height: 22px;
   margin-bottom: 30px; }
@@ -4167,7 +4277,7 @@ body.bodyColor.container {
           display: block;
           margin-bottom: 0; } }
       .blogPage .thumbnail .caption .list-unstyled li {
-        color: #797979;
+        color: #000000;
         font-size: 14px;
         line-height: 22px; }
         @media (min-width: 480px) {
@@ -4181,7 +4291,7 @@ body.bodyColor.container {
             float: left;
             width: 100%; } }
         .blogPage .thumbnail .caption .list-unstyled li a {
-          color: #797979;
+          color: #000000;
           -webkit-transition: all 0.3s ease-in-out;
           -moz-transition: all 0.3s ease-in-out;
           -ms-transition: all 0.3s ease-in-out;
@@ -4209,7 +4319,7 @@ body.bodyColor.container {
           opacity: .8; }
     .blogPage .thumbnail .caption p {
       font-size: 14px;
-      color: #797979;
+      color: #000000;
       line-height: 22px; }
     .blogPage .thumbnail .caption .list-inline {
       margin: 0 0 20px 0;
@@ -4356,16 +4466,16 @@ body.bodyColor.container {
     margin: 0 0 14px 0;
     display: block; }
     .commentsArea .media .media-body h4 span, .commentsArea .media .media-body p span {
-      color: #797979;
+      color: #000000;
       font-weight: 400; }
       .commentsArea .media .media-body h4 span i, .commentsArea .media .media-body p span i {
         margin-right: 14px; }
   .commentsArea .media .media-body p {
-    color: #797979;
+    color: #000000;
     line-height: 22px; }
   .commentsArea .media .media-body .btn-link {
     padding: 0;
-    color: #797979;
+    color: #000000;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
@@ -4395,7 +4505,7 @@ body.bodyColor.container {
       margin-bottom: 0; } }
 .aboutUsInfo p {
   font-size: 14px;
-  color: #797979;
+  color: #000000;
   line-height: 22px; }
 .aboutUsInfo .lead {
   font-size: 15px;
@@ -4403,7 +4513,7 @@ body.bodyColor.container {
   color: #252525; }
 .aboutUsInfo .list-unstyled li {
   font-size: 14px;
-  color: #797979;
+  color: #000000;
   line-height: 30px;
   padding-left: 18px; }
   .aboutUsInfo .list-unstyled li:before {
@@ -4873,7 +4983,7 @@ body.bodyColor.container {
       .userProfile .innerWrapper .list-inline li {
         padding: 0 20px 0 0; } }
     .userProfile .innerWrapper .list-inline li .btn-lg {
-      color: #797979;
+      color: #000000;
       font-weight: 700;
       -webkit-transition: all 0.3s ease-in-out;
       -moz-transition: all 0.3s ease-in-out;
@@ -5197,24 +5307,24 @@ body.bodyColor.container {
 
 /*===  ACCORDION ===*/
 .accordionCommon .panel {
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   border: none; }
 .accordionCommon .panel-heading {
   display: block;
   padding: 15px 20px;
-  font-weight: 600;
+  font-weight: 300;
   color: #ffffff;
   font-size: 14px;
   text-transform: uppercase;
   position: relative;
-  background-color: #fee032; }
+  background-color: rgba(0, 0, 0, 0.8); }
   .accordionCommon .panel-heading span.iconBlock {
     width: 20px;
     height: 20px;
     line-height: 20px;
     text-align: center;
-    background-color: #ffffff;
-    color: #000;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
     display: inline-block;
     float: right; }
     .accordionCommon .panel-heading span.iconBlock.iconTransparent {
@@ -5233,7 +5343,9 @@ body.bodyColor.container {
   background-color: #f8f8f8;
   border-top: none !important; }
   .accordionCommon .panel-body p {
-    margin-bottom: 35px; }
+    line-height: 1.5em;
+    font-size: 14px;
+    margin-bottom: 10px; }
     .accordionCommon .panel-body p:last-child {
       margin-bottom: 0; }
 

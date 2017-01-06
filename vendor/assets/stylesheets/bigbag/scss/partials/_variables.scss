@@ -3,14 +3,16 @@ $primary-color:#fee032;
 $primary-color-light:#fee032;
 $secondary-color:#252525;
 
-$text-slider-title:#797979;
+$text-slider-title:#000000;
 $white-color: #ffffff;
 $light-color: #f0f0f0;
 $border-light: #e4e4e4;
 $border-lighter: #ececec;
 $border-gray: #d0d0d0;
 $black-color: #252525;
-$black-transper-color: rgba(0,0,0, 0.8);
+$black-transper-color: rgba(255,255,255,0.8); //navbar배경색 조정
+$nav-font-color: #252525; // navbar 폰트색 조절
+$input-border-color: rgba(37,37,37,.25);
 
 $facebook-color:#46639f;
 $google-plus-color:#d6513e;

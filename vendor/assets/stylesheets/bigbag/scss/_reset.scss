@@ -29,9 +29,16 @@ h1, h2, h3, h4, h5{
     color: $secondary-color;
     margin-top: 0;
 }
+h1{
+    font-weight: 300;
+}
+
+h2{
+    font-weight: 300;
+}
 h4{
    font-size: 16px;
-   font-weight: 700;
+   font-weight: 500;
    margin-bottom: 25px;  
 }
 h5{

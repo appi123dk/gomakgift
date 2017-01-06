@@ -1975,7 +1975,7 @@ img.tp-slider-alternative-image	{	width:100%; height:auto;}
 
 /* NAVIGATION PREVIEW 4 */
 .tparrows.preview4 							{	width:30px; height:110px;  background:transparent;-webkit-transform-style: preserve-3d; -webkit-perspective: 1000; -moz-perspective: 1000}
-.tparrows.preview4:after					{	position:absolute;  line-height: 110px;text-align: center; font-family: "revicons"; color:#fff; font-size:20px; top:0px;left:0px;z-index:0; width:30px;height:110px; background: #000; background: rgba(0,0,0,0.25);
+.tparrows.preview4:after					{	position:absolute;  line-height: 110px;text-align: center; font-family: "revicons"; color:rgba(37, 37, 37, 0.8); font-size:60px; top:0px;left:0px;z-index:0; width:30px;height:110px; background: #000; background: transparent;
 												-webkit-transition: all 0.2s ease-in-out;
 											    -moz-transition: all 0.2s ease-in-out;
 											    -o-transition: all 0.2s ease-in-out;

@@ -279,13 +279,20 @@
 		}
 		.navbar-brand{
 			display: inline-block;
+			@include mobile-xs {
+				padding:0 15px;
+				margin-top: 10px;
+				margin-left: -40px;
+			}
 			@include mobile {
 				padding:0 15px;
 				margin-top: 10px;
+				margin-left: -40px;
 			}
 			@include tablet {
 				padding: 0 15px;
 				margin-top: 15px;
+				margin-left: -55px;
 			}
 		}
 	}
@@ -305,15 +312,15 @@
 		li{
 			a{
 				font-size: 14px;
-				color: $white-color;
+				color: $nav-font-color;
 				text-transform: uppercase;
-				font-weight: 700;
+				font-weight: 500;
 				@include transition(all 0.3s ease-in-out);
 				@include mobile {
 					padding: 6px 15px;
 				}
 				@include tablet {
-					padding:20px  15px 33px;
+					padding:20px  15px 20px;
 				}
 				&:hover, &.focus, &:focus{
 					color: $primary-color;
@@ -390,7 +397,7 @@
 					}
 				}
 				.dropdown-menu{
-					border: none;
+					border: 0px 1px 1px 0px solid #f1f1f1 ;
 					background-color: $black-transper-color;
 					box-shadow: none;
 					border-radius: 0;
@@ -399,7 +406,7 @@
 					display: block;
 					li{
 						a{
-							color: $white-color;
+							color: $nav-font-color;
 							padding: 10px 25px;
 							font-weight: 300;
 							text-transform: capitalize;
@@ -525,7 +532,7 @@
 			>a{
 				height: 60px;
 				background-color: $black-transper-color;
-				color: $white-color;
+				color: $nav-font-color;
 				&:focus, &:hover{
 					background-color: $black-transper-color;
 					color: $primary-color;
@@ -555,6 +562,9 @@ body.bodyColor.container {
 @include large-desktops {
 	.container {
 	    width: 1170px!important;
+	}
+	.container-custom {
+			width: 100%!important;
 	}
 	body.bodyColor .header {
 	    max-width: 1170px;

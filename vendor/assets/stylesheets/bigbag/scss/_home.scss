@@ -1,6 +1,12 @@
 /*================= 3.1 HOME ==================*/
 
 /*=== 3.1.1 WHITE SECTION ===*/
+.small-line {
+	width:3em; 
+	border-bottom: 3px solid #000000; 
+	margin-bottom: 20px;
+}
+
 .page-header{
 	margin: 0 0 17px 0;
 	@include add-border(5px, $border-light, bottom);
@@ -148,7 +154,102 @@
 		color: $primary-color;
 	}
 }
+	.m-t-60 {
+		@include mobile-xs{
+			margin-top: 60px;	
+		}
+	}
+
 .whiteSection, .mainContent{
+	textarea {
+		padding: 10px;
+		border: 1px solid #000000;
+		&:focus {
+			border-color: #fed328;
+		}
+	}
+	.select-custom {
+		width: 100%; /* 원하는 너비설정 */
+		height: 38px;
+    padding: .8em .5em; /* 여백으로 높이 설정 */
+    font-family: inherit;  /* 폰트 상속 */
+    background: url("../arrows/arrow-down-1.png") no-repeat 95% 50%; /* 네이티브 화살표를 커스텀 화살표로 대체 */
+    border: 1px solid #000000;
+    border-radius: 0px; /* iOS 둥근모서리 제거 */
+    -webkit-appearance: none; /* 네이티브 외형 감추기 */
+    -moz-appearance: none;
+    appearance: none;
+    &:focus {
+    	border-color: #fed328;
+    }
+	}
+	.btn-submit {
+		width: 100%;
+    background-color: #000000; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    &:hover {
+    	background-color: #fed328;
+    	color: #000000;
+    	-moz-transition: all .2s ease-in;
+	    -o-transition: all .2s ease-in;
+	    -webkit-transition: all .2s ease-in;
+	    transition: all .2s ease-in;
+    }
+	}
+	.inquire-table {
+		thead {
+			th {
+				text-align: center;
+				border-top: 1px solid #000000;
+				border-bottom: 1px solid #000000;
+				background-color: rgba(0, 0, 0, 0.1);
+			}
+		}
+		tbody {
+			tr:last-child {
+				border-bottom: 1px solid #000000;
+			}
+			td:nth-child(1) {
+				text-align: center;
+				width:10%;
+				border-right: 1px solid rgba(221,221,221,0.15);
+			}
+			td:nth-child(2) {
+				width:60%;
+				border-right: 1px solid rgba(221,221,221,0.15);
+			}
+			td:nth-child(3) {
+				text-align: center;
+				width:10%;
+				border-right: 1px solid rgba(221,221,221,0.15);
+			}
+			td:nth-child(4) {
+				text-align: center;
+				width:20%;
+			}
+		}
+	}
+	.col-sm-6 {
+		padding-left: 0px;
+		padding-right: 0px;
+		border: 1px solid #ffffff;
+	}
+	.page-header {
+		margin-left: 15px;
+	}
+	.small-line {
+		margin-left: 15px;
+	}
+	.row {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
 	background-color: $white-color;
 	@include mobile-xs{
 		padding: 40px 0 40px 0;	

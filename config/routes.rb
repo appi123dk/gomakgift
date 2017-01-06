@@ -10,6 +10,9 @@ Myapp::Application.routes.draw do
   get "gifts/payment"
   get "gifts/design"
   get "gifts/print_product"
+  get "gifts/support"
+  get "gifts/inquire"
+  get "gifts/login"
 
 
   # 대시보드

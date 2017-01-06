@@ -1,25 +1,25 @@
 /*===  ACCORDION ===*/
 .accordionCommon{
 	.panel{
-		margin-bottom: 30px;
+		margin-bottom: 0px;
 		border: none;
 	}
 	.panel-heading{
 		display: block;
 		padding: 15px 20px;
-		font-weight: 600;
+		font-weight: 300;
 		color: #ffffff;
 		font-size: 14px;
 		text-transform: uppercase;
 		position: relative;
-		background-color: $primary-color;
+		background-color: rgba(0, 0, 0, 0.8);
 		span.iconBlock{
 			width: 20px;
 			height: 20px;
 			line-height: 20px;
 			text-align: center;
-			background-color: #ffffff;
-			color: #000;
+			background-color: rgba(0, 0, 0, 0.8);
+			color: #ffffff;
 			display: inline-block;
 			float: right;
 			&.iconTransparent{
@@ -42,7 +42,9 @@
 		background-color: #f8f8f8;
 		border-top: none !important;
 		p{
-			margin-bottom: 35px;
+			line-height: 1.5em;
+			font-size: 14px;
+			margin-bottom: 10px;
 			&:last-child{
 				margin-bottom: 0;
 			}
