@@ -1,0 +1,49 @@
+<div class="large-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div style="padding-top: 70px">
+
+            <h3 class="logo-name" style="font-size: 80px; color: #fed328">GomakGift</h1>
+
+        </div>
+        <h3 style="margin-top: 50px;">제품 등록</h3>
+        <p>
+            새로운 제품을 등록해주세요
+        </p>
+        <form class="m-t" role="form" action="<%= products_create_path %>" method="GET">
+            <div class="col-lg-6">
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품명 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="title" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">수량코드 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="number" class="form-control" name="quantity_id" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">가격코드 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="number" class="form-control" name="price_id" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">서브 타이틀 : </label>
+                <div class="form-group col-lg-8">
+                    <textarea required="" name="subtitle" class="form-control" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품 이미지주소 :</label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="product_image" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품 썸네일주소 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="product_thumb" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품 상세정보 : </label>
+                <div class="form-group col-lg-8">
+                    <textarea required="" name="detail" class="form-control" cols="30" rows="12"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">등록</button>
+            </div>
+        </form>
+        <!-- <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2015</small> </p> -->
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div style="padding-top: 70px">
+
+            <h3 class="logo-name" style="font-size: 80px; color: #fed328">GomakGift</h1>
+
+        </div>
+        <h3 style="margin-top: 50px;">수량 Set 등록</h3>
+        <p>
+            수량을 입력해주세요
+        </p>
+        <form class="m-t" role="form" action="<%= options_qty_create_path %>" method="GET">
+                <label class="col-lg-4 control-label" style="margin-top: 7px">최고수량 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" placeholder="최고수량 입력" name="qty_max" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">수량 1 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="qty_1" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">수량 2 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="qty_2" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">수량 3 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="qty_3" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">수량 4 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="qty_4" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">수량 5 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="qty_5" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">수량 6 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="qty_6" placeholder="없는 경우 0을 입력하세요" style="text-align: right">
+                </div>
+                <button type="submit" class="btn btn-warning block full-width m-b">등록</button>
+            </form>
+        <!-- <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2015</small> </p> -->
+    </div>
+</div>

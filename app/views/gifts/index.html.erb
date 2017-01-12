@@ -43,17 +43,18 @@
             </div>
           </div>
         </li>
+        <% @products.each do |product| %>
         <li data-transition="slidehorizontal" data-slotamount="5" data-masterspeed="1000" data-title="Slide 2">
           <img src="<%= image_path('bigbag/home/banner-slider/slider-bg.jpg') %>" alt="slidebg" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
           <div class="slider-caption slider-captionV1 container captionCenter">
             <div class="tp-caption rs-caption-1 sft start text-center"
               data-x="center"
-              data-y="228"
+              data-y="150"
               data-speed="800"
               data-start="1500"
               data-easing="Back.easeInOut"
               data-endspeed="300">
-              <img src="<%= image_path('bigbag/home/banner-slider/shoe2.png') %>" alt="slider-image">
+              <img src="<%= product.product_image %>" alt="slider-image">
             </div>
 
             <div class="tp-caption rs-caption-2 sft text-center"
@@ -63,7 +64,7 @@
               data-start="2000"
               data-easing="Back.easeInOut"
               data-endspeed="300">
-              단언컨데, 최고의 선택입니다
+              <%=raw product.subtitle %>
             </div>
 
             <div class="tp-caption rs-caption-3 sft text-center"
@@ -75,7 +76,7 @@
               data-endspeed="300"
               data-endeasing="Power1.easeIn"
               data-captionhidden="off">
-              씨앗연필
+              <%= product.title %>
             </div>
 
             <div class="tp-caption rs-caption-4 sft text-center"
@@ -91,6 +92,7 @@
             </div>
           </div>
         </li>
+        <% end %>
         <li data-transition="slidehorizontal" data-slotamount="5" data-masterspeed="700"  data-title="Slide 3">
           <img src="<%= image_path('bigbag/home/banner-slider/slider-bg.jpg') %>" alt="slidebg" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
           <div class="slider-caption slider-captionV1 container">
@@ -159,20 +161,22 @@
       </div>
       <div class="small-line"></div>
       <!-- 반복구간 -->
-      <div class="col-sm-6 col-xs-12">
+      <% @products.each do |product| %>
+      <div class="col-sm-3 col-xs-12" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
         <div class="slide" style="margin-top: 10px;">
           <div class="productImage clearfix text-left">
-            <a href="single-product.html"><img src="<%= image_path('bigbag/home/featured-collection/product-img1.png') %>" alt="Product Image"></a>
+            <a href="/gifts/single_product/<%= product.id %>"><img src="<%= product.product_image %>" alt="Product Image"></a>
           </div>
           <div class="productCaption clearfix text-right">
-            <h3><a href="single-product.html">for women’s</a></h3>
-            <p>Lorem ipsum dolor sit ameit</p>
-            <a href="single-product.html" class="btn btn-border">Shop Now</a>
+            <h3><a href="/gifts/single_product"><%= product.title %></a></h3>
+            <p><%=raw product.subtitle %></p>
+            <a href="/gifts/single_product" class="btn btn-border">Shop Now</a>
           </div>
         </div>
       </div>
+      <% end %>
       <!-- 끝 -->
-      <div class="col-sm-6 col-xs-12">
+      <div class="col-sm-3 col-xs-12" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
         <div class="slide" style="margin-top: 10px;">
           <div class="productImage clearfix text-left">
             <a href="single-product.html"><img src="<%= image_path('bigbag/home/featured-collection/product-img1.png') %>" alt="Product Image"></a>
@@ -184,7 +188,7 @@
           </div>
         </div>
       </div> 
-      <div class="col-sm-6 col-xs-12">
+      <div class="col-sm-3 col-xs-12" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
         <div class="slide" style="margin-top: 10px;">
           <div class="productImage clearfix text-left">
             <a href="single-product.html"><img src="<%= image_path('bigbag/home/featured-collection/product-img1.png') %>" alt="Product Image"></a>
@@ -196,7 +200,7 @@
           </div>
         </div>
       </div> 
-      <div class="col-sm-6 col-xs-12">
+      <div class="col-sm-3 col-xs-12" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
         <div class="slide" style="margin-top: 10px;">
           <div class="productImage clearfix text-left">
             <a href="single-product.html"><img src="<%= image_path('bigbag/home/featured-collection/product-img1.png') %>" alt="Product Image"></a>
@@ -208,248 +212,10 @@
           </div>
         </div>
       </div> 
-    </div>
-
-    <!-- feature collection ver1 -->
-<!--     <div class="row featuredProducts margin-bottom">
-      <div class="col-xs-12">
-        <div class="page-header">
-          <h4>Featured Products</h4>
-        </div>
-      </div>
-      <div class="col-xs-12">
-        <div class="owl-carousel featuredProductsSlider">
-          <div class="slide">
-            <div class="productImage clearfix">
-              <img src="<%= image_path('bigbag/home/featured-product/product-01.jpg') %>" alt="featured-product-img">
-              <div class="productMasking">
-                <ul class="list-inline btn-group" role="group">
-                  <li><a data-toggle="modal" href=".login-modal" class="btn btn-default"><i class="fa fa-heart"></i></a></li>
-                  <li><a href="cart-page.html" class="btn btn-default"><i class="fa fa-shopping-cart"></i></a></li>
-                  <li><a data-toggle="modal" href=".quick-view" class="btn btn-default"><i class="fa fa-eye"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="productCaption clearfix">
-              <a href="single-product.html">
-                <h5>Mauris efficitur</h5>
-              </a>
-              <h3>$199</h3>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="productImage">
-              <img src="<%= image_path('bigbag/home/featured-product/product-02.jpg') %>" alt="featured-product-img">
-              <div class="productMasking">
-                <ul class="list-inline btn-group" role="group">
-                  <li><a data-toggle="modal" href=".login-modal" class="btn btn-default"><i class="fa fa-heart"></i></a></li>
-                  <li><a href="cart-page.html" class="btn btn-default"><i class="fa fa-shopping-cart"></i></a></li>
-                  <li><a data-toggle="modal" href=".quick-view" class="btn btn-default"><i class="fa fa-eye"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="productCaption">
-              <a href="single-product.html">
-                <h5>Nulla facilisi</h5>
-              </a>
-              <h3>$149</h3>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="productImage">
-              <img src="<%= image_path('bigbag/home/featured-product/product-03.jpg') %>" alt="featured-product-img">
-              <div class="productMasking">
-                <ul class="list-inline btn-group" role="group">
-                  <li><a data-toggle="modal" href=".login-modal" class="btn btn-default"><i class="fa fa-heart"></i></a></li>
-                  <li><a href="cart-page.html" class="btn btn-default"><i class="fa fa-shopping-cart"></i></a></li>
-                  <li><a data-toggle="modal" href=".quick-view" class="btn btn-default"><i class="fa fa-eye"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="productCaption">
-              <a href="single-product.html">
-                <h5>Praesent dui felis</h5>
-              </a>
-              <h3>$79</h3>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="productImage">
-              <img src="<%= image_path('bigbag/home/featured-product/product-04.jpg') %>" alt="featured-product-img">
-              <div class="productMasking">
-                <ul class="list-inline btn-group" role="group">
-                  <li><a data-toggle="modal" href=".login-modal" class="btn btn-default"><i class="fa fa-heart"></i></a></li>
-                  <li><a href="cart-page.html" class="btn btn-default"><i class="fa fa-shopping-cart"></i></a></li>
-                  <li><a data-toggle="modal" href=".quick-view" class="btn btn-default"><i class="fa fa-eye"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="productCaption">
-              <a href="single-product.html">
-                <h5>Cras eu faucibus</h5>
-              </a>
-              <h3>$109</h3>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="productImage">
-              <img src="<%= image_path('bigbag/home/featured-product/product-05.jpg') %>" alt="featured-product-img">
-              <div class="productMasking">
-                <ul class="list-inline btn-group" role="group">
-                  <li><a data-toggle="modal" href=".login-modal" class="btn btn-default"><i class="fa fa-heart"></i></a></li>
-                  <li><a href="cart-page.html" class="btn btn-default"><i class="fa fa-shopping-cart"></i></a></li>
-                  <li><a data-toggle="modal" href=".quick-view" class="btn btn-default"><i class="fa fa-eye"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="productCaption">
-              <a href="single-product.html">
-                <h5>Mauris lobortis augue</h5>
-              </a>
-              <h3>$199</h3>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="productImage">
-              <img src="<%= image_path('bigbag/home/featured-product/product-06.jpg') %>" alt="featured-product-img">
-              <div class="productMasking">
-                <ul class="list-inline btn-group" role="group">
-                  <li><a data-toggle="modal" href=".login-modal" class="btn btn-default"><i class="fa fa-heart"></i></a></li>
-                  <li><a href="cart-page.html" class="btn btn-default"><i class="fa fa-shopping-cart"></i></a></li>
-                  <li><a data-toggle="modal" href=".quick-view" class="btn btn-default"><i class="fa fa-eye"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="productCaption">
-              <a href="single-product.html">
-                <h5>Suspendisse suscipit</h5>
-              </a>
-             <h3>$149</h3>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="productImage">
-              <img src="<%= image_path('bigbag/home/featured-product/product-07.jpg') %>" alt="featured-product-img">
-              <div class="productMasking">
-                <ul class="list-inline btn-group" role="group">
-                  <li><a data-toggle="modal" href=".login-modal" class="btn btn-default"><i class="fa fa-heart"></i></a></li>
-                  <li><a href="cart-page.html" class="btn btn-default"><i class="fa fa-shopping-cart"></i></a></li>
-                  <li><a data-toggle="modal" href=".quick-view" class="btn btn-default"><i class="fa fa-eye"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="productCaption">
-              <a href="single-product.html">
-                <h5>Praesent a augue</h5>
-              </a>
-              <h3>$79</h3>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="productImage">
-              <img src="<%= image_path('bigbag/home/featured-product/product-09.jpg') %>" alt="featured-product-img">
-              <div class="productMasking">
-                <ul class="list-inline btn-group" role="group">
-                  <li><a data-toggle="modal" href=".login-modal" class="btn btn-default"><i class="fa fa-heart"></i></a></li>
-                  <li><a href="cart-page.html" class="btn btn-default"><i class="fa fa-shopping-cart"></i></a></li>
-                  <li><a data-toggle="modal" href=".quick-view" class="btn btn-default"><i class="fa fa-eye"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="productCaption">
-              <a href="single-product.html">
-                <h5>Cras vel augue</h5>
-              </a>
-              <h3>$109</h3>
-            </div>
-          </div>
-        </div>
-      </div>  
-    </div>
-    <div class="row latestArticles">
-      <div class="col-xs-12">
-        <div class="page-header">
-          <h4>Latest Articles</h4>
-        </div>
-      </div>
-      <div class="col-sm-3 col-xs-12">
-        <div class="thumbnail">
-          <h5><a href="blog-single-right-sidebar.html">Donec egestas tortor quis mattis</a></h5>
-          <span class="meta">July 16, 2016 by <a href="#">Abdus</a></span>
-          <a href="blog-single-right-sidebar.html"><img src="<%= image_path('bigbag/home/articles/articles-01.jpg') %>" alt="article-image"></a>
-          <div class="caption">
-            <p>Nulla facilisi. Mauris efficitur, massa et iaculis accumsan, mauris velit ultrices purus, quis condimentum nibh dolor ut tortor.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-3 col-xs-12">
-        <div class="thumbnail">
-          <h5><a href="blog-single-right-sidebar.html">Pellentesque risus quis tellus</a></h5>
-          <span class="meta">July 16, 2016 by <a href="#">Abdus</a></span>
-          <a href="blog-single-right-sidebar.html"><img src="<%= image_path('bigbag/home/articles/articles-02.jpg') %>" alt="article-image"></a>
-          <div class="caption">
-            <p>Praesent dui felis, gravida a auctor at, facilisis commodo ipsum. Cras eu faucibus justo. Nullam varius cursus nisi.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-3 col-xs-12">
-        <div class="thumbnail">
-          <h5><a href="blog-single-right-sidebar.html">Mauris lobortis augue ex</a></h5>
-          <span class="meta">July 16, 2016 by <a href="#">Abdus</a></span>
-          <a href="blog-single-right-sidebar.html"><img src="<%= image_path('bigbag/home/articles/articles-03.jpg') %>" alt="article-image"></a>
-          <div class="caption">
-            <p>Etiam aliquam turpis quis blandit finibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-3 col-xs-12">
-        <div class="thumbnail">
-          <h5><a href="blog-single-right-sidebar.html">Suspendisse vestibulum dignissim</a></h5>
-          <span class="meta">July 16, 2016 by <a href="#">Abdus</a></span>
-          <a href="blog-single-right-sidebar.html"><img src="<%= image_path('bigbag/home/articles/articles-04.jpg') %>" alt="article-image"></a>
-          <div class="caption">
-            <p>Suspendisse tristique interdum est, at hendrerit nunc laoreet et. Nulla vel arcu ac turpis pulvinar tincidunt eu eu nisi.</p>
-          </div>
-        </div>
-      </div>
-    </div> -->
-  </div>
-</section>
-
-<!-- About US SECTION -->
-<section class="darkSection clearfix">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <h3>KNOCK YOUR GOMAK</h3>
-      </div>
-      <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="thumbnail">
-          <div class="caption">
-            <h5 style="line-height: 2em; text-align: left">고막컬쳐는 놀라운 아이디어를 통해 <br>
-            고객에게 브랜드 감동을 실현시키는 <br>
-            <span style="color:rgb(254, 224, 50)">CREATIVE PROMOTION COMPANY</span> 입니다.</h5>
-            <hr>
-            <address>
-              CREATIVE PROMOTION이란 사람들이 <br>
-              브랜드 광고영상이나, TV CF를 보며 느끼는 <br>
-              감동과 기쁨을 넘어서, 직접 브랜드를 경험하고 <br>
-              기뻐하고 인지하는 일련의 과정을 <br>
-              제작, 유도하는 프로모션입니다. <br>
-              팝업스토어/플래그쉽스토어/파티/브랜드런칭쇼 등의 <br>
-              형태가 있으며, 고막컬쳐는 CREATIVE PROMOTION을 <br>
-              위한 사람들의 유입을 유도하는 <br>
-              캠페인 전략 또한 가지고 있습니다.
-            </address>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12">
-        <button type="button" class="btn btn-default">더 알아보기</button>
-      </div>
     </div>
   </div>
 </section>
+
 
 <!-- LIGHT SECTION -->
 <section class="lightSection clearfix">
@@ -503,177 +269,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
-<!-- <div class="footer clearfix">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-2 col-xs-12">
-        <div class="footerLink">
-          <h5>Accessories</h5>
-          <ul class="list-unstyled">
-            <li><a href="#">Body care </a></li>
-            <li><a href="#">Chambray </a></li>
-            <li><a href="#">Floral </a></li>
-            <li><a href="#">Rejuvination </a></li>
-            <li><a href="#">Shaving </a></li>
-            <li><a href="#">Toilette </a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-sm-2 col-xs-12">
-        <div class="footerLink">
-          <h5>BRANDS</h5>
-          <ul class="list-unstyled">
-            <li><a href="#">Barbour </a></li>
-            <li><a href="#">Brioni </a></li>
-            <li><a href="#">Oliver Spencer</a></li>
-            <li><a href="#">Belstaff</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-sm-2 col-xs-12">
-        <div class="footerLink">
-          <h5>Accessories</h5>
-          <ul class="list-unstyled">
-            <li><a href="#">Body care </a></li>
-            <li><a href="#">Chambray </a></li>
-            <li><a href="#">Floral </a></li>
-            <li><a href="#">Rejuvination </a></li>
-            <li><a href="#">Shaving </a></li>
-            <li><a href="#">Toilette </a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-sm-2 col-xs-12">
-        <div class="footerLink">
-          <h5>Get in Touch</h5>
-          <ul class="list-unstyled">
-            <li>Call us at (555)-555-5555</li>
-            <li><a href="mailto:support@iamabdus.com">support@iamabdus.com</a></li>
-          </ul>
-          <ul class="list-inline">
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-            <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
-            <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-sm-4 col-xs-12">
-        <div class="newsletter clearfix">
-          <h4>Newsletter</h4>
-          <h3>Sign up now</h3>
-          <p>Enter your email address and get notified about new products. We hate spam!</p>
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="your email address" aria-describedby="basic-addon2">
-            <a href="#" class="input-group-addon" id="basic-addon2">go <i class="glyphicon glyphicon-chevron-right"></i></a>
-          </div>
-        </div>  
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
-<!-- LOGIN MODAL -->
-<div class="modal fade login-modal" id="login" tabindex="-1" role="dialog">
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      <h3 class="modal-title">log in</h3>
-    </div>
-    <div class="modal-body">
-      <form action="" method="POST" role="form">
-        <div class="form-group">
-          <label for="">Enter Email</label>
-          <input type="email" class="form-control" id="">
-        </div>
-        <div class="form-group">
-          <label for="">Password</label>
-          <input type="password" class="form-control" id="">
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"> Remember Me
-          </label>
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">log in</button>
-        <button type="button" class="btn btn-link btn-block">Forgot Password?</button>
-      </form>  
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- SIGN UP MODAL -->
-<div class="modal fade" id="signup" tabindex="-1" role="dialog">
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      <h3 class="modal-title">Create an account</h3>
-    </div>
-    <div class="modal-body">
-      <form action="" method="POST" role="form">
-        <div class="form-group">
-          <label for="">Enter Email</label>
-          <input type="email" class="form-control" id="">
-        </div>
-        <div class="form-group">
-          <label for="">Password</label>
-          <input type="password" class="form-control" id="">
-        </div>
-        <div class="form-group">
-          <label for="">Confirm Password</label>
-          <input type="password" class="form-control" id="">
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">Sign up</button>
-      </form>  
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- PORDUCT QUICK VIEW MODAL -->
-<div class="modal fade quick-view" tabindex="-1" role="dialog">
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-body">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      <div class="media">
-        <div class="media-left">
-          <img class="media-object" src="<%= image_path('bigbag/products/quick-view/quick-view-01.jpg') %>" alt="Image">
-        </div>
-        <div class="media-body">
-          <h2>Old Skool Navy</h2>
-          <h3>$149</h3>
-          <p>Classic sneaker from Vans. Cotton canvas and suede upper. Textile lining with heel stabilizer and ankle support. Contrasting laces. Sits on a classic waffle rubber sole.</p>
-          <span class="quick-drop">
-            <select name="guiest_id3" id="guiest_id3" class="select-drop">
-              <option value="0">Size</option>
-              <option value="1">Size 1</option>
-              <option value="2">Size 2</option>
-              <option value="3">Size 3</option>            
-            </select>
-          </span>
-          <span class="quick-drop resizeWidth">
-            <select name="guiest_id4" id="guiest_id4" class="select-drop">
-              <option value="0">Qty</option>
-              <option value="1">Qty 1</option>
-              <option value="2">Qty 2</option>
-              <option value="3">Qty 3</option>            
-            </select>
-          </span>
-          <div class="btn-area">
-            <a href="#" class="btn btn-primary btn-block">Add to cart <i class="fa fa-angle-right" aria-hidden="true"></i></a> 
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <% content_for :javascript do %>
 

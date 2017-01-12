@@ -201,6 +201,35 @@
 	    -webkit-transition: all .2s ease-in;
 	    transition: all .2s ease-in;
     }
+    @include desktops{
+    	width: 40%;
+    }
+	}
+	.btn-product{
+		border-radius: 0px;
+		margin-top: 20px;
+	}
+	.product-table {
+		thead {
+			th {
+				color: #000000;
+				text-align: center;
+				border-top: 1px solid #000000;
+				border-bottom: 1px solid #000000;
+				background-color: rgba(0, 0, 0, 0.1);
+			}
+		}
+		tbody {
+			tr:last-child {
+				border-bottom: 1px solid #000000;
+			}
+			td {
+				color: #000000;
+				text-align: center;
+				width:10%;
+				border-right: 1px solid rgba(221,221,221,0.15);
+			}
+		}
 	}
 	.inquire-table {
 		thead {

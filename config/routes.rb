@@ -13,6 +13,25 @@ Myapp::Application.routes.draw do
   get "gifts/support"
   get "gifts/inquire"
   get "gifts/login"
+  get "gifts/single_product"
+
+  # 제품 DB routes
+  get "products/index"
+  get "products/new"
+  get "products/create"
+  get "products/edit/:id", to: 'products#edit' 
+  get "products/update:id", to: 'products#update' 
+
+  # 옵션관리 routes
+  get "options/index"
+  get "options/price_new"
+  get "options/price_create"
+  get "options/price_edit/:id", to: 'options#price_edit'
+  get "options/price_update/:id", to: 'options#price_update'
+  get "options/qty_new"
+  get "options/qty_create"
+  get "options/qty_edit/:id", to: 'options#qty_edit'
+  get "options/qty_update/:id", to: 'options#qty_update'
 
 
   # 대시보드

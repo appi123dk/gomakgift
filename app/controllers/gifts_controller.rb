@@ -1,5 +1,6 @@
 class GiftsController < ApplicationController
 	def index
+		@products = Product.all
 		render :layout => "bigbag"
 	end
 
@@ -24,6 +25,10 @@ class GiftsController < ApplicationController
 	end
 
 	def inquire
+		render :layout => "bigbag"
+	end
+
+	def single_product
 		render :layout => "bigbag"
 	end
 

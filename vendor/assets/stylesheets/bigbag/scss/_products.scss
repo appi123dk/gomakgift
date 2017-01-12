@@ -107,6 +107,7 @@
 			}
 		}
 		.media-body{
+			width: 100%;
 			.media-heading a{
 				font-size: 20px;
 				letter-spacing: 1px;
@@ -174,7 +175,7 @@
 /*=== 9.2 SINGLE PRODUCTS ===*/
 .singleProduct{
 	.media{
-		margin-bottom: 70px;
+		margin-bottom: 20px;
 		.productSlider{
 			@include mobile-xs{
 				width: 100%;
@@ -295,15 +296,18 @@
 					} 
 				}
 				.tab-content{
-					padding: 25px 0;
+					padding: 25px 0px;
 					color: #b4b4b4;
+					border-bottom: 1px solid #ddd;
 					p{
 						color: #b4b4b4;
 						line-height: 18px;
 					}
 					.list-unstyled{
 						padding-left: 15px;
+						line-height: 200%;
 						li{
+							color: #000000;
 							list-style-type: square;
 						}
 					}
@@ -312,7 +316,10 @@
 					width: 100%;
 				}
 				@include mobile{
-					width: 348px;
+					width: 100%;
+				}
+				@include desktops{
+					width: 1000px;
 				}
 			}
 		}

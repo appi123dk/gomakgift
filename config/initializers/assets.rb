@@ -1,2 +1,7 @@
 Rails.application.config.assets.precompile += %w( gifts.css )
 Rails.application.config.assets.precompile += %w( gifts.js )
+Rails.application.config.assets.precompile += %w( products.css )
+Rails.application.config.assets.precompile += %w( products.js )
+Rails.application.config.assets.precompile += %w( options.css )
+Rails.application.config.assets.precompile += %w( options.js )
+Rails.application.config.assets.precompile += %w( bigbag/plugins/jquery-number/jquery.number.min.js )

@@ -1,0 +1,230 @@
+<!-- 위로가기버튼 -->
+<a id="toTop" href="#"><img src="<%= image_path('bigbag/arrows/up-arrow-icon.png') %>" width="55" height="55" alt="맨 위로"></a>
+
+<!-- BANNER -->
+<div class="bannercontainer bannerV1" style="margin-top: 60px">
+  <div class="fullscreenbanner-container">
+    <div class="fullscreenbanner" style="background-image: url('<%= image_path('bigbag/about-us/store-bg.jpg') %>">
+      <div class="main-product">
+        <header>
+          <h1>씨앗연필</h1>
+          <p>단언컨데, 최고의 선택입니다</p>
+        </header>
+        <div class="downer">
+          <button type="button" class="btn btn-submit show-product">구매하기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT SECTION -->
+<section class="mainContent clearfix" style="padding-top: 20px">
+  <div class="col-xs-offset-1 col-xs-11" id = "product_information" style="display:none;">
+    <div class="singleProduct">
+      <div class="media">
+        <div class="media-body">
+          <div class="tabArea">
+            <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#price">가격 및 옵션선택</a></li>
+              <li><a data-toggle="tab" href="#details">제품상세정보</a></li>
+            </ul>
+            <div class="tab-content">
+              <div id="price" class="tab-pane fade in active">
+                <table class="table table-hover product-table" style="width:100%">
+                  <thead>
+                    <tr>
+                        <th style="border-top: 1px solid black">수량</th>
+                        <th class="qty" style="border-top: 1px solid black">1,000</th>
+                        <th class="qty" style="border-top: 1px solid black">500</th>
+                        <th class="qty" style="border-top: 1px solid black">300</th>
+                        <th class="qty" style="border-top: 1px solid black">200</th>
+                        <th class="qty" style="border-top: 1px solid black">100</th>
+                        <th class="qty" style="border-top: 1px solid black">50</th>
+                        <th class="qty" style="border-top: 1px solid black">10</th>
+                        <!-- <th style="border-top: 1px solid black">300</th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="question">
+                        <td>단가</td>
+                        <td class="price">10,000</td>
+                        <td class="price">9,000</td>
+                        <td class="price">8,000</td>
+                        <td class="price">7,000</td>
+                        <td class="price">6,000</td>
+                        <td class="price">5,000</td>
+                        <td class="price">4,000</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p style="display: inline-block; margin-bottom: 0px">* 수량과 가격은 흥정 가능합니다 * </p>
+                <hr>
+                <h4>주문서 작성</h4>
+                <form action="/gifts/accounts_form" method="GET">
+                  <ul class="list-unstyled">
+                    <li>주문수량 X 단가 : 
+                      <input type="number" placeholder="갯수를 입력하세요" style="text-align: right" class="input-price">
+                      X <span id="target_price">0</span> = <span id="sub_price">0</span> 원
+                    </li>
+                    <li>부가세 (VAT) : <span id="vat">0</span> 원</li>
+                    <li style="font-weight: bold; ">합계금액 : <span id="total_price">0</span> 원</li>
+                    <input type="hidden" name="total_price" id="input_total_price" >
+                  </ul>
+                  <hr>
+                  <ul class="list-unstyled">
+                    <li>인쇄방법 : 
+                      <select name="" id="">
+                        <option value="">인쇄방법을 선택해주세요</option>
+                        <option value="">레이저인쇄</option>
+                        <option value="">땡땡인쇄</option>
+                      </select>
+                    </li>
+                    <li>인쇄위치 : 
+                      <select name="" id="">
+                        <option value="">인쇄위치를 선택해주세요</option>
+                        <option value="1">Section 1</option>
+                        <option value="2">Section 2</option>
+                      </select>
+                    </li>
+                  </ul>
+                  <button class="btn btn-submit btn-product">주문하기</button>
+                </form>
+              </div>
+              <div id="details" class="tab-pane fade">
+                <ul class="list-unstyled">  
+                  <li>사이즈 : 52*52*52mm</li>
+                  <li>재질 : 알루미늄</li>
+                  <li>색상 : 골드,실버,블랙</li>
+                  <li>인쇄방식 : 레이져인쇄</li>
+                  <li>제품포장 : 개별종이케이스</li>
+                  <li>제작기간 : 3일~5일</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-custom">
+    <!-- FEATURE COLLECTION SECTION -->
+    <div class="row featuredCollection version2">
+      <div class="page-header" style="margin-bottom: 0px; border-bottom: 0px">
+        <h2>상품설명</h2>
+      </div>
+      <div class="small-line"></div>
+      <img src="<%= image_path('bigbag/products/test-image.jpg') %>" class="img-responsive" style="width:100%">      
+    </div>
+  </div>
+</section>
+
+<% content_for :javascript do %>
+<script type="text/javascript" src="<%= asset_path('bigbag/plugins/jquery-number/jquery.number.min.js') %>"></script>
+<script type="text/javascript">
+
+
+$(function() {
+
+  // 주문서 작성 계산기
+  var qty_arr = [1000, 500, 300, 200, 100, 50, 10],
+      price_arr = [10000, 9000, 8000, 7000, 6000, 5000, 4000];
+
+  // Hide #MagicMenu on on scroll down
+  var didScroll;
+  var lastScrollTop = 0;
+  var delta = 5;
+  var navbarHeight = $('.navbar').outerHeight();
+
+
+  $(window).scroll(function(event){
+      didScroll = true;
+  });
+
+  // $("#product_information").hide();
+
+  setInterval(function() {
+      if (didScroll) {
+          hasScrolled();
+          didScroll = false;
+      }
+  }, 250);
+
+  function hasScrolled() {
+      var st = $(this).scrollTop();
+      
+      // Make sure they scroll more than delta
+      if(Math.abs(lastScrollTop - st) <= delta)
+          return;
+      
+      // If they scrolled down and are past the navbar, add class .navbar-up.
+      // This is necessary so you never see what is "behind" the navbar.
+      if (st > lastScrollTop && st > navbarHeight){
+          // Scroll Down
+          $('.navbar').fadeOut(100);
+      } else {
+          // Scroll Up
+          if(st + $(window).height() < $(document).height()) {
+              $('.navbar').fadeIn(100);
+          }
+      }
+      
+      lastScrollTop = st;
+  }
+
+  function find_price(qty){
+    var price_idx;
+    $.each(qty_arr, function(index, value){
+      qty = parseInt(qty);
+      if (qty >= value) {
+        price_idx = index;
+        return false;
+      }
+    });
+    return price_idx;
+  }
+
+  $( window ).scroll( function() {
+    if ( $( this ).scrollTop() > 1000 ) {
+      $( '#toTop' ).fadeIn();
+    } else {
+      $( '#toTop' ).fadeOut();
+    }
+  } );
+
+  $( '#toTop' ).click( function() {
+    $( 'html, body' ).animate( { scrollTop : $('.mainContent').offset().top - 60 }, 400 );
+    return false;
+  } );
+
+  
+
+  $('.input-price').keyup( function(){
+    var qty = parseInt($(this).val()),
+        price_idx = find_price(qty),
+        target_price = price_arr[price_idx],
+        sub_price = qty * target_price;
+        vat = sub_price/10,
+        total_price = sub_price + vat;
+
+        $('#target_price').text($.number(target_price));
+        $('#sub_price').text($.number(sub_price));
+        $('#vat').text($.number(vat));
+        $('#total_price').text($.number(total_price));
+        $('#input_total_price').val(total_price);
+  });
+
+  $('.show-product').click(function(){
+    if ( $( "#product_information" ).is( ":hidden" ) ) {
+      $( "#product_information" ).slideDown( "slow" );
+    } else {
+      $( "#product_information" ).slideUp();
+    }
+  });
+
+});
+
+</script>
+
+<% end %>
+

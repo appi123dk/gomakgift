@@ -79,7 +79,58 @@
 .fullscreenbanner{
 	width:100%;
 	position:relative;
+	.main-product{
+	  header{
+			position: absolute;
+		  top: 15%;
+		  left: 50%;
+		  transform: translate(-50%, -50%);
+		  color: white;
+		  text-align: center;
+			h1 {
+			  text-transform: uppercase;
+			  color:white;
+			  white-space: nowrap;
+			}
+			p {
+				color: white;
+			  margin: 0;
+			  font-size: 2rem;
+			}
+			button{
+				top: 80%;
+			}
+		}
+		.downer{
+			position: absolute;
+		  top: 90%;
+		  left: 50%;
+		  transform: translate(-50%, -50%);
+		  color: white;
+		  text-align: center;
+		  .btn-submit {
+				width: 100%;
+		    background-color: #fed328; /* Green */
+		    border: none;
+		    color: #000000;
+		    padding: 10px 32px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 14px;
+		    &:hover {
+		    	background-color: #000000;
+		    	color: white;
+		    	-moz-transition: all .2s ease-in;
+			    -o-transition: all .2s ease-in;
+			    -webkit-transition: all .2s ease-in;
+			    transition: all .2s ease-in;
+		    }
+			}
+		}
+	}
 }
+
 .slider-captionV1 .tp-caption{
 	white-space: normal!important;
 	width: inherit;

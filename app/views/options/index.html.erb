@@ -1,0 +1,140 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>옵션관리</h2>
+        <ol class="breadcrumb">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a>Options</a>
+        </li>
+        <li class="active">
+            <strong>옵션관리</strong>
+        </li>
+        </ol>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+
+<!-- 가격관리 TABLE -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>가격관리</h5>
+                </div>
+                <div class="ibox-content">
+                    <table class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>id값</th>
+                                <th>가격이름</th>
+                                <th>최저가</th>
+                                <th>가격_1</th>
+                                <th>가격_2</th>
+                                <th>가격_3</th>
+                                <th>가격_4</th>
+                                <th>가격_5</th>
+                                <th>가격_6</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @price_set.each do |price| %>
+                                <tr class="gradeX">
+                                    <td><%= price.id %></td>
+                                    <td><%= price.price_name %></td>
+                                    <td><%= price.price_min %></td>
+                                    <td><%= price.price_1 %></td>
+                                    <td><%= price.price_2 %></td>
+                                    <td><%= price.price_3 %></td>
+                                    <td><%= price.price_4 %></td>
+                                    <td><%= price.price_5 %></td>
+                                    <td><%= price.price_6 %></td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 가격관리 TABLE 끝 -->
+<!-- 수량관리 TABLE -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>수량관리</h5>
+                </div>
+                <div class="ibox-content">
+                    <table class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>id값</th>
+                                <th>가격이름</th>
+                                <th>최고수량</th>
+                                <th>수량_1</th>
+                                <th>수량_2</th>
+                                <th>수량_3</th>
+                                <th>수량_4</th>
+                                <th>수량_5</th>
+                                <th>수량_6</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @qty_set.each do |qty| %>
+                                <tr class="gradeX">
+                                    <td><%= qty.id %></td>
+                                    <td>수량</td>
+                                    <td><%= qty.qty_max %></td>
+                                    <td><%= qty.qty_1 %></td>
+                                    <td><%= qty.qty_2 %></td>
+                                    <td><%= qty.qty_3 %></td>
+                                    <td><%= qty.qty_4 %></td>
+                                    <td><%= qty.qty_5 %></td>
+                                    <td><%= qty.qty_6 %></td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 수량관리 TABLE 끝 -->
+</div>
+
+<% content_for :javascript do %>
+
+<script type="text/javascript">
+
+
+$(function() {
+
+    $('.dataTables-example').DataTable({
+        order: [0, 'desc'],
+        dom: '<"html5buttons"B>lTfgitp',
+        buttons: [
+            { extend: 'copy'},
+            {extend: 'csv'},
+            {extend: 'excel', title: 'ExampleFile'},
+            {extend: 'print',
+                customize: function (win){
+                    $(win.document.body).addClass('white-bg');
+                    $(win.document.body).css('font-size', '10px');
+
+                    $(win.document.body).find('table')
+                            .addClass('compact')
+                            .css('font-size', 'inherit');
+                }
+            }
+        ]
+
+    });
+
+});
+
+</script>
+
+<% end %>

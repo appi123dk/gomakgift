@@ -55,7 +55,7 @@
 /*===  TABS ===*/
 .tabCommon{
 	.tab-bottom{
-		@include add-border(5px, $border-light, bottom);
+		@include add-border(1px, $black-color, bottom);
 		margin-top: -4px;
 		margin-bottom: 25px;
 	}
@@ -71,8 +71,8 @@
 			a{
 				padding:0;
 				height:  35px;
-				font-size: 13px;
-    			font-weight: 700;
+				font-size: 12px;
+    			font-weight: 400;
 				color: $secondary-color;
 				text-transform: uppercase;
 				display: inline-block;
@@ -91,7 +91,7 @@
 	    background-color:transparent;
 		color: $secondary-color;
 	    border: none;
-	    @include add-border(5px, $primary-color, bottom);
+	    @include add-border(3px, $primary-color, bottom);
 	}
 	.nav-tabs>li>a,
 	.nav-tabs>li>a:hover,
