@@ -8,14 +8,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index"><img src="<%= image_path('bigbag/logo.png') %>" alt="logo"></a>
+      <a class="navbar-brand" href="/gifts/index"><img src="<%= image_path('bigbag/logo.png') %>" alt="logo"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">            
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="/gifts/index">Home</a>
+          <a href="/gifts/index">Products</a>
         </li>
         <li class="dropdown megaDropMenu">
           <a href="#" aria-expanded="false">About us</b></a>
@@ -58,8 +58,19 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My accounts</a>
           <ul class="dropdown-menu dropdown-menu-left">
-            <li><a href="/gifts/login"><i class="fa fa-shopping-cart"></i><span style="padding-left: 10px">나의주문내역</span></a></li>
-            <li><a href="/gifts/inquire"><i class="fa fa-phone"></i><span style="padding-left: 10px">나의문의내역</span></a></li>
+            <li><a href='
+            <% if session[:user_id] %>
+              <% user = User.find(session[:user_id]) %>
+              <% if user.orders.exists? %>
+                <%= "/gifts/payment/#{user.orders.last.id}" %>
+              <% else %>
+                <%= "/gifts/no_order" %>
+              <% end %>
+            <% else %>
+                <%= "/users/login" %>
+            <% end %>
+            '><i class="fa fa-shopping-cart"></i><span style="padding-left: 10px">나의주문내역</span></a></li>
+            <li><a href='<%= session[:user_id] ? "/gifts/inquire/#{session[:user_id]}" : "/users/login_inquire" %>'><i class="fa fa-phone"></i><span style="padding-left: 10px">나의문의내역</span></a></li>
           </ul>
         </li>
         <li class="dropdown">

@@ -3,17 +3,42 @@ Myapp::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root to: 'dashboards#dashboard_1'
 
+  # 무디패 routes
+  get "gomakdesigns/index"
+
+
   # All routes
   # 고막기프트 routes
   get "gifts/index"
   get "gifts/accounts_form"
-  get "gifts/payment"
+  get "gifts/payment/:id", to: 'gifts#payment'
   get "gifts/design"
   get "gifts/print_product"
   get "gifts/support"
-  get "gifts/inquire"
+  get "gifts/inquire/:id", to: 'gifts#inquire'
   get "gifts/login"
-  get "gifts/single_product"
+  get "gifts/single_product/:id", to:'gifts#single_product'
+
+  # CS DB routes
+  get 'comments/create'
+  # CS관리 routes
+  get 'admin_comments/index'
+  get 'admin_comments/view'
+
+  # 주문 DB routes
+  get 'orders/create'
+  get 'orders/new_cart'
+  get 'orders/update_payment/:id', to: 'orders#update_payment'
+
+  # 유저 DB routes
+  post 'users/login_session'
+  get 'users/login'
+  post 'users/login_session_inquire'
+  get 'users/login_inquire'
+  get 'users/logout'
+  # 유저관리 routes
+  get 'admin_users/index'
+  get 'admin_users/view'
 
   # 제품 DB routes
   get "products/index"
@@ -33,6 +58,10 @@ Myapp::Application.routes.draw do
   get "options/qty_edit/:id", to: 'options#qty_edit'
   get "options/qty_update/:id", to: 'options#qty_update'
 
+  # 주문관리 routes
+  get "admin_orders/index"
+  get "admin_orders/complete"
+  get "admin_orders/view/:id", to: 'admin_orders#view'
 
   # 대시보드
   get "dashboards/dashboard_1"

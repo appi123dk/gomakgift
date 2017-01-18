@@ -5,10 +5,16 @@ class GiftsController < ApplicationController
 	end
 
 	def accounts_form
+		@carts = Shoppingcart.where('ip_address = ? AND is_cart = ?', request.remote_ip, true)
+
 		render :layout => "bigbag"
 	end
 
 	def payment
+		@order = Order.find(params[:id])
+		if @order.is_confirmed
+			redirect_to "/gifts/print_product/#{@order.id}"
+		end
 		render :layout => "bigbag"
 	end
 
@@ -25,10 +31,23 @@ class GiftsController < ApplicationController
 	end
 
 	def inquire
+		user = User.find(session[:user_id])
+		@comments = user.comments
 		render :layout => "bigbag"
 	end
 
 	def single_product
+		@product = Product.find(params[:id])
+		@product_price = @product.price
+		@product_qty = @product.quantity
+		@price_arr = [
+			@product_price.price_min, @product_price.price_1, @product_price.price_2, @product_price.price_3, 
+			@product_price.price_4, @product_price.price_5, @product_price.price_6
+		]
+		@qty_arr = [
+			@product_qty.qty_max, @product_qty.qty_1, @product_qty.qty_2, @product_qty.qty_3, 
+			@product_qty.qty_4, @product_qty.qty_5, @product_qty.qty_6
+		]
 		render :layout => "bigbag"
 	end
 

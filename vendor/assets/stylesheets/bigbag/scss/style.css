@@ -2102,6 +2102,8 @@ body.bodyColor.container {
 
 .whiteSection, .mainContent {
   background-color: #ffffff; }
+  .whiteSection label.error, .mainContent label.error {
+    color: #fe8a32; }
   .whiteSection textarea, .mainContent textarea {
     padding: 10px;
     border: 1px solid #000000; }
@@ -3988,9 +3990,6 @@ body.bodyColor.container {
   @media (min-width: 480px) {
     .singleProduct .media .media-body .tabArea {
       width: 100%; } }
-  @media (min-width: 992px) {
-    .singleProduct .media .media-body .tabArea {
-      width: 1000px; } }
 
 /*=== 9.3 CART PRODUCTS ===*/
 .cartListInner .updateArea .input-group .form-control, .cartListInner .updateArea .input-group .input-group-addon, .cartListInner .updateArea .btn {

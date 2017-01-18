@@ -32,8 +32,8 @@
                                 <th>상품명</th>
                                 <th>서브타이틀</th>
                                 <th>상세정보</th>
-                                <th>이미지</th>
-                                <th>썸네일</th>
+                                <th>순서</th>
+                                <th>수정</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,8 +43,8 @@
                                     <td><%= product.title %></td>
                                     <td><%= product.subtitle %></td>
                                     <td><%= product.detail %></td>
-                                    <td><%= product.product_image %></td>
-                                    <td><%= product.product_thumb %></td>
+                                    <td>1</td>
+                                    <td><a class="btn btn-sm btn-primary" href="">Edit</a></td>
                                 </tr>
                             <% end %>
                         </tbody>

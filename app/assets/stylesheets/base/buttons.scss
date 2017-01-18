@@ -33,10 +33,13 @@
 
 .btn-primary.btn-outline:hover,
 .btn-success.btn-outline:hover,
-.btn-info.btn-outline:hover,
 .btn-warning.btn-outline:hover,
 .btn-danger.btn-outline:hover {
   color: #fff;
+}
+
+.btn-info.btn-outline:hover {
+  color: #000
 }
 
 .btn-primary {
@@ -88,9 +91,10 @@
 }
 
 .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open .dropdown-toggle.btn-info, .btn-info:active:focus, .btn-info:active:hover, .btn-info.active:hover, .btn-info.active:focus {
-  background-color: darken($lazur, 3%);
-  border-color: darken($lazur, 3%);
-  color: #FFFFFF;
+  transition: background-color 0.3s ease;
+  background-color: #fed239;
+  border-color: transparent;
+  color: #000;
 }
 
 .btn-info:active, .btn-info.active, .open .dropdown-toggle.btn-info {

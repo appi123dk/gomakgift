@@ -4,13 +4,11 @@
             <li class="nav-header">
                 <div class="dropdown profile-element">
                     <span>
-                        <img alt="image" class="img-circle" src="<%= image_url 'profile_small.jpg' %>"/>
+                        <img alt="image"  src="<%= image_url 'bigbag/logo.png' %>"/>
                     </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <span class="clear">
-                            <span class="block m-t-xs">
-                                <strong class="font-bold">David Williams</strong>
-                            </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
+                        <span class="block m-t-xs text-center">
+                                <strong class="font-bold">고막기프트</strong>
                         </span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
@@ -39,6 +37,19 @@
                     <li class="<%= is_active_action('dashboard_5') %>"><%= link_to "Dashboard v.5", dashboards_dashboard_5_path %></li>
                 </ul>
             </li>
+            <li class="<%= is_active_controller('admin_order') %>">
+                <a href=""><i class="fa fa-shopping-cart"></i> <span class="nav-label" data-i18n="nav.admin_order">주문관리</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse <%= is_active_controller('admin_orders') %>">
+                    <li class="<%= is_active_action('index') %>"><%= link_to "주문현황", admin_orders_index_path %></li>
+                    <li class="<%= is_active_action('complete') %>"><%= link_to "거래완료된 품목", admin_orders_complete_path %></li>
+                </ul>
+            </li>
+            <li class="<%= is_active_controller('admin_user') %>">
+                <a href=""><i class="fa fa-users"></i> <span class="nav-label" data-i18n="nav.admin_user">고객관리</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse <%= is_active_controller('admin_orders') %>">
+                    <li class="<%= is_active_action('index') %>"><%= link_to "고객현황", admin_users_index_path %></li>
+                </ul>
+            </li>
             <li class="<%= is_active_controller('products') %>">
                 <a href=""><i class="fa fa-gift"></i> <span class="nav-label" data-i18n="nav.product">상품관리</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse <%= is_active_controller('products') %>">
@@ -47,11 +58,17 @@
                 </ul>
             </li>
             <li class="<%= is_active_controller('options') %>">
-                <a href=""><i class="fa fa-cog"></i> <span class="nav-label" data-i18n="nav.product">옵션관리</span> <span class="fa arrow"></span></a>
+                <a href=""><i class="fa fa-cog"></i> <span class="nav-label" data-i18n="nav.option">옵션관리</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse <%= is_active_controller('options') %>">
                     <li class="<%= is_active_action('index') %>"><%= link_to "옵션현황", options_index_path %></li>
                     <li class="<%= is_active_action('price_new') %>"><%= link_to "가격set 등록", options_price_new_path %></li>
                     <li class="<%= is_active_action('qty_new') %>"><%= link_to "갯수set 등록", options_qty_new_path %></li>
+                </ul>
+            </li>
+            <li class="<%= is_active_controller('comments') %>">
+                <a href=""><i class="fa fa-comment"></i> <span class="nav-label" data-i18n="nav.comment">CS관리</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse <%= is_active_controller('comments') %>">
+                    <li class="<%= is_active_action('index') %>"><%= link_to "CS현황", admin_comments_index_path %></li>
                 </ul>
             </li>
             <li class="<%= is_active_controller('layoutsoptions') %>">

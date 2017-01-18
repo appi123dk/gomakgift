@@ -9,7 +9,7 @@ development:
   # pool: 5
   # timeout: 5000
   adapter: mysql2   #사용할 database
-  database: test_development  # 실제 mysql에 생성되는 database 이름
+  database: gomakgift_development  # 실제 mysql에 생성되는 database 이름
   username: root    # mysql에 접속할 id와 password
   password: dkemf33#
   encoding: utf8

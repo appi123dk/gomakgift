@@ -57,41 +57,26 @@
                       </tr>
                     </thead>
                     <tbody>
+                    <% sub_total = 0 %>
+                    <% @carts.each do |cart| %>
                       <tr>
-                        <td class="col-xs-2">
-                          <span class="cartImage"><img src="<%= image_path('bigbag/products/cart-image.jpg') %>" alt="image"></span>
-                        </td>
-                        <td class="col-xs-4">Italian Winter Hat</td>
-                        <td class="col-xs-2">230 원</td>
-                        <td class="col-xs-2">100 개</td>
-                        <td class="col-xs-2">23,000 원</td>
+                        <td class="col-xs-4"><%= cart.product.id %></td>
+                        <td class="col-xs-4"><%= cart.product.title %></td>
+                        <td class="col-xs-2"><%= (cart.total_price * 10 / 11 / cart.qty).to_i %> 원</td>
+                        <td class="col-xs-2"><%= cart.qty %> 개</td>
+                        <td class="col-xs-2"><%= (cart.total_price * 10 / 11).to_i %> 원</td>
                       </tr>
-                      <tr>
-                        <td class="col-xs-2">
-                          <span class="cartImage"><img src="<%= image_path('bigbag/products/cart-image.jpg') %>" alt="image"></span>
-                        </td>
-                        <td class="col-xs-4">Italian Winter Hat</td>
-                        <td class="col-xs-2">230 원</td>
-                        <td class="col-xs-2">100 개</td>
-                        <td class="col-xs-2">23,000 원</td>
-                      </tr>
-                      <tr>
-                        <td class="col-xs-2">
-                          <span class="cartImage"><img src="<%= image_path('bigbag/products/cart-image.jpg') %>" alt="image"></span>
-                        </td>
-                        <td class="col-xs-4">Italian Winter Hat</td>
-                        <td class="col-xs-2">230 원</td>
-                        <td class="col-xs-2">100 개</td>
-                        <td class="col-xs-2">23,000 원</td>
-                      </tr>
+                      <% sub_total += (cart.total_price * 10 / 11).to_i %>
+                    <% end %>
                     </tbody>
                   </table>
                 </div>
                 <div class="row totalAmountArea" style="margin-left: 0px; margin-right: 0px;">
                   <div class="col-sm-4 col-sm-offset-8 col-xs-12">
                     <ul class="list-unstyled">
-                      <li>Sub Total <span>$ 792.00</span></li>
-                      <li>Grand Total <span class="grandTotal">$ 810.00</span></li>
+                      <li>소계 <span><%= sub_total %> 원</span></li>
+                      <li>부가세 <span><%= (sub_total * 0.1).to_i %> 원</span></li>
+                      <li>결재액 <span class="grandTotal"><%= (sub_total * 11 / 10).to_i %> 원</span></li>
                     </ul>
                   </div>
                 </div>
@@ -99,7 +84,7 @@
             </div>
           </div>
 
-          <form method="POST" class="form-horizontal" role="form">
+          <form action="/orders/create" method="GET" class="form-horizontal" id="order-form">
             <!-- 주문자 정보 입력 -->
             <div class="col-sm-6">
               <div class="page-header">
@@ -109,19 +94,19 @@
               <div class="form-group" style="margin-left: 0px; margin-right: 0px;">
                 <label class="col-sm-3 control-label">주문 고객명</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" name="username">
+                  <input type="text" class="form-control" name="username" required>
                 </div>
                 <label class="col-sm-3 control-label" style="margin-top: 10px">이메일</label>
                 <div class="col-sm-9" style="margin-top: 10px">
-                  <input type="email" class="form-control" name="useremail" placeholder = "cctv@gomak.com">
+                  <input type="email" class="form-control" name="email" placeholder = "cctv@gomak.com" required>
                 </div>
                 <label class="col-sm-3 control-label" style="margin-top: 10px">전화번호</label>
                 <div class="col-sm-9" style="margin-top: 10px">
-                  <input type="tel" class="form-control" name="usernumber" placeholder="'-' 없이 입력해주세요">
+                  <input type="tel" class="form-control" name="phone" placeholder="'-' 없이 입력해주세요" required>
                 </div>
                 <label class="col-sm-3 control-label" style="margin-top: 10px">배송희망일</label>
                 <div class="col-sm-9" style="margin-top: 10px">
-                  <input type="date" class="form-control" name="delivery_date">
+                  <input type="date" class="form-control" name="arrive_date" required>
                 </div>
               </div>
             </div>
@@ -134,19 +119,19 @@
               <div class="form-group" style="margin-left: 0px; margin-right: 0px;">
                 <label class="col-sm-3 control-label">수령인 성명 </label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" name="receiver_name">
+                  <input type="text" class="form-control" name="arrive_username" required>
                 </div>
                 <label class="col-sm-3 control-label" style="margin-top: 10px">이메일</label>
                 <div class="col-sm-9" style="margin-top: 10px">
-                  <input type="email" class="form-control" name="receiver_email" placeholder = "cctv@gomak.com">
+                  <input type="email" class="form-control" name="arrive_email" placeholder = "cctv@gomak.com" required>
                 </div>
                 <label class="col-sm-3 control-label" style="margin-top: 10px">전화번호</label>
                 <div class="col-sm-9" style="margin-top: 10px">
-                  <input type="tel" class="form-control" name="receiver_number" placeholder="'-' 없이 입력해주세요">
+                  <input type="tel" class="form-control" name="arrive_phone" placeholder="'-' 없이 입력해주세요" required>
                 </div>
                 <label class="col-sm-3 control-label" style="margin-top: 10px">우편번호</label>
                 <div class="col-sm-3" style="margin-top: 10px">
-                  <input type="text" class="form-control postcodify_postcode5" name="postcode" id = "postcode">
+                  <input type="text" class="form-control postcodify_postcode5" name="arrive_address_number" id = "postcode" required>
                 </div>
                 <div class="panel panel-default" style="border: 0px; margin-bottom: 0px;">
                   <div class="panel-body" style="border: 0px; padding-bottom: 0px">
@@ -156,11 +141,11 @@
                 </div>
                 <label class="col-sm-3 control-label" style="margin-top: 10px">주소</label>
                 <div class="col-sm-9" style="margin-top: 10px">
-                  <input type="text" class="form-control postcodify_address" name="postcode_address" id="address">
+                  <input type="text" class="form-control postcodify_address" name="arrive_address" id="address" required>
                 </div>
                 <label class="col-sm-3 control-label" style="margin-top: 10px">상세주소</label>
                 <div class="col-sm-9" style="margin-top: 10px">
-                  <input type="text" class="form-control postcodify_details" name="postcode_detail" id="details">
+                  <input type="text" class="form-control postcodify_details" name="arrive_address_detail" id="details"> 
                 </div>
               </div>
             </div>
@@ -168,7 +153,7 @@
               <div class="well well-lg clearfix">
                 <ul class="pager">
                 <li class="previous"><a href="javascript:history.back()">취소</a></li>
-                  <li class="next"><a href="payment">주문완료</a></li>
+                  <li class="next"><button type="submit" class="btn">주문완료</a></li>
                 </ul>
               </div>
             </div>
@@ -210,15 +195,19 @@ $(function() {
   $("#same_info").click(function(){
     var isTrue = $(this).is(':checked');
     if (!isTrue) {
-      $("[name='receiver_name']").val("");
-      $("[name='receiver_email']").val("");
-      $("[name='receiver_number']").val("");
+      $("[name='arrive_username']").val("");
+      $("[name='arrive_email']").val("");
+      $("[name='arrive_phone']").val("");
     } else {
-      $("[name='receiver_name']").val($("[name='username']").val());
-      $("[name='receiver_email']").val($("[name='useremail']").val());
-      $("[name='receiver_number']").val($("[name='usernumber']").val());  
+      $("[name='arrive_username']").val($("[name='username']").val());
+      $("[name='arrive_email']").val($("[name='email']").val());
+      $("[name='arrive_phone']").val($("[name='phone']").val());  
     }
   });
+
+  // $('#btn-order').click(function(){
+  //   $("#order-form").submit();
+  // });
 });
 
 </script>

@@ -2,16 +2,16 @@
 <a id="toTop" href="#"><img src="<%= image_path('bigbag/arrows/up-arrow-icon.png') %>" width="55" height="55" alt="맨 위로"></a>
 
 <!-- BANNER -->
-<div class="bannercontainer bannerV1" style="margin-top: 60px">
+<div class="bannercontainer bannerV1" style="margin-top: 60px;">
   <div class="fullscreenbanner-container">
-    <div class="fullscreenbanner" style="background-image: url('<%= image_path('bigbag/about-us/store-bg.jpg') %>">
+    <div class="fullscreenbanner" style="background-image: url('https://www.tee-mood.com/uploads/2016122615/CsJr3TaMKg.jpg'); background-position: center center; background-repeat: no-repeat; background-size: cover">
       <div class="main-product">
         <header>
-          <h1>씨앗연필</h1>
-          <p>단언컨데, 최고의 선택입니다</p>
+          <!-- <h1>@product.title</h1> -->
+          <!-- <p>@product.subtitle</p> -->
         </header>
         <div class="downer">
-          <button type="button" class="btn btn-submit show-product">구매하기</button>
+          <!-- <button type="button" class="btn btn-submit show-product">구매하기</button> -->
         </div>
       </div>
     </div>
@@ -20,9 +20,10 @@
 
 <!-- MAIN CONTENT SECTION -->
 <section class="mainContent clearfix" style="padding-top: 20px">
-  <div class="col-xs-offset-1 col-xs-11" id = "product_information" style="display:none;">
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-lg-6 col-lg-offset-3" id = "product_information">
     <div class="singleProduct">
-      <div class="media">
+      <div class="media" style="display:table; width:100%">
         <div class="media-body">
           <div class="tabArea">
             <ul class="nav nav-tabs">
@@ -35,54 +36,56 @@
                   <thead>
                     <tr>
                         <th style="border-top: 1px solid black">수량</th>
-                        <th class="qty" style="border-top: 1px solid black">1,000</th>
-                        <th class="qty" style="border-top: 1px solid black">500</th>
-                        <th class="qty" style="border-top: 1px solid black">300</th>
-                        <th class="qty" style="border-top: 1px solid black">200</th>
-                        <th class="qty" style="border-top: 1px solid black">100</th>
-                        <th class="qty" style="border-top: 1px solid black">50</th>
-                        <th class="qty" style="border-top: 1px solid black">10</th>
+                        <th class="qty" style="border-top: 1px solid black"><%= @product_qty.qty_max %></th>
+                        <th class="qty" style="border-top: 1px solid black"><%= @product_qty.qty_1 %></th>
+                        <th class="qty" style="border-top: 1px solid black"><%= @product_qty.qty_2 %></th>
+                        <th class="qty" style="border-top: 1px solid black"><%= @product_qty.qty_3 %></th>
+                        <th class="qty" style="border-top: 1px solid black"><%= @product_qty.qty_4 %></th>
+                        <th class="qty" style="border-top: 1px solid black"><%= @product_qty.qty_5 %></th>
+                        <th class="qty" style="border-top: 1px solid black"><%= @product_qty.qty_6 %></th>
                         <!-- <th style="border-top: 1px solid black">300</th> -->
                     </tr>
                   </thead>
                   <tbody>
                     <tr class="question">
-                        <td>단가</td>
-                        <td class="price">10,000</td>
-                        <td class="price">9,000</td>
-                        <td class="price">8,000</td>
-                        <td class="price">7,000</td>
-                        <td class="price">6,000</td>
-                        <td class="price">5,000</td>
-                        <td class="price">4,000</td>
+                        <td><%= @product_price.price_name %></td>
+                        <td class="price"><%= @product_price.price_min %></td>
+                        <td class="price"><%= @product_price.price_1 %></td>
+                        <td class="price"><%= @product_price.price_2 %></td>
+                        <td class="price"><%= @product_price.price_3 %></td>
+                        <td class="price"><%= @product_price.price_4 %></td>
+                        <td class="price"><%= @product_price.price_5 %></td>
+                        <td class="price"><%= @product_price.price_6 %></td>
                     </tr>
                   </tbody>
                 </table>
                 <p style="display: inline-block; margin-bottom: 0px">* 수량과 가격은 흥정 가능합니다 * </p>
                 <hr>
                 <h4>주문서 작성</h4>
-                <form action="/gifts/accounts_form" method="GET">
+                <form action="/orders/new_cart" method="GET" id="order_form">
                   <ul class="list-unstyled">
                     <li>주문수량 X 단가 : 
-                      <input type="number" placeholder="갯수를 입력하세요" style="text-align: right" class="input-price">
+                      <input type="number" placeholder="갯수를 입력하세요" style="text-align: right" id="input_price" class="input_price" name="input_price" >
                       X <span id="target_price">0</span> = <span id="sub_price">0</span> 원
                     </li>
                     <li>부가세 (VAT) : <span id="vat">0</span> 원</li>
                     <li style="font-weight: bold; ">합계금액 : <span id="total_price">0</span> 원</li>
                     <input type="hidden" name="total_price" id="input_total_price" >
+                    <input type="hidden" name="product_id" value="<%= @product.id %>" >
+                    <input type="hidden" name="product_id" value="<%= @product.id %>" >
                   </ul>
                   <hr>
                   <ul class="list-unstyled">
                     <li>인쇄방법 : 
-                      <select name="" id="">
-                        <option value="">인쇄방법을 선택해주세요</option>
-                        <option value="">레이저인쇄</option>
-                        <option value="">땡땡인쇄</option>
+                      <select name="option1" required>
+                        <option value="" disabled selected>인쇄방법을 선택해주세요</option>
+                        <option value="레이저인쇄">레이저인쇄</option>
+                        <option value="땡땡인쇄">땡땡인쇄</option>
                       </select>
                     </li>
                     <li>인쇄위치 : 
-                      <select name="" id="">
-                        <option value="">인쇄위치를 선택해주세요</option>
+                      <select name="option2" required>
+                        <option value="" disabled selected>인쇄위치를 선택해주세요</option>
                         <option value="1">Section 1</option>
                         <option value="2">Section 2</option>
                       </select>
@@ -93,12 +96,7 @@
               </div>
               <div id="details" class="tab-pane fade">
                 <ul class="list-unstyled">  
-                  <li>사이즈 : 52*52*52mm</li>
-                  <li>재질 : 알루미늄</li>
-                  <li>색상 : 골드,실버,블랙</li>
-                  <li>인쇄방식 : 레이져인쇄</li>
-                  <li>제품포장 : 개별종이케이스</li>
-                  <li>제작기간 : 3일~5일</li>
+                  <%=raw @product.detail %>
                 </ul>
               </div>
             </div>
@@ -107,14 +105,17 @@
       </div>
     </div>
   </div>
+</div>
   <div class="container-custom">
     <!-- FEATURE COLLECTION SECTION -->
     <div class="row featuredCollection version2">
-      <div class="page-header" style="margin-bottom: 0px; border-bottom: 0px">
-        <h2>상품설명</h2>
+      <div class="col-sm-12 col-lg-offset-3 col-lg-6">
+        <div class="page-header" style="margin-bottom: 0px; border-bottom: 0px; margin-left: 0px">
+          <h3>상품설명</h3>
+        </div>
+        <div class="small-line" style="margin-left: 0px"></div>
+        <img src="<%= image_path('bigbag/products/test-image.jpg') %>" class="img-responsive" style="width:100%">      
       </div>
-      <div class="small-line"></div>
-      <img src="<%= image_path('bigbag/products/test-image.jpg') %>" class="img-responsive" style="width:100%">      
     </div>
   </div>
 </section>
@@ -127,8 +128,9 @@
 $(function() {
 
   // 주문서 작성 계산기
-  var qty_arr = [1000, 500, 300, 200, 100, 50, 10],
-      price_arr = [10000, 9000, 8000, 7000, 6000, 5000, 4000];
+  var qty_arr = <%= @qty_arr %>,
+      price_arr = <%= @price_arr %>,
+      qty_min = Math.min(... qty_arr);
 
   // Hide #MagicMenu on on scroll down
   var didScroll;
@@ -197,9 +199,26 @@ $(function() {
     return false;
   } );
 
-  
+  // 상품의 가격, 상세정보를 볼 수 있도록 하는 화면 
+  $('.show-product').click(function(){
+    if ( $( "#product_information" ).is( ":hidden" ) ) {
+      $( "#product_information" ).slideDown( "slow" );
+    } else {
+      $( "#product_information" ).slideUp();
+    }
+  });
 
-  $('.input-price').keyup( function(){
+  // 최소주문량만 주문 가능하도록 하는 기능
+  // var qty_arr = [],
+  //     qty_min = 0;
+  // $('.qty').each(function(){
+  //   qty_arr.push($(this).text());
+  // });
+  // qty_min = Math.min(... qty_arr);
+  // $('.input_price').val(qty_min);
+
+
+  $('.input_price').keyup( function(){
     var qty = parseInt($(this).val()),
         price_idx = find_price(qty),
         target_price = price_arr[price_idx],
@@ -214,13 +233,23 @@ $(function() {
         $('#input_total_price').val(total_price);
   });
 
-  $('.show-product').click(function(){
-    if ( $( "#product_information" ).is( ":hidden" ) ) {
-      $( "#product_information" ).slideDown( "slow" );
-    } else {
-      $( "#product_information" ).slideUp();
-    }
-  });
+   $("#order_form").validate({
+        rules: {
+            input_price: {
+                required: true,
+                min: qty_min
+            },
+        },
+        messages: {
+            input_price: {
+                required: " | 갯수를 입력해주세요",
+                min: " | 최소수량 이하는 주문할 수 없습니다"
+            }
+        },
+        errorPlacement: function(error, element) {
+          error.appendTo( element.parent() );
+        }
+    });
 
 });
 

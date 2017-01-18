@@ -18,22 +18,30 @@
             </tr>
             </thead>
             <tbody>
-            <tr class="question">
-                <td>인쇄문의</td>
-                <td><span class="pie">컬러 인쇄의 경우 시간이 더 오래걸리나요?</span></td>
-                <td><span style="color: #fe7732; font-weight: 500">답변완료</span></td>
-                <td class="text-navy">2016-01-03, 18:31</td>
-            </tr>
-            <tr class="answer" style="display:none;">
-                <td style="border-right:0px; background-color: rgba(221,221,221,0.3)"></td>
-                <td colspan="3" style="text-align: left; padding: 20px 10px; background-color: rgba(221,221,221,0.3);">A. 오래걸립니다~~</td>
-            </tr>
-            <tr class="question">
-                <td>시안문의</td>
-                <td><span class="pie">시안은 언제쯤 받아볼 수 있는건가요?</span></td>
-                <td><span style="color: gray">확인중</span></td>
-                <td class="text-navy">2016-01-03, 18:31</td>
-            </tr>
+            <% if @comments.exists? %>
+              <% @comments.each do |comment| %>
+              <tr class="question">
+                  <td><%= comment.category %></td>
+                  <td><span class="pie"><%= comment.content %></span></td>
+                  <% if comment.is_replied %>
+                    <td><span style="color: #fe7732; font-weight: 500">답변완료</span></td>
+                  <% else %>
+                    <td><span style="color: gray">확인중</span></td>
+                  <% end %>
+                  <td class="text-navy"><%= comment.created_at.strftime("%Y-%m-%d, %H:%M") %></td>
+              </tr>
+                <% comment.replies.each do |reply| %>
+                <tr class="answer" style="display:none;">
+                    <td style="border-right:0px; background-color: rgba(221,221,221,0.3)"></td>
+                    <td colspan="3" style="text-align: left; padding: 20px 10px; background-color: rgba(221,221,221,0.3);">A. <%= reply.content %></td>
+                </tr>
+                <% end %>
+              <% end %>
+            <% else %>
+              <tr class="question">
+                <td colspan="4">문의한 내역이 없습니다</td>
+              </tr>
+            <% end %>
             </tbody>
           </table>
         </div>
@@ -46,16 +54,16 @@
         <div class="small-line" style="margin-left: 0px"></div>
       </div>
       <div class="stepsPage col-sm-12" style="border: 1px solid rgba(211,211,211,0.15); padding-top: 20px">
-        <form method="GET" class="form-horizontal" role="form">
+        <form method="GET" action="/comments/create" class="form-horizontal" role="form">
           <!-- 주문자 정보 입력 -->
           <div class="form-group" style="margin: 0px;">
             <label class="col-sm-1 control-label" style="margin-top: 10px">구분</label>
             <div class="col-sm-9" style="margin-top: 10px">
-              <select class="select-custom">
-                <option value="0">문의내용을 선택해주세요</option>
-                <option value="1">인쇄관련문의</option>
-                <option value="2">시안관련문의</option>
-                <option value="3">배송관련문의</option>            
+              <select class="select-custom" name="category">
+                <option value="" selected required>문의내용을 선택해주세요</option>
+                <option value="인쇄문의">인쇄문의</option>
+                <option value="시안문의">시안문의</option>
+                <option value="배송문의">배송문의</option>            
               </select>
             </div>
             <div class="col-sm-2" style="margin-top: 10px">
@@ -65,7 +73,7 @@
           <div class="form-group" style="margin-left: 0px; margin-right: 0px;">
             <label class="col-sm-1 control-label" style="margin-top: 10px">문의내용</label>
             <div class="col-sm-11" style="margin-top: 10px">
-              <textarea placeholder="255자 이내로 입력해 주세요" name="" rows="10" style="width:100%; border:1px solid #000000"></textarea>
+              <textarea placeholder="255자 이내로 입력해 주세요" name="content" rows="10" style="width:100%; border:1px solid #000000" required></textarea>
             </div>
           </div>
         </form>

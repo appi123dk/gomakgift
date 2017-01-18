@@ -161,6 +161,11 @@
 	}
 
 .whiteSection, .mainContent{
+	label {
+		&.error{
+			color: #fe8a32;
+		}
+	}
 	textarea {
 		padding: 10px;
 		border: 1px solid #000000;

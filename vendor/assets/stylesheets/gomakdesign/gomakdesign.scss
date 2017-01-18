@@ -1,0 +1,205 @@
+.header {
+	h1 {
+		font-size: 40px;
+		font-weight: 600;
+		color: black;
+		&:last-child{
+			margin-top: 0px;
+		}
+	}
+}
+
+.chkbox-wrapper {
+	margin-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background-color: #F8F8F8;
+	border: 1px solid #dedede;
+	h4 {
+		color: black;
+		font-weight: 500;
+	}
+}
+
+.content-wrapper {
+	margin-top: 30px;
+	padding-top: 30px;
+	padding-right: 30px;
+	padding-left: 30px;
+	background-color: #F8F8F8;
+	border: 1px solid #dedede;
+	h2 {
+		color: black;
+		font-weight: 500;
+	}
+}
+
+.contents-detail{
+	margin-top: 50px;
+	h2 {
+		margin-top:0px;
+	}
+	h4 {
+		color: black;
+	}
+	.form-group-block{
+		margin-bottom: 30px;
+	}
+	.left-content{
+		overflow: hidden;
+		p {
+			margin-top: 30px;
+		}
+	}
+	.right-content{
+		float:right;
+		label{
+			font-size: 15px;
+			font-weight: normal;
+			color: black;
+		}
+		p {
+			margin-top: 5px;
+			line-height: 20px;
+		}
+		table {
+			width: 100%;
+			tr {
+				height: 40px;
+			}
+		}
+	}
+}
+
+.gomakform {
+	background-color: transparent;
+  background-image: none;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  border-radius: 0px;
+  color: inherit;
+  display: block;
+  padding: 6px 12px;
+  transition: border-color 0.30s ease-in-out .1s, box-shadow 0.30s ease-in-out 0s;
+  width: 100%;
+  font-size: 14px;
+  &:focus{
+  	outline: none;
+  	border-bottom: 3px solid #fed328;
+  }
+}
+
+.input-large {
+  height: 46px;
+  padding: 10px 0px; 
+  line-height: 1.3333333;
+  border-radius: 0px;
+}
+
+.gomak_logo_li_list {
+	padding-left: 0px;
+	li {
+		display: inline-block;
+    width: 152px;
+    height: 190px;
+    margin-right: 18px;
+    overflow: hidden;
+    vertical-align: top;
+    img {
+    	width: 152px;
+    }
+    label {
+    	margin-top: 5px;
+    }
+	}
+}
+
+// 바닥 트랙패드 시작
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 7px 0;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  background: #555;
+  border-radius: 25px;
+  border: 0px solid rgba(0, 0, 0, 0);
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px rgba(254, 210, 57, 0), 0px 0px 1px rgba(254, 216, 82, 0);
+  border: 1px solid rgba(254, 210, 57, 0);
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: #fed239;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #555;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  background: #555;
+  border-radius: 25px;
+  border: 0px solid rgba(0, 0, 0, 0);
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px rgba(254, 210, 57, 0), 0px 0px 1px rgba(254, 216, 82, 0);
+  border: 1px solid rgba(254, 210, 57, 0);
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: #fed239;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #9d9d9d;
+  border: 0px solid rgba(0, 0, 0, 0);
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+}
+input[type=range]::-ms-fill-upper {
+  background: #555;
+  border: 0px solid rgba(0, 0, 0, 0);
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px rgba(254, 210, 57, 0), 0px 0px 1px rgba(254, 216, 82, 0);
+  border: 1px solid rgba(254, 210, 57, 0);
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: #fed239;
+  cursor: pointer;
+  height: 3px;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #555;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #555;
+}
+//트랙패드 끝
+
+
