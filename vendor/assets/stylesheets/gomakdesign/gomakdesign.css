@@ -1,9 +1,11 @@
-.header h1 {
-  font-size: 40px;
-  font-weight: 600;
-  color: black; }
-  .header h1:last-child {
-    margin-top: 0px; }
+.header {
+  margin-top: 5%; }
+  .header h1 {
+    font-size: 40px;
+    font-weight: 600;
+    color: black; }
+    .header h1:last-child {
+      margin-top: 0px; }
 
 .chkbox-wrapper {
   margin-top: 20px;
@@ -172,5 +174,40 @@ input[type=range]:focus::-ms-fill-lower {
 
 input[type=range]:focus::-ms-fill-upper {
   background: #555; }
+
+#select_box {
+  position: relative;
+  width: 80%;
+  height: 35px;
+  border: 1px solid #000;
+  outline: none;
+  color: black; }
+  #select_box:focus {
+    border: 3px solid #fed328; }
+
+#select_box select#color {
+  width: 100%;
+  height: 40px;
+  min-height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  /* IE 8 */ }
+
+.complete-step {
+  border: 1px solid #999;
+  border-radius: 10px;
+  padding-bottom: 10px; }
+  .complete-step h1 {
+    color: black;
+    font-weight: 500; }
+
+.complete-image {
+  position: relative;
+  left: -15px; }
+
+.info-wrapper {
+  margin-top: 30px; }
 
 /*# sourceMappingURL=gomakdesign.css.map */

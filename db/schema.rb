@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170116053938) do
+ActiveRecord::Schema.define(version: 20170119005436) do
+
+  create_table "clients", force: :cascade do |t|
+    t.string   "title",          limit: 255
+    t.string   "com_name",       limit: 255
+    t.string   "service_intro",  limit: 255
+    t.string   "sectors",        limit: 255
+    t.date     "contract_date"
+    t.integer  "contract_month", limit: 4
+    t.string   "manager",        limit: 255
+    t.string   "manager_phone",  limit: 255
+    t.string   "manager_email",  limit: 255
+    t.string   "designer",       limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -23,6 +38,20 @@ ActiveRecord::Schema.define(version: 20170116053938) do
   end
 
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "complex_questions", force: :cascade do |t|
+    t.integer  "client_id",    limit: 4
+    t.string   "package_name", limit: 255
+    t.string   "step_2",       limit: 255,   default: "--- []\n"
+    t.string   "step_3",       limit: 255,   default: "--- []\n"
+    t.text     "step_4",       limit: 65535
+    t.string   "step_5",       limit: 255
+    t.text     "step_6",       limit: 65535
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+  end
+
+  add_index "complex_questions", ["client_id"], name: "index_complex_questions_on_client_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id",               limit: 4
@@ -117,6 +146,17 @@ ActiveRecord::Schema.define(version: 20170116053938) do
 
   add_index "shoppingcarts", ["order_id"], name: "index_shoppingcarts_on_order_id", using: :btree
   add_index "shoppingcarts", ["product_id"], name: "index_shoppingcarts_on_product_id", using: :btree
+
+  create_table "simples", force: :cascade do |t|
+    t.integer  "client_id",    limit: 4
+    t.string   "package_name", limit: 255
+    t.string   "step_2",       limit: 255
+    t.text     "step_3",       limit: 65535
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "simples", ["client_id"], name: "index_simples_on_client_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",       limit: 255

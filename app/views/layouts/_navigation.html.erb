@@ -71,6 +71,15 @@
                     <li class="<%= is_active_action('index') %>"><%= link_to "CS현황", admin_comments_index_path %></li>
                 </ul>
             </li>
+            <li class="<%= is_active_controller('admin_gomakdesigns') %>">
+                <a href=""><i class="fa fa-paint-brush"></i> <span class="nav-label" data-i18n="nav.admin_gomakdesign">디자인 진단서</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse <%= is_active_controller('admin_gomakdesigns') %>">
+                    <li class="<%= is_active_action('clients') %>"><%= link_to "클라이언트 등록", admin_gomakdesigns_clients_path %>
+                    </li>
+                    <li class="<%= is_active_action('lists') %>"><%= link_to "진단서 목록", admin_gomakdesigns_lists_path %>
+                    </li>
+                </ul>
+            </li>
             <li class="<%= is_active_controller('layoutsoptions') %>">
                 <%= link_to layoutsoptions_index_path do %>
                 <i class="fa fa-diamond"></i> <span class="nav-label" data-i18n="nav.layouts">Layouts</span> <span class="label label-primary pull-right">NEW</span>

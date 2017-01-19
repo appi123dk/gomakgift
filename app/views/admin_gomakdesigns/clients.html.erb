@@ -1,0 +1,59 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div style="padding-top: 70px">
+
+            <h3 class="logo-name" style="font-size: 80px; color: #000">무디패</h1>
+
+        </div>
+        <h3 style="margin-top: 50px;">클라이언트 등록</h3>
+        <p>
+            클라이언트 정보를 입력해주세요
+        </p>
+        <form class="m-t" role="form" action="<%= admin_gomakdesigns_clients_create_path %>" method="GET">
+                <label class="col-lg-4 control-label" style="margin-top: 7px">회사명 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="com_name" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">업종 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="sectors" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">계약일자 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="date" class="form-control" name="contract_date" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">계약단위 : </label>
+                <div class="form-group col-lg-8">
+                    <select class="form-control m-b" name="contract_month" required>
+                        <option value="" disabled selected>개월 수를 선택해 주세요</option>
+                        <option value="3">3개월</option>
+                        <option value="6">6개월</option>
+                        <option value="9">9개월</option>
+                    </select>
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">담당디자이너 : </label>
+                <div class="form-group col-lg-8">
+                    <select class="form-control m-b" name="designer" required>
+                        <option value="" disabled selected>디자이너를 선택해 주세요</option>
+                        <option value="Nano">김민지</option>
+                        <option value="Lina">이나래</option>
+                        <option value="Banf">이종윤</option>
+                    </select>
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">담당자 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="manager" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">담당자 전화번호 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="tel" class="form-control" name="manager_phone" required="" style="text-align: right" placeholder="ex) 010-0000-0000">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">담당자 이메일 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="email" class="form-control" name="manager_email" style="text-align: right">
+                </div>
+                <button type="submit" class="btn btn-info block full-width m-b">등록</button>
+            </form>
+        <!-- <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2015</small> </p> -->
+    </div>
+</div>

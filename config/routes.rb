@@ -5,7 +5,14 @@ Myapp::Application.routes.draw do
 
   # 무디패 routes
   get "gomakdesigns/index"
+  post "gomakdesigns/create"
+  get "gomakdesigns/complete"
 
+  # 무디패 관리자 routes
+  get "admin_gomakdesigns/lists"
+  get "admin_gomakdesigns/clients"
+  get "admin_gomakdesigns/clients_create"
+  get "admin_gomakdesigns/view/:id", to:'admin_gomakdesigns#view'
 
   # All routes
   # 고막기프트 routes

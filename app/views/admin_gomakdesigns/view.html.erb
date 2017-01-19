@@ -1,0 +1,99 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>디자인 진단서 내역</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="<%= url_for :controller => 'dashboards', :action => 'dashboard_1' %>">Home</a>
+            </li>
+            <li>
+                <a>GomakDesign</a>
+            </li>
+            <li class="active">
+                <strong>Design guide</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox product-detail">
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="font-bold m-b-xs">
+                                <%= @client.com_name %> <small>( 업종 : <%= @client.sectors %> )</small>
+                            </h2>
+                            <p><%= @client.service_intro %></p>
+                            <div class="m-t-md">
+                                <h3 class="product-main-price">계약기간 : <%= @client.contract_month %>개월 <small class="text-muted">(<%= @client.contract_date %> ~ <%= @client.contract_date + @client.contract_month.months - 1 %>)</small> </h3>
+                            </div>
+                            <% package_num = 1 %>
+                            <!-- simple db 반복구간 -->
+                            <% @client.simples.each do |simple| %>
+                                <hr>
+                                <h4>package <%= package_num %>. <%= simple.package_name %></h4>
+                                <div class="text-muted">
+                                    요청사항 : <%= simple.step_2 %>
+                                </div>
+                                <dl class="m-t-md">
+                                    <dt>디자인 브리핑</dt>
+                                    <dd><%= simple.step_3 %></dd>
+                                </dl>
+                                <% package_num += 1 %>
+                            <% end %>
+                            <!-- 반복구간 끝 -->
+
+                            <!-- complex db 반복구간 -->
+                            <% @client.complex_questions.each do |complex_q| %>
+                                <hr>
+                                <h4>package <%= package_num %>. <%= complex_q.package_name %></h4>
+                                <div class="text-muted">
+                                    <%= complex_q.step_6 %>
+                                </div>
+                                <dl class="m-t-md">
+                                    <dt>2번 질문</dt>
+                                    <dd><%= complex_q.step_2 %></dd>
+                                    <dt style="margin-top: 10px">3번 질문</dt>
+                                    <dd><%= complex_q.step_3 %></dd>
+                                    <dt style="margin-top: 10px">4번 질문</dt>
+                                    <dd><%= complex_q.step_4 %></dd>
+                                    <dt style="margin-top: 10px">5번 질문</dt>
+                                    <dd><%= complex_q.step_5 %></dd>
+                                </dl>
+                                <% package_num += 1 %>
+                            <% end %>
+                            <!-- 반복구간 끝 -->
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-footer">
+                    <strong>클라이언트 연락처</strong> <br/>
+                    Phone | <%= @client.manager_phone %> <br/> 
+                    Email | <%= @client.manager_email %>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<% content_for :javascript do %>
+
+<script type="text/javascript">
+
+
+// $(window).load(function() {
+
+//     $('.product-images').slick({
+//         dots: true
+//     });
+
+// });
+
+</script>
+
+<% end %>

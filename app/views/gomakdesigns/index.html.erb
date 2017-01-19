@@ -12,31 +12,31 @@
 			</p>
 		</div>
 	</div>
-	<div class="chkbox-wrapper col-lg-12">
-		<h4>원하시는 패키지를 선택해주세요</h4>
-		<label class="checkbox-inline">
-			<input type="checkbox" value="poster_design" class="chk-package"> 포스터 / 전단지 / 명함 / 봉투 디자인
-		</label>
-		<label class="checkbox-inline">
-			<input type="checkbox" value="broshure_design" class="chk-package"> 브로셔 / 리플렛
-		</label>
-		<label class="checkbox-inline">
-			<input type="checkbox" value="logo_design" class="chk-package"> 로고 디자인
-		</label>
-		<label class="checkbox-inline">
-			<input type="checkbox" value="package_design" class="chk-package"> 패키지 디자인
-		</label>
-		<label class="checkbox-inline">
-			<input type="checkbox" value="web_design" class="chk-package"> 웹 디자인
-		</label>
-		<label class="checkbox-inline">
-			<input type="checkbox" value="app_design" class="chk-package"> 앱 디자인
-		</label>
-		<label class="checkbox-inline">
-			<input type="checkbox" value="web_ad_design" class="chk-package"> 웹 광고 디자인
-		</label>
-	</div>
-	<form action="" role="form">
+	<form action="/gomakdesigns/create" method="POST">
+		<div class="chkbox-wrapper col-lg-12">
+			<h4>원하시는 패키지를 선택해주세요</h4>
+			<label class="checkbox-inline">
+				<input type="checkbox" value="poster_design" class="chk-package" name="chk_package[]"> 포스터 / 전단지 / 명함 / 봉투 디자인
+			</label>
+			<label class="checkbox-inline">
+				<input type="checkbox" value="broshure_design" class="chk-package" name="chk_package[]"> 브로셔 / 리플렛
+			</label>
+			<label class="checkbox-inline">
+				<input type="checkbox" value="logo_design" class="chk-package" name="chk_package[]"> 로고 디자인
+			</label>
+			<label class="checkbox-inline">
+				<input type="checkbox" value="package_design" class="chk-package" name="chk_package[]"> 패키지 디자인
+			</label>
+			<label class="checkbox-inline">
+				<input type="checkbox" value="web_design" class="chk-package" name="chk_package[]"> 웹 디자인
+			</label>
+			<label class="checkbox-inline">
+				<input type="checkbox" value="app_design" class="chk-package" name="chk_package[]"> 앱 디자인
+			</label>
+			<label class="checkbox-inline">
+				<input type="checkbox" value="web_ad_design" class="chk-package" name="chk_package[]"> 웹 광고 디자인
+			</label>
+		</div>
 		<div class="content-wrapper col-lg-12" id="common" style="padding-left:30px; padding-right: 30px;">
 			<div class="contents-header">
 				<h2>일반작성내용</h2>
@@ -44,32 +44,26 @@
 			<div class="contents-detail">
 				<div class="row">
 					<div class="col-sm-4 left-content">
-						<h2>1.</h2> <h4>의뢰하실 디자인을 설명해주세요</h4>
-						<p>디자이너가 좋은 디자인을 만들기 위해서는 <br>
-						자세한 설명이 필요합니다.<br>
-						가능한 많은 디자이너의 참여를 유도하기 위해<br>
-						최대한 자세히 적어주세요.<br>
+						<h2>1.</h2> <h4>회사를 선택해주세요</h4>
+						<p>사이트 주소를 받으셨다면 <br>
+						클라이언트로 등록이 완료된 상태입니다.<br>
+						오른쪽에 클라이언트를 선택해 주시고,<br>
+						프로젝트에 대한 간단한 설명을 적어주세요<br>
 						</p>
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
-						<label>제목 : </label>
-						<input type="text" class="input-large gomakform">
-						<small>ex) gomakculture logo 디자인의뢰</small>
+						<label>클라이언트 | </label>
+						<select name="client_id" id="select_box" required>
+							<option value="" selected disabled>본인의 회사를 선택해주세요</option>
+							<% @clients.each do |client| %>	
+								<option value="<%= client.id %>"><%= client.com_name %> - 담당자 : <%= client.manager %>님</option>
+							<% end %>
+						</select>
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
-						<label>회사(단체)명 : </label>
-						<input type="text" class="input-large gomakform">
-						<small>ex) gomakculture</small>
-					</div>
-					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
-						<label>회사 서비스 설명 : </label>
-						<textarea name="" style="height:100px" class="textarea input-large gomakform" cols="30" rows="40"></textarea>
-						<small>ex) gomakculture는 놀라운 아이디어를 통해 고객에게 브랜드 감동을 실현시키는 크리에이티브 프로모션 컴퍼니입니다. 자기복제를 통한 브랜드의 가치 상승과 기존의 업을 재 정의하면서 새롭게 혁신하는 기업입니다.</small>
-					</div>
-					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
-						<label>업종 : </label>
-						<input type="text" class="input-large gomakform">
-						<small>ex) 쇼핑몰, 식품/건강, 공기업/기관, 식당/카페, 기타</small>
+						<label>프로젝트 설명 | </label>
+						<textarea name="service_intro" style="height:100px" class="textarea input-large gomakform" cols="30" rows="40" required></textarea>
+						<small>프로젝트의 목적 및 방향성을 간단하게 적어주세요</small>
 					</div>
 				</div>
 			</div>
@@ -85,7 +79,7 @@
 						<h2>2.</h2> <h4>무엇을 디자인 해드릴까요?</h4>
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
-						<input type="text" class="input-large gomakform">
+						<input type="text" class="input-large gomakform" name="poster_design_step2">
 						<small>ex) 전시용 포스터, 일반 홍보용 전단지 등</small>
 					</div>
 				</div>
@@ -98,7 +92,7 @@
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
 						<!-- <label>회사 서비스 설명 : </label> -->
-						<textarea name="" style="height:200px" class="textarea input-large gomakform" cols="30" rows="40"></textarea>
+						<textarea name="poster_design_step3" style="height:200px" class="textarea input-large gomakform" cols="30" rows="40"></textarea>
 						<!-- <small>ex) gomakculture는 놀라운 아이디어를 통해 고객에게 브랜드 감동을 실현시키는 크리에이티브 프로모션 컴퍼니입니다. 자기복제를 통한 브랜드의 가치 상승과 기존의 업을 재 정의하면서 새롭게 혁신하는 기업입니다.</small> -->
 					</div>
 				</div>
@@ -115,7 +109,7 @@
 						<h2>2.</h2> <h4>어떤 용도로 활용하실 계획인가요?</h4>
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
-						<input type="text" class="input-large gomakform">
+						<input type="text" class="input-large gomakform" name="broshure_design_step2">
 						<small>ex) 전시용 포스터, 일반 홍보용 전단지 등</small>
 					</div>
 				</div>
@@ -128,7 +122,7 @@
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
 						<!-- <label>회사 서비스 설명 : </label> -->
-						<textarea name="" style="height:200px" class="textarea input-large gomakform" cols="30" rows="40"></textarea>
+						<textarea name="broshure_design_step3" style="height:200px" class="textarea input-large gomakform" cols="30" rows="40"></textarea>
 						<!-- <small>ex) gomakculture는 놀라운 아이디어를 통해 고객에게 브랜드 감동을 실현시키는 크리에이티브 프로모션 컴퍼니입니다. 자기복제를 통한 브랜드의 가치 상승과 기존의 업을 재 정의하면서 새롭게 혁신하는 기업입니다.</small> -->
 					</div>
 				</div>
@@ -148,35 +142,35 @@
 							<li>
 								<img src="<%= image_path('gomakdesign/logo_test.png') %>" alt="">
 								<label class="checkbox-inline">
-									<input type="checkbox" value="amblem" class="logo_style"> 엠블럼 로고
+									<input type="checkbox" value="amblem" class="logo_style" name="logo_design_step2[]"> 엠블럼 로고
 								</label>
 								<p>회사명이 포함된 그림/표장을 이용한 로고</p>
 							</li>
 							<li>
 								<img src="<%= image_path('gomakdesign/logo_test.png') %>" alt="">
 								<label class="checkbox-inline">
-									<input type="checkbox" value="amblem" class="logo_style"> 엠블럼 로고
+									<input type="checkbox" value="amblem" class="logo_style" name="logo_design_step2[]"> 엠블럼 로고
 								</label>
 								<p>회사명이 포함된 그림/표장을 이용한 로고 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, veritatis necessitatibus dolorem. Doloremque dolores aut quo quibusdam, quia porro possimus fugiat iusto voluptatem adipisci illo, enim, incidunt similique atque sequi.</p>
 							</li>
 							<li>
 								<img src="<%= image_path('gomakdesign/logo_test.png') %>" alt="">
 								<label class="checkbox-inline">
-									<input type="checkbox" value="amblem" class="logo_style"> 엠블럼 로고
+									<input type="checkbox" value="amblem" class="logo_style" name="logo_design_step2[]"> 엠블럼 로고
 								</label>
 								<p>회사명이 포함된 그림/표장을 이용한 로고</p>
 							</li>
 							<li>
 								<img src="<%= image_path('gomakdesign/logo_test.png') %>" alt="">
 								<label class="checkbox-inline">
-									<input type="checkbox" value="amblem" class="logo_style"> 엠블럼 로고
+									<input type="checkbox" value="amblem" class="logo_style" name="logo_design_step2[]"> 엠블럼 로고
 								</label>
 								<p>회사명이 포함된 그림/표장을 이용한 로고</p>
 							</li>
 							<li>
 								<img src="<%= image_path('gomakdesign/logo_test.png') %>" alt="">
 								<label class="checkbox-inline">
-									<input type="checkbox" value="amblem" class="logo_style"> 엠블럼 로고
+									<input type="checkbox" value="amblem" class="logo_style" name="logo_design_step2[]"> 엠블럼 로고
 								</label>
 								<p>회사명이 포함된 그림/표장을 이용한 로고</p>
 							</li>
@@ -202,7 +196,7 @@
 										<label>여성스러운</label>
 									</td>
 									<td>
-										<input type="range" min="0" max="10" step="1" />
+										<input type="range" min="0" max="10" step="1" name="logo_design_step3[]"/>
 									</td>
 									<td>
 										<label style="float:right">남성스러운</label>
@@ -214,7 +208,7 @@
 										<label>젊은</label>
 									</td>
 									<td>
-										<input type="range" min="0" max="10" step="1" />
+										<input type="range" min="0" max="10" step="1" name="logo_design_step3[]"/>
 									</td>
 									<td>
 										<label style="float:right">
@@ -228,7 +222,7 @@
 										<label>럭셔리한</label>
 									</td>
 									<td>
-										<input type="range" min="0" max="10" step="1" />
+										<input type="range" min="0" max="10" step="1" name="logo_design_step3[]"/>
 									</td>
 									<td>
 										<label style="float:right">
@@ -242,7 +236,7 @@
 										<label>모던한</label>
 									</td>
 									<td>
-										<input type="range" min="0" max="10" step="1" />
+										<input type="range" min="0" max="10" step="1" name="logo_design_step3[]"/>
 									</td>
 									<td>
 										<label style="float:right">
@@ -256,7 +250,7 @@
 										<label>재미있는</label>
 									</td>
 									<td>
-										<input type="range" min="0" max="10" step="1" />
+										<input type="range" min="0" max="10" step="1" name="logo_design_step3[]"/>
 									</td>
 									<td>
 										<label style="float:right">
@@ -270,7 +264,7 @@
 										<label>시끄러운</label>
 									</td>
 									<td>
-										<input type="range" min="0" max="10" step="1" />
+										<input type="range" min="0" max="10" step="1" name="logo_design_step3[]"/>
 									</td>
 									<td>
 										<label style="float:right">
@@ -285,7 +279,7 @@
 										<label>단순한</label>
 									</td>
 									<td>
-										<input type="range" min="0" max="10" step="1" />
+										<input type="range" min="0" max="10" step="1" name="logo_design_step3[]"/>
 									</td>
 									<td>
 										<label style="float:right">
@@ -299,7 +293,7 @@
 										<label>모호한</label>
 									</td>
 									<td>
-										<input type="range" min="0" max="10" step="1" />
+										<input type="range" min="0" max="10" step="1" name="logo_design_step3[]"/>
 									</td>
 									<td>
 										<label style="float:right">
@@ -318,7 +312,7 @@
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
 						<!-- <label>회사(단체)명 : </label> -->
-						<input type="text" class="input-large gomakform">
+						<input type="text" class="input-large gomakform" name="logo_design_step4">
 						<small>ex) 하얀색, 노란색 보편적으로 색상이 가진 상징적 의미는 아래와 같습니다. <br/> 빨간색: 열정, 분노, 활력, 사랑, 위험 노란색: 지식, 에너지, 환희, 지성, 청춘 <br/> 초록색: 비옥함, 부, 치유, 성공, 성장, 자연 하얀색: 순수, 완벽, 꺠끗함, 선행 <br/> 파란색: 지식, 믿음, 평온함, 차분함, 평화, 시원함 <br/>검정색: 두려움, 비밀, 정중함, 럭셔리함 <br/>보라색: 고상함, 지혜, 정신적임, 상상력 <br/>주황색: 창의성, 격려, 독특함, 자극 회색: 균형, 세련됨, 중립적임</small>
 					</div>
 				</div>
@@ -329,7 +323,7 @@
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
 						<!-- <label>회사(단체)명 : </label> -->
-						<input type="text" class="input-large gomakform">
+						<input type="text" class="input-large gomakform" name="logo_design_step5">
 						<small>
 							ex) 프린트물 (명함, 편지지, 브로셔 등 ) <br/>
 							인터넷 (웹사이트, 인터넷광고, 배너 등) <br/>
@@ -348,7 +342,7 @@
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
 						<!-- <label>회사 서비스 설명 : </label> -->
-						<textarea name="" style="height:200px" class="textarea input-large gomakform" cols="30" rows="40"></textarea>
+						<textarea name="logo_design_step6" style="height:200px" class="textarea input-large gomakform" cols="30" rows="40"></textarea>
 						<!-- <small>ex) gomakculture는 놀라운 아이디어를 통해 고객에게 브랜드 감동을 실현시키는 크리에이티브 프로모션 컴퍼니입니다. 자기복제를 통한 브랜드의 가치 상승과 기존의 업을 재 정의하면서 새롭게 혁신하는 기업입니다.</small> -->
 					</div>
 				</div>
@@ -364,7 +358,7 @@
 						<h2>2.</h2> <h4>어떤 상품의 패키지인가요?</h4>
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
-						<input type="text" class="input-large gomakform">
+						<input type="text" class="input-large gomakform" name="package_design_step2">
 					</div>
 				</div>
 				<hr style="border-top: 1px solid rgba(0,0,0,0.05)">
@@ -376,7 +370,7 @@
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
 						<!-- <label>회사 서비스 설명 : </label> -->
-						<textarea name="" style="height:200px" class="textarea input-large gomakform" cols="30" rows="40"></textarea>
+						<textarea name="package_design_step3" style="height:200px" class="textarea input-large gomakform" cols="30" rows="40"></textarea>
 						<!-- <small>ex) gomakculture는 놀라운 아이디어를 통해 고객에게 브랜드 감동을 실현시키는 크리에이티브 프로모션 컴퍼니입니다. 자기복제를 통한 브랜드의 가치 상승과 기존의 업을 재 정의하면서 새롭게 혁신하는 기업입니다.</small> -->
 					</div>
 				</div>
@@ -396,7 +390,7 @@
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
 						<!-- <label>제목 : </label> -->
-						<input type="text" class="input-large gomakform" value="http://">
+						<input type="text" class="input-large gomakform" value="http://" name="web_design_step2">
 						<!-- <small>ex) gomakculture logo 디자인의뢰</small> -->
 					</div>
 				</div>
@@ -410,7 +404,7 @@
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
 						<!-- <label>제목 : </label> -->
-						<input type="text" class="input-large gomakform">
+						<input type="text" class="input-large gomakform" name="web_design_step3">
 						<!-- <small>ex) gomakculture logo 디자인의뢰</small> -->
 					</div>
 				</div>
@@ -426,7 +420,7 @@
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
 						<!-- <label>회사 서비스 설명 : </label> -->
-						<textarea name="" style="height:200px" class="textarea input-large gomakform" cols="30" rows="40"></textarea>
+						<textarea name="web_design_step4" style="height:200px" class="textarea input-large gomakform" cols="30" rows="40"></textarea>
 						<!-- <small>ex) gomakculture는 놀라운 아이디어를 통해 고객에게 브랜드 감동을 실현시키는 크리에이티브 프로모션 컴퍼니입니다. 자기복제를 통한 브랜드의 가치 상승과 기존의 업을 재 정의하면서 새롭게 혁신하는 기업입니다.</small> -->
 					</div>
 				</div>
@@ -440,7 +434,7 @@
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
 						<!-- <label></label> -->
-						<textarea name="" style="height:120px" class="textarea input-large gomakform" cols="30" rows="40"></textarea>
+						<textarea name="web_design_step5" style="height:120px" class="textarea input-large gomakform" cols="30" rows="40"></textarea>
 						<!-- <small>ex) gomakculture는 놀라운 아이디어를 통해 고객에게 브랜드 감동을 실현시키는 크리에이티브 프로모션 컴퍼니입니다. 자기복제를 통한 브랜드의 가치 상승과 기존의 업을 재 정의하면서 새롭게 혁신하는 기업입니다.</small> -->
 					</div>
 				</div>
@@ -453,7 +447,7 @@
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
 						<!-- <label>회사 서비스 설명 : </label> -->
-						<textarea name="" style="height:200px" class="textarea input-large gomakform" cols="30" rows="40"></textarea>
+						<textarea name="web_design_step6" style="height:200px" class="textarea input-large gomakform" cols="30" rows="40"></textarea>
 						<!-- <small>ex) gomakculture는 놀라운 아이디어를 통해 고객에게 브랜드 감동을 실현시키는 크리에이티브 프로모션 컴퍼니입니다. 자기복제를 통한 브랜드의 가치 상승과 기존의 업을 재 정의하면서 새롭게 혁신하는 기업입니다.</small> -->
 					</div>
 				</div>
@@ -471,8 +465,7 @@
 						</p>
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
-						<!-- <label>회사 서비스 설명 : </label> -->
-						<textarea name="" style="height:100px" class="textarea input-large gomakform" cols="30" rows="40"></textarea>
+						<input type="text" class="input-large gomakform" name="app_design_step2">
 					</div>
 				</div>
 				<hr style="border-top: 1px solid rgba(0,0,0,0.05)">
@@ -484,7 +477,7 @@
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
 						<!-- <label>회사 서비스 설명 : </label> -->
-						<textarea name="" style="height:200px" class="textarea input-large gomakform" cols="30" rows="40"></textarea>
+						<textarea name="app_design_step3" style="height:200px" class="textarea input-large gomakform" cols="30" rows="40"></textarea>
 						<!-- <small>ex) gomakculture는 놀라운 아이디어를 통해 고객에게 브랜드 감동을 실현시키는 크리에이티브 프로모션 컴퍼니입니다. 자기복제를 통한 브랜드의 가치 상승과 기존의 업을 재 정의하면서 새롭게 혁신하는 기업입니다.</small> -->
 					</div>
 				</div>
@@ -500,7 +493,7 @@
 						<h2>2.</h2> <h4>어떤 영역에 광고하실 예정인가요?</h4>
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
-						<input type="text" class="input-large gomakform">
+						<input type="text" class="input-large gomakform" name="web_ad_design_step2">
 						<small>ex) 네이버 디스플레이 광고</small>
 					</div>
 				</div>
@@ -513,7 +506,7 @@
 					</div>
 					<div class="col-sm-offset-1 col-sm-7 form-group form-group-block right-content">
 						<!-- <label>회사 서비스 설명 : </label> -->
-						<textarea name="" style="height:200px" class="textarea input-large gomakform" cols="30" rows="40"></textarea>
+						<textarea name="web_ad_design_step3" style="height:200px" class="textarea input-large gomakform" cols="30" rows="40"></textarea>
 						<!-- <small>ex) gomakculture는 놀라운 아이디어를 통해 고객에게 브랜드 감동을 실현시키는 크리에이티브 프로모션 컴퍼니입니다. 자기복제를 통한 브랜드의 가치 상승과 기존의 업을 재 정의하면서 새롭게 혁신하는 기업입니다.</small> -->
 					</div>
 				</div>
@@ -533,13 +526,13 @@
 						<p style="margin-bottom: 0px; padding-top: 10px;">
 							현재 사용중인 도구, 사진, 일러스트레이션, 레이아웃 아이디어 등 <br>
 							파일을 압축해서 .zip 형태로 보내주세요. <br>
-							보내실 이메일 주소는 head_director@gomakculture.com 입니다
+							보내실 이메일 주소는 design@gomakculture.com 입니다
 						</p>
 					</div>
 				</div>
 		</div>
 
-		<button class="btn btn-info btn-lg btn-block" style="border-radius: 0px; font-size:15px">진단서 제출하기</button>
+		<button type="submit" class="btn btn-info btn-lg btn-block" style="border-radius: 0px; font-size:15px">진단서 제출하기</button>
 	</form>
 </div>
 
