@@ -1,7 +1,7 @@
 Myapp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
-  root to: 'dashboards#dashboard_1'
+  root to: 'gomakdesigns#index'
 
   # 무디패 routes
   get "gomakdesigns/index"
