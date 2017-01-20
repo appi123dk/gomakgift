@@ -12,6 +12,9 @@ Myapp::Application.routes.draw do
   get "admin_gomakdesigns/lists"
   get "admin_gomakdesigns/clients"
   get "admin_gomakdesigns/clients_create"
+  get "admin_gomakdesigns/edit/:id", to:'admin_gomakdesigns#edit'
+  get "admin_gomakdesigns/update/:id", to:'admin_gomakdesigns#update'
+  get "admin_gomakdesigns/clients_create"
   get "admin_gomakdesigns/view/:id", to:'admin_gomakdesigns#view'
 
   # All routes
