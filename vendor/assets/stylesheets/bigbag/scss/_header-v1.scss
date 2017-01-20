@@ -256,7 +256,7 @@
 	}
 }
 .navbar-default{
-	@include box-shadow (0, 2px, 4px, rgba(0, 0, 0, 0.1));
+	// @include box-shadow (0, .2px, .2px, rgba(0, 0, 0, 0.1));
 	background-color: $black-transper-color;
 	margin-bottom: 0;
 	border: none;
@@ -281,18 +281,18 @@
 			display: inline-block;
 			@include mobile-xs {
 				padding:0 15px;
-				margin-top: 10px;
+				margin-top: 9px;
 				margin-left: -40px;
 			}
 			@include mobile {
 				padding:0 15px;
-				margin-top: 10px;
+				margin-top: 9px;
 				margin-left: -40px;
 			}
 			@include tablet {
-				padding: 0 15px;
-				margin-top: 15px;
-				margin-left: -55px;
+				padding: 0 0 0 15px;
+				margin-top: 9px;
+				margin-left: -40px;
 			}
 		}
 	}
@@ -306,12 +306,12 @@
 		}
 		@include tablet{
 			height: auto;
-			float: right;
+			float: left;
 			padding:0px 0 0;
 		}
 		li{
 			a{
-				font-size: 14px;
+				font-size: 13px;
 				color: $nav-font-color;
 				text-transform: uppercase;
 				font-weight: 500;
@@ -320,7 +320,7 @@
 					padding: 6px 15px;
 				}
 				@include tablet {
-					padding:20px  15px 20px;
+					padding:20.5px  15px 8.5px;
 				}
 				&:hover, &.focus, &:focus{
 					color: $primary-color;
@@ -428,7 +428,7 @@
 							}
 							@include desktops{
 								padding: 10px 12px 10px 30px;
-								font-size: 14px;
+								font-size: 12px;
 							}
 						}
 					}
@@ -527,10 +527,10 @@
 }
 .navbar-default{
 	.navbar-nav{
-		height: 60px;
+		height: 50px;
 		>.open{
 			>a{
-				height: 60px;
+				height: 50px;
 				background-color: $black-transper-color;
 				color: $nav-font-color;
 				&:focus, &:hover{
@@ -550,6 +550,9 @@ body.bodyColor.container {
 @include desktops {
 	.container {
 	    width: 970px!important;
+	}
+	.container-custom {
+			width: 100%!important;
 	}
 	body.bodyColor .header {
 	    max-width: 970px;

@@ -2,7 +2,7 @@
 <a id="toTop" href="#"><img src="<%= image_path('bigbag/arrows/up-arrow-icon.png') %>" width="55" height="55" alt="맨 위로"></a>
 
 <!-- BANNER -->
-<div class="bannercontainer bannerV1" style="margin-top: 60px;">
+<div class="bannercontainer bannerV1" style="margin-top: 50px;">
   <div class="fullscreenbanner-container">
     <div class="fullscreenbanner" style="background-image: url('https://www.tee-mood.com/uploads/2016122615/CsJr3TaMKg.jpg'); background-position: center center; background-repeat: no-repeat; background-size: cover">
       <div class="main-product">
@@ -20,6 +20,196 @@
 
 <!-- MAIN CONTENT SECTION -->
 <section class="mainContent clearfix" style="padding-top: 20px">
+<div class="container">
+  <div class="row singleProduct">
+    <div class="col-xs-12">
+      <div class="media">
+        <div class="media-left productSlider">
+          <div id="carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="item active" data-thumb="0">
+               <img src="http://image.29cm.co.kr/contents/itemIcon/201701/20170105121832.jpg?cmd=thumb&width=600&height=600" alt="" width="100%">
+              </div>
+              <div class="item" data-thumb="1">
+                <img src="http://image.29cm.co.kr/contents/itemIcon/201701/20170104165556.jpg?cmd=thumb&width=600&height=600" alt="" width="100%">
+              </div>
+              <div class="item" data-thumb="2">
+                <img src="http://image.29cm.co.kr/contents/itemIcon/201701/20170105121832.jpg?cmd=thumb&width=600&height=600" alt="" width="100%">
+              </div>
+              <div class="item" data-thumb="3">
+                <img src="http://image.29cm.co.kr/contents/itemIcon/201611/20161129132818.jpg?cmd=thumb&width=600&height=600" alt="" width="100%">
+              </div>
+            </div>
+          </div> 
+          <div class="clearfix">
+            <div id="thumbcarousel" class="carousel slide" data-interval="false">
+              <div class="carousel-inner">
+                  <div data-target="#carousel" data-slide-to="0" class="thumb"><img src="<%= image_path('bigbag/products/signle-product/product-slide-small-01.jpg') %>"></div>
+                  <div data-target="#carousel" data-slide-to="1" class="thumb"><img src="<%= image_path('bigbag/products/signle-product/product-slide-small-02.jpg') %>"></div>
+                  <div data-target="#carousel" data-slide-to="2" class="thumb"><img src="<%= image_path('bigbag/products/signle-product/product-slide-small-03.jpg') %>"></div>
+                  <div data-target="#carousel" data-slide-to="3" class="thumb"><img src="<%= image_path('bigbag/products/signle-product/product-slide-small-04.jpg') %>"></div>
+              </div>
+              <a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+              </a>
+              <a class="right carousel-control" href="#thumbcarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="media-body">
+          <ul class="list-inline">
+            <div class="single-product-descript">
+              <div class="single-product-header">
+                <h3>씨앗연필</h3>
+                <p>한 글자 한 글자 씨앗에 심어넣으세요</p>
+              </div>
+              <hr>  
+              <div class="col-sm-4">
+                <h6>추천행사</h6>
+                <h6>패키지여부</h6>
+                <h6>상품간략설명</h6>
+              </div>
+              <div class="col-sm-8">
+                <p class="product-info">돌잔치, 결혼식, 기업홍보</p>
+                <p class="product-info">기본 패키지 증정</p>
+                <p class="product-info">연필의 사각사각거리는 소리를 들은 적이 언제인지 기억 하시나요? 추억의 몽당연필이 다시 살아나도록 도와주세요!</p>
+              </div>
+              <h3>$149</h3>
+              <p>Mauris lobortis augue ex, ut faucibus nisi mollis ac. Sed volutpat scelerisque ex ut ullamcorper. Cras at velit quis sapien dapibus laoreet a id odio. Sed sit amet accumsan ante, eu congue metus. Aenean eros tortor, cursus quis feugiat sed, vestibulum vel purus. Etiam aliquam turpis quis blandit finibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor placerat lectus, facilisis ornare leo tincidunt vel. Duis rutrum felis felis, eget malesuada massa tincidunt a.</p>
+            </div>
+          <span class="quick-drop">
+            <select name="guiest_id3" id="guiest_id3" class="select-drop">
+              <option value="0">Size</option>
+              <option value="1">Small</option>
+              <option value="2">Medium</option>
+              <option value="3">Big</option>            
+            </select>
+          </span>
+          <span class="quick-drop resizeWidth">
+            <select name="guiest_id4" id="guiest_id4" class="select-drop">
+              <option value="0">Qty</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>            
+            </select>
+          </span>
+          <div class="btn-area">
+            <a href="cart-page.html" class="btn btn-primary btn-block">Add to cart <i class="fa fa-angle-right" aria-hidden="true"></i></a> 
+          </div>
+          <div class="tabArea">
+            <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#details">details</a></li>
+              <li><a data-toggle="tab" href="#about-art">about art</a></li>
+              <li><a data-toggle="tab" href="#sizing">sizing</a></li>
+              <li><a data-toggle="tab" href="#shipping">shipping</a></li>
+            </ul>
+            <div class="tab-content">
+              <div id="details" class="tab-pane fade in active">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <ul class="list-unstyled">
+                  <li>Black, Crew Neck</li>
+                  <li>75% Cotton, 25% Rayon</li>
+                  <li>Waterbased Ink</li>
+                  <li>Wash Cold, dry low</li>
+                </ul>
+              </div>
+              <div id="about-art" class="tab-pane fade">
+                <p>Nulla facilisi. Mauris efficitur, massa et iaculis accumsan, mauris velit ultrices purus, quis condimentum nibh dolor ut tortor. Donec egestas tortor quis mattis gravida. Ut efficitur elit vitae dignissim volutpat. </p>
+              </div>
+              <div id="sizing" class="tab-pane fade">
+                <p>Praesent dui felis, gravida a auctor at, facilisis commodo ipsum. Cras eu faucibus justo. Nullam varius cursus nisi, sed elementum sem sagittis at. Nulla tellus massa, vestibulum a commodo facilisis, pulvinar convallis nunc.</p>
+              </div>
+              <div id="shipping" class="tab-pane fade">
+                <p>Mauris lobortis augue ex, ut faucibus nisi mollis ac. Sed volutpat scelerisque ex ut ullamcorper. Cras at velit quis sapien dapibus laoreet a id odio. Sed sit amet accumsan ante, eu congue metus. Aenean eros tortor, cursus quis feugiat sed, vestibulum vel purus.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row productsContent">
+    <div class="col-xs-12">
+      <div class="page-header">
+        <h4>Related Products</h4>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="productBox">
+        <div class="productImage clearfix">
+          <img src="img/products/products-01.jpg" alt="products-img">
+          <div class="productMasking">
+            <ul class="list-inline btn-group" role="group">
+              <li><a data-toggle="modal" href=".login-modal" class="btn btn-default"><i class="fa fa-heart"></i></a></li>
+              <li><a href="cart-page.html" class="btn btn-default"><i class="fa fa-shopping-cart"></i></a></li>
+              <li><a class="btn btn-default" data-toggle="modal" href=".quick-view" ><i class="fa fa-eye"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="productCaption clearfix">
+         <h5>Nike Sportswear</h5>
+         <h3>$199</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="productBox">
+        <div class="productImage clearfix">
+          <img src="img/products/products-02.jpg" alt="products-img">
+          <div class="productMasking">
+            <ul class="list-inline btn-group" role="group">
+              <li><a data-toggle="modal" href=".login-modal" class="btn btn-default"><i class="fa fa-heart"></i></a></li>
+              <li><a href="cart-page.html" class="btn btn-default"><i class="fa fa-shopping-cart"></i></a></li>
+              <li><a class="btn btn-default" data-toggle="modal" href=".quick-view" ><i class="fa fa-eye"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="productCaption clearfix">
+         <h5>Dip Dyed Sweater</h5>
+         <h3>$249</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="productBox">
+        <div class="productImage clearfix">
+          <img src="img/products/products-03.jpg" alt="products-img">
+          <div class="productMasking">
+            <ul class="list-inline btn-group" role="group">
+              <li><a data-toggle="modal" href=".login-modal" class="btn btn-default"><i class="fa fa-heart"></i></a></li>
+              <li><a href="cart-page.html" class="btn btn-default"><i class="fa fa-shopping-cart"></i></a></li>
+              <li><a class="btn btn-default" data-toggle="modal" href=".quick-view" ><i class="fa fa-eye"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="productCaption clearfix">
+         <h5>Scarf Ring Corner</h5>
+         <h3>$179</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="productBox">
+        <div class="productImage clearfix">
+          <img src="img/products/products-04.jpg" alt="products-img">
+          <div class="productMasking">
+            <ul class="list-inline btn-group" role="group">
+              <li><a data-toggle="modal" href=".login-modal" class="btn btn-default"><i class="fa fa-heart"></i></a></li>
+              <li><a href="cart-page.html" class="btn btn-default"><i class="fa fa-shopping-cart"></i></a></li>
+              <li><a class="btn btn-default" data-toggle="modal" href=".quick-view" ><i class="fa fa-eye"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="productCaption clearfix">
+         <h5>Sun Buddies</h5>
+         <h3>$149</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-lg-6 col-lg-offset-3" id = "product_information">
     <div class="singleProduct">

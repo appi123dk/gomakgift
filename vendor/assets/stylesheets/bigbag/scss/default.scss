@@ -223,13 +223,16 @@ $primary-color-light:#fee032;
 	background-color: rgba($primary-color, .9);
 }
 .fullscreenbanner-container .tp-bullets.preview4{
-	@include linear-gradient(to bottom, $primary-color-light 0%, $primary-color-light 50%, $primary-color 51%, $primary-color 100%);
+	// @include linear-gradient(to bottom, $primary-color-light 0%, $primary-color-light 50%, $primary-color 51%, $primary-color 100%);
+	background-color: transparent;
 }
 .fullscreenbanner-container .tp-bullets.preview4::before{
-	@include linear-gradient(135deg, $primary-color-light 0%, $primary-color-light 50%, $primary-color 51%, $primary-color 100%);
+	// @include linear-gradient(135deg, $primary-color-light 0%, $primary-color-light 50%, $primary-color 51%, $primary-color 100%);
+	background-color: transparent;
 }
 .fullscreenbanner-container .tp-bullets.preview4::after{
-	@include linear-gradient(135deg, $primary-color-light 0%, $primary-color-light 50%, $primary-color 51%, $primary-color 100%);
+	// @include linear-gradient(135deg, $primary-color-light 0%, $primary-color-light 50%, $primary-color 51%, $primary-color 100%);
+	background-color: transparent;
 }
 .darkSection{
 	.btn-default{

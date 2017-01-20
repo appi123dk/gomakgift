@@ -218,19 +218,13 @@
   background-color: rgba(254, 224, 50, 0.9); }
 
 .fullscreenbanner-container .tp-bullets.preview4 {
-  background: #fee032;
-  background: -webkit-linear-gradient(legacy-direction(to bottom), #fee032 0%, #fee032 50%, #fee032 51%, #fee032 100%);
-  background: linear-gradient(to bottom, #fee032 0%, #fee032 50%, #fee032 51%, #fee032 100%); }
+  background-color: transparent; }
 
 .fullscreenbanner-container .tp-bullets.preview4::before {
-  background: #fee032;
-  background: -webkit-linear-gradient(legacy-direction(135deg), #fee032 0%, #fee032 50%, #fee032 51%, #fee032 100%);
-  background: linear-gradient(135deg, #fee032 0%, #fee032 50%, #fee032 51%, #fee032 100%); }
+  background-color: transparent; }
 
 .fullscreenbanner-container .tp-bullets.preview4::after {
-  background: #fee032;
-  background: -webkit-linear-gradient(legacy-direction(135deg), #fee032 0%, #fee032 50%, #fee032 51%, #fee032 100%);
-  background: linear-gradient(135deg, #fee032 0%, #fee032 50%, #fee032 51%, #fee032 100%); }
+  background-color: transparent; }
 
 .darkSection .btn-default {
   border: 2px solid rgba(254, 224, 50, 0.5); }

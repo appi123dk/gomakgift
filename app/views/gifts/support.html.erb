@@ -2,14 +2,22 @@
 <section class="mainContent clearfix m-t-60">
   <div class="container">
     <div class="accordion margin-bottom">
-      <div class="page-header margin-bottom">
-        <h1>FAQ</h1>
-        <div class="small-line" style="margin-left: 0px"></div>
-        <h5 style="margin-bottom: 10px">찾으시는 답변이 없으면 1 : 1 문의하기를 이용해주세요</h5>
-        <a href='<%= session[:user_id] ? "/gifts/inquire/#{session[:user_id]}" : "/users/login_inquire" %>' style="color: rgba(0, 0, 0, 0.7); font-weight: bold">[ 1:1 문의하기 ]</a>
+      <div class="cs-detail margin-bottom col-sm-12">
+        <h1 class="cs-title" >FAQ</h1>
+        <div class="col-sm-4">
+          <input type="text" class="search-input">
+          <h5 style="margin-bottom: 5px">찾으시는 답변이 없으면 1 : 1 문의하기를 이용해주세요</h5>
+          <a href='<%= session[:user_id] ? "/gifts/inquire/#{session[:user_id]}" : "/users/login_inquire" %>' style="color: rgba(0, 0, 0, 0.7); font-weight: bold">[ 1:1 문의하기 ]</a>
+        </div>
+        <div class="col-sm-offset-2 col-sm-6" style="text-align: right;">
+          <h5 style="margin-bottom: 10px">고객문의</h5>
+          <h1>1522 - 9406</h1>
+          <h6 style="margin-top: 0px;margin-bottom: 5px">support@gomakgift.com</h6>
+          <h6 style="margin-top: 5px">AM 09:30 - PM 06:30</h6>
+        </div>
       </div>
       <div class="row">
-        <div class="col-xs-12" style="padding-right: 0px">
+        <div class="col-xs-12" style="padding-right: 0px; padding-left: 5px;">
           <div class="accordionCommon" id="accordionTwo">
             <div class="panel-group" id="accordionSecond">
               <div class="panel panel-default" style="border-radius: 0px">

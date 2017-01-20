@@ -1,6 +1,44 @@
 /*================= 3.1 HOME ==================*/
-
+@import url('https://fonts.googleapis.com/earlyaccess/notosanskr.css');
 /*=== 3.1.1 WHITE SECTION ===*/
+
+//메인페이지 하단 CS 및 사이트맵 관련
+.footer-custom{
+	padding: 21px 0 19px 0;
+	border-top: 1px solid $black-color;
+	.category{
+		line-height: 18px;
+		margin-bottom: 9px;
+	}
+	.link {
+		color: #222;
+		line-height: 22px;
+	}
+}
+.cs-detail{
+	padding-left: 5px;
+}
+// 끝
+// FAQ 페이지관련
+.cs-title {
+	font-size: 55px; 
+	font-weight: 800; 
+	letter-spacing: 3px;
+	color: black;
+	margin-bottom: 30px;
+}
+
+.search-input{
+	width: 100%;
+	margin-bottom: 10px;
+	height: 50px;
+	border: 8px solid #fed329;
+	padding-left: 5px;
+}
+// 끝
+
+//
+
 .small-line {
 	width:3em; 
 	border-bottom: 3px solid #000000; 
@@ -12,7 +50,7 @@
 	@include add-border(5px, $border-light, bottom);
 	h4{
 		margin-bottom: 0;
-		text-transform: uppercase;
+		// text-transform: uppercase;
 	}
 }
 .masking-hover{
@@ -108,7 +146,7 @@
 		display: block;
 		h5{
 			font-size: 12px;
-			text-transform: uppercase;
+			// text-transform: uppercase;
 			letter-spacing: 1px;
 			margin-bottom: 10px;
 			a{
@@ -140,7 +178,7 @@
 	min-height: 55px;
 	@extend .content-center;
 	@include add-border(3px, $white-color, all);
-	text-transform: uppercase;
+	// text-transform: uppercase;
 	font-weight: 700;
 	color: $white-color;
 	font-size: 16px;
@@ -158,9 +196,50 @@
 		@include mobile-xs{
 			margin-top: 60px;	
 		}
+		@include tablet{
+			margin-top: 90px;
+		}
 	}
 
 .whiteSection, .mainContent{
+	// 메인페이지 상품 화면 구성
+	.container{
+		width: 70%!important;
+		@include mobile{
+			width: 100%!important;
+		}
+		@include mobile-xs{
+			width: 100%!important;
+		}
+		@include tablet{
+			width:70%!important;
+		}
+		.col-sm-9{
+			padding-left:0px!important;
+		}
+		.col-sm-4{
+			padding-right:0px!important;
+			padding-left:0px!important;
+		}
+		.col-sm-3{
+			padding-right:0px!important;
+		}
+	}
+	.products-header{
+		text-align:center;
+	}
+	.products-descript{
+		margin-top: 10px;
+		margin-bottom: 40px;
+		.product-title {
+			font-size: 14px;
+			font-weight: 300;
+		}
+		.product-detail{
+			font-size: 12px;
+			color: #888;
+		}
+	}
 	label {
 		&.error{
 			color: #fe8a32;
@@ -292,7 +371,7 @@
 		padding: 90px 0 0 0;	
 	}
 	@include tablet{
-		padding: 90px 0 60px 0;	
+		padding: 0 0 60px 0;	
 	}
 	.featuredCollection{
 		.thumbnail{
@@ -328,7 +407,7 @@
 			.caption{
 				h4{
 					margin-bottom: 0;
-					text-transform: uppercase;
+					// text-transform: uppercase;
 					@include transition(all 0.3s ease-in-out);
 				}
 			}
@@ -351,7 +430,7 @@
 				font-size: 12px;
 				letter-spacing: 1px;
 				line-height: 18px;
-				text-transform: uppercase;
+				// text-transform: uppercase;
 				margin-bottom: 0;
 				a{
 					font-size: inherit;
@@ -428,3 +507,6 @@
 	0% {top:55%;}
 	100% {top:50%;}
 }
+
+
+

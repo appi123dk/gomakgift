@@ -163,6 +163,18 @@
 }
 /*=== 4.1.2 COPY RIGHT ===*/
 .copyRight{
+	.container{
+		width:70%!important;
+		.col-sm-7{
+			padding-left: 0px!important;
+		}
+		@include mobile-xs{
+			width:100%!important;
+		}
+		@include tablet{
+			width:70%!important;
+		}
+	}
 	display: block;
 	width: 100%;
 	min-height: 53px;

@@ -1,5 +1,5 @@
 <!-- BANNER -->
-<div class="bannercontainer bannerV1" style="margin-top: 60px">
+<div class="bannercontainer bannerV1" style="margin-top: 50px;">
   <div class="fullscreenbanner-container">
     <div class="fullscreenbanner">
       <ul>
@@ -30,16 +30,16 @@
 
             <div class="tp-caption rs-caption-3 sft"
               data-hoffset="0"
-              data-y="185"
+              data-y="200"
               data-speed="1000"
               data-start="3000"
               data-easing="Power4.easeOut"
               data-endspeed="300"
               data-endeasing="Power1.easeIn"
               data-captionhidden="off">
+              <p>한글자 한글자 써내려간 마음을 심다</p>
               환경까지 생각한 최고의 선택! <br>
-              다 쓰고나면 화분에 심어주세요 <br>
-              <!-- <small>2016 New arrival</small> -->
+              다 쓰고나면 화분에 심어주세요  
             </div>
           </div>
         </li>
@@ -49,7 +49,7 @@
           <div class="slider-caption slider-captionV1 container captionCenter">
             <div class="tp-caption rs-caption-1 sft start text-center"
               data-x="center"
-              data-y="150"
+              data-y="100"
               data-speed="800"
               data-start="1500"
               data-easing="Back.easeInOut"
@@ -59,7 +59,7 @@
 
             <div class="tp-caption rs-caption-2 sft text-center"
               data-x="center"
-              data-y="98"
+              data-y="120"
               data-speed="800"
               data-start="2000"
               data-easing="Back.easeInOut"
@@ -152,18 +152,15 @@
 </div>
 
 <!-- MAIN CONTENT SECTION -->
-<section class="mainContent clearfix" style="padding-top: 50px">
+<section class="mainContent clearfix" style="padding-bottom: 0px">
+  <!-- 1단 상품 -->
   <div class="container-custom">
     <!-- FEATURE COLLECTION SECTION -->
     <div class="row featuredCollection version2">
-      <div class="page-header" style="margin-bottom: 0px; border-bottom: 0px">
-        <h2>Featured Products</h2>
-      </div>
-      <div class="small-line"></div>
       <!-- 반복구간 -->
       <% @products.each do |product| %>
       <div class="col-sm-3 col-xs-12" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
-        <div class="slide" style="margin-top: 10px;">
+        <div class="slide">
           <div class="productImage clearfix text-left">
             <a href="/gifts/single_product/<%= product.id %>"><img src="<%= product.product_image %>" alt="Product Image"></a>
           </div>
@@ -177,7 +174,7 @@
       <% end %>
       <!-- 끝 -->
       <div class="col-sm-3 col-xs-12" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
-        <div class="slide" style="margin-top: 10px;">
+        <div class="slide">
           <div class="productImage clearfix text-left">
             <a href="single-product.html"><img src="<%= image_path('bigbag/home/featured-collection/product-img1.png') %>" alt="Product Image"></a>
           </div>
@@ -189,7 +186,7 @@
         </div>
       </div> 
       <div class="col-sm-3 col-xs-12" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
-        <div class="slide" style="margin-top: 10px;">
+        <div class="slide">
           <div class="productImage clearfix text-left">
             <a href="single-product.html"><img src="<%= image_path('bigbag/home/featured-collection/product-img1.png') %>" alt="Product Image"></a>
           </div>
@@ -201,7 +198,7 @@
         </div>
       </div> 
       <div class="col-sm-3 col-xs-12" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
-        <div class="slide" style="margin-top: 10px;">
+        <div class="slide">
           <div class="productImage clearfix text-left">
             <a href="single-product.html"><img src="<%= image_path('bigbag/home/featured-collection/product-img1.png') %>" alt="Product Image"></a>
           </div>
@@ -214,59 +211,157 @@
       </div> 
     </div>
   </div>
-</section>
 
-
-<!-- LIGHT SECTION -->
-<section class="lightSection clearfix">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="owl-carousel partnersLogoSlider">
-          <div class="slide">
-            <div class="partnersLogo clearfix">
-              <img src="<%= image_path('bigbag/home/partners/partner-01.png') %>" alt="partner-img">
-            </div>
-          </div>  
-          <div class="slide">
-            <div class="partnersLogo clearfix">
-              <img src="<%= image_path('bigbag/home/partners/partner-02.png') %>" alt="partner-img">
-            </div>
+  <!-- 상품 구체화 -->
+  <div class="container" style="width:70%">
+    <div class="products-header">
+      <h2>New Arrival</h2>  
+    </div>
+    <hr>
+    <div class="products-content">
+      <div class="col-sm-3">
+        <div class="img-box">
+          <img src="http://image.29cm.co.kr/contents/itemIcon/201701/20170116145106.jpg?cmd=thumb&width=600&height=600" alt="" width="100%">
+        </div>
+        <div class="products-descript">
+          <div class="product-title">
+            <small>(5차 재입고)</small> 씨앗연필
           </div>
-          <div class="slide">
-            <div class="partnersLogo clearfix">
-              <img src="<%= image_path('bigbag/home/partners/partner-03.png') %>" alt="partner-img">
-            </div>
+          <hr style="margin-top: 5px">
+          <div class="product-detail">
+            <h5 style="margin-bottom: 5px">98,000원</h5>
+            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
+            생각이 정리될수록, 나무가 자라납니다
           </div>
-          <div class="slide">
-            <div class="partnersLogo clearfix">
-              <img src="<%= image_path('bigbag/home/partners/partner-04.png') %>" alt="partner-img">
-            </div>
+        </div>
+      </div>
+    </div>
+    <div class="products-content">
+      <div class="col-sm-3">
+        <div class="img-box">
+          <img src="http://image.29cm.co.kr/contents/itemIcon/201701/20170105121832.jpg?cmd=thumb&width=600&height=600" alt="" width="100%">
+        </div>
+        <div class="products-descript">
+          <div class="product-title">
+            <small>(5차 재입고)</small> 씨앗연필
           </div>
-          <div class="slide">
-            <div class="partnersLogo clearfix">
-              <img src="<%= image_path('bigbag/home/partners/partner-05.png') %>" alt="partner-img">
-            </div>
+          <hr style="margin-top: 5px">
+          <div class="product-detail">
+            <h5 style="margin-bottom: 5px">98,000원</h5>
+            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
+            생각이 정리될수록, 나무가 자라납니다
           </div>
-          <div class="slide">
-            <div class="partnersLogo clearfix">
-              <img src="<%= image_path('bigbag/home/partners/partner-01.png') %>" alt="partner-img">
-            </div>
-          </div>  
-          <div class="slide">
-            <div class="partnersLogo clearfix">
-              <img src="<%= image_path('bigbag/home/partners/partner-02.png') %>" alt="partner-img">
-            </div>
+        </div>
+      </div>
+    </div>
+    <div class="products-content">
+      <div class="col-sm-3">
+        <div class="img-box">
+          <img src="http://image.29cm.co.kr/contents/itemIcon/201701/20170104165556.jpg?cmd=thumb&width=600&height=600" alt="" width="100%">
+        </div>
+        <div class="products-descript">
+          <div class="product-title">
+            <small>(5차 재입고)</small> 씨앗연필
           </div>
-          <div class="slide">
-            <div class="partnersLogo clearfix">
-              <img src="<%= image_path('bigbag/home/partners/partner-03.png') %>" alt="partner-img">
-            </div>
+          <hr style="margin-top: 5px">
+          <div class="product-detail">
+            <h5 style="margin-bottom: 5px">98,000원</h5>
+            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
+            생각이 정리될수록, 나무가 자라납니다
           </div>
-        </div>              
+        </div>
+      </div>
+    </div>
+    <div class="products-content">
+      <div class="col-sm-3">
+        <div class="img-box">
+          <img src="http://image.29cm.co.kr/contents/itemIcon/201701/20170105121832.jpg?cmd=thumb&width=600&height=600" alt="" width="100%">
+        </div>
+        <div class="products-descript">
+          <div class="product-title">
+            <small>(5차 재입고)</small> 씨앗연필
+          </div>
+          <hr style="margin-top: 5px">
+          <div class="product-detail">
+            <h5 style="margin-bottom: 5px">98,000원</h5>
+            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
+            생각이 정리될수록, 나무가 자라납니다
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="products-content">
+      <div class="col-sm-3">
+        <div class="img-box">
+          <img src="http://image.29cm.co.kr/contents/itemIcon/201611/20161129132818.jpg?cmd=thumb&width=600&height=600" alt="" width="100%">
+        </div>
+        <div class="products-descript">
+          <div class="product-title">
+            <small>(5차 재입고)</small> 씨앗연필
+          </div>
+          <hr style="margin-top: 5px">
+          <div class="product-detail">
+            <h5 style="margin-bottom: 5px">98,000원</h5>
+            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
+            생각이 정리될수록, 나무가 자라납니다
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- cs설명   -->
+  <div class="container footer-custom">
+    <div class="col-sm-9">
+      <div class="col-sm-4">
+        <dl>
+          <dt class = "category">
+            ABOUT US
+          </dt>
+          <dd>
+            <a class="link" href="#">회사소개</a>
+          </dd>
+        </dl>
+      </div>
+      <div class="col-sm-4">
+        <dl>
+          <dt class = "category">
+            MY ORDER
+          </dt>
+          <dd>
+            <a class="link" href="#">주문배송조회</a>
+          </dd>
+          <dd>
+            <a class="link" href="#">주문취소</a>
+          </dd>
+        </dl>
+      </div>
+      <div class="col-sm-4">
+        <dl>
+          <dt class = "category">
+            HELP
+          </dt>
+          <dd>
+            <a class="link" href="#">1:1 상담</a>
+          </dd>
+          <dd>
+            <a class="link" href="#">자주 찾는 FAQ</a>
+          </dd>
+          <dd>
+            <a class="link" href="#">무통장 입금계좌</a>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <div class="col-sm-3" style="text-align: right">
+      <h5 style="margin-bottom: 10px">고객문의</h5>
+      <h1>1522 - 9406</h1>
+      <h6 style="margin-top: 0px;margin-bottom: 5px">support@gomakgift.com</h6>
+      <h6 style="margin-top: 5px">AM 09:30 - PM 06:30</h6>
+    </div>
+  </div>
+
+
 </section>
 
 

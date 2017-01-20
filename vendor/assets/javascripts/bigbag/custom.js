@@ -66,14 +66,15 @@ jQuery(document).ready(function() {
 	jQuery('.bannerV1 .fullscreenbanner').revolution({
 		delay: 5000,
 		startwidth: 1170,
-		startheight: 500,
+		startheight: 540,
 		fullWidth: "on",
 		fullScreen: "off",
 		hideCaptionAtLimit: "",
 		dottedOverlay: "twoxtwo",
 		navigationStyle: "preview4",
 		fullScreenOffsetContainer: "",
-		hideTimerBar:"on",
+		hideTimerBar:"off",
+		onHoverStop:"on"
 	});
 
 	jQuery('.bannerV4 .fullscreenbanner').revolution({

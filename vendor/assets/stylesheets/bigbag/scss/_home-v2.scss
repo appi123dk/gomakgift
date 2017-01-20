@@ -22,23 +22,26 @@
 }
 /*=== 3.2.2 FEATURE COLLECTION ===*/
 .featuredCollection.version2{
-	margin-bottom:80px;
+	margin-bottom:50px;
+	margin-top: -15px;
 	.slide{
 		background: #eeeeee;
-		height: 300px;
+		height: 200px;
 		position: relative;
 	}
 	.productImage{
 		width: 50%;
 		float: left;
-		height: 300px;
+		left: 5%;
+		height: 200px;
 		position:relative;
 		img{
+			height:180px;
 			display: inline-block;
 			max-width: 100%;
 			width: auto;
 			position:absolute;
-			bottom:15px;
+			bottom:5px;
 		}
 	}
 	.productImage.pull-right{
@@ -49,7 +52,7 @@
 	.productCaption{
 		width: 50%;
 		position:absolute;
-		bottom:40px;
+		bottom:10px;
 		right: 0;
 		padding-right:30px;
 		h3{
