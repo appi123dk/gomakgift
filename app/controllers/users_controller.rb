@@ -14,8 +14,7 @@ class UsersController < ApplicationController
 			redirect_to '/users/login'
 		else
 			session[:user_id] = user.id
-			user_order = user.orders.last
-			redirect_to "/gifts/payment/#{user_order.id}"
+			redirect_to "/gifts/order_index/#{user.id}"
 		end
 	end
 

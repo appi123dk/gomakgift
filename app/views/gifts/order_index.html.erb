@@ -1,0 +1,99 @@
+<!-- MAIN CONTENT SECTION -->
+<section class="mainContent clearfix m-t-60">
+  <div class="container">
+    <div class="accordion margin-bottom">
+      <div class="cs-detail margin-bottom col-sm-12" style="padding-right: 0px;">
+        <h1 class="cs-title">나의 주문 현황</h1>
+        <div class="row">
+          <div class="col-sm-6" style="vertical-align: middle;">
+           <h3>주문건수 : 0 건 / 배송완료 : 0 건</h3>
+          </div>
+          <div class="col-sm-6" style="text-align: right; margin-top: 50px;">
+            <h5 style="margin-bottom: 10px">고객문의</h5>
+            <h1>1522 - 9406</h1>
+            <h6 style="margin-top: 0px;margin-bottom: 5px">support@gomakgift.com</h6>
+            <h6 style="margin-top: 5px">AM 09:30 - PM 06:30</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cs-detail">
+      <div class="page-header" style="border-bottom: 0px; margin-left: 5px;">
+        <h2>전체주문현황</h2>
+      </div>
+      <div class="row">
+        <div class="col-xs-12" style="padding-right: 0px; padding-left: 5px;">
+          <table class="table table-hover all-order-table">
+            <thead>
+            <tr>
+                <th style="border-top: 1px solid black">주문번호</th>
+                <th style="border-top: 1px solid black">상품내역</th>
+                <th style="border-top: 1px solid black">결제금액</th>
+                <th style="border-top: 1px solid black">결제여부</th>
+                <th style="border-top: 1px solid black">시안확정여부</th>
+                <th style="border-top: 1px solid black">거래상태</th>
+                <th style="border-top: 1px solid black">주문일자</th>
+                <th style="border-top: 1px solid black">상세보기</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% if @orders.exists? %>
+              <% @orders.each do |order| %>
+              <tr class="question">
+                  <td><%= order.id %></td>
+                  <td>
+                    <span class="pie"><% order.products.each do |product| %></span>
+                      <%= product.title %> <br/>
+                    <% end %>
+                  </td>
+                  <td><%= number_with_delimiter(order.payment, :delimiter => ',') %> 원</td>
+                  <td><%= order.is_payed ? '결재완료' : '입금확인중' %></td>
+                  <td><%= order.is_confirmed ? '시안확정' : '시안확인중' %></td>
+                  <td>
+                    <% if order.is_finished %>
+                      거래완료
+                    <% else %>
+                      <% if order.is_payed && order.is_confirmed %>
+                        제조 및 배송 진행중
+                      <% else %>
+                        입금/시안 대기중
+                      <% end %>
+                    <% end %>  
+                  </td>
+                  <td><%= order.created_at.strftime("%Y-%m-%d") %></td>
+                  <td><a href=<% if order.is_payed && order.is_confirmed %>
+                      "/gifts/print_product"
+                    <% else %>
+                      "/gifts/payment/<%= order.id %>"
+                    <% end %>>[자세히보기]
+                  </td>
+              </tr>
+              <% end %>
+            <% else %>
+              <tr class="question">
+                <td colspan="8">구매한 내역이 없습니다</td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<% content_for :javascript do %>
+
+<script type="text/javascript">
+
+
+$(function() {
+  $('.question').click(function(){
+    $('.answer').css("display", "none");
+    $(this).next().css("display" , "");
+  });
+});
+
+</script>
+
+<% end %>

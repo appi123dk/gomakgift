@@ -4,6 +4,12 @@ class GiftsController < ApplicationController
 		render :layout => "bigbag"
 	end
 
+	def order_index
+		user = User.find(session[:user_id])
+		@orders = user.orders
+		render :layout => "bigbag"
+	end
+
 	def accounts_form
 		@carts = Shoppingcart.where('ip_address = ? AND is_cart = ?', request.remote_ip, true)
 
@@ -23,6 +29,7 @@ class GiftsController < ApplicationController
 	end
 
 	def print_product
+		@order = Order.find(params[:id])
 		render :layout => "bigbag"
 	end
 
@@ -53,5 +60,10 @@ class GiftsController < ApplicationController
 
 	def login
 		render :layout => "bigbag_login"
+	end
+
+	def no_order
+		render :layout => "bigbag"
+		
 	end
 end

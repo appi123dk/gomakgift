@@ -61,11 +61,7 @@
             <li><a href='
             <% if session[:user_id] %>
               <% user = User.find(session[:user_id]) %>
-              <% if user.orders.exists? %>
-                <%= "/gifts/payment/#{user.orders.last.id}" %>
-              <% else %>
-                <%= "/gifts/no_order" %>
-              <% end %>
+              <%= "/gifts/order_index/#{user.id}" %>
             <% else %>
                 <%= "/users/login" %>
             <% end %>

@@ -1,10 +1,30 @@
 /*=== 14. STEPS ===*/
 /*=== 14.1 STEP # 01 ===*/
 .stepsWrapper{
+	.design-info{
+		p{
+			font-size:11px;
+			line-height: 16px;
+		}
+	}
+	.col-sm-6{
+		padding-right:15px;
+		padding-left:15px;
+	}
+	.col-xs-3{
+		padding-right: 0px;
+	}
 	.innerWrapper{
-		border: 5px solid #f0f0f0;
+		.page-header{
+			text-align: left;
+			margin-left: 0px;
+			h6{
+				font-weight: 300;
+			}
+		}
+		// border: 5px solid #f0f0f0;
 		display: block;
-		padding: 30px 30px 0;
+		padding: 0;
 		width: 100%;
 		&.stepsPage{
 			@include mobile{
@@ -17,7 +37,7 @@
 				@extend %panel-style;
 			}
 			.cartListInner{
-				margin-bottom: 50px;
+				margin-bottom: 20px;
 				float: left;
 				display: block;
 				width: 100%;
@@ -108,7 +128,7 @@
 	left: 8px;
 }
 .progress-wizard { 
-	padding: 0 15px 50px 15px;
+	padding: 0 0 50px 0;
 	.progress-wizard-step {
 		padding: 0; 
 		position: relative;
@@ -221,7 +241,7 @@
 .setp5{
 	padding-bottom: 90px;
 	.thanksContent{
-		@include add-border(5px, $light-color, all);
+		@include add-border(1px, $black-color, all);
 		padding: 50px 30px;
 		h2{
 			display: block;

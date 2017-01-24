@@ -1,36 +1,30 @@
 <!-- MAIN CONTENT SECTION -->
-<section class="mainContent clearfix stepsWrapper signUp m-t-60">
+<section class="mainContent clearfix stepsWrapper signUp m-t-60" style="padding-top: 0px">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
         <div class="innerWrapper clearfix stepsPage">
-          <div class="page-header" style="border-bottom: 0; text-align:center;">
-            <h1>장바구니</h1>
+          <div class="page-header" style="border-bottom: 0;">
+            <h1 class="cs-title">장바구니</h1>
             <h6>Step 1. 주문 상품과 갯수를 다시 한 번 확인해주세요</h6>
           </div>
 
           <!-- Wizard -->
-          <div class="row progress-wizard" style="border-bottom:0; margin-top: 20px ">
+          <div class="row progress-wizard" style="border-bottom:0; margin-top: 30px ">
 
-            <div class="col-xs-3 progress-wizard-step complete">
+            <div class="col-xs-4 progress-wizard-step complete">
               <div class="text-center progress-wizard-stepnum">주문 및 고객정보 입력</div>
               <div class="progress"><div class="progress-bar"></div></div>
               <a href="checkout-step-1.html" class="progress-wizard-dot"></a>
             </div>
 
-            <div class="col-xs-3 progress-wizard-step disabled">
-              <div class="text-center progress-wizard-stepnum">결제</div>
+            <div class="col-xs-4 progress-wizard-step disabled">
+              <div class="text-center progress-wizard-stepnum">결제 및 시안확인</div>
               <div class="progress"><div class="progress-bar"></div></div>
               <a href="checkout-step-2.html" class="progress-wizard-dot"></a>
             </div>
 
-            <div class="col-xs-3 progress-wizard-step disabled">
-              <div class="text-center progress-wizard-stepnum">시안 확인</div>
-              <div class="progress"><div class="progress-bar"></div></div>
-              <a href="checkout-step-3.html" class="progress-wizard-dot"></a>
-            </div>
-
-            <div class="col-xs-3 progress-wizard-step disabled">
+            <div class="col-xs-4 progress-wizard-step disabled">
               <div class="text-center progress-wizard-stepnum">제작 및 배송</div>
               <div class="progress"><div class="progress-bar"></div></div>
               <a href="checkout-step-4.html" class="progress-wizard-dot"></a>
@@ -38,28 +32,23 @@
           </div>
 
           <!-- MAIN CONTENT SECTION -->
-          <div class="page-header">
-            <h4>장바구니 목록</h4>
-          </div>
-
           <div class="row">
-            <div class="col-xs-12">
               <div class="cartListInner">
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead>
+                <table class="table table-hover cart-table">
+                  <thead>
+                  <tr>
+                      <th colspan="2" style="border-top: 1px solid black">주문상품</th>
+                      <th style="border-top: 1px solid black">상품명</th>
+                      <th style="border-top: 1px solid black">가격</th>
+                      <th style="border-top: 1px solid black">수량</th>
+                      <th style="border-top: 1px solid black">소계</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% sub_total = 0 %>
+                  <% @carts.each do |cart| %>
                       <tr>
-                        <th>주문상품</th>
-                        <th>상품명</th>
-                        <th>가격</th>
-                        <th>수량</th>
-                        <th>소계</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <% sub_total = 0 %>
-                    <% @carts.each do |cart| %>
-                      <tr>
+                        <td><input type="checkbox"></td>
                         <td class="col-xs-4"><%= cart.product.id %></td>
                         <td class="col-xs-4"><%= cart.product.title %></td>
                         <td class="col-xs-2"><%= (cart.total_price * 10 / 11 / cart.qty).to_i %> 원</td>
@@ -67,23 +56,26 @@
                         <td class="col-xs-2"><%= (cart.total_price * 10 / 11).to_i %> 원</td>
                       </tr>
                       <% sub_total += (cart.total_price * 10 / 11).to_i %>
-                    <% end %>
-                    </tbody>
-                  </table>
-                </div>
-                <div class="row totalAmountArea" style="margin-left: 0px; margin-right: 0px;">
-                  <div class="col-sm-4 col-sm-offset-8 col-xs-12">
-                    <ul class="list-unstyled">
-                      <li>소계 <span><%= sub_total %> 원</span></li>
-                      <li>부가세 <span><%= (sub_total * 0.1).to_i %> 원</span></li>
-                      <li>결재액 <span class="grandTotal"><%= (sub_total * 11 / 10).to_i %> 원</span></li>
-                    </ul>
-                  </div>
-                </div>
+                  <% end %>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="5">
+                        <p class="first-p">소계 |</p>
+                        <p>부가세 |</p>
+                        <p>결제액 |</p>
+                      </td>
+                      <td>
+                        <p class="first-p"><%= sub_total %> 원</p>
+                        <p><%= (sub_total * 0.1).to_i %> 원</p>
+                        <p><span class="grandTotal"><%= (sub_total * 11 / 10).to_i %> 원</span></p>
+                      </td>
+                    </tr>
+                  </tfoot>
+                </table>
               </div>
-            </div>
           </div>
-
+          
           <form action="/orders/create" method="GET" class="form-horizontal" id="order-form">
             <!-- 주문자 정보 입력 -->
             <div class="col-sm-6">
@@ -130,14 +122,16 @@
                   <input type="tel" class="form-control" name="arrive_phone" placeholder="'-' 없이 입력해주세요" required>
                 </div>
                 <label class="col-sm-3 control-label" style="margin-top: 10px">우편번호</label>
-                <div class="col-sm-3" style="margin-top: 10px">
+                <div class="col-sm-6 col-xs-9" style="margin-top: 10px">
                   <input type="text" class="form-control postcodify_postcode5" name="arrive_address_number" id = "postcode" required>
                 </div>
+                <div class="col-sm-3 col-xs-3">     
                 <div class="panel panel-default" style="border: 0px; margin-bottom: 0px;">
-                  <div class="panel-body" style="border: 0px; padding-bottom: 0px">
-                    <button type="button" data-toggle="modal" href=".login-modal" class="btn btn-primary btn-address" style = "font-size: 12px; font-weight: 400; height: 35px; line-height:35px; width: 80px; margin-top: 10px">검색</button>
+                  <div class="panel-body" style="border: 0px; padding-bottom: 0px; padding-top:0px; margin-bottom: 10px; padding-left: 3px; padding-right:15px;">
+                    <button type="button" data-toggle="modal" href=".login-modal" class="btn  btn-submit" style = "font-size: 12px; font-weight: 400; height: 35px; width: 100%; margin-top: 10px; border-radius:0px">검색</button>
                     <!-- <li><a data-toggle="modal" href=".login-modal" class="btn btn-default"><i class="fa fa-heart"></i></a></li> -->
                   </div>
+                </div>
                 </div>
                 <label class="col-sm-3 control-label" style="margin-top: 10px">주소</label>
                 <div class="col-sm-9" style="margin-top: 10px">
@@ -149,13 +143,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-xs-12">
-              <div class="well well-lg clearfix">
-                <ul class="pager">
-                <li class="previous"><a href="javascript:history.back()">취소</a></li>
-                  <li class="next"><button type="submit" class="btn">주문완료</a></li>
-                </ul>
-              </div>
+            <div class="col-xs-12" style="text-align:right">
+              <button class="btn btn-submit" style="border-radius:0px;">주문하기</button>
             </div>
           </form>
         </div>

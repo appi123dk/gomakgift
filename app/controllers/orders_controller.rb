@@ -72,6 +72,7 @@ class OrdersController < ApplicationController
 			order.save
 		else
 			order.pay_method = params[:pay_method]
+			order.is_payed = true
 			order.receipt_method = params[:receipt_method2]
 			order.com_register_number = params[:com_register_number_card]
 			order.save

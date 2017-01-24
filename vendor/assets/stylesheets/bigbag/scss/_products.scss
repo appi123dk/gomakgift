@@ -1,8 +1,21 @@
 /*=== 9. PRODUCTS ===*/
 /*=== 9.1 PRODUCTS COMMON ===*/
 .productsContent{
+	.col-xs-12{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	.page-header{
+		margin: 0px;
+		border-bottom: 0px;
+	}
 	.productBox{
 		@extend .imageBox;
+		margin-bottom: 0px;
+		p{
+			font-size: 10px;
+			margin-bottom: 2px;
+		}
 		.productImage{
 			@include tablet{
 				width: 100%;
@@ -174,6 +187,10 @@
 
 /*=== 9.2 SINGLE PRODUCTS ===*/
 .singleProduct{
+	.col-xs-12{
+		padding-left: 0px;
+		padding-right: 0px;		
+	}
 	.media{
 		margin-bottom: 20px;
 		.productSlider{
@@ -247,10 +264,16 @@
 			}
 			@include desktops{
 				display: table-cell;
+				padding-left: 20%;
+				padding-top: 10%;
+				.price-table{
+					font-size: 5px;
+				}
 			}
 			.list-inline{
+				padding-left: 15px;
+				padding-right: 15px;
 				margin-top: 30px;
-				margin-bottom: 30px;
 				.single-product-descript{
 					.product-info{
 						margin: 0;

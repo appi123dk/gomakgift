@@ -23,7 +23,9 @@ Myapp::Application.routes.draw do
   get "gifts/accounts_form"
   get "gifts/payment/:id", to: 'gifts#payment'
   get "gifts/design"
-  get "gifts/print_product"
+  get "gifts/no_order"
+  get "gifts/order_index/:id", to: 'gifts#order_index'
+  get "gifts/print_product/:id", to: 'gifts#print_product'
   get "gifts/support"
   get "gifts/inquire/:id", to: 'gifts#inquire'
   get "gifts/login"
