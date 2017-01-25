@@ -66,4 +66,11 @@ class GiftsController < ApplicationController
 		render :layout => "bigbag"
 		
 	end
+
+	def cart_delete
+		cart = Shoppingcart.find(params[:id])
+		cart.destroy
+
+		redirect_to '/gifts/accounts_form'
+	end
 end
