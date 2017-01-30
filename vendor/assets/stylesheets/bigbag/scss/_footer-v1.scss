@@ -179,6 +179,12 @@
 	width: 100%;
 	min-height: 53px;
 	background-color: #101010;
+	a{
+		color: #acacac;
+		&:hover{
+			color: lighten(#acacac, 50%);
+		}
+	}
 	p{
 		color: #acacac;
 		margin-bottom: 0;

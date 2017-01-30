@@ -1945,14 +1945,15 @@ body.bodyColor.container {
 /*================= 3.1 HOME ==================*/
 /*=== 3.1.1 WHITE SECTION ===*/
 .footer-custom {
-  width: 70% !important;
   padding: 21px 0 19px 0;
   border-top: 1px solid #252525; }
   @media (min-width: 992px) {
-    .footer-custom .col-sm-4:first-child {
-      padding-left: 0px; }
-    .footer-custom .col-sm-3 {
-      padding-right: 0px; } }
+    .footer-custom {
+      width: 67.7% !important; }
+      .footer-custom .col-sm-4:first-child {
+        padding-left: 0px; }
+      .footer-custom .col-sm-3 {
+        padding-right: 0px; } }
   .footer-custom .col-sm-9 {
     padding-left: 0px; }
   .footer-custom .category {
@@ -2545,6 +2546,20 @@ body.bodyColor.container {
 .featuredCollection.version2 {
   margin-bottom: 50px;
   margin-top: -15px; }
+  .featuredCollection.version2 .information-box {
+    padding: 20px 25px 10px 25px;
+    background-color: #fdfdfd;
+    border: 1px solid #e2e2e2; }
+    .featuredCollection.version2 .information-box h5 {
+      font-weight: 500;
+      margin-bottom: 10px; }
+    .featuredCollection.version2 .information-box ol {
+      color: #5d5d5d;
+      padding-left: 20px; }
+      .featuredCollection.version2 .information-box ol li {
+        list-style-type: square;
+        font-size: 11px;
+        margin-bottom: 5px; }
   .featuredCollection.version2 .slide {
     background: #eeeeee;
     height: 200px;
@@ -3175,6 +3190,10 @@ body.bodyColor.container {
     @media (min-width: 768px) {
       .copyRight .container {
         width: 70% !important; } }
+  .copyRight a {
+    color: #acacac; }
+    .copyRight a:hover {
+      color: white; }
   .copyRight p {
     color: #acacac;
     margin-bottom: 0;
@@ -4472,18 +4491,23 @@ body.bodyColor.container {
       opacity: .8; }
 
 /*=== 10. GENERIC CONTENT ===*/
+.genricContent ol {
+  margin-left: 25px; }
 .genricContent h3 {
   margin-bottom: 30px;
   font-weight: 400; }
 .genricContent p {
   color: #000000;
-  font-size: 14px;
-  line-height: 22px;
-  margin-bottom: 30px; }
+  font-size: 12px;
+  line-height: 18px;
+  margin-bottom: 10px; }
+  .genricContent p.detail-content {
+    padding-left: 12px; }
 .genricContent h4 {
   color: #252525;
   font-weight: 400;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  margin-top: 30px; }
 
 /*=== 11. 404 PAGE ===*/
 .input-field, .sideBar .input-group, .notFound .input-group, .commingSoon .blackSection .input-group {

@@ -4,10 +4,11 @@
 
 //메인페이지 하단 CS 및 사이트맵 관련
 .footer-custom{
-	width: 70%!important;
+	
 	padding: 21px 0 19px 0;
 	border-top: 1px solid $black-color;
 	@include desktops{
+		width: 67.7%!important;
 		.col-sm-4 {
 			&:first-child{
 				padding-left: 0px;

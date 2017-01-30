@@ -24,6 +24,24 @@
 .featuredCollection.version2{
 	margin-bottom:50px;
 	margin-top: -15px;
+	.information-box{
+		padding: 20px 25px 10px 25px;
+		background-color: #fdfdfd;
+		border: 1px solid #e2e2e2;
+		h5 {
+			font-weight: 500;
+			margin-bottom: 10px;
+		}
+		ol {
+			color: #5d5d5d;
+			padding-left: 20px;
+			li {
+				list-style-type: square;
+				font-size: 11px;
+				margin-bottom: 5px;
+			}		
+		}
+	}
 	.slide{
 		background: #eeeeee;
 		height: 200px;

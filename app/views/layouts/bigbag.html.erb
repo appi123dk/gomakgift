@@ -8,7 +8,14 @@
 
     <!-- Include style per-controller - vendor plugins -->
     <%= stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.css") %>
-
+    <style>
+        ::selection{
+            background-color: #fed329;
+        }
+        ::-moz-selection {
+            background-color: #fed329;
+        }
+    </style>
     <%= csrf_meta_tags %>
 
     <!-- GOOGLE FONT -->
@@ -39,6 +46,7 @@
     </div>
     <%= render 'layouts/bigmodal' %>
     <%= render 'layouts/agreementmodal' %>
+    <%= render 'layouts/conditionmodal' %>
     <!-- Include javascript per-controller - vendor plugins -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <%= javascript_include_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.js") %>

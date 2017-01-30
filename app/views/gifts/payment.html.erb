@@ -62,7 +62,7 @@
                       <td colspan="3">
                         <p class="first-p">소계 |</p>
                         <p>부가세 |</p>
-                        <p>결재액 |</p>
+                        <p>결제액 |</p>
                       </td>
                       <td>
                         <p class="first-p"><%= number_with_delimiter(sub_total, delimiter: ',') %> 원</p>
@@ -281,7 +281,7 @@
                     <% end %>
                   <% elsif @order.pay_method == "card" %>
                     <div class="thanksContent" style="padding: 35px 15px 25px">
-                      <h4 style = "margin: 0px">결재가 완료되었습니다</h4>
+                      <h4 style = "margin: 0px">결제가 완료되었습니다</h4>
                       <p>감사합니다. 증빙서류는 물품과 함께 보내드리도록 하겠습니다</p>
                     </div>
                   <% end %>
