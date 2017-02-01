@@ -12,12 +12,30 @@
         </p>
           
         <form class="m-t" role="form" action="/knockturns/result_save" method="GET">
-                <label class="col-lg-4 control-label" style="margin-top: 7px">이름 : </label>
-                <div class="form-group col-lg-8">
-                    <input type="text" class="form-control" name="employee_name" required="" style="text-align: right">
-                </div>
-                <button type="submit" class="btn btn-info block full-width m-b">주사위 굴리기</button>
-            </form>
+            <label class="col-lg-4 control-label" style="margin-top: 7px">이름 : </label>
+            <div class="form-group col-lg-8">
+                <input type="text" class="form-control" name="employee_name" required="" style="text-align: right">
+            </div>
+            <button type="submit" class="btn btn-info block full-width m-b">주사위 굴리기</button>
+        </form>
+        <table class="table small m-t-sm">
+            <tbody>
+                <tr>
+                    <td>이름</td>
+                    <td>주사위 값</td>
+                </tr>
+                <% Dice.all.each do |dice| %>
+                <tr>
+                    <td><%= dice.employee_name %></td>
+                    <td><%= dice.number %></td>
+                </tr>
+                <% end %>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
         <!-- <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2015</small> </p> -->
     </div>
 </div>
