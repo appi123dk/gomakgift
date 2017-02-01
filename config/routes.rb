@@ -2,6 +2,10 @@ Myapp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root to: 'gomakdesigns#index'
+  # 녹턴 routes
+  get "knockturns/index"
+  get "knockturns/result/:id", to:'knockturns#result'
+  get "knockturns/result_save"
 
   # 무디패 routes
   get "gomakdesigns/index"
@@ -29,6 +33,7 @@ Myapp::Application.routes.draw do
   get "gifts/order_index/:id", to: 'gifts#order_index'
   get "gifts/print_product/:id", to: 'gifts#print_product'
   get "gifts/support"
+  get "gifts/single_story"
   get "gifts/inquire/:id", to: 'gifts#inquire'
   get "gifts/login"
   get "gifts/single_product/:id", to:'gifts#single_product'

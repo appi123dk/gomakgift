@@ -159,7 +159,7 @@
     <div class="row featuredCollection version2">
       <!-- 반복구간 -->
       <% @products.each do |product| %>
-      <div class="col-sm-3 col-xs-12" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
+      <div class="col-sm-6 col-xs-12" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
         <div class="slide">
           <div class="productImage clearfix text-left">
             <a href="/gifts/single_product/<%= product.id %>"><img src="<%= product.product_image %>" alt="Product Image"></a>
@@ -173,31 +173,17 @@
       </div>
       <% end %>
       <!-- 끝 -->
-      <div class="col-sm-3 col-xs-12" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
-        <div class="slide">
-          <div class="productImage clearfix text-left">
-            <a href="single-product.html"><img src="<%= image_path('bigbag/home/featured-collection/product-img1.png') %>" alt="Product Image"></a>
-          </div>
-          <div class="productCaption clearfix text-right">
-            <h3><a href="single-product.html">for women’s</a></h3>
-            <p>Lorem ipsum dolor sit ameit</p>
-            <a href="single-product.html" class="btn btn-border">Shop Now</a>
-          </div>
+      <div class="col-sm-6 col-xs-12" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
+        <div class="slide" style="background-image: url('http://image.29cm.co.kr/contents/site/201701/20170126121152.jpg?cmd=thumb&height=300')">
+          <a href="/gifts/single_story" class="story-box"></a>
         </div>
       </div> 
-      <div class="col-sm-3 col-xs-12" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
-        <div class="slide">
-          <div class="productImage clearfix text-left">
-            <a href="single-product.html"><img src="<%= image_path('bigbag/home/featured-collection/product-img1.png') %>" alt="Product Image"></a>
-          </div>
-          <div class="productCaption clearfix text-right">
-            <h3><a href="single-product.html">for women’s</a></h3>
-            <p>Lorem ipsum dolor sit ameit</p>
-            <a href="single-product.html" class="btn btn-border">Shop Now</a>
-          </div>
+      <div class="col-sm-6 col-xs-12" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
+        <div class="slide" style="background-image: url(http://image.29cm.co.kr/contents/site/201701/20170126120655.jpg?cmd=thumb&height=300);">
+          <a href="/gifts/single_story" class="story-box"></a>
         </div>
       </div> 
-      <div class="col-sm-3 col-xs-12" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
+      <div class="col-sm-6 col-xs-12" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
         <div class="slide">
           <div class="productImage clearfix text-left">
             <a href="single-product.html"><img src="<%= image_path('bigbag/home/featured-collection/product-img1.png') %>" alt="Product Image"></a>

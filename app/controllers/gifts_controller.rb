@@ -73,4 +73,8 @@ class GiftsController < ApplicationController
 
 		redirect_to '/gifts/accounts_form'
 	end
+
+	def single_story
+		render :layout => "bigbag"
+	end
 end
