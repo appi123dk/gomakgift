@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
     	t.string :address_number  # 구매자 우편주소
     	t.string :address         # 구매자 주소
     	t.string :address_detail  # 구매자 상세주소
-    	t.boolean :private_check  # 비회원 정보동의
+    	t.boolean :private_check  # 비회원 정보제공동의
     	t.string :com_name        # 회사이름
       t.timestamps null: false
     end

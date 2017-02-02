@@ -273,11 +273,11 @@
                       <!-- 무통장입금 후 입금 미확인 -->
                       <div class="thanksContent" style="padding: 35px 15px 25px">
                         <h4 style = "margin: 0px">아직 입금되지 않았습니다</h4>
-                        <p>입금 후, 1~2일이 지나도 확인이 되지 않을 경우 000-0000-0000으로 연락주세요</p>
+                        <p>입금 후, 1~2일이 지나도 확인이 되지 않을 경우 1522 - 9406으로 연락주세요</p>
                         <hr>
                         <p style="margin-bottom: 0px">예금주 : (주)고막컬쳐 </p> 
                         <p>은행 : 하나은행 | 222-332-444455 </p> 
-                        <h5 style="margin-bottom: 15px">금액 : 331,400 원</h5> 
+                        <h5 style="margin-bottom: 15px">금액 : <%= number_with_delimiter(@order.payment, delimiter: ',')  %> 원</h5> 
                       </div>
                     <% end %>
                   <% elsif @order.pay_method == "card" %>

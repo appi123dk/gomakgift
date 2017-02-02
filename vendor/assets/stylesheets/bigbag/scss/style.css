@@ -2563,7 +2563,8 @@ body.bodyColor.container {
   .featuredCollection.version2 .slide {
     background: #eeeeee;
     height: 300px;
-    position: relative; }
+    position: relative;
+    background-position: 50% 0; }
     .featuredCollection.version2 .slide .story-box {
       position: absolute;
       top: 0;

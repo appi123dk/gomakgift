@@ -24,80 +24,125 @@
 
             <div class="ibox product-detail">
                 <div class="ibox-content">
-
                     <div class="row">
-                        <div class="col-md-5">
-
-
-                            <div class="product-images">
-
-                                <div>
-                                    <div class="image-imitation">
-                                        [IMAGE 1]
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="image-imitation">
-                                        [IMAGE 2]
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="image-imitation">
-                                        [IMAGE 3]
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-                        </div>
-                        <div class="col-md-7">
-
+                        <div class="col-md-12">
                             <h2 class="font-bold m-b-xs">
-                                Desktop publishing software
+                                주문번호 : 1
                             </h2>
-                            <small>Many desktop publishing packages and web page editors now.</small>
                             <div class="m-t-md">
-                                <h2 class="product-main-price">$406,602 <small class="text-muted">Exclude Tax</small> </h2>
+                                <h2 class="product-main-price">결제금액 : <%= number_with_delimiter(@order.payment, delimiter: ',') %> 원</h2>
                             </div>
                             <hr>
 
-                            <h4>Product description</h4>
+                            <h4>현재 상태 : <span class="text-navy">입금대기중</span></h4>
 
-                            <div class="small text-muted">
-                                It is a long established fact that a reader will be distracted by the readable
-                                content of a page when looking at its layout. The point of using Lorem Ipsum is
-
-                                <br/>
-                                <br/>
-                                There are many variations of passages of Lorem Ipsum available, but the majority
-                                have suffered alteration in some form, by injected humour, or randomised words
-                                which don't look even slightly believable.
-                            </div>
-                            <dl class="small m-t-md">
-                                <dt>Description lists</dt>
-                                <dd>A description list is perfect for defining terms.</dd>
-                                <dt>Euismod</dt>
-                                <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-                                <dd>Donec id elit non mi porta gravida at eget metus.</dd>
-                                <dt>Malesuada porta</dt>
-                                <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-                            </dl>
-                            <hr>
-
-                            <div>
-                                <div class="btn-group">
-                                    <button class="btn btn-primary btn-sm"><i class="fa fa-cart-plus"></i> Add to cart</button>
-                                    <button class="btn btn-white btn-sm"><i class="fa fa-star"></i> Add to wishlist </button>
-                                    <button class="btn btn-white btn-sm"><i class="fa fa-envelope"></i> Contact with author </button>
+                            <table class="table table-hover order-table" style="width:100%; margin-bottom: 5px;">
+                              <thead style="text-align: center">
+                                <tr>
+                                    <th style="border-top: 1px solid black">결제방법</th>
+                                    <th class="qty" style="border-top: 1px solid black">결제여부</th>
+                                    <th class="qty" style="border-top: 1px solid black">시안등록여부</th>
+                                    <th class="qty" style="border-top: 1px solid black">시안확정여부</th>
+                                    <th class="qty" style="border-top: 1px solid black">발주여부</th>
+                                    <th class="qty" style="border-top: 1px solid black">배송여부</th>
+                                    <th class="qty" style="border-top: 1px solid black">증빙서류발급여부</th>
+                                    <!-- <th style="border-top: 1px solid black">300</th> -->
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr class="question">
+                                    <td><%= @order.pay_method %></td>
+                                    <td><%= @order.is_payed %></td>
+                                    <td><%= @order.is_designed %></td>
+                                    <td><%= @order.is_confirmed %></td>
+                                    <td><%= @order.is_ordered %></td>
+                                    <td><%= @order.is_finished %></td>
+                                    <td><%= @order.is_issued %></td>
+                                </tr>
+                                <tr class="question">
+                                    <td></td>
+                                    <td>
+                                        <% if @order.is_payed %>
+                                            <a href="#" class="btn btn-info btn-xs">취소</a>
+                                        <% else %>
+                                            <a href="#" class="btn btn-warning btn-xs">확인</a>
+                                        <% end %>
+                                    </td>
+                                    <td>
+                                        <% if @order.is_designed %>
+                                            <a href="#" class="btn btn-info btn-xs">취소</a>
+                                        <% else %>
+                                            <a href="#" class="btn btn-warning btn-xs">확인</a>
+                                        <% end %>
+                                    </td>
+                                    <td>
+                                        <% if @order.is_confirmed %>
+                                            <a href="#" class="btn btn-info btn-xs">취소</a>
+                                        <% else %>
+                                            <a href="#" class="btn btn-warning btn-xs">확인</a>
+                                        <% end %>
+                                    </td>
+                                    <td>
+                                        <% if @order.is_ordered %>
+                                            <a href="#" class="btn btn-info btn-xs">취소</a>
+                                        <% else %>
+                                            <a href="#" class="btn btn-warning btn-xs">확인</a>
+                                        <% end %>
+                                    </td>
+                                    <td>
+                                        <% if @order.is_finished %>
+                                            <a href="#" class="btn btn-info btn-xs">취소</a>
+                                        <% else %>
+                                            <a href="#" class="btn btn-warning btn-xs">확인</a>
+                                        <% end %>
+                                    </td>
+                                    <td>
+                                        <% if @order.is_issued %>
+                                            <a href="#" class="btn btn-info btn-xs">취소</a>
+                                        <% else %>
+                                            <a href="#" class="btn btn-warning btn-xs">확인</a>
+                                        <% end %>
+                                    </td>
+                                </tr>
+                                <tr class="question">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>구매자 정보</h3>
+                                    <dl class="buyer-info">
+                                        <dt>구매자명 : <%= @order.arrive_username %></dt>
+                                        <dt>구매자 정보</dt>
+                                        <dd><%= @order.user.email %> / <%= @order.user.phone %></dd>
+                                        <dt>배송지 정보</dt>
+                                        <dd>(<%= @order.arrive_address_number %>) <%= @order.arrive_address %> <%= @order.arrive_address_detail %></dd>  
+                                    </dl>   
+                                </div>
+                                <div class="col-md-6">
+                                    <h3>증빙발급 세부내용</h3>
+                                    <% if @order.receipt_method.nil? %>
+                                        <p>결제 내역이 없습니다.</p>
+                                    <% else %>
+                                        <% if @order.receipt_method == 'cash_receipt' %>
+                                            <p>현금영수증 : <%= @order.cash_receipt_number %></p>
+                                        <% elsif @order.receipt_method == 'card_receipt' %>
+                                            <p>신용카드매출전표</p>
+                                        <% else %>
+                                            <p>세금계산서 : <%= @order.com_register_number %></p>
+                                        <% end %>
+                                    <% end %>  
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
-
                 </div>
                 <div class="ibox-footer">
                                 <span class="pull-right">

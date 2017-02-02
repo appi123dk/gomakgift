@@ -7,6 +7,10 @@ class OrdersController < ApplicationController
 			user.username = params[:username]
 			user.email = params[:email]
 			user.phone = params[:phone]
+			user.private_check = true
+			unless params[:mailreceive_check].nil?
+				user.mailreceive_check = true
+			end
 			if user.address_number != params[:arrive_address_number]
 				user.address_number = params[:arrive_address_number]
 			end
@@ -17,6 +21,11 @@ class OrdersController < ApplicationController
 				user.address_detail = params[:arrive_address_detail]
 			end
 			user.save
+		else
+			unless params[:mailreceive_check].nil?
+				is_user.mailreceive_check = true
+			end
+			is_user.save
 		end
 
 		# Order DB 작성
@@ -29,6 +38,7 @@ class OrdersController < ApplicationController
 		order.arrive_address_number = params[:arrive_address_number]
 		order.arrive_address = params[:arrive_address]
 		order.arrive_address_detail = params[:arrive_address_detail]
+		order.agreement_check = true
 		order.save
 
 		# ShoppingCart - order db 연결

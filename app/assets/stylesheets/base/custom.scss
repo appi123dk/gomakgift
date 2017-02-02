@@ -4,3 +4,22 @@
     display: none;
   }
 }
+
+.order-table {
+	th {
+		text-align: center;
+	}
+	td {
+		text-align: center;
+	}
+}
+
+.buyer-info {
+	dt {
+		margin-top: 10px;
+		font-weight: 500;
+	}
+	dd {
+		font-size: 11px;
+	}
+}

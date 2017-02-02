@@ -23,7 +23,7 @@ class CreateOrders < ActiveRecord::Migration
     	t.string :cash_receipt_number                # 현금영수증 전화번호
         t.date :arrive_date                          # 배송희망일
     	t.string :deposit_name                       # 입금자 명
-    	t.boolean :agreement_check, default: false   # 주문관련사항 동의
+    	t.boolean :agreement_check, default: false   # 야용약 동의
       t.timestamps null: false
     end
   end

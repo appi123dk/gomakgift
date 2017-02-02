@@ -28,27 +28,48 @@
                     <table class="table table-striped table-bordered table-hover dataTables-example">
                         <thead>
                             <tr>
-                                <th>주문 id</th>
+                                <th>주문시간</th>
                                 <th>구매내역</th>
-                                <th>배송희망일</th>
+                                <th>주문id</th>
                                 <th>결제방법</th>
                                 <th>결제여부</th>
                                 <th>시안여부</th>
                                 <th>시안확정</th>
+                                <th>상태</th>
                                 <th>상세보기</th>
                             </tr>
                         </thead>
                         <tbody>
                             <% @orders.each do |order| %>
                                 <tr class="gradeX">
-                                    <td><%= order.id %></td>
+                                    <td><%= order.created_at.strftime("%Y-%m-%d, %H:%M") %></td>
                                     <% order_product = order.products %>
                                     <td><%= order_product.last.title %> 외 <%= order_product.count - 1 %>건</td>
-                                    <td><%= order.arrive_date %></td>
+                                    <td><%= order.id  %></td>
                                     <td><%= order.pay_method %></td>
                                     <td><%= order.is_payed %></td>
                                     <td><%= order.is_designed %></td>
                                     <td><%= order.is_confirmed %></td>
+                                    <td>
+                                        <% if order.is_confirmed %>
+                                            <% if order.is_payed %>
+                                                <% if order.is_ordered %>
+                                                    <% if order.is_finished %>
+                                                        배송완료
+                                                    <% else %>
+                                                        발주완료
+                                                    <% end %>
+                                                <% else %>
+                                                    발주준비중
+                                                <% end %>
+                                            <% else %>
+                                                입금확인중
+                                            <% end %>
+                                        <% else %>
+                                            시안확인중
+                                        <% end %>
+
+                                    </td>
                                     <td><a class="btn btn-sm btn-primary btn-block" href="/admin_orders/view/<%= order.id %>" style="margin: 0px; padding: 0px 10px">View</a></td>
                                 </tr>
                             <% end %>
