@@ -2142,6 +2142,26 @@ body.bodyColor.container {
 
 .whiteSection, .mainContent {
   background-color: #ffffff; }
+  .whiteSection .recommend-container, .mainContent .recommend-container {
+    position: relative; }
+    @media (min-width: 480px) {
+      .whiteSection .recommend-container, .mainContent .recommend-container {
+        position: relative;
+        left: 5%;
+        width: 90%; }
+        .whiteSection .recommend-container .product-detail, .mainContent .recommend-container .product-detail {
+          font-size: 11px !important; }
+          .whiteSection .recommend-container .product-detail h5, .mainContent .recommend-container .product-detail h5 {
+            font-size: 13px; } }
+    @media (max-width: 479px) {
+      .whiteSection .recommend-container, .mainContent .recommend-container {
+        position: relative;
+        left: 0;
+        width: 100%; }
+        .whiteSection .recommend-container .product-detail, .mainContent .recommend-container .product-detail {
+          font-size: 10px !important; }
+          .whiteSection .recommend-container .product-detail h5, .mainContent .recommend-container .product-detail h5 {
+            font-size: 12px; } }
   .whiteSection .container, .mainContent .container {
     width: 70% !important; }
     @media (min-width: 480px) {
@@ -2167,13 +2187,42 @@ body.bodyColor.container {
     padding-left: 15px !important; }
   .whiteSection .products-header, .mainContent .products-header {
     text-align: center; }
-  .whiteSection .products-descript, .mainContent .products-descript {
-    margin-top: 10px;
-    margin-bottom: 40px; }
-    .whiteSection .products-descript .product-title, .mainContent .products-descript .product-title {
-      font-size: 14px;
-      font-weight: 300; }
-    .whiteSection .products-descript .product-detail, .mainContent .products-descript .product-detail {
+    .whiteSection .products-header h4, .mainContent .products-header h4 {
+      margin-bottom: 15px; }
+  @media (min-width: 480px) {
+    .whiteSection .grid, .mainContent .grid {
+      padding-left: 0px; } }
+  @media (max-width: 479px) {
+    .whiteSection .grid, .mainContent .grid {
+      padding-left: 0px; } }
+  .whiteSection .grid-sizer,
+  .whiteSection .grid-item, .mainContent .grid-sizer,
+  .mainContent .grid-item {
+    width: 32.2%; }
+  .whiteSection .grid-item--width2, .mainContent .grid-item--width2 {
+    width: 48%; }
+  .whiteSection .grid-item--width3, .mainContent .grid-item--width3 {
+    width: 100%; }
+  .whiteSection .products-content .product-container, .mainContent .products-content .product-container {
+    padding: 15px 15px !important;
+    background-color: #f8f8f8;
+    margin-bottom: 20px;
+    border: 10px solid white; }
+    @media (max-width: 479px) {
+      .whiteSection .products-content .product-container, .mainContent .products-content .product-container {
+        margin-right: 0px !important;
+        border: none;
+        padding: 10px !important; } }
+  .whiteSection .products-content .products-descript, .mainContent .products-content .products-descript {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 30px;
+    margin-bottom: 20px; }
+    .whiteSection .products-content .products-descript .product-title, .mainContent .products-content .products-descript .product-title {
+      font-size: 22px;
+      font-weight: 600; }
+    .whiteSection .products-content .products-descript .product-detail, .mainContent .products-content .products-descript .product-detail {
+      margin-top: 20px;
       font-size: 12px;
       color: #888; }
   .whiteSection label.error, .mainContent label.error {

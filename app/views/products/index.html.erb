@@ -30,10 +30,14 @@
                             <tr>
                                 <th>id값</th>
                                 <th>상품명</th>
-                                <th>서브타이틀</th>
-                                <th>상세정보</th>
+                                <th>공급가</th>
+                                <th>패키지 인쇄비용</th>
+                                <th>최소수량</th>
                                 <th>순서</th>
+                                <th>공급업체</th>
+                                <th>상세보기</th>
                                 <th>수정</th>
+                                <th><i class="fa fa-eye"></i></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,10 +45,18 @@
                                 <tr class="gradeX">
                                     <td><%= product.id %></td>
                                     <td><%= product.title %></td>
-                                    <td><%= product.subtitle %></td>
-                                    <td><%= product.detail %></td>
-                                    <td>1</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Edit</a></td>
+                                    <td><%= product.supply_price %></td>
+                                    <td><%= product.print_package_cost %></td>
+                                    <td><%= product.min_qty %></td>
+                                    <td><%= product.display_order %></td>
+                                    <td><%= product.supplier.company_name %></td>
+                                    <td><a class="btn btn-xs btn-warning btn-block" href="/products/single_product/<%= product.id %>" style="margin-bottom: 0px">상세보기</a></td>
+                                    <td><a class="btn btn-xs btn-primary btn-block" href="/products/edit/<%= product.id %>" style="margin-bottom: 0px">수정</a></td>
+                                    <% if product.is_display %>
+                                        <td><a class="btn btn-xs btn-info btn-block" href="/products/unsale_product/<%= product.id %>" style="margin-bottom: 0px">감추기</a></td>
+                                    <% else %>
+                                        <td><a class="btn btn-xs btn-warning btn-block" href="/products/unsale_product/<%= product.id %> style="margin-bottom: 0px">보이기</a></td>
+                                    <% end %>
                                 </tr>
                             <% end %>
                         </tbody>

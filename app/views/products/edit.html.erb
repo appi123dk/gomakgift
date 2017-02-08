@@ -1,0 +1,77 @@
+<div class="large-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div style="padding-top: 70px">
+
+            <h3 class="logo-name" style="font-size: 80px; color: #fed328">GomakGift</h1>
+
+        </div>
+        <h3 style="margin-top: 50px;">제품 내용 수정</h3>
+        <p>
+            내용을 수정해주세요
+        </p>
+        <form class="m-t" role="form" action="/products/update/<%= @product.id %>" method="GET">
+            <div class="col-lg-6">
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품명 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" value="<%= @product.title %>" name="title" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">브랜드명 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" value="<%= @product.brand_name %>" name="brand_name" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">수량코드 : </label>
+                <div class="form-group col-lg-2">
+                    <input type="number" class="form-control" value="<%= @product.quantity_id %>" name="quantity_id" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-3 control-label" style="margin-top: 7px">가격코드 : </label>
+                <div class="form-group col-lg-3">
+                    <input type="number" class="form-control" value="<%= @product.price_id %>" name="price_id" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">최소수량 : </label>
+                <div class="form-group col-lg-2">
+                    <input type="number" class="form-control" value="<%= @product.min_qty %>" name="min_qty" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-3 control-label" style="margin-top: 7px">상품진열순서 : </label>
+                <div class="form-group col-lg-3">
+                    <input type="number" class="form-control" value="<%= @product.display_order %>" name="display_order" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">택배비 : </label>
+                <div class="form-group col-lg-2">
+                    <input type="number" class="form-control" value="<%= @product.delivery_cost %>" name="delivery_cost" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-3 control-label" style="margin-top: 7px">패키지인쇄비용 : </label>
+                <div class="form-group col-lg-3">
+                    <input type="number" class="form-control" value="<%= @product.print_package_cost %>" name="print_package_cost" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">공급업체코드 : </label>
+                <div class="form-group col-lg-2">
+                    <input type="number" class="form-control" value="<%= @product.supplier_id %>" name="supplier_id" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-3 control-label" style="margin-top: 7px">공급가 : </label>
+                <div class="form-group col-lg-3">
+                    <input type="number" class="form-control" value="<%= @product.supply_price %>" name="supply_price" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">서브 타이틀 : </label>
+                <div class="form-group col-lg-8">
+                    <textarea required="" name="subtitle" value="<%= @product.subtitle %>" class="form-control" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품 이미지주소 :</label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" value="<%= @product.product_image %>" name="product_image" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품 썸네일주소 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" value="<%= @product.product_thumb %>" name="product_thumb" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품 상세정보 : </label>
+                <div class="form-group col-lg-8">
+                    <textarea required="" name="detail" value="<%= @product.detail %>" class="form-control" cols="30" rows="12"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">등록</button>
+            </div>
+        </form>
+        <!-- <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2015</small> </p> -->
+    </div>
+</div>

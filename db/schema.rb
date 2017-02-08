@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170202131258) do
+ActiveRecord::Schema.define(version: 20170208055907) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "title",          limit: 255
@@ -106,20 +106,28 @@ ActiveRecord::Schema.define(version: 20170202131258) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "title",         limit: 255
-    t.string   "subtitle",      limit: 255
-    t.string   "detail",        limit: 255
-    t.string   "product_image", limit: 255
-    t.string   "product_thumb", limit: 255
-    t.integer  "price_id",      limit: 4
-    t.integer  "quantity_id",   limit: 4
-    t.boolean  "is_display",                default: true
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.string   "title",              limit: 255
+    t.string   "subtitle",           limit: 255
+    t.string   "detail",             limit: 255
+    t.string   "product_image",      limit: 255
+    t.string   "product_thumb",      limit: 255
+    t.integer  "price_id",           limit: 4
+    t.integer  "quantity_id",        limit: 4
+    t.boolean  "is_display",                     default: true
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.integer  "display_order",      limit: 4,   default: 0
+    t.integer  "supply_price",       limit: 4,   default: 0
+    t.integer  "delivery_cost",      limit: 4,   default: 0
+    t.integer  "min_qty",            limit: 4,   default: 0
+    t.string   "brand_name",         limit: 255
+    t.integer  "print_package_cost", limit: 4,   default: 0
+    t.integer  "supplier_id",        limit: 4
   end
 
   add_index "products", ["price_id"], name: "index_products_on_price_id", using: :btree
   add_index "products", ["quantity_id"], name: "index_products_on_quantity_id", using: :btree
+  add_index "products", ["supplier_id"], name: "index_products_on_supplier_id", using: :btree
 
   create_table "quantities", force: :cascade do |t|
     t.integer  "qty_max",    limit: 4
@@ -167,6 +175,18 @@ ActiveRecord::Schema.define(version: 20170202131258) do
 
   add_index "simples", ["client_id"], name: "index_simples_on_client_id", using: :btree
 
+  create_table "suppliers", force: :cascade do |t|
+    t.string   "company_name",  limit: 255
+    t.string   "url",           limit: 255
+    t.string   "category",      limit: 255
+    t.integer  "print_cost",    limit: 4
+    t.integer  "package_cost",  limit: 4
+    t.string   "company_phone", limit: 255
+    t.string   "company_fax",   limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "username",          limit: 255
     t.string   "email",             limit: 255
@@ -181,4 +201,5 @@ ActiveRecord::Schema.define(version: 20170202131258) do
     t.boolean  "mailreceive_check",             default: false
   end
 
+  add_foreign_key "products", "suppliers"
 end

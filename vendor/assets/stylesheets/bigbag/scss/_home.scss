@@ -223,6 +223,31 @@
 
 .whiteSection, .mainContent{
 	// 메인페이지 상품 화면 구성
+	.recommend-container{
+		position: relative;
+		@include mobile{
+			position: relative;
+			left:5%;
+			width: 90%;
+			.product-detail {
+				font-size: 11px!important;
+				h5 {
+					font-size: 13px;
+				}
+			}
+		}
+		@include mobile-xs{
+			position: relative;
+			left:0;
+			width: 100%;
+			.product-detail {
+				font-size: 10px!important;
+				h5 {
+					font-size: 12px;
+				}
+			}
+		}
+	}
 	.container{
 		width: 70%!important;
 		@include mobile{
@@ -256,19 +281,58 @@
 	}
 	.products-header{
 		text-align:center;
-	}
-	.products-descript{
-		margin-top: 10px;
-		margin-bottom: 40px;
-		.product-title {
-			font-size: 14px;
-			font-weight: 300;
-		}
-		.product-detail{
-			font-size: 12px;
-			color: #888;
+		h4 {
+			margin-bottom: 15px;
 		}
 	}
+	.grid {
+		@include mobile{
+			padding-left: 0px;
+		}
+		@include mobile-xs{
+			padding-left: 0px;	
+		}
+	}
+	.grid-sizer,
+	.grid-item {
+		width: 32.2%;
+	}
+	.grid-item--width2 {
+		width: 48%;
+	}
+
+	.grid-item--width3 {
+		width: 100%;
+	}
+
+	.products-content {
+		.product-container {
+			padding: 15px 15px!important;
+			background-color: #f8f8f8;
+			margin-bottom: 20px;
+			border: 10px solid white;
+			@include mobile-xs{
+				margin-right: 0px!important;
+				border: none;
+				padding: 10px!important;
+			}
+		}
+		.products-descript{
+			padding-left: 15px;
+			padding-right: 15px;
+			margin-top: 30px;
+			margin-bottom: 20px;
+			.product-title {
+				font-size: 22px;
+				font-weight: 600;
+			}
+			.product-detail{
+				margin-top: 20px;
+				font-size: 12px;
+				color: #888;
+			}
+		}	
+	}	
 	label {
 		&.error{
 			color: #fe8a32;

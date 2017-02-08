@@ -39,6 +39,11 @@ Myapp::Application.routes.draw do
   get "gifts/single_product/:id", to:'gifts#single_product'
   get "gifts/cart_delete/:id", to:'gifts#cart_delete' # 보안 각별히 신경써야함
 
+  # 공급사 DB routes
+  get 'suppliers/index'
+  get 'suppliers/new'
+  get 'suppliers/create'
+
   # CS DB routes
   get 'comments/create'
   # CS관리 routes
@@ -65,7 +70,9 @@ Myapp::Application.routes.draw do
   get "products/new"
   get "products/create"
   get "products/edit/:id", to: 'products#edit' 
-  get "products/update:id", to: 'products#update' 
+  get "products/update/:id", to: 'products#update' 
+  get "products/single_product/:id", to: 'products#single_product' 
+  get "products/unsale_product/:id", to: 'products#unsale_product' 
 
   # 옵션관리 routes
   get "options/index"

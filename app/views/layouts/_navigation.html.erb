@@ -50,6 +50,13 @@
                     <li class="<%= is_active_action('index') %>"><%= link_to "고객현황", admin_users_index_path %></li>
                 </ul>
             </li>
+            <li class="<%= is_active_controller('suppliers') %>">
+                <a href=""><i class="fa fa-truck"></i> <span class="nav-label" data-i18n="nav.suppliers">공급사관리</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse <%= is_active_controller('suppliers') %>">
+                    <li class="<%= is_active_action('index') %>"><%= link_to "공급사현황", suppliers_index_path %></li>
+                    <li class="<%= is_active_action('new') %>"><%= link_to "공급사등록", suppliers_new_path %></li>
+                </ul>
+            </li>
             <li class="<%= is_active_controller('products') %>">
                 <a href=""><i class="fa fa-gift"></i> <span class="nav-label" data-i18n="nav.product">상품관리</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse <%= is_active_controller('products') %>">

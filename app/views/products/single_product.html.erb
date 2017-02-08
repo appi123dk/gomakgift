@@ -1,0 +1,152 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>제품상세정보</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="<%= url_for :controller => 'dashboards', :action => 'dashboard_1' %>">Home</a>
+            </li>
+            <li>
+                <a>Product</a>
+            </li>
+            <li class="active">
+                <strong>Product detail</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+<div class="row">
+    <div class="col-lg-12">
+
+        <div class="ibox product-detail">
+            <div class="ibox-content">
+
+                <div class="row">
+                    <div class="col-md-5">
+
+
+                        <div class="product-images">
+
+                            <div>
+                                <div class="image-imitation">
+                                    [IMAGE 1]
+                                </div>
+                            </div>
+                            <div>
+                                <div class="image-imitation">
+                                    [IMAGE 2]
+                                </div>
+                            </div>
+                            <div>
+                                <div class="image-imitation">
+                                    [IMAGE 3]
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-7">
+
+                        <h2 class="font-bold m-b-xs" style="margin-bottom: 15px;">
+                            상품명 : <%= @product.title %>
+                            <% if @product.is_display %>
+                                <span class="label label-primary">판매중</span>
+                            <% else %>
+                                <span class="label label-info">판매중지</span>
+                            <% end %>
+                        </h2>
+                        <hr>  
+                        <h4> 브랜드명 - <%= @product.brand_name %></h4>
+                        <small>공급업체 : <%= @supplier.company_name %> | <i class="fa fa-mobile"></i> : <%= @supplier.company_phone %> | FAX : <%= @supplier.company_fax %> | 홈페이지 : <a href="<%= @supplier.url %>"><%= @supplier.url %></a></small>
+                        <hr>
+                        <div>
+                            <h4 class="text-center">가격표</h4>
+                            <table class="table table-hover">
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">수량(개)</td>
+                                    <td class="text-center">code : <%= @qty.id %></td>
+                                    <td class="text-right"><%= number_with_delimiter(@qty.qty_max, delimiter: ',') %></td>
+                                    <td class="text-right"><%= number_with_delimiter(@qty.qty_1, delimiter: ',') %></td>
+                                    <td class="text-right"><%= number_with_delimiter(@qty.qty_2, delimiter: ',') %></td>
+                                    <td class="text-right"><%= number_with_delimiter(@qty.qty_3, delimiter: ',') %></td>
+                                    <td class="text-right"><%= number_with_delimiter(@qty.qty_4, delimiter: ',') %></td>
+                                    <td class="text-right"><%= number_with_delimiter(@qty.qty_5, delimiter: ',') %></td>
+                                    <td class="text-right"><%= number_with_delimiter(@qty.qty_6, delimiter: ',') %></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">가격(원)</td>
+                                    <td class="text-center">code : <%= @price.id %></td>
+                                    <td class="text-right"><%= number_with_delimiter(@price.price_min, delimiter: ',') %></td>
+                                    <td class="text-right"><%= number_with_delimiter(@price.price_1, delimiter: ',') %></td>
+                                    <td class="text-right"><%= number_with_delimiter(@price.price_2, delimiter: ',') %></td>
+                                    <td class="text-right"><%= number_with_delimiter(@price.price_3, delimiter: ',') %></td>
+                                    <td class="text-right"><%= number_with_delimiter(@price.price_4, delimiter: ',') %></td>
+                                    <td class="text-right"><%= number_with_delimiter(@price.price_5, delimiter: ',') %></td>
+                                    <td class="text-right"><%= number_with_delimiter(@price.price_6, delimiter: ',') %></td>
+                                </tr>
+                                <tr>
+                                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <h4>제품스토리</h4>
+
+                        <div style="font-size: 12px; margin-bottom: 30px;">
+                            제목 : <%= @product.subtitle %>
+                            <br/>
+                            <br/>
+                            <!-- 내용 : @product.product_story -->
+                            내용 : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta magni cum ullam doloremque tempora aliquid dolorum nulla ducimus eos, accusantium laboriosam, saepe unde vitae quos quaerat impedit error amet nesciunt!
+                        </div>
+                        <hr>
+                        <h4>제품고시정보</h4>
+                        <div style="font-size: 12px; margin-bottom: 30px">
+                            <%=raw @product.detail %>
+                        </div>
+                        <hr>
+                        <h4>상품 상세정보</h4>
+                        <dl class="dl-horizontal m-t-md">
+                            <dt style="text-align:left">최소수량</dt>
+                            <dd><%= @product.min_qty %> 개</dd>
+                            <dt style="text-align:left">패키지 인쇄비용</dt>
+                            <dd><%= @product.print_package_cost %> 원</dd>
+                            <dt style="text-align:left">택배비</dt>
+                            <dd><%= @product.delivery_cost %> 원</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+</div>
+
+<% content_for :javascript do %>
+
+<script type="text/javascript">
+
+
+$(window).load(function() {
+
+    $('.product-images').slick({
+        dots: true
+    });
+
+});
+
+</script>
+
+<% end %>

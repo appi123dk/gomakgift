@@ -23,3 +23,6 @@ Product.create(
 	product_thumb: 'https://www.beanbrothers.co.kr/media/blend/2016/04/21/g05_mug_him-01.png',
 	is_display: true
 )
+
+Supplier.create(company_name: '(주)성도테크', url: 'http://www.sdc21.co.kr/', category: '텀블러', 
+								print_cost: 0, package_cost: 0, company_phone: '031-958-5740~2', company_fax: '031-958-5743')
