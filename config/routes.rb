@@ -61,6 +61,7 @@ Myapp::Application.routes.draw do
   post 'users/login_session_inquire'
   get 'users/login_inquire'
   get 'users/logout'
+
   # 유저관리 routes
   get 'admin_users/index'
   get 'admin_users/view'
@@ -70,7 +71,7 @@ Myapp::Application.routes.draw do
   get "products/new"
   get "products/create"
   get "products/edit/:id", to: 'products#edit' 
-  get "products/update/:id", to: 'products#update' 
+  post "products/update/:id", to: 'products#update' 
   get "products/single_product/:id", to: 'products#single_product' 
   get "products/unsale_product/:id", to: 'products#unsale_product' 
 
@@ -89,6 +90,12 @@ Myapp::Application.routes.draw do
   get "admin_orders/index"
   get "admin_orders/complete"
   get "admin_orders/view/:id", to: 'admin_orders#view'
+  get "admin_orders/check_payment/:id", to: 'admin_orders#check_payment'
+  get "admin_orders/check_designed/:id", to: 'admin_orders#check_designed'
+  get "admin_orders/check_confirmed/:id", to: 'admin_orders#check_confirmed'
+  get "admin_orders/check_ordered/:id", to: 'admin_orders#check_ordered'
+  get "admin_orders/check_finished/:id", to: 'admin_orders#check_finished'
+  get "admin_orders/check_issued/:id", to: 'admin_orders#check_issued'
 
   # 대시보드
   get "dashboards/dashboard_1"

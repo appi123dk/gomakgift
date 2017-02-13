@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208055907) do
+ActiveRecord::Schema.define(version: 20170213045959) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "title",          limit: 255
@@ -110,19 +110,22 @@ ActiveRecord::Schema.define(version: 20170208055907) do
     t.string   "subtitle",           limit: 255
     t.string   "detail",             limit: 255
     t.string   "product_image",      limit: 255
-    t.string   "product_thumb",      limit: 255
     t.integer  "price_id",           limit: 4
     t.integer  "quantity_id",        limit: 4
-    t.boolean  "is_display",                     default: true
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
-    t.integer  "display_order",      limit: 4,   default: 0
-    t.integer  "supply_price",       limit: 4,   default: 0
-    t.integer  "delivery_cost",      limit: 4,   default: 0
-    t.integer  "min_qty",            limit: 4,   default: 0
+    t.boolean  "is_display",                       default: true
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.integer  "display_order",      limit: 4,     default: 0
+    t.integer  "supply_price",       limit: 4,     default: 0
+    t.integer  "delivery_cost",      limit: 4,     default: 0
+    t.integer  "min_qty",            limit: 4,     default: 0
     t.string   "brand_name",         limit: 255
-    t.integer  "print_package_cost", limit: 4,   default: 0
+    t.integer  "print_package_cost", limit: 4,     default: 0
     t.integer  "supplier_id",        limit: 4
+    t.string   "mainpage_title",     limit: 255
+    t.text     "mainpage_story",     limit: 65535
+    t.string   "recommend_festival", limit: 255
+    t.string   "explain_package",    limit: 255
   end
 
   add_index "products", ["price_id"], name: "index_products_on_price_id", using: :btree
@@ -186,6 +189,15 @@ ActiveRecord::Schema.define(version: 20170208055907) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "thumbnails", force: :cascade do |t|
+    t.integer  "product_id", limit: 4
+    t.string   "img_url",    limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "thumbnails", ["product_id"], name: "index_thumbnails_on_product_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",          limit: 255

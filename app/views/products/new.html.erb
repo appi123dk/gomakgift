@@ -19,6 +19,10 @@
                 <div class="form-group col-lg-8">
                     <input type="text" class="form-control" name="brand_name" required="" style="text-align: right">
                 </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">메인카피 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="subtitle" required="" style="text-align: right">
+                </div>
                 <label class="col-lg-4 control-label" style="margin-top: 7px">수량코드 : </label>
                 <div class="form-group col-lg-2">
                     <input type="number" class="form-control" name="quantity_id" required="" style="text-align: right">
@@ -51,27 +55,62 @@
                 <div class="form-group col-lg-3">
                     <input type="number" class="form-control" name="supply_price" required="" style="text-align: right">
                 </div>
-                <label class="col-lg-4 control-label" style="margin-top: 7px">서브 타이틀 : </label>
-                <div class="form-group col-lg-8">
-                    <textarea required="" name="subtitle" class="form-control" cols="30" rows="10"></textarea>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <label class="col-lg-4 control-label" style="margin-top: 7px">상품 이미지주소 :</label>
-                <div class="form-group col-lg-8">
-                    <input type="text" class="form-control" name="product_image" required="" style="text-align: right">
-                </div>
-                <label class="col-lg-4 control-label" style="margin-top: 7px">상품 썸네일주소 : </label>
-                <div class="form-group col-lg-8">
-                    <input type="text" class="form-control" name="product_thumb" required="" style="text-align: right">
-                </div>
-                <label class="col-lg-4 control-label" style="margin-top: 7px">상품 상세정보 : </label>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품정보고시 : </label>
                 <div class="form-group col-lg-8">
                     <textarea required="" name="detail" class="form-control" cols="30" rows="12"></textarea>
                 </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">추천행사 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="recommend_festival" required="" style="text-align: right" placeholder="예시 : 돌잔치, 결혼식 등">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">패키지 여부 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="explain_package" required="" style="text-align: right" placeholder="예시 : 기본패키지 증정">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <label class="col-lg-4 control-label" style="margin-top: 7px">메인화면 상품제목 :</label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="mainpage_title" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">메인화면 상품스토리 :</label>
+                <div class="form-group col-lg-8">
+                    <textarea required="" name="mainpage_story" class="form-control" cols="30" rows="12"></textarea>
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품 썸네일 : </label>
+                <div class="form-group col-lg-8 thumbnail-form">
+                    <input type="text" class="form-control" name="img_url[]" required="" style="text-align: right">
+                </div>
+                <button type="button" class="btn btn-rounded btn-warning add-thumb"><i class="fa fa-plus"></i> 썸네일 추가</button>
+                <button type="button" class="btn btn-rounded btn-danger remove-thumb"><i class="fa fa-minus"></i> 썸네일 제거</button><br/><br/>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품 상세정보 이미지 :</label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="product_image" required="" style="text-align: right">
+                </div>
+                
                 <button type="submit" class="btn btn-primary block full-width m-b">등록</button>
             </div>
         </form>
         <!-- <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2015</small> </p> -->
     </div>
 </div>
+
+<% content_for :javascript do %>
+    <script type="text/javascript">
+        $(function(){
+            $('.add-thumb').click(function(){
+                $('.thumbnail-form').last().after(
+                    '<label class="col-lg-4 control-label thumbnail-label" style="margin-top: 7px">상품 썸네일 : </label>' +
+                    '<div class="form-group col-lg-8 thumbnail-form">' +
+                        '<input type="text" class="form-control" name="img_url[]" required="" style="text-align: right">' +
+                    '</div>'
+                );
+            });
+
+            $('.remove-thumb').click(function(){
+                $('.thumbnail-label').last().remove();
+                $('.thumbnail-form').last().remove();
+            });
+        });
+    </script>
+<% end %>

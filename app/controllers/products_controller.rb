@@ -22,7 +22,6 @@ class ProductsController < ApplicationController
 		product.subtitle            = params[:subtitle]
 		product.detail              = params[:detail]
 		product.product_image       = params[:product_image]
-		product.product_thumb       = params[:product_thumb]
 		product.display_order       = params[:display_order]
 		product.supply_price        = params[:supply_price]
 		product.supplier_id         = params[:supplier_id]
@@ -30,7 +29,18 @@ class ProductsController < ApplicationController
 		product.brand_name          = params[:brand_name]
 		product.print_package_cost  = params[:print_package_cost]
 		product.delivery_cost       = params[:delivery_cost]
+		product.recommend_festival  = params[:recommend_festival]
+		product.explain_package     = params[:explain_package]
+		product.mainpage_title      = params[:mainpage_title]
+		product.mainpage_story      = params[:mainpage_story]
 		product.save
+
+		params[:img_url].each do |url|
+			thumbnail = Thumbnail.new
+			thumbnail.product_id = product.id
+			thumbnail.img_url = url
+			thumbnail.save
+		end
 
 		redirect_to '/products/new'
 	end
@@ -39,6 +49,7 @@ class ProductsController < ApplicationController
 		@product = Product.find(params[:id])
 	end
 
+	skip_before_action :verify_authenticity_token
 	def update
 		product 										= Product.find(params[:id])
 		product.title               = params[:title]
@@ -47,7 +58,6 @@ class ProductsController < ApplicationController
 		product.subtitle            = params[:subtitle]
 		product.detail              = params[:detail]
 		product.product_image       = params[:product_image]
-		product.product_thumb       = params[:product_thumb]
 		product.display_order       = params[:display_order]
 		product.supply_price        = params[:supply_price]
 		product.supplier_id         = params[:supplier_id]
@@ -55,7 +65,30 @@ class ProductsController < ApplicationController
 		product.brand_name          = params[:brand_name]
 		product.print_package_cost  = params[:print_package_cost]
 		product.delivery_cost       = params[:delivery_cost]
+		product.recommend_festival  = params[:recommend_festival]
+		product.explain_package     = params[:explain_package]
+		product.mainpage_title      = params[:mainpage_title]
+		product.mainpage_story      = params[:mainpage_story]
 		product.save
+
+		thumbnails = product.thumbnails
+		par_idx = 0
+		thumbnails.each do |thumbnail|
+			thumbnail.img_url = params[:img_url][par_idx]
+			thumbnail.save
+			par_idx += 1
+		end
+
+		if params[:img_url].size > par_idx
+			(params[:img_url].size - par_idx).times do 
+				thumbnail = Thumbnail.new
+				thumbnail.product_id = product.id
+				thumbnail.img_url = params[:img_url][par_idx]
+				thumbnail.save
+
+				par_idx += 1
+			end
+		end
 
 		redirect_to '/products/index'
 	end

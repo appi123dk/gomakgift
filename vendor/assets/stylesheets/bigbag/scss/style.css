@@ -2220,7 +2220,8 @@ body.bodyColor.container {
     margin-bottom: 20px; }
     .whiteSection .products-content .products-descript .product-title, .mainContent .products-content .products-descript .product-title {
       font-size: 22px;
-      font-weight: 600; }
+      font-weight: 600;
+      color: black; }
     .whiteSection .products-content .products-descript .product-detail, .mainContent .products-content .products-descript .product-detail {
       margin-top: 20px;
       font-size: 12px;

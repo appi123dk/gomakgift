@@ -22,29 +22,25 @@
     <div class="col-xs-12">
       <div class="media">
         <div class="media-left productSlider">
-          <div id="carousel" class="carousel slide" data-ride="carousel">
+          <div id="carousel" class="carousel slide" data-ride="carousel" style="margin-top: 60px;">
             <div class="carousel-inner">
-              <div class="item active" data-thumb="0">
-               <img src="http://image.29cm.co.kr/contents/itemIcon/201701/20170105121832.jpg?cmd=thumb&width=600&height=600" alt="" width="100%">
-              </div>
-              <div class="item" data-thumb="1">
-                <img src="http://image.29cm.co.kr/contents/itemIcon/201701/20170104165556.jpg?cmd=thumb&width=600&height=600" alt="" width="100%">
-              </div>
-              <div class="item" data-thumb="2">
-                <img src="http://image.29cm.co.kr/contents/itemIcon/201701/20170105121832.jpg?cmd=thumb&width=600&height=600" alt="" width="100%">
-              </div>
-              <div class="item" data-thumb="3">
-                <img src="http://image.29cm.co.kr/contents/itemIcon/201611/20161129132818.jpg?cmd=thumb&width=600&height=600" alt="" width="100%">
-              </div>
+              <% data_num = 0 %>
+              <% @product.thumbnails.each do |thumbnail| %>
+                <div class="item" data-thumb="<%=raw data_num %>">
+                 <img src="<%= thumbnail.img_url %>" alt="" width="100%">
+                </div>
+                <% data_num += 1 %>
+              <% end %>
             </div>
           </div> 
           <div class="clearfix">
             <div id="thumbcarousel" class="carousel slide" data-interval="false">
               <div class="carousel-inner">
-                  <div data-target="#carousel" data-slide-to="0" class="thumb"><img src="<%= image_path('bigbag/products/signle-product/product-slide-small-01.jpg') %>"></div>
-                  <div data-target="#carousel" data-slide-to="1" class="thumb"><img src="<%= image_path('bigbag/products/signle-product/product-slide-small-02.jpg') %>"></div>
-                  <div data-target="#carousel" data-slide-to="2" class="thumb"><img src="<%= image_path('bigbag/products/signle-product/product-slide-small-03.jpg') %>"></div>
-                  <div data-target="#carousel" data-slide-to="3" class="thumb"><img src="<%= image_path('bigbag/products/signle-product/product-slide-small-04.jpg') %>"></div>
+                <% data_small_num = 0 %>
+                <% @product.thumbnails.each do |thumbnail| %>
+                  <div data-target="#carousel" data-slide-to="<%=raw data_small_num %>" class="thumb"><img src="<%= thumbnail.img_url %>"></div>
+                  <% data_small_num += 1 %>
+                <% end %>
               </div>
               <a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left"></span>
@@ -59,20 +55,20 @@
           <ul class="list-inline">
             <div class="single-product-descript">
               <div class="single-product-header">
-                <h3>씨앗연필</h3>
-                <p>한 글자 한 글자 씨앗에 심어넣으세요</p>
+                <h3><%= @product.title %></h3>
+                <p><%= @product.subtitle %></p>
               </div>
               <hr> 
               <div class="row">
                 <div class="col-xs-4">
-                  <h6>추천행사</h6>
-                  <h6>패키지여부</h6>
-                  <h6>상품간략설명</h6>
+                  <h6 style="margin-bottom: 26px; margin-top: 5px">추천행사</h6>
+                  <h6 style="margin-bottom: 26px; margin-top: 5px">패키지여부</h6>
+                  <h6 style="margin-bottom: 26px; margin-top: 5px">상품간략설명</h6>
                 </div>
                 <div class="col-xs-offset-1 col-xs-7">
-                  <p class="product-info">돌잔치, 결혼식, 기업홍보</p>
-                  <p class="product-info">기본 패키지 증정</p>
-                  <p class="product-info">연필의 사각사각거리는 소리를 들은 적이 언제인지 기억 하시나요? 추억의 몽당연필이 다시 살아나도록 도와주세요!</p>
+                  <p class="product-info" style="margin-bottom: 15px;"><%= @product.recommend_festival %></p>
+                  <p class="product-info" style="margin-bottom: 15px;"><%= @product.explain_package %></p>
+                  <p class="product-info" style="margin-bottom: 15px;"><%= @product.mainpage_story %></p>
                 </div>
               </div>
               <hr>
@@ -82,30 +78,30 @@
                   <thead>
                     <tr>
                         <th style="border-top: 1px solid black">수량</th>
-                        <th class="qty" style="border-top: 1px solid black"><%= @product_qty.qty_max %></th>
-                        <th class="qty" style="border-top: 1px solid black"><%= @product_qty.qty_1 %></th>
-                        <th class="qty" style="border-top: 1px solid black"><%= @product_qty.qty_2 %></th>
-                        <th class="qty" style="border-top: 1px solid black"><%= @product_qty.qty_3 %></th>
-                        <th class="qty" style="border-top: 1px solid black"><%= @product_qty.qty_4 %></th>
-                        <th class="qty" style="border-top: 1px solid black"><%= @product_qty.qty_5 %></th>
-                        <th class="qty" style="border-top: 1px solid black"><%= @product_qty.qty_6 %></th>
+                        <th class="qty" style="border-top: 1px solid black"><%= number_with_delimiter(@product_qty.qty_max, delimiter: ',') %></th>
+                        <th class="qty" style="border-top: 1px solid black"><%= number_with_delimiter(@product_qty.qty_1, delimiter: ',') %></th>
+                        <th class="qty" style="border-top: 1px solid black"><%= number_with_delimiter(@product_qty.qty_2, delimiter: ',') %></th>
+                        <th class="qty" style="border-top: 1px solid black"><%= number_with_delimiter(@product_qty.qty_3, delimiter: ',') %></th>
+                        <th class="qty" style="border-top: 1px solid black"><%= number_with_delimiter(@product_qty.qty_4, delimiter: ',') %></th>
+                        <th class="qty" style="border-top: 1px solid black"><%= number_with_delimiter(@product_qty.qty_5, delimiter: ',') %></th>
+                        <th class="qty" style="border-top: 1px solid black"><%= number_with_delimiter(@product_qty.qty_6, delimiter: ',') %></th>
                         <!-- <th style="border-top: 1px solid black">300</th> -->
                     </tr>
                   </thead>
                   <tbody>
                     <tr class="question">
                         <td><%= @product_price.price_name %></td>
-                        <td class="price"><%= @product_price.price_min %></td>
-                        <td class="price"><%= @product_price.price_1 %></td>
-                        <td class="price"><%= @product_price.price_2 %></td>
-                        <td class="price"><%= @product_price.price_3 %></td>
-                        <td class="price"><%= @product_price.price_4 %></td>
-                        <td class="price"><%= @product_price.price_5 %></td>
-                        <td class="price"><%= @product_price.price_6 %></td>
+                        <td class="price"><%= number_with_delimiter(@product_price.price_min, delimiter: ',') %></td>
+                        <td class="price"><%= number_with_delimiter(@product_price.price_1, delimiter: ',') %></td>
+                        <td class="price"><%= number_with_delimiter(@product_price.price_2, delimiter: ',') %></td>
+                        <td class="price"><%= number_with_delimiter(@product_price.price_3, delimiter: ',') %></td>
+                        <td class="price"><%= number_with_delimiter(@product_price.price_4, delimiter: ',') %></td>
+                        <td class="price"><%= number_with_delimiter(@product_price.price_5, delimiter: ',') %></td>
+                        <td class="price"><%= number_with_delimiter(@product_price.price_6, delimiter: ',') %></td>
                     </tr>
                   </tbody>
                 </table>
-                <p style="display: inline-block; margin-bottom: 0px; font-size:10px">* 수량과 가격은 흥정 가능합니다 * </p>
+                <p style="display: inline-block; margin-bottom: 0px; font-size:10px">* 수량과 가격은 흥정 가능합니다 / <span style="font-weight: bold">문의전화 1522 - 9406</span> * </p>
               </div>
               <hr>
               <div class="order-form">
@@ -121,7 +117,7 @@
                     <input type="hidden" name="product_id" value="<%= @product.id %>" >
                     <input type="hidden" name="product_id" value="<%= @product.id %>" >
                   </ul>
-                  <hr>
+<!--                   <hr>
                   <ul class="list-unstyled" style="line-height: 200%">
                     <li>인쇄방법 : 
                       <select name="option1" required>
@@ -137,8 +133,8 @@
                         <option value="2">Section 2</option>
                       </select>
                     </li>
-                  </ul>
-                  <button class="btn btn-submit btn-product">주문하기</button>
+                  </ul> -->
+                  <button class="btn btn-submit btn-product"><i class="fa fa-shopping-cart" style="font-size:18px"></i> <span style="margin-left: 15px;">장바구니담기</span></button>
                 </form>
               </div>
             </div>
@@ -151,7 +147,7 @@
   <div class="row productsContent">
     <div class="col-xs-12">
       <div class="page-header">
-        <h5>관련 스토리 상품 보기</h5>
+        <h5>관련 추천상품 보기</h5>
       </div>
     </div>
     <div class="col-md-2 col-sm-3 col-xs-3">
@@ -226,7 +222,7 @@
   <!-- FEATURE COLLECTION SECTION -->
   <div class="row featuredCollection version2" style="margin-top: 40px; margin-bottom: 20px;">
     <div class="col-sm-12 col-lg-offset-2 col-lg-8" style="padding-left: 0px; padding-right: 0px;">
-      <img src="<%= image_path('bigbag/products/test-image.jpg') %>" class="img-responsive" style="width:100%">      
+      <img src="<%= @product.product_image %>" class="img-responsive" style="width:100%">      
       <hr>
     </div>
   </div>
@@ -290,6 +286,7 @@
 
 <% content_for :javascript do %>
 <script type="text/javascript" src="<%= asset_path('bigbag/plugins/jquery-number/jquery.number.min.js') %>"></script>
+
 <script type="text/javascript">
 
 
@@ -418,6 +415,8 @@ $(function() {
           error.appendTo( element.parent() );
         }
     });
+
+  $(".item").first().addClass('active');
 
 });
 

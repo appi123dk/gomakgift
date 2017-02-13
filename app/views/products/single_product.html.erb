@@ -33,14 +33,18 @@
 
                             <div>
                                 <div class="image-imitation">
-                                    [IMAGE 1]
+                                    <h3>[배너이미지]</h3>
+                                     <img src="http://image.29cm.co.kr/contents/site/201702/20170210145525.jpg" alt="" width="100%">
                                 </div>
                             </div>
+                            <% @product.thumbnails.each do |thumbnail| %>
                             <div>
                                 <div class="image-imitation">
-                                    [IMAGE 2]
+                                    <h3>[썸네일]</h3>
+                                    <img src="<%= thumbnail.img_url %>" alt="">
                                 </div>
                             </div>
+                            <% end %>
                             <div>
                                 <div class="image-imitation">
                                     [IMAGE 3]
@@ -61,12 +65,20 @@
                                 <span class="label label-info">판매중지</span>
                             <% end %>
                         </h2>
+                        <h5>상품 메인카피 : <%= @product.subtitle %></h5>
                         <hr>  
                         <h4> 브랜드명 - <%= @product.brand_name %></h4>
                         <small>공급업체 : <%= @supplier.company_name %> | <i class="fa fa-mobile"></i> : <%= @supplier.company_phone %> | FAX : <%= @supplier.company_fax %> | 홈페이지 : <a href="<%= @supplier.url %>"><%= @supplier.url %></a></small>
                         <hr>
                         <div>
-                            <h4 class="text-center">가격표</h4>
+                            <% 
+                                #공급가
+                                supply_price = @product.supply_price
+                                #인쇄비
+                                print_cost = @product.print_package_cost
+                             %>
+                            <h4 class="text-center">가격표 / <small>공급가 : <%= supply_price %> 원 / 인쇄비 : <%= print_cost %> 원
+                            </small></h4>
                             <table class="table table-hover">
                             <tbody>
                                 <tr>
@@ -92,7 +104,17 @@
                                     <td class="text-right"><%= number_with_delimiter(@price.price_6, delimiter: ',') %></td>
                                 </tr>
                                 <tr>
-                                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                                    <td class="text-center" colspan="2">마진율(%)</td>
+                                    <td class="text-right"><%= ((@price.price_min - supply_price - print_cost) / @price.price_min.to_f * 100).round(2)  %></td>
+                                    <td class="text-right"><%= ((@price.price_1 - supply_price - print_cost) / @price.price_1.to_f * 100).round(2) %></td>
+                                    <td class="text-right"><%= ((@price.price_2 - supply_price - print_cost) / @price.price_2.to_f * 100).round(2) %></td>
+                                    <td class="text-right"><%= ((@price.price_3 - supply_price - print_cost) / @price.price_3.to_f * 100).round(2) %></td>
+                                    <td class="text-right"><%= ((@price.price_4 - supply_price - print_cost) / @price.price_4.to_f * 100).round(2) %></td>
+                                    <td class="text-right"><%= ((@price.price_5 - supply_price - print_cost) / @price.price_5.to_f * 100).round(2) %></td>
+                                    <td class="text-right"><%= ((@price.price_6 - supply_price - print_cost) / @price.price_6.to_f * 100).round(2) %></td>
+                                </tr>
+                                <tr>
+                                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -100,11 +122,11 @@
                         <h4>제품스토리</h4>
 
                         <div style="font-size: 12px; margin-bottom: 30px;">
-                            제목 : <%= @product.subtitle %>
+                            제목 : <%= @product.mainpage_title %>
                             <br/>
                             <br/>
                             <!-- 내용 : @product.product_story -->
-                            내용 : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta magni cum ullam doloremque tempora aliquid dolorum nulla ducimus eos, accusantium laboriosam, saepe unde vitae quos quaerat impedit error amet nesciunt!
+                            내용 : <%= @product.mainpage_story %>
                         </div>
                         <hr>
                         <h4>제품고시정보</h4>
