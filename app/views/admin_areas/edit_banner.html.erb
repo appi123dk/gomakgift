@@ -1,0 +1,67 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div style="padding-top: 70px">
+
+            <h3 class="logo-name" style="font-size: 80px; color: #fed328">GomakGift</h1>
+
+        </div>
+        <h3 style="margin-top: 50px;">배너영역수정</h3>
+        <p>"<%= @banner.product.title %>" 배너영역 수정</p>
+        <form class="m-t form-banner" role="form" action="/admin_areas/update_banner/<%= @banner.id %>" id="form-banner" method="GET">
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품 id : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="product_id" value="<%= @banner.product_id %>" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">배경이미지주소 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="background_url" value="<%= @banner.background_url %>" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품이미지주소 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="product_url" value="<%= @banner.product_url %>" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품이미지 위치 : </label>
+                <div class="form-group col-lg-8" style="margin-top: 8px">
+                    <div class="radio radio-danger radio-inline">
+                        <input type="radio" value="true" name="is_left" checked="" id="leftRadio1">
+                        <label for="leftRadio1"> 왼쪽 </label>
+                    </div>
+                    <div class="radio radio-danger radio-inline">
+                        <input type="radio" value="false" name="is_left" id="leftRadio2">
+                        <label for="leftRadio2"> 오른쪽 </label>
+                    </div>
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">노출여부 : </label>
+                <div class="form-group col-lg-8" style="margin-top: 8px">
+                    <div class="radio radio-danger radio-inline">
+                        <input type="radio" value="true" name="is_display" checked="" id="displayRadio1">
+                        <label for="displayRadio1"> 배너노출 </label>
+                    </div>
+                    <div class="radio radio-danger radio-inline">
+                        <input type="radio" value="false" name="is_display" id="displayRadio2">
+                        <label for="displayRadio2"> 배너숨김 </label>
+                    </div>
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">순서 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="number" value="<%= @banner.order %>" class="form-control" name="order" required="" style="text-align: right">
+                </div>
+                <button type="submit" form="form-banner" class="btn btn-warning block full-width m-b">등록</button>
+            </form>
+        <!-- <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2015</small> </p> -->
+    </div>
+</div>
+
+<% content_for :javascript do %>
+    <script type="text/javascript">
+        $(function(){
+            var is_display = <%= @banner.is_display %>,
+                is_left = <%= @banner.is_left %>;
+            $('input:radio[name="is_display"][value="'+ is_display +'"]').attr('checked', 'checked');
+            $('input:radio[name="is_left"][value="'+ is_left +'"]').attr('checked', 'checked');
+        });
+    </script>
+<% end %>
+
+
+

@@ -3,149 +3,41 @@
   <div class="fullscreenbanner-container">
     <div class="fullscreenbanner">
       <ul>
-        <li data-transition="slidehorizontal" data-slotamount="5" data-masterspeed="700" data-title="Slide 1">
-          <img src="<%= image_path('bigbag/home/banner-slider/slider-bg.jpg') %>" alt="slidebg1" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
-          <div class="slider-caption slider-captionV1 container">
-            
-            <div class="tp-caption rs-caption-1 sft start" 
-              data-hoffset="0" 
-              data-x="370" 
-              data-y="54" 
-              data-speed="0" 
-              data-start="500" 
-              data-easing="Back.easeInOut" 
-              data-endspeed="100" >
-              <img src="<%= image_path('bigbag/home/banner-slider/shoe1.png') %>" alt="slider-image" style="width: 781px; height: 416px;">
+        <% @banners.each do |banner| %>
+          <% if banner.is_left %>
+          <li data-transition="slidehorizontal" data-slotamount="5" data-masterspeed="700"  data-title="Slide 3" onclick="location.href='/gifts/single_product/<%= banner.product.id %>';">
+            <img src="<%= banner.background_url %>" alt="slidebg" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+            <div class="slider-caption slider-captionV1 container">
+              <div class="tp-caption rs-caption-1 sft start"
+                data-hoffset="0"
+                data-y="54"
+                data-speed="800"
+                data-start="1500"
+                data-easing="Back.easeInOut"
+                data-endspeed="300" style="left:90px">
+                <img src="<%= banner.product_url %>" alt="slider-image">
+              </div>
             </div>
-
-            <div class="tp-caption rs-caption-2 sft"
-              data-hoffset="0"
-              data-y="119"
-              data-speed="800"
-              data-start="2000"
-              data-easing="Back.easeInOut"
-              data-endspeed="300">
-              씨앗연필
+          </li>          
+          <% else %>
+          <li data-transition="slidehorizontal" data-slotamount="5" data-masterspeed="700" data-title="Slide 1" onclick="location.href='/gifts/single_product/<%= banner.product.id %>';">
+            <img src="<%= banner.background_url %>" alt="slidebg1" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+            <div class="slider-caption slider-captionV1 container">
+              
+              <div class="tp-caption rs-caption-1 sft start" 
+                data-hoffset="0" 
+                data-x="800" 
+                data-y="54" 
+                data-speed="800" 
+                data-start="1500" 
+                data-easing="Back.easeInOut" 
+                data-endspeed="300" >
+                <img src="<%= banner.product_url %>" alt="slider-image">
+              </div>
             </div>
-
-            <div class="tp-caption rs-caption-3 sft"
-              data-hoffset="0"
-              data-y="200"
-              data-speed="1000"
-              data-start="3000"
-              data-easing="Power4.easeOut"
-              data-endspeed="300"
-              data-endeasing="Power1.easeIn"
-              data-captionhidden="off">
-              <p>한글자 한글자 써내려간 마음을 심다</p>
-              환경까지 생각한 최고의 선택! <br>
-              다 쓰고나면 화분에 심어주세요  
-            </div>
-          </div>
-        </li>
-        <% @products.each do |product| %>
-        <li data-transition="slidehorizontal" data-slotamount="5" data-masterspeed="1000" data-title="Slide 2">
-          <img src="<%= image_path('bigbag/home/banner-slider/slider-bg.jpg') %>" alt="slidebg" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
-          <div class="slider-caption slider-captionV1 container captionCenter">
-            <div class="tp-caption rs-caption-1 sft start text-center"
-              data-x="center"
-              data-y="100"
-              data-speed="800"
-              data-start="1500"
-              data-easing="Back.easeInOut"
-              data-endspeed="300">
-              <img src="<%= product.thumbnails.first.img_url %>" alt="slider-image">
-            </div>
-
-            <div class="tp-caption rs-caption-2 sft text-center"
-              data-x="center"
-              data-y="120"
-              data-speed="800"
-              data-start="2000"
-              data-easing="Back.easeInOut"
-              data-endspeed="300">
-              <%=raw product.subtitle %>
-            </div>
-
-            <div class="tp-caption rs-caption-3 sft text-center"
-              data-x="center"
-              data-y="50"
-              data-speed="800"
-              data-start="2000"
-              data-easing="Power4.easeOut"
-              data-endspeed="300"
-              data-endeasing="Power1.easeIn"
-              data-captionhidden="off">
-              <%= product.title %>
-            </div>
-
-            <div class="tp-caption rs-caption-4 sft text-center"
-              data-x="center"
-              data-y="156"
-              data-speed="800"
-              data-start="3500"
-              data-easing="Power4.easeOut"
-              data-endspeed="300"
-              data-endeasing="Power1.easeIn"
-              data-captionhidden="off">
-              <!-- <span class="page-scroll"><a href="#" class="btn primary-btn">Buy Now<i class="glyphicon glyphicon-chevron-right"></i></a></span> -->
-            </div>
-          </div>
-        </li>
+          </li>
+          <% end %>
         <% end %>
-        <li data-transition="slidehorizontal" data-slotamount="5" data-masterspeed="700"  data-title="Slide 3">
-          <img src="<%= image_path('bigbag/home/banner-slider/slider-bg.jpg') %>" alt="slidebg" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
-          <div class="slider-caption slider-captionV1 container">
-            <div class="tp-caption rs-caption-1 sft start"
-              data-hoffset="0"
-              data-y="85"
-              data-speed="800"
-              data-start="1500"
-              data-easing="Back.easeInOut"
-              data-endspeed="300">
-              <img src="<%= image_path('bigbag/home/banner-slider/shoe3.png') %>" alt="slider-image">
-            </div>
-
-            <div class="tp-caption rs-caption-2 sft "
-              data-hoffset="0"
-              data-y="119"
-              data-x="800"
-              data-speed="800"
-              data-start="2000"
-              data-easing="Back.easeInOut"
-              data-endspeed="300">
-              Canvas Sneaker
-            </div>
-
-            <div class="tp-caption rs-caption-3 sft"
-              data-hoffset="0"
-              data-y="185"
-              data-x="800"
-              data-speed="1000"
-              data-start="3000"
-              data-easing="Power4.easeOut"
-              data-endspeed="300"
-              data-endeasing="Power1.easeIn"
-              data-captionhidden="off">
-              Exclusive to <br>
-              BigBag <br>
-              <small>Spring / Summer 2016</small>
-            </div>
-
-            <div class="tp-caption rs-caption-4 sft"
-              data-hoffset="0"
-              data-y="320"
-              data-x="800"
-              data-speed="800"
-              data-start="3500"
-              data-easing="Power4.easeOut"
-              data-endspeed="300"
-              data-endeasing="Power1.easeIn"
-              data-captionhidden="off">
-              <!-- <span class="page-scroll"><a href="#" class="btn primary-btn">Buy Now<i class="glyphicon glyphicon-chevron-right"></i></a></span> -->
-            </div>
-          </div>
-        </li>
       </ul>
     </div>
   </div>
@@ -156,55 +48,26 @@
   <!-- 1단 상품 -->
   <div class="container-custom">
     <div class="recommend-container">
-    <div class="products-header" style = "margin-top: 40px;">
-      <h4>MD 추천상품</h4>  
-    </div>
-    <div class="products-content row">
-      <div class="col-sm-3 col-xs-6">
-        <div class="img-box" style="margin-bottom: 20px;">
-          <img src="https://images.designtrends.com/wp-content/uploads/2016/10/03184855/1939-Patek-Philippe-Platinum-World-Time-Watch-.jpg" alt="" width="100%">
-        </div>
-        <div class="products-descript">
-          <div class="product-detail">
-            <h5 style="margin-bottom: 5px; font-weight: normal">Platinum Watch 시계컬렉션</h5>
-            여름 필수품! 시계를 선물하세요
+      <div class="products-header" style = "margin-top: 40px;">
+        <h4>MD 추천상품</h4>  
+      </div>
+      <div class="products-content row">
+        <% @recommends.each do |recommend| %>
+        <a href="/gifts/single_product/<%= recommend.product.id %>">
+        <div class="col-sm-3 col-xs-6 recommend-areas">
+          <div class="img-box" style="margin-bottom: 20px;">
+            <img src="<%= recommend.img_url %>" alt="" width="100%">
+          </div>
+          <div class="products-descript">
+            <div class="product-detail">
+              <h5 style="margin-bottom: 5px; font-weight: normal"><%= recommend.title %></h5>
+              <%= recommend.subtitle %>
+            </div>
           </div>
         </div>
+        </a>
+        <% end %>
       </div>
-      <div class="col-sm-3 col-xs-6">
-        <div class="img-box" style="margin-bottom: 20px;">
-          <img src="https://images.designtrends.com/wp-content/uploads/2016/10/03184855/1939-Patek-Philippe-Platinum-World-Time-Watch-.jpg" alt="" width="100%">
-        </div>
-        <div class="products-descript">
-          <div class="product-detail">
-            <h5 style="margin-bottom: 5px; font-weight: normal">Platinum Watch 시계컬렉션</h5>
-            여름 필수품! 시계를 선물하세요
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-3 col-xs-6">
-        <div class="img-box" style="margin-bottom: 20px;">
-          <img src="https://images.designtrends.com/wp-content/uploads/2016/10/03184855/1939-Patek-Philippe-Platinum-World-Time-Watch-.jpg" alt="" width="100%">
-        </div>
-        <div class="products-descript">
-          <div class="product-detail">
-            <h5 style="margin-bottom: 5px; font-weight: normal">Platinum Watch 시계컬렉션</h5>
-            여름 필수품! 시계를 선물하세요
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-3 col-xs-6">
-        <div class="img-box" style="margin-bottom: 20px;">
-          <img src="https://images.designtrends.com/wp-content/uploads/2016/10/03184855/1939-Patek-Philippe-Platinum-World-Time-Watch-.jpg" alt="" width="100%">
-        </div>
-        <div class="products-descript">
-          <div class="product-detail">
-            <h5 style="margin-bottom: 5px; font-weight: normal">Platinum Watch 시계컬렉션</h5>
-            여름 필수품! 시계를 선물하세요
-          </div>
-        </div>
-      </div>
-    </div>
     </div>
   </div>
   <div class="container-custom">
@@ -245,144 +108,6 @@
       </a>
     </div>
     <% end %>
-    <div class="products-content grid-item">
-      <div class="product-container">
-        <div class="img-box">
-          <img src="http://image.29cm.co.kr/contents/itemIcon/201701/20170105121832.jpg?cmd=thumb&width=600&height=600" alt="" width="100%">
-        </div>
-        <div class="products-descript">
-          <div class="product-title">
-            <small>(5차 재입고)</small> 씨앗연필
-          </div>
-          <hr style="margin-top: 5px">
-          <div class="product-detail">
-            <h5 style="margin-bottom: 5px">98,000원</h5>
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            v
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="products-content grid-item">
-      <div class="product-container">
-        <div class="img-box">
-          <img src="http://image.29cm.co.kr/contents/itemIcon/201701/20170105121832.jpg?cmd=thumb&width=600&height=600" alt="" width="100%">
-        </div>
-        <div class="products-descript">
-          <div class="product-title">
-            <small>(5차 재입고)</small> 씨앗연필
-          </div>
-          <hr style="margin-top: 5px">
-          <div class="product-detail">
-            <h5 style="margin-bottom: 5px">98,000원</h5>
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            v
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="products-content grid-item">
-      <div class="product-container">
-        <div class="img-box">
-          <img src="http://image.29cm.co.kr/contents/itemIcon/201701/20170104165556.jpg?cmd=thumb&width=600&height=600" alt="" width="100%">
-        </div>
-        <div class="products-descript">
-          <div class="product-title">
-            <small>(5차 재입고)</small> 씨앗연필
-          </div>
-          <hr style="margin-top: 5px">
-          <div class="product-detail">
-            <h5 style="margin-bottom: 5px">98,000원</h5>
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="products-content grid-item">
-      <div class="product-container">
-        <div class="img-box">
-          <img src="http://image.29cm.co.kr/contents/itemIcon/201701/20170105121832.jpg?cmd=thumb&width=600&height=600" alt="" width="100%">
-        </div>
-        <div class="products-descript">
-          <div class="product-title">
-            <small>(5차 재입고)</small> 씨앗연필
-          </div>
-          <hr style="margin-top: 5px">
-          <div class="product-detail">
-            <h5 style="margin-bottom: 5px">98,000원</h5>
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="products-content grid-item">
-      <div class="product-container">
-        <div class="img-box">
-          <img src="http://image.29cm.co.kr/contents/itemIcon/201611/20161129132818.jpg?cmd=thumb&width=600&height=600" alt="" width="100%">
-        </div>
-        <div class="products-descript">
-          <div class="product-title">
-            <small>(5차 재입고)</small> 씨앗연필
-          </div>
-          <hr style="margin-top: 5px">
-          <div class="product-detail">
-            <h5 style="margin-bottom: 5px">98,000원</h5>
-            한글자 한글자 눌러담아 나만의 나무를 가꾸어보세요
-            생각이 정리될수록, 나무가 자라납니다
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 

@@ -2162,6 +2162,13 @@ body.bodyColor.container {
           font-size: 10px !important; }
           .whiteSection .recommend-container .product-detail h5, .mainContent .recommend-container .product-detail h5 {
             font-size: 12px; } }
+    .whiteSection .recommend-container .recommend-areas:hover, .mainContent .recommend-container .recommend-areas:hover {
+      background-color: whitesmoke;
+      -webkit-transition: all 0.5s ease-in-out;
+      -moz-transition: all 0.5s ease-in-out;
+      -ms-transition: all 0.5s ease-in-out;
+      -o-transition: all 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out; }
   .whiteSection .container, .mainContent .container {
     width: 70% !important; }
     @media (min-width: 480px) {

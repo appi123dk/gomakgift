@@ -1,7 +1,7 @@
 <!-- BANNER -->
 <div class="bannercontainer bannerV1" style="margin-top: 50px;">
   <div class="fullscreenbanner-container">
-    <div class="fullscreenbanner" style="background-image: url('http://image.29cm.co.kr/contents/site/201701/20170126113439.jpg'); background-position: center center; background-repeat: no-repeat; background-size: cover">
+    <div class="fullscreenbanner" style="background-image: url('<%= @product.product_banner_image %>'); background-position: center center; background-repeat: no-repeat; background-size: cover">
       <div class="main-product">
         <header>
           <!-- <h1>@product.title</h1> -->
@@ -144,79 +144,30 @@
     </div>
   </div>
   <hr>  
+  <!-- 추천상품영역 -->
+  <% unless @recommend_products.nil? %>
   <div class="row productsContent">
     <div class="col-xs-12">
       <div class="page-header">
         <h5>관련 추천상품 보기</h5>
       </div>
     </div>
+    <% @recommend_products.each do |recommend_product| %>
     <div class="col-md-2 col-sm-3 col-xs-3">
       <div class="productBox">
         <div class="productImage clearfix" style="margin-bottom: 0px">
-          <img src="http://image.29cm.co.kr/contents/itemIcon/201701/20170116145106.jpg?cmd=thumb&width=300&height=300" alt="products-img">
+          <img src="<%= recommend_product.thumbnails.first.img_url %>" alt="products-img">
         </div>
         <div class="productCaption clearfix">
-         <p>Dip Dyed Sweater</p>
-         <h5>249원</h5>
+         <p><%= recommend_product.title %></p>
+         <h5><%= recommend_product.price.price_min %>원</h5>
         </div>
       </div>
     </div>
-    <div class="col-md-2 col-sm-3 col-xs-3">
-      <div class="productBox">
-        <div class="productImage clearfix" style="margin-bottom: 0px">
-           <img src="http://image.29cm.co.kr/contents/itemIcon/201701/20170105121832.jpg?cmd=thumb&width=300&height=300" alt="products-img">
-        </div>
-        <div class="productCaption clearfix">
-         <p>Dip Dyed Sweater</p>
-         <h5>249원</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2 col-sm-3 col-xs-3">
-      <div class="productBox">
-        <div class="productImage clearfix" style="margin-bottom: 0px">
-           <img src="http://image.29cm.co.kr/contents/itemIcon/201701/20170104165556.jpg?cmd=thumb&width=300&height=300" alt="products-img">
-        </div>
-        <div class="productCaption clearfix">
-         <p>Dip Dyed Sweater</p>
-         <h5>249원</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2 col-sm-3 col-xs-3">
-      <div class="productBox">
-        <div class="productImage clearfix" style="margin-bottom: 0px">
-          <img src="http://image.29cm.co.kr/contents/itemIcon/201701/20170104165556.jpg?cmd=thumb&width=300&height=300" alt="products-img">
-        </div>
-        <div class="productCaption clearfix">
-         <p>Dip Dyed Sweater</p>
-         <h5>249원</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2 col-sm-3 col-xs-3">
-      <div class="productBox">
-        <div class="productImage clearfix" style="margin-bottom: 0px">
-          <img src="http://image.29cm.co.kr/contents/itemIcon/201701/20170104165556.jpg?cmd=thumb&width=300&height=300" alt="products-img">
-        </div>
-        <div class="productCaption clearfix">
-         <p>Dip Dyed Sweater</p>
-         <h5>249원</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2 col-sm-3 col-xs-3">
-      <div class="productBox">
-        <div class="productImage clearfix" style="margin-bottom: 0px">
-          <img src="http://image.29cm.co.kr/contents/itemIcon/201701/20170104165556.jpg?cmd=thumb&width=300&height=300" alt="products-img">
-        </div>
-        <div class="productCaption clearfix">
-         <p>Dip Dyed Sweater</p>
-         <h5>249원</h5>
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
+  <% end %>
+  <!-- 끝 -->
 </div>
 <div class="container-custom">
   <!-- FEATURE COLLECTION SECTION -->

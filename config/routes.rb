@@ -55,6 +55,16 @@ Myapp::Application.routes.draw do
   get 'orders/new_cart'
   get 'orders/update_payment/:id', to: 'orders#update_payment'
 
+  # 영역관련 DB routes
+  get 'admin_areas/new'
+  get 'admin_areas/index'
+  get 'admin_areas/create_banner'
+  get 'admin_areas/create_recommend'
+  get 'admin_areas/edit_banner/:id', to: 'admin_areas#edit_banner'
+  get 'admin_areas/update_banner/:id', to: 'admin_areas#update_banner'
+  get 'admin_areas/edit_recommend/:id', to: 'admin_areas#edit_recommend'
+  get 'admin_areas/update_recommend/:id', to: 'admin_areas#update_recommend'
+
   # 유저 DB routes
   post 'users/login_session'
   get 'users/login'
@@ -96,6 +106,10 @@ Myapp::Application.routes.draw do
   get "admin_orders/check_ordered/:id", to: 'admin_orders#check_ordered'
   get "admin_orders/check_finished/:id", to: 'admin_orders#check_finished'
   get "admin_orders/check_issued/:id", to: 'admin_orders#check_issued'
+  get "admin_orders/edit_price/:id", to: 'admin_orders#edit_price'
+  get "admin_orders/edit_delivery/:id", to: 'admin_orders#edit_delivery'
+  get "admin_orders/cancle_order/:id", to: 'admin_orders#cancle_order'
+  get "admin_orders/refund_order/:id", to: 'admin_orders#refund_order'
 
   # 대시보드
   get "dashboards/dashboard_1"

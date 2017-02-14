@@ -1,0 +1,58 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div style="padding-top: 70px">
+
+            <h3 class="logo-name" style="font-size: 80px; color: #fed328">GomakGift</h1>
+
+        </div>
+        <h3 style="margin-top: 50px;">상품 추천 영역수정</h3>
+        <p>"<%= @recommend.product.title %>" 추천영역 수정</p>
+        <form class="m-t form-recommend" role="form" action="/admin_areas/update_recommend/<%= @recommend.id %>" id="form-recommend" method="GET">
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품 id : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="product_id" value="<%= @recommend.product_id %>" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">배경이미지주소 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="img_url" value="<%= @recommend.img_url %>" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">타이틀 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="title" value="<%= @recommend.title %>" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">서브타이틀 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="subtitle" value="<%= @recommend.subtitle %>" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">노출여부 : </label>
+                <div class="form-group col-lg-8" style="margin-top: 8px">
+                    <div class="radio radio-danger radio-inline">
+                        <input type="radio" value="true" name="is_display" checked="" id="displayRadio1">
+                        <label for="displayRadio1"> 상품노출 </label>
+                    </div>
+                    <div class="radio radio-danger radio-inline">
+                        <input type="radio" value="false" name="is_display" id="displayRadio2">
+                        <label for="displayRadio2"> 상품숨김 </label>
+                    </div>
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">순서 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="number" value="<%= @recommend.order %>" class="form-control" name="order" required="" style="text-align: right">
+                </div>
+                <button type="submit" form="form-recommend" class="btn btn-warning block full-width m-b">등록</button>
+            </form>
+        <!-- <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2015</small> </p> -->
+    </div>
+</div>
+
+<% content_for :javascript do %>
+    <script type="text/javascript">
+        $(function(){
+            var is_display = <%= @recommend.is_display %>;
+            $('input:radio[name="is_display"][value="'+ is_display +'"]').attr('checked', 'checked');
+        });
+    </script>
+<% end %>
+
+
+

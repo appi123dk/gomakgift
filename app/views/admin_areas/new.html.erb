@@ -1,0 +1,110 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div style="padding-top: 70px">
+
+            <h3 class="logo-name" style="font-size: 80px; color: #fed328">GomakGift</h1>
+
+        </div>
+        <h3 style="margin-top: 50px;">영역등록</h3>
+        <p>
+            배너 / 추천영역을 선택해주세요
+        </p>
+        <div class="row">
+            <button type="button" class="btn btn-white col-lg-6 btn-banner">배너영역</button>
+            <button type="button" class="btn btn-white col-lg-6 btn-recommend">추천영역</button>
+        </div>
+        <form class="m-t form-banner" role="form" action="/admin_areas/create_banner" id="form-banner" method="GET">
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품 id : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="product_id" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">배경이미지주소 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="background_url" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품이미지주소 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="product_url" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품이미지 위치 : </label>
+                <div class="form-group col-lg-8" style="margin-top: 8px">
+                    <div class="radio radio-danger radio-inline">
+                        <input type="radio" value="true" name="is_left" checked="" id="leftRadio1">
+                        <label for="leftRadio1"> 왼쪽 </label>
+                    </div>
+                    <div class="radio radio-danger radio-inline">
+                        <input type="radio" value="false" name="is_left" id="leftRadio2">
+                        <label for="leftRadio2"> 오른쪽 </label>
+                    </div>
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">노출여부 : </label>
+                <div class="form-group col-lg-8" style="margin-top: 8px">
+                    <div class="radio radio-danger radio-inline">
+                        <input type="radio" value="true" name="is_display" checked="" id="displayRadio1">
+                        <label for="displayRadio1"> 배너노출 </label>
+                    </div>
+                    <div class="radio radio-danger radio-inline">
+                        <input type="radio" value="false" name="is_display" id="displayRadio2">
+                        <label for="displayRadio2"> 배너숨김 </label>
+                    </div>
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">순서 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="number" value=0 class="form-control" name="order" required="" style="text-align: right">
+                </div>
+                <button type="submit" form="form-banner" class="btn btn-warning block full-width m-b">등록</button>
+        </form>
+        <form class="m-t form-recommend" role="form" action="/admin_areas/create_recommend" id="form-recommend" method="GET">
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품 id : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="product_id" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">배경이미지주소 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="img_url" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">타이틀 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="title" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">서브타이틀 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="subtitle" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">노출여부 : </label>
+                <div class="form-group col-lg-8" style="margin-top: 8px">
+                    <div class="radio radio-danger radio-inline">
+                        <input type="radio" value="true" name="is_display" checked="" id="displayRadio1">
+                        <label for="displayRadio1"> 상품노출 </label>
+                    </div>
+                    <div class="radio radio-danger radio-inline">
+                        <input type="radio" value="false" name="is_display" id="displayRadio2">
+                        <label for="displayRadio2"> 상품숨김 </label>
+                    </div>
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">순서 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="number" value=0 class="form-control" name="order" required="" style="text-align: right">
+                </div>
+                <button type="submit" form="form-recommend" class="btn btn-warning block full-width m-b">등록</button>
+        </form>
+        <!-- <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2015</small> </p> -->
+    </div>
+</div>
+
+<% content_for :javascript do %>
+    <script type="text/javascript">
+        $(function(){
+            $('.form-recommend').hide();
+            $('.btn-banner').click(function(){
+                $('.form-recommend').hide();
+                $('.form-banner').show();
+            });
+
+            $('.btn-recommend').click(function(){
+                $('.form-recommend').show();
+                $('.form-banner').hide();
+            });
+        });
+    </script>
+<% end %>

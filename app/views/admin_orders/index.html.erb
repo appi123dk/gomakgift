@@ -31,6 +31,7 @@
                                 <th>주문시간</th>
                                 <th>구매내역</th>
                                 <th>주문id</th>
+                                <th>담당자</th>
                                 <th>결제방법</th>
                                 <th>결제여부</th>
                                 <th>시안여부</th>
@@ -42,15 +43,24 @@
                         <tbody>
                             <% @orders.each do |order| %>
                                 <tr class="gradeX">
-                                    <td><%= order.created_at.strftime("%Y-%m-%d, %H:%M") %></td>
+                                    <td>
+                                        <% if order.is_cancled %>
+                                            <span class="label label-danger">주문취소</span>
+                                        <% elsif order.is_returned %>
+                                            <span class="label label-danger">환불처리</span>
+                                        <% end %>
+                                        <%= order.created_at.strftime("%Y-%m-%d, %H:%M") %>
+                                    </td>
                                     <% order_product = order.products %>
                                     <td><%= order_product.last.title %> 외 <%= order_product.count - 1 %>건</td>
                                     <td><%= order.id  %></td>
+                                    <td><%= order.etc  %></td>
                                     <td><%= order.pay_method %></td>
                                     <td><%= order.is_payed %></td>
                                     <td><%= order.is_designed %></td>
                                     <td><%= order.is_confirmed %></td>
                                     <td>
+                                        <span class="label label-warning">
                                         <% if order.is_confirmed %>
                                             <% if order.is_payed %>
                                                 <% if order.is_ordered %>
@@ -68,7 +78,7 @@
                                         <% else %>
                                             시안확인중
                                         <% end %>
-
+                                        </span>
                                     </td>
                                     <td><a class="btn btn-sm btn-primary btn-block" href="/admin_orders/view/<%= order.id %>" style="margin: 0px; padding: 0px 10px">View</a></td>
                                 </tr>

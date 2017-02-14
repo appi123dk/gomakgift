@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170213045959) do
+ActiveRecord::Schema.define(version: 20170214084249) do
+
+  create_table "banners", force: :cascade do |t|
+    t.integer  "product_id",     limit: 4
+    t.string   "background_url", limit: 255
+    t.string   "product_url",    limit: 255
+    t.boolean  "is_display",                 default: true
+    t.boolean  "is_left",                    default: true
+    t.integer  "order",          limit: 4
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+  end
+
+  add_index "banners", ["product_id"], name: "index_banners_on_product_id", using: :btree
 
   create_table "clients", force: :cascade do |t|
     t.string   "title",          limit: 255
@@ -88,6 +101,16 @@ ActiveRecord::Schema.define(version: 20170213045959) do
     t.datetime "updated_at",                                        null: false
     t.boolean  "is_ordered",                        default: false
     t.boolean  "is_issued",                         default: false
+    t.datetime "datetime_payed"
+    t.datetime "datetime_designed"
+    t.datetime "datetime_confirmed"
+    t.datetime "datetime_ordered"
+    t.datetime "datetime_finished"
+    t.datetime "datetime_issued"
+    t.datetime "datetime_delivered"
+    t.boolean  "is_cancled",                        default: false
+    t.datetime "datetime_cancled"
+    t.datetime "datetime_returned"
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
@@ -106,26 +129,28 @@ ActiveRecord::Schema.define(version: 20170213045959) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "title",              limit: 255
-    t.string   "subtitle",           limit: 255
-    t.string   "detail",             limit: 255
-    t.string   "product_image",      limit: 255
-    t.integer  "price_id",           limit: 4
-    t.integer  "quantity_id",        limit: 4
-    t.boolean  "is_display",                       default: true
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
-    t.integer  "display_order",      limit: 4,     default: 0
-    t.integer  "supply_price",       limit: 4,     default: 0
-    t.integer  "delivery_cost",      limit: 4,     default: 0
-    t.integer  "min_qty",            limit: 4,     default: 0
-    t.string   "brand_name",         limit: 255
-    t.integer  "print_package_cost", limit: 4,     default: 0
-    t.integer  "supplier_id",        limit: 4
-    t.string   "mainpage_title",     limit: 255
-    t.text     "mainpage_story",     limit: 65535
-    t.string   "recommend_festival", limit: 255
-    t.string   "explain_package",    limit: 255
+    t.string   "title",                limit: 255
+    t.string   "subtitle",             limit: 255
+    t.string   "detail",               limit: 255
+    t.string   "product_image",        limit: 255
+    t.integer  "price_id",             limit: 4
+    t.integer  "quantity_id",          limit: 4
+    t.boolean  "is_display",                         default: true
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.integer  "display_order",        limit: 4,     default: 0
+    t.integer  "supply_price",         limit: 4,     default: 0
+    t.integer  "delivery_cost",        limit: 4,     default: 0
+    t.integer  "min_qty",              limit: 4,     default: 0
+    t.string   "brand_name",           limit: 255
+    t.integer  "print_package_cost",   limit: 4,     default: 0
+    t.integer  "supplier_id",          limit: 4
+    t.string   "mainpage_title",       limit: 255
+    t.text     "mainpage_story",       limit: 65535
+    t.string   "recommend_festival",   limit: 255
+    t.string   "explain_package",      limit: 255
+    t.string   "product_banner_image", limit: 255
+    t.string   "category",             limit: 255
   end
 
   add_index "products", ["price_id"], name: "index_products_on_price_id", using: :btree
@@ -143,6 +168,19 @@ ActiveRecord::Schema.define(version: 20170213045959) do
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
   end
+
+  create_table "recommend_areas", force: :cascade do |t|
+    t.integer  "product_id", limit: 4
+    t.string   "img_url",    limit: 255
+    t.string   "title",      limit: 255
+    t.string   "subtitle",   limit: 255
+    t.boolean  "is_display",             default: true
+    t.integer  "order",      limit: 4
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
+  add_index "recommend_areas", ["product_id"], name: "index_recommend_areas_on_product_id", using: :btree
 
   create_table "replies", force: :cascade do |t|
     t.integer  "comment_id", limit: 4

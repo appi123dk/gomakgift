@@ -30,12 +30,25 @@
                                 주문번호 : <%= @order.id %>
                             </h2>
                             <div class="m-t-md">
-                                <h2 class="product-main-price">결제금액 : <%= number_with_delimiter(@order.payment, delimiter: ',') %> 원</h2>
+                                <h2 class="product-main-price">결제금액 : <%= number_with_delimiter(@order.payment, delimiter: ',') %> 원 / 담당자 : <%= @order.etc %>    <button type="button" class="btn btn-xs btn-danger btn-rounded btn-edit-price">수정</button></h2>
                             </div>
+                            <form role="form" class="form-inline form-edit-price" action="/admin_orders/edit_price/<%= @order.id %>" style="display: none" id="form1">
+                                <div class="form-group">
+                                    <input type="text" placeholder="금액입력" value="<%= @order.payment %>" class="form-control input-sm" name="payment">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" placeholder="담당자 명" value="<%= @order.etc %>" class="form-control input-sm" name="etc">
+                                </div>
+                                <button class="btn btn-primary btn-sm" form="form1" type="submit">수정완료</button>
+                            </form>
                             <hr>
 
                             <h3>주문 상태 : <span class="text-navy">
-                                <% if @order.is_confirmed %>
+                                <% if @order.is_cancled %>
+                                    <span style="color:#ED5565">주문취소 </span><small>(취소일시 : <%= @order.datetime_cancled %>)</small>
+                                <% elsif @order.is_refund %>
+                                    <span style="color:#ED5565">환불처리 </span> <small>(환불일시 : <%= @order.datetime_returned %></small>
+                                <% elsif @order.is_confirmed %>
                                     <% if @order.is_payed %>
                                         <% if @order.is_ordered %>
                                             <% if @order.is_finished %>
@@ -62,7 +75,7 @@
                                     <th class="qty" style="border-top: 1px solid black">시안등록여부</th>
                                     <th class="qty" style="border-top: 1px solid black">시안확정여부</th>
                                     <th class="qty" style="border-top: 1px solid black">발주여부</th>
-                                    <th class="qty" style="border-top: 1px solid black">배송여부</th>
+                                    <th class="qty" style="border-top: 1px solid black">배송완료여부</th>
                                     <th class="qty" style="border-top: 1px solid black">증빙서류발급여부</th>
                                     <!-- <th style="border-top: 1px solid black">300</th> -->
                                 </tr>
@@ -81,85 +94,58 @@
                                     <td></td>
                                     <td>
                                         <% if @order.is_payed %>
-                                            <a href="/admin_orders/check_payment/<%= @order.id %>" class="btn btn-info btn-xs">취소</a>
+                                            <a href="/admin_orders/check_payment/<%= @order.id %>" class="btn btn-info btn-xs btn-rounded">취소</a>
                                         <% else %>
-                                            <a href="/admin_orders/check_payment/<%= @order.id %>" class="btn btn-warning btn-xs">확인</a>
+                                            <a href="/admin_orders/check_payment/<%= @order.id %>" class="btn btn-warning btn-xs btn-rounded">확인</a>
                                         <% end %>
                                     </td>
                                     <td>
                                         <% if @order.is_designed %>
-                                            <a href="/admin_orders/check_designed/<%= @order.id %>" class="btn btn-info btn-xs">취소</a>
+                                            <a href="/admin_orders/check_designed/<%= @order.id %>" class="btn btn-info btn-xs btn-rounded">취소</a>
                                         <% else %>
-                                            <a href="/admin_orders/check_designed/<%= @order.id %>" class="btn btn-warning btn-xs">확인</a>
+                                            <a href="/admin_orders/check_designed/<%= @order.id %>" class="btn btn-warning btn-xs btn-rounded">확인</a>
                                         <% end %>
                                     </td>
                                     <td>
                                         <% if @order.is_confirmed %>
-                                            <a href="/admin_orders/check_confirmed/<%= @order.id %>" class="btn btn-info btn-xs">취소</a>
+                                            <a href="/admin_orders/check_confirmed/<%= @order.id %>" class="btn btn-info btn-xs btn-rounded">취소</a>
                                         <% else %>
-                                            <a href="/admin_orders/check_confirmed/<%= @order.id %>" class="btn btn-warning btn-xs">확인</a>
+                                            <a href="/admin_orders/check_confirmed/<%= @order.id %>" class="btn btn-warning btn-xs btn-rounded">확인</a>
                                         <% end %>
                                     </td>
                                     <td>
                                         <% if @order.is_ordered %>
-                                            <a href="/admin_orders/check_ordered/<%= @order.id %>" class="btn btn-info btn-xs">취소</a>
+                                            <a href="/admin_orders/check_ordered/<%= @order.id %>" class="btn btn-info btn-xs btn-rounded">취소</a>
                                         <% else %>
-                                            <a href="/admin_orders/check_ordered/<%= @order.id %>" class="btn btn-warning btn-xs">확인</a>
+                                            <a href="/admin_orders/check_ordered/<%= @order.id %>" class="btn btn-warning btn-xs btn-rounded">확인</a>
                                         <% end %>
                                     </td>
                                     <td>
                                         <% if @order.is_finished %>
-                                            <a href="/admin_orders/check_finished/<%= @order.id %>" class="btn btn-info btn-xs">취소</a>
+                                            <a href="/admin_orders/check_finished/<%= @order.id %>" class="btn btn-info btn-xs btn-rounded">취소</a>
                                         <% else %>
-                                            <a href="/admin_orders/check_finished/<%= @order.id %>" class="btn btn-warning btn-xs">확인</a>
+                                            <a href="/admin_orders/check_finished/<%= @order.id %>" class="btn btn-warning btn-xs btn-rounded">확인</a>
                                         <% end %>
                                     </td>
                                     <td>
                                         <% if @order.is_issued %>
-                                            <a href="/admin_orders/check_issued/<%= @order.id %>" class="btn btn-info btn-xs">취소</a>
+                                            <a href="/admin_orders/check_issued/<%= @order.id %>" class="btn btn-info btn-xs btn-rounded">취소</a>
                                         <% else %>
-                                            <a href="/admin_orders/check_issued/<%= @order.id %>" class="btn btn-warning btn-xs">확인</a>
+                                            <a href="/admin_orders/check_issued/<%= @order.id %>" class="btn btn-warning btn-xs btn-rounded">확인</a>
                                         <% end %>
                                     </td>
                                 </tr>
                                 <tr class="question">
                                     <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td class="small"><%= @order.datetime_payed %></td>
+                                    <td class="small"><%= @order.datetime_designed %></td>
+                                    <td class="small"><%= @order.datetime_confirmed %></td>
+                                    <td class="small"><%= @order.datetime_ordered %></td>
+                                    <td class="small"><%= @order.datetime_finished %></td>
+                                    <td class="small"><%= @order.datetime_issued %></td>
                                 </tr>
                               </tbody>
                             </table>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h3>구매자 정보</h3>
-                                    <dl class="buyer-info">
-                                        <dt>구매자명 : <%= @order.arrive_username %></dt>
-                                        <dt>구매자 정보</dt>
-                                        <dd><%= @order.user.email %> / <%= @order.user.phone %></dd>
-                                        <dt>배송지 정보</dt>
-                                        <dd>(<%= @order.arrive_address_number %>) <%= @order.arrive_address %> <%= @order.arrive_address_detail %></dd>  
-                                    </dl>   
-                                </div>
-                                <div class="col-md-6">
-                                    <h3>증빙발급 세부내용</h3>
-                                    <% if @order.receipt_method.nil? %>
-                                        <p>결제 내역이 없습니다.</p>
-                                    <% else %>
-                                        <% if @order.receipt_method == 'cash_receipt' %>
-                                            <p>현금영수증 : <%= @order.cash_receipt_number %></p>
-                                        <% elsif @order.receipt_method == 'card_receipt' %>
-                                            <p>신용카드매출전표</p>
-                                        <% else %>
-                                            <p>세금계산서 : <%= @order.com_register_number %></p>
-                                        <% end %>
-                                    <% end %>  
-                                </div>
-                            </div>
                             <hr>
                             <div class="row">
                                 <div class="col-md-12">
@@ -206,14 +192,62 @@
                                     </table>
                                 </div>
                             </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>구매자 정보</h3>
+                                    <dl class="buyer-info">
+                                        <dt>구매자명 : <%= @order.arrive_username %></dt>
+                                        <dt>구매자 정보</dt>
+                                        <dd><%= @order.user.email %> / <%= @order.user.phone %></dd>
+                                        <dt>배송지 정보</dt>
+                                        <dd>(<%= @order.arrive_address_number %>) <%= @order.arrive_address %> <%= @order.arrive_address_detail %></dd>
+                                        <dt>희망배송일</dt>
+                                        <dd><%= @order.arrive_date %></dd>  
+                                    </dl>   
+                                </div>
+                                <div class="col-md-6">
+                                    <h3>증빙발급 세부내용</h3>
+                                    <% if @order.receipt_method.nil? %>
+                                        <p>결제 내역이 없습니다.</p>
+                                    <% else %>
+                                        <% if @order.receipt_method == 'cash_receipt' %>
+                                            <p>현금영수증 : <%= @order.cash_receipt_number %></p>
+                                        <% elsif @order.receipt_method == 'card_receipt' %>
+                                            <p>신용카드매출전표</p>
+                                        <% else %>
+                                            <p>세금계산서 : <%= @order.com_register_number %></p>
+                                        <% end %>
+                                    <% end %>
+                                    <hr>
+                                    <h3>배송정보</h3>
+                                    <% unless @order.datetime_delivered.nil? %>
+                                        <p>배송업체명 : 한진택배</p>
+                                        <p>송장번호 : 010203010302</p>
+                                        <p>배송일자 : <%= @order.datetime_delivered.to_date  %></p>
+                                    <% end %>
+                                    <button type="button" class="btn btn-sm btn-danger btn-rounded btn-edit-delivery">배송정보 등록</button>
+                                    <form role="form" class="form-inline form-edit-delivery" action="/admin_orders/edit_delivery/<%= @order.id %>" style="display: none; margin-top: 20px;" id="form2">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="택배회사명" class="form-control input-sm" name="deliver_name" value="<%= @order.deliver_name %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" placeholder="송장번호" class="form-control input-sm" name="deliver_number" value="<%= @order.deliver_number %>">
+                                        </div>
+                                        <button class="btn btn-primary btn-sm" form="form2" type="submit">수정완료</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3>주문 취소 및 환불 요청</h3>
+                                    <button type="button" class="btn btn-lg btn-warning btn-order-cancle">주문취소</button>
+                                    <button type="button" class="btn btn-lg btn-danger btn-order-refund">환불처리</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="ibox-footer">
-                                <span class="pull-right">
-                                    Full stock - <i class="fa fa-clock-o"></i> 14.04.2016 10:04 pm
-                                </span>
-                    The generated Lorem Ipsum is therefore always free
                 </div>
             </div>
         </div>
@@ -241,6 +275,57 @@ $(window).load(function() {
         }
     });
 
+    $('.btn-edit-price').click(function(){
+        $('.form-edit-price').toggle(300);
+    });
+
+    $('.btn-edit-delivery').click(function(){
+        $('.form-edit-delivery').toggle(300);
+    });
+
+    $('.btn-order-cancle').click(function(){
+        var order_id = <%= @order.id %>;
+        swal({
+          title: "정말 취소하시겠습니까?",
+          text: "비밀번호를 입력하세요",
+          type: "input",
+          showCancelButton: true,
+          closeOnConfirm: false,
+          animation: "slide-from-top",
+        },
+        function(inputValue){
+          if (inputValue === false) return false;
+          
+          if (inputValue != "knock1212") {
+            swal.showInputError("비밀번호가 틀렸습니다");
+            return false
+          } else {
+            window.location.href = "/admin_orders/cancle_order/" + order_id
+          }
+        });
+    });
+
+    $('.btn-order-refund').click(function(){
+        var order_id = <%= @order.id %>;
+        swal({
+          title: "정말 환불하시겠습니까?",
+          text: "비밀번호를 입력하세요",
+          type: "input",
+          showCancelButton: true,
+          closeOnConfirm: false,
+          animation: "slide-from-top",
+        },
+        function(inputValue){
+          if (inputValue === false) return false;
+          
+          if (inputValue != "knock1212") {
+            swal.showInputError("비밀번호가 틀렸습니다");
+            return false
+          } else {
+            window.location.href = "/admin_orders/refund_order/" + order_id
+          }
+        });
+    });
 });
 
 </script>

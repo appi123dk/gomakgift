@@ -1,6 +1,8 @@
 class GiftsController < ApplicationController
 	def index
 		@products = Product.all
+		@recommends = RecommendArea.where('is_display = ?', true)
+		@banners = Banner.where('is_display = ?', true)
 		render :layout => "bigbag"
 	end
 
@@ -45,6 +47,7 @@ class GiftsController < ApplicationController
 
 	def single_product
 		@product = Product.find(params[:id])
+		@banner = @product.banners.take
 		@product_price = @product.price
 		@product_qty = @product.quantity
 		@price_arr = [

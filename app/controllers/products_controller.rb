@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
 
 	def single_product
 		@product = Product.find(params[:id])
+		@recommend_products = Product.where('category = ? AND id != ?', @product.category, @product.id)
 		@supplier = @product.supplier
 		@price = @product.price
 		@qty = @product.quantity
@@ -33,6 +34,8 @@ class ProductsController < ApplicationController
 		product.explain_package     = params[:explain_package]
 		product.mainpage_title      = params[:mainpage_title]
 		product.mainpage_story      = params[:mainpage_story]
+		product.category            = params[:category]
+		product.product_banner_image  = params[:product_banner_image]
 		product.save
 
 		params[:img_url].each do |url|
@@ -69,6 +72,8 @@ class ProductsController < ApplicationController
 		product.explain_package     = params[:explain_package]
 		product.mainpage_title      = params[:mainpage_title]
 		product.mainpage_story      = params[:mainpage_story]
+		product.category            = params[:category]
+		product.product_banner_image  = params[:product_banner_image]
 		product.save
 
 		thumbnails = product.thumbnails
