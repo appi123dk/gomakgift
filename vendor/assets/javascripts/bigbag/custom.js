@@ -71,7 +71,7 @@ jQuery(document).ready(function() {
 		fullScreen: "off",
 		hideCaptionAtLimit: "",
 		dottedOverlay: "twoxtwo",
-		navigationStyle: "preview5",
+		navigationStyle: "preview4",
 		fullScreenOffsetContainer: "",
 		hideTimerBar:"on",
 		onHoverStop:"on"
