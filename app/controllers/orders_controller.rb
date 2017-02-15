@@ -79,12 +79,14 @@ class OrdersController < ApplicationController
 			order.receipt_method = params[:receipt_method]
 			order.com_register_number = params[:com_register_number_cash]
 			order.cash_receipt_number = params[:cash_receipt_number]
+			order.merchant_uid = params[:merchant_uid]
 			order.save
 		else
 			order.pay_method = params[:pay_method]
 			order.is_payed = true
 			order.receipt_method = params[:receipt_method2]
 			order.com_register_number = params[:com_register_number_card]
+			order.merchant_uid = params[:merchant_uid]
 			order.save
 		end
 

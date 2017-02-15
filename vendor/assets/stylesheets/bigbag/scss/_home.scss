@@ -390,6 +390,23 @@
 		border-radius: 0px;
 		margin-top: 20px;
 	}
+	.order-info-table{
+		tbody {
+			th {
+				width: 20%;
+				text-align: center;
+				padding-top: 15px;
+				padding-bottom: 15px;
+				background-color: rgba(0,0,0,0.05);
+			}
+			td {
+				width: 30%;
+				text-align: left;
+				padding-top: 15px;
+				padding-bottom: 15px;
+			}
+		}
+	}
 	.product-table {
 		thead {
 			th {

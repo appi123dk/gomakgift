@@ -2280,6 +2280,17 @@ body.bodyColor.container {
   .whiteSection .btn-product, .mainContent .btn-product {
     border-radius: 0px;
     margin-top: 20px; }
+  .whiteSection .order-info-table tbody th, .mainContent .order-info-table tbody th {
+    width: 20%;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: rgba(0, 0, 0, 0.05); }
+  .whiteSection .order-info-table tbody td, .mainContent .order-info-table tbody td {
+    width: 30%;
+    text-align: left;
+    padding-top: 15px;
+    padding-bottom: 15px; }
   .whiteSection .product-table thead th, .mainContent .product-table thead th {
     color: #000000;
     text-align: center;

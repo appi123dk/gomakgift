@@ -27,7 +27,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h2 class="font-bold m-b-xs">
-                                주문번호 : <%= @order.id %>
+                                주문번호 : <%= @order.merchant_uid %>
                             </h2>
                             <div class="m-t-md">
                                 <h2 class="product-main-price">결제금액 : <%= number_with_delimiter(@order.payment, delimiter: ',') %> 원 / 담당자 : <%= @order.etc %>    <button type="button" class="btn btn-xs btn-danger btn-rounded btn-edit-price">수정</button></h2>
@@ -46,15 +46,19 @@
                             <h3>주문 상태 : <span class="text-navy">
                                 <% if @order.is_cancled %>
                                     <span style="color:#ED5565">주문취소 </span><small>(취소일시 : <%= @order.datetime_cancled %>)</small>
-                                <% elsif @order.is_refund %>
+                                <% elsif @order.is_returned %>
                                     <span style="color:#ED5565">환불처리 </span> <small>(환불일시 : <%= @order.datetime_returned %></small>
                                 <% elsif @order.is_confirmed %>
                                     <% if @order.is_payed %>
-                                        <% if @order.is_ordered %>
-                                            <% if @order.is_finished %>
-                                                배송완료
+                                        <% if order.is_ordered %>
+                                            <% if order.datetime_delivered.nil? %>
+                                              발주완료
                                             <% else %>
-                                                발주완료
+                                              <% if order.is_finished %>
+                                                배송완료
+                                              <% else %>
+                                                배송중
+                                              <% end %>  
                                             <% end %>
                                         <% else %>
                                             발주준비중
@@ -71,7 +75,7 @@
                               <thead style="text-align: center">
                                 <tr>
                                     <th style="border-top: 1px solid black">결제방법</th>
-                                    <th class="qty" style="border-top: 1px solid black">결제여부</th>
+                                    <th class="qty" style="border-top: 1px solid black">결제상태</th>
                                     <th class="qty" style="border-top: 1px solid black">시안등록여부</th>
                                     <th class="qty" style="border-top: 1px solid black">시안확정여부</th>
                                     <th class="qty" style="border-top: 1px solid black">발주여부</th>
@@ -82,8 +86,8 @@
                               </thead>
                               <tbody>
                                 <tr class="question">
-                                    <td><%= @order.pay_method %></td>
-                                    <td><%= @order.is_payed %></td>
+                                    <td><%= @payment_product["response"].nil? ? "" : @payment_product["response"]["pay_method"] %></td>
+                                    <td><%= @payment_product["response"].nil? ? "" : @payment_product["response"]["status"] %></td>
                                     <td><%= @order.is_designed %></td>
                                     <td><%= @order.is_confirmed %></td>
                                     <td><%= @order.is_ordered %></td>
@@ -91,14 +95,7 @@
                                     <td><%= @order.is_issued %></td>
                                 </tr>
                                 <tr class="question">
-                                    <td></td>
-                                    <td>
-                                        <% if @order.is_payed %>
-                                            <a href="/admin_orders/check_payment/<%= @order.id %>" class="btn btn-info btn-xs btn-rounded">취소</a>
-                                        <% else %>
-                                            <a href="/admin_orders/check_payment/<%= @order.id %>" class="btn btn-warning btn-xs btn-rounded">확인</a>
-                                        <% end %>
-                                    </td>
+                                    <td colspan="2"><%= @payment_product["response"].nil? ? "" : @payment_product["response"]["pay_method"] == "vbank" ? "계좌정보 : #{@payment_product["response"]["vbank_name"]} / #{@payment_product["response"]["vbank_num"]}" : "" %></td>
                                     <td>
                                         <% if @order.is_designed %>
                                             <a href="/admin_orders/check_designed/<%= @order.id %>" class="btn btn-info btn-xs btn-rounded">취소</a>
@@ -208,9 +205,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <h3>증빙발급 세부내용</h3>
-                                    <% if @order.receipt_method.nil? %>
-                                        <p>결제 내역이 없습니다.</p>
-                                    <% else %>
+                                    <a href="<%= @payment_product["response"].nil? ? "" : @payment_product["response"]["receipt_url"] %>" target="_blank" class="btn btn-rounded btn-sm btn-primary">증빙서류 출력</a>
+                                    <% unless @order.receipt_method.nil? %>
                                         <% if @order.receipt_method == 'cash_receipt' %>
                                             <p>현금영수증 : <%= @order.cash_receipt_number %></p>
                                         <% elsif @order.receipt_method == 'card_receipt' %>
@@ -222,8 +218,8 @@
                                     <hr>
                                     <h3>배송정보</h3>
                                     <% unless @order.datetime_delivered.nil? %>
-                                        <p>배송업체명 : 한진택배</p>
-                                        <p>송장번호 : 010203010302</p>
+                                        <p>배송업체명 : <%= @order.deliver_name %></p>
+                                        <p>송장번호 : <%= @order.deliver_number %></p>
                                         <p>배송일자 : <%= @order.datetime_delivered.to_date  %></p>
                                     <% end %>
                                     <button type="button" class="btn btn-sm btn-danger btn-rounded btn-edit-delivery">배송정보 등록</button>

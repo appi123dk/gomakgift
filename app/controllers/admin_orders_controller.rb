@@ -1,4 +1,5 @@
 class AdminOrdersController < ApplicationController
+
 	def index
 		@orders = Order.where('is_finished = ?', false)
 	end
@@ -8,8 +9,11 @@ class AdminOrdersController < ApplicationController
 	end
 
 	def view
+		require 'httparty'
+		Iamport.token
 		@order = Order.find(params[:id])
 		@shoppingcarts = @order.shoppingcarts
+		@payment_product = Iamport.find(@order.merchant_uid)
 	end
 
 	def check_payment

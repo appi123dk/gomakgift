@@ -7,6 +7,7 @@ class GiftsController < ApplicationController
 	end
 
 	def order_index
+		require 'httparty'
 		user = User.find(session[:user_id])
 		@orders = user.orders
 		render :layout => "bigbag"
@@ -19,11 +20,14 @@ class GiftsController < ApplicationController
 	end
 
 	def payment
+		require 'httparty'
 		@order = Order.find(params[:id])
+		@payment_product = Iamport.find(@order.merchant_uid)
 		if @order.is_confirmed
 			redirect_to "/gifts/print_product/#{@order.id}"
+		else
+			render :layout => "bigbag"	
 		end
-		render :layout => "bigbag"
 	end
 
 	def design

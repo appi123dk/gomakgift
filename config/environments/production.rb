@@ -75,4 +75,9 @@ Myapp::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  Iamport.configure do |config|
+    config.api_key = "7160851464022914"
+    config.api_secret = "CcWVlpk7xX8lviKbHQpWLxn0xgUETpCwCysXXM4uKdQgwBrdrQadoxdVO8zHxbd9KF7Hsbcdp3tVEU96"
+  end
 end

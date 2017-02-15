@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214084249) do
+ActiveRecord::Schema.define(version: 20170215070834) do
 
   create_table "banners", force: :cascade do |t|
     t.integer  "product_id",     limit: 4
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 20170214084249) do
     t.boolean  "is_cancled",                        default: false
     t.datetime "datetime_cancled"
     t.datetime "datetime_returned"
+    t.string   "merchant_uid",          limit: 255
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree

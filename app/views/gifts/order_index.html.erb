@@ -6,7 +6,7 @@
         <h1 class="cs-title">나의 주문 현황</h1>
         <div class="row">
           <div class="col-sm-6" style="vertical-align: middle;">
-           <h3>주문건수 : 0 건 / 배송완료 : 0 건</h3>
+           <h3>주문건수 : <%= @orders.count %> 건 / 배송완료 : <%= @orders.where('is_finished = ?', true).count %> 건</h3>
           </div>
           <div class="col-sm-6" style="text-align: right; margin-top: 50px;">
             <h5 style="margin-bottom: 10px">고객문의</h5>
@@ -30,47 +30,68 @@
                 <th style="border-top: 1px solid black">상품내역</th>
                 <th style="border-top: 1px solid black">결제금액</th>
                 <th style="border-top: 1px solid black">결제여부</th>
-                <th style="border-top: 1px solid black">시안확정여부</th>
-                <th style="border-top: 1px solid black">거래상태</th>
-                <th style="border-top: 1px solid black">주문일자</th>
+                <th style="border-top: 1px solid black">거래진행상태</th>
+                <th style="border-top: 1px solid black">택배정보</th>
+                <th style="border-top: 1px solid black">영수증출력</th>
                 <th style="border-top: 1px solid black">상세보기</th>
             </tr>
             </thead>
             <tbody>
             <% if @orders.exists? %>
               <% @orders.each do |order| %>
+              <% payment_product = Iamport.find(order.merchant_uid) %>
+              <% is_exist = payment_product["response"].nil? %>
               <tr class="question">
                   <td>
                     <h5 style="margin-bottom: 0px;"><%= order.created_at.strftime("%Y-%m-%d") %></h5>
-                    <small style="color:#676a6c;">( 주문번호 : <%= order.id %> )</small>
                   </td>
                   <td>
                     <% order.shoppingcarts.each do |shoppingcart| %>
                       <a href="/gifts/single_product/<%= shoppingcart.product_id %>"><%= shoppingcart.product.title %></a>
                       <small style="color:#676a6c;">(수량 : <%= shoppingcart.qty %>개)</small> <br/>
+                      <small style="color:#676a6c;">주문번호 : <%= order.merchant_uid %></small>
                     <% end %>
                   </td>
                   <td style="font-size:15px"><%= number_with_delimiter(order.payment, :delimiter => ',') %> 원</td>
-                  <td><%= order.is_payed ? '결제완료' : '입금확인중' %></td>
-                  <td><%= order.is_confirmed ? '시안확정' : '시안확인중' %></td>
+                  <td><%= is_exist ? "" : payment_product["response"]["status"] == 'ready' ? '미결제' : payment_product["response"]["status"] == 'paid' ? '결제완료' : payment_product["response"]["status"] == 'cancelled' ? '결제취소' : '결제실패' %></td>
+                  <td><% if order.is_cancled %>
+                        <span style="color:#ED5565">주문취소 </span><small><br/>취소일시 : <%= order.datetime_cancled.to_date %>)</small>
+                    <% elsif order.is_returned %>
+                        <span style="color:#ED5565">환불처리 </span> <small><br/>환불일시 : <%= order.datetime_returned.to_date %></small>
+                    <% elsif order.is_confirmed %>
+                        <% if order.is_payed %>
+                            <% if order.is_ordered %>
+                                <% if order.datetime_delivered.nil? %>
+                                  발주완료
+                                <% else %>
+                                  <% if order.is_finished %>
+                                    배송완료
+                                  <% else %>
+                                    배송중
+                                  <% end %>  
+                                <% end %>
+                            <% else %>
+                                발주준비중
+                            <% end %>
+                        <% else %>
+                            입금확인중
+                        <% end %>
+                    <% else %>
+                        시안확인중
+                    <% end %>
+                  </td>
                   <td>
-                    <% if order.is_finished %>
-                      거래완료
+                    <% if order.datetime_delivered.nil? %>
+                       상품준비중
                     <% else %>
-                      <% if order.is_payed && order.is_confirmed %>
-                        제조 및 배송 진행중
-                      <% else %>
-                        입금/시안 대기중
-                      <% end %>
-                    <% end %>  
+                      <%= order.deliver_name %> <br/>
+                      <%= order.deliver_number %>
+                    <% end %>
                   </td>
-                  <td><%= order.created_at.strftime("%Y-%m-%d") %></td>
-                  <td><a href=<% if order.is_payed && order.is_confirmed %>
-                      "/gifts/print_product"
-                    <% else %>
-                      "/gifts/payment/<%= order.id %>"
-                    <% end %>>[자세히보기]
+                  <td>
+                    <a href='<%= payment_product["response"].nil? ? "#" : payment_product["response"]["receipt_url"] %>' target="_blank">[영수증 출력]</a> 
                   </td>
+                  <td><a href="/gifts/payment/<%= order.id %>">[ 자세히보기 ]</td>
               </tr>
               <% end %>
             <% else %>

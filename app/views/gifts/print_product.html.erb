@@ -32,31 +32,28 @@
           </div>
 
           <!-- PAYMENT CONTENT SECTION -->
-          <h5>제작 - 배송 진행상황</h5>
+          <h3>제작 - 배송 진행상황</h3>
           <div class="row">
             <div class="col-xs-12" style="padding-left: 0px; padding-right: 0px;">
               <div class="cartListInner">
                 <div class="thanksContent" style="padding: 35px 15px 25px; text-align: center">
-                  <% if @order.deliver_number.nil? %>  
-                    <div class="image-gallery">
-                      <img src="<%= image_path('bigbag/home/home-gallery/ins-img1.jpg') %>" alt="Image">
+                  <% if @order.datetime_delivered.nil? %>  
+                    <div class="image-gallery" style="padding-bottom: 80px;">
+                      <img width="300" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA1MDggNTA4IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MDggNTA4OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4Ij4KPGNpcmNsZSBzdHlsZT0iZmlsbDojRkZEMDVCOyIgY3g9IjI1NCIgY3k9IjI1NCIgcj0iMjU0Ii8+CjxwYXRoIHN0eWxlPSJmaWxsOiMyQjNCNEU7IiBkPSJNMjYyLDI0OGwtMjkuMi0yMy42di0yNy4yYzAtMi0xLjYtNC00LTRjLTIsMC00LDEuNi00LDR2MjcuMkwxOTUuNiwyNDhjLTEuMiwwLjgtMS42LDItMS42LDMuMnYxNy42ICBjMCwwLjgsMC44LDEuNiwxLjYsMS42aDcuNnYtOEgyMDJ2LTkuMmwyNi44LTIxLjZsMjYuOCwyMS42djkuMmgtMS4ydjhoNy42YzAuOCwwLDEuNi0wLjgsMS42LTEuNnYtMTcuNiAgQzI2My42LDI1MCwyNjIuOCwyNDguOCwyNjIsMjQ4eiIvPgo8cGF0aCBzdHlsZT0iZmlsbDojRjlCNTRDOyIgZD0iTTU2LDQxMy4yYzQ2LjgsNTgsMTE4LDk0LjgsMTk4LDk0LjhzMTUxLjItMzYuOCwxOTgtOTQuOEg1NnoiLz4KPHBhdGggc3R5bGU9ImZpbGw6IzMyNEE1RTsiIGQ9Ik00MjAuOCwzOTcuMkgyMDEuNmMtMTcuMiwwLTMwLjgtMTQtMzAuOC0zMC44bDAsMGMwLTE3LjIsMTQtMzAuOCwzMC44LTMwLjhoMjE5LjIgIGMxNy4yLDAsMzAuOCwxNCwzMC44LDMwLjhsMCwwQzQ1MiwzODMuMiw0MzgsMzk3LjIsNDIwLjgsMzk3LjJ6Ii8+CjxnPgoJPGNpcmNsZSBzdHlsZT0iZmlsbDojMkIzQjRFOyIgY3g9IjQyMC44IiBjeT0iMzY2LjQiIHI9IjE0LjQiLz4KCTxjaXJjbGUgc3R5bGU9ImZpbGw6IzJCM0I0RTsiIGN4PSIyMDEuNiIgY3k9IjM2Ni40IiByPSIxNC40Ii8+Cgk8Y2lyY2xlIHN0eWxlPSJmaWxsOiMyQjNCNEU7IiBjeD0iMjU2LjQiIGN5PSIzNjYuNCIgcj0iMTQuNCIvPgoJPGNpcmNsZSBzdHlsZT0iZmlsbDojMkIzQjRFOyIgY3g9IjMxMS4yIiBjeT0iMzY2LjQiIHI9IjE0LjQiLz4KCTxjaXJjbGUgc3R5bGU9ImZpbGw6IzJCM0I0RTsiIGN4PSIzNjYiIGN5PSIzNjYuNCIgcj0iMTQuNCIvPgoJPHJlY3QgeD0iMjAyIiB5PSIzOTcuMiIgc3R5bGU9ImZpbGw6IzJCM0I0RTsiIHdpZHRoPSIyMTguOCIgaGVpZ2h0PSIxNiIvPgo8L2c+CjxwYXRoIHN0eWxlPSJmaWxsOiNGRkZGRkY7IiBkPSJNNDIxLjIsMzM1LjJoLTQ0LjhjLTEuNiwwLTMuMi0xLjYtMy4yLTMuMnYtNDQuOGMwLTEuNiwxLjYtMy4yLDMuMi0zLjJoNDQuOGMxLjYsMCwzLjIsMS42LDMuMiwzLjIgIFYzMzJDNDI0LjQsMzM0LDQyMi44LDMzNS4yLDQyMS4yLDMzNS4yeiIvPgo8cmVjdCB4PSIzOTEuNiIgeT0iMjg0LjQiIHN0eWxlPSJmaWxsOiNFNkU5RUU7IiB3aWR0aD0iMTQuNCIgaGVpZ2h0PSI1LjIiLz4KPHBhdGggc3R5bGU9ImZpbGw6I0ZGRkZGRjsiIGQ9Ik0zNDgsMzM1LjJoLTQ0LjhjLTEuNiwwLTMuMi0xLjYtMy4yLTMuMnYtNDQuOGMwLTEuNiwxLjYtMy4yLDMuMi0zLjJIMzQ4YzEuNiwwLDMuMiwxLjYsMy4yLDMuMlYzMzIgIEMzNTEuMiwzMzQsMzUwLDMzNS4yLDM0OCwzMzUuMnoiLz4KPHJlY3QgeD0iMzE4LjgiIHk9IjI4NC40IiBzdHlsZT0iZmlsbDojRTZFOUVFOyIgd2lkdGg9IjE0LjQiIGhlaWdodD0iNS4yIi8+CjxwYXRoIHN0eWxlPSJmaWxsOiMzMjRBNUU7IiBkPSJNMjQwLDE1NnY0MC44YzAsMy4yLTEuMiw2LTMuMiw4cy00LjgsMy4yLTgsMy4yYy02LjQsMC0xMS4yLTUuMi0xMS4yLTExLjJWMTU2ICBjMy42LDEuNiw3LjIsMi44LDExLjIsMi44UzIzNi40LDE1Ny42LDI0MCwxNTZ6Ii8+CjxwYXRoIHN0eWxlPSJmaWxsOiNGRkZGRkY7IiBkPSJNMjUxLjIsMzA4LjRoLTQ0LjhjLTEuNiwwLTMuMi0xLjYtMy4yLTMuMnYtNDQuOGMwLTEuNiwxLjYtMy4yLDMuMi0zLjJoNDQuOGMxLjYsMCwzLjIsMS42LDMuMiwzLjIgIHY0NC44QzI1NC40LDMwNy4yLDI1Mi44LDMwOC40LDI1MS4yLDMwOC40eiIvPgo8cmVjdCB4PSIyMjEuNiIgeT0iMjU3LjYiIHN0eWxlPSJmaWxsOiNFNkU5RUU7IiB3aWR0aD0iMTQuNCIgaGVpZ2h0PSI1LjIiLz4KPGc+Cgk8cGF0aCBzdHlsZT0iZmlsbDojMzI0QTVFOyIgZD0iTTEyNi44LDE1NC44VjI5OGMtNC0yLTguNC0yLjgtMTMuMi0yLjhjLTQuOCwwLTkuMiwxLjItMTMuMiwyLjhWMTU0LjhjNCwyLjQsOC40LDMuNiwxMy4yLDMuNiAgIFMxMjIuOCwxNTcuMiwxMjYuOCwxNTQuOHoiLz4KCTxwYXRoIHN0eWxlPSJmaWxsOiMzMjRBNUU7IiBkPSJNMjAyLjgsMTMyLjRjMCw0LjgsMS4yLDkuNiwzLjYsMTMuMkgxMzZjMi40LTQsMy42LTguNCwzLjYtMTMuMnMtMS4yLTkuMi0zLjYtMTMuMmg3MC44ICAgQzIwNCwxMjMuMiwyMDIuOCwxMjcuNiwyMDIuOCwxMzIuNHoiLz4KPC9nPgo8cGF0aCBzdHlsZT0iZmlsbDojRkZGRkZGOyIgZD0iTTE0NS4yLDQxMy4ySDgydi04Ni40YzAtMTcuNiwxNC0zMS42LDMxLjYtMzEuNmwwLDBjMTcuNiwwLDMxLjYsMTQsMzEuNiwzMS42VjQxMy4yeiIvPgo8Y2lyY2xlIHN0eWxlPSJmaWxsOiNGRjcwNTg7IiBjeD0iMTEzLjYiIGN5PSIzMjYuOCIgcj0iMTguOCIvPgo8Y2lyY2xlIHN0eWxlPSJmaWxsOiNGRkZGRkY7IiBjeD0iMTEzLjYiIGN5PSIxMzIuNCIgcj0iMjYiLz4KPGNpcmNsZSBzdHlsZT0iZmlsbDojRkY3MDU4OyIgY3g9IjExMy42IiBjeT0iMTMyLjQiIHI9IjE2LjQiLz4KPGNpcmNsZSBzdHlsZT0iZmlsbDojRkZGRkZGOyIgY3g9IjIyOC44IiBjeT0iMTMyLjQiIHI9IjI2Ii8+CjxjaXJjbGUgc3R5bGU9ImZpbGw6I0ZGNzA1ODsiIGN4PSIyMjguOCIgY3k9IjEzMi40IiByPSIxNi40Ii8+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
                     </div>
-                    <hr>
-                    <h4>제품을 인쇄중입니다</h4>
+                    <h4>발주 및 제작 중입니다</h4>
                     <p>인쇄는 갯수에 따라 하루 ~ 이틀 정도 소요되며, <br>송장되는 즉시 문자와 메일을 통해 알려드립니다</p>
                   <% elsif @order.is_finished %>
-                    <div class="image-gallery">
-                      <img src="<%= image_path('bigbag/home/home-gallery/ins-img1.jpg') %>" alt="Image">
+                    <div class="image-gallery" style="padding-top: 80px; padding-bottom: 80px;">
+                      <img src="https://dl.dropboxusercontent.com/s/i405w4dc1rl9bg6/gogi.png?dl=0" width="500" alt="Image">
                     </div>
-                    <hr>
                     <h4>배송이 완료되었습니다</h4>
-                    <p>이용해주셔서 감사합니다. 앞으로 더 좋은 서비스를 약속드리겠습니다</p>
-                    <p>선물이 되는 판촉물 - 고막기프트</p>
+                    <p>이용해주셔서 감사합니다. 앞으로 더 좋은 서비스를 약속드리겠습니다<br/>
+                    <strong>선물이 되는 판촉물 - 고막기프트</strong></p>
                   <% else %>
-                    <div class="image-gallery">
-                      <img src="https://www.iconexperience.com/_img/g_collection_png/standard/512x512/delivery_truck.png" alt="Image" width="250">
+                    <div class="image-gallery" style="padding-bottom: 80px;">
+                      <img src="https://www.iconexperience.com/_img/g_collection_png/standard/512x512/delivery_truck.png" alt="Image" width="300">
                     </div>
-                    <hr>
                     <h4>상품을 배송중입니다</h4>
                     <p><strong><%= @order.deliver_name %></strong>로 발송되었습니다<br/>송장번호 : <%= @order.deliver_number %></p>
                     <p>제품은 발송일 기준 이틀 내에 받아보실 수 있습니다</p>
