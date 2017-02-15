@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # 아임포트 결제연동
-# gem 'iamport', github: 'iamport/iamport-rest-client-ruby'
+gem 'iamport', github: 'iamport/iamport-rest-client-ruby'
 
 # mysql as the database
 gem 'mysql2', '~> 0.3.18'
