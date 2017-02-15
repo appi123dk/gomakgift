@@ -274,49 +274,49 @@
                   <% end %>
                 </div>
             </div>
+            <hr>
+            <h5>주문자 정보</h5>
+            <div class="row">
+                <div class="cartListInner design-info">
+                  <table class="table table-hover order-info-table">
+                    <tbody>
+                      <tr>
+                        <th style="text-align: center;">주문하시는 분</th>
+                        <td style="text-align: center"><%= @order.user.username %></td>
+                        <th style="text-align: center;">이메일 주소</th>
+                        <td style="text-align: center"><%= @order.user.email %></td>
+                      </tr>
+                      <tr>
+                        <th style="text-align: center; border-bottom: 1px solid #ddd">휴대전화번호</th>
+                        <td style="text-align: center; border-bottom: 1px solid #ddd"><%= @order.user.phone %></td>
+                        <th style="text-align: center; border-bottom: 1px solid #ddd">희망배송일</th>
+                        <td style="text-align: center; border-bottom: 1px solid #ddd"><%= @order.arrive_date %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+            <hr>
+            <h5>배송지 정보</h5>
+            <div class="row">
+                <div class="cartListInner design-info">
+                  <table class="table table-hover order-info-table">
+                    <tbody>
+                      <tr>
+                        <th>받으시는 분</th>
+                        <td ><%= @order.arrive_username %></td>
+                        <th>휴대전화번호</th>
+                        <td ><%= @order.arrive_phone %></td>
+                      </tr>
+                      <tr>
+                        <th style="border-bottom: 1px solid #ddd">주소</th>
+                        <td colspan="3" style="border-bottom: 1px solid #ddd"><%= '(' + @order.arrive_address_number + ') ' + @order.arrive_address + ' ' + @order.arrive_address_detail %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
           <% end %>
-          <hr>
-          <h5>주문자 정보</h5>
-          <div class="row">
-              <div class="cartListInner design-info">
-                <table class="table table-hover order-info-table">
-                  <tbody>
-                    <tr>
-                      <th style="text-align: center;">주문하시는 분</th>
-                      <td style="text-align: center"><%= @order.user.username %></td>
-                      <th style="text-align: center;">이메일 주소</th>
-                      <td style="text-align: center"><%= @order.user.email %></td>
-                    </tr>
-                    <tr>
-                      <th style="text-align: center; border-bottom: 1px solid #ddd">휴대전화번호</th>
-                      <td style="text-align: center; border-bottom: 1px solid #ddd"><%= @order.user.phone %></td>
-                      <th style="text-align: center; border-bottom: 1px solid #ddd">희망배송일</th>
-                      <td style="text-align: center; border-bottom: 1px solid #ddd"><%= @order.arrive_date %></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-          </div>
-          <hr>
-          <h5>배송지 정보</h5>
-          <div class="row">
-              <div class="cartListInner design-info">
-                <table class="table table-hover order-info-table">
-                  <tbody>
-                    <tr>
-                      <th>받으시는 분</th>
-                      <td ><%= @order.arrive_username %></td>
-                      <th>휴대전화번호</th>
-                      <td ><%= @order.arrive_phone %></td>
-                    </tr>
-                    <tr>
-                      <th style="border-bottom: 1px solid #ddd">주소</th>
-                      <td colspan="3" style="border-bottom: 1px solid #ddd"><%= '(' + @order.arrive_address_number + ') ' + @order.arrive_address + ' ' + @order.arrive_address_detail %></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-          </div>
         </div>
       </div>
     </div>

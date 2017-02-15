@@ -50,11 +50,11 @@
                                     <span style="color:#ED5565">환불처리 </span> <small>(환불일시 : <%= @order.datetime_returned %></small>
                                 <% elsif @order.is_confirmed %>
                                     <% if @order.is_payed %>
-                                        <% if order.is_ordered %>
-                                            <% if order.datetime_delivered.nil? %>
+                                        <% if @order.is_ordered %>
+                                            <% if @order.datetime_delivered.nil? %>
                                               발주완료
                                             <% else %>
-                                              <% if order.is_finished %>
+                                              <% if @order.is_finished %>
                                                 배송완료
                                               <% else %>
                                                 배송중
