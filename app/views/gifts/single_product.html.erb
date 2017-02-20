@@ -1,18 +1,10 @@
 <!-- BANNER -->
-<div class="bannercontainer bannerV1" style="margin-top: 50px;">
-  <div class="fullscreenbanner-container">
-    <div class="fullscreenbanner" style="background-image: url('<%= @product.product_banner_image %>'); background-position: center center; background-repeat: no-repeat; background-size: cover">
-      <div class="main-product">
-        <header>
-          <!-- <h1>@product.title</h1> -->
-          <!-- <p>@product.subtitle</p> -->
-        </header>
-        <div class="downer">
-          <!-- <button type="button" class="btn btn-submit show-product">구매하기</button> -->
+<div id="banner" style="margin-top:50px;">
+    <div id="wrapper" style="width:100%; overflow:hidden;">
+        <div id="container" style="width:100%; margin-right:auto;">
+                <A HREF="http://www.nalashirts.com"><img style="width: 100%; background-position: center center; background-repeat: no-repeat; background-size: cover" src="<%= @product.product_banner_image %>" alt="N.A.L.A. Apparel"/>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 
 <!-- MAIN CONTENT SECTION -->
@@ -63,11 +55,17 @@
                 <div class="col-xs-4">
                   <h6 style="margin-bottom: 26px; margin-top: 5px">추천행사</h6>
                   <h6 style="margin-bottom: 26px; margin-top: 5px">패키지여부</h6>
-                  <h6 style="margin-bottom: 26px; margin-top: 5px">상품간략설명</h6>
                 </div>
                 <div class="col-xs-offset-1 col-xs-7">
                   <p class="product-info" style="margin-bottom: 15px;"><%= @product.recommend_festival %></p>
                   <p class="product-info" style="margin-bottom: 15px;"><%= @product.explain_package %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4">
+                  <h6 style="margin-bottom: 10px; margin-top: 0px">상품스토리</h6>
+                </div>
+                <div class="col-xs-12" style="padding-left: 15px;">
                   <p class="product-info" style="margin-bottom: 15px;"><%= @product.mainpage_story %></p>
                 </div>
               </div>
