@@ -2,7 +2,7 @@
 <div id="banner" style="margin-top:50px;">
     <div id="wrapper" style="width:100%; overflow:hidden;">
         <div id="container" style="width:100%; margin-right:auto;">
-                <A HREF="http://www.nalashirts.com"><img style="width: 100%; background-position: center center; background-repeat: no-repeat; background-size: cover" src="<%= @product.product_banner_image %>" alt="N.A.L.A. Apparel"/>
+                <img style="width: 100%; background-position: center center; background-repeat: no-repeat; background-size: cover" src="<%= @product.product_banner_image %>" alt="<%= @product.title %>_image"/>
         </div>
     </div>
 </div>
@@ -244,7 +244,7 @@ $(function() {
   // 주문서 작성 계산기
   var qty_arr = <%= @qty_arr %>,
       price_arr = <%= @price_arr %>,
-      qty_min = Math.min(... qty_arr);
+      qty_min = <%= @product_price.price_min %>;
 
   // Hide #MagicMenu on on scroll down
   var didScroll;
