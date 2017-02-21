@@ -227,8 +227,7 @@
 		position: relative;
 		@include mobile{
 			position: relative;
-			left:5%;
-			width: 90%;
+			width: 100%;
 			.product-detail {
 				font-size: 11px!important;
 				h5 {
@@ -248,9 +247,27 @@
 			}
 		}
 		.recommend-areas{
+			padding-top: 5px;
 			&:hover{
 				background-color: darken(white, 4%);
 				@include transition(all 0.5s ease-in-out);
+			}
+			@include mobile-xs{
+				padding-left:5px;
+				padding-right: 5px;
+			}
+			@include mobile{
+				padding-left:5px;
+				padding-right: 5px;
+			}
+			@include tablet{
+				padding-left:5px;
+				padding-right: 5px;
+			}
+			@include desktops{
+				padding-left: 15px;
+				padding-right: 15px;
+				padding-top:15px;
 			}
 		}
 	}

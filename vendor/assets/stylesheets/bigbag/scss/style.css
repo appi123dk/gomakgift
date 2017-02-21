@@ -2147,8 +2147,7 @@ body.bodyColor.container {
     @media (min-width: 480px) {
       .whiteSection .recommend-container, .mainContent .recommend-container {
         position: relative;
-        left: 5%;
-        width: 90%; }
+        width: 100%; }
         .whiteSection .recommend-container .product-detail, .mainContent .recommend-container .product-detail {
           font-size: 11px !important; }
           .whiteSection .recommend-container .product-detail h5, .mainContent .recommend-container .product-detail h5 {
@@ -2162,13 +2161,32 @@ body.bodyColor.container {
           font-size: 10px !important; }
           .whiteSection .recommend-container .product-detail h5, .mainContent .recommend-container .product-detail h5 {
             font-size: 12px; } }
-    .whiteSection .recommend-container .recommend-areas:hover, .mainContent .recommend-container .recommend-areas:hover {
-      background-color: whitesmoke;
-      -webkit-transition: all 0.5s ease-in-out;
-      -moz-transition: all 0.5s ease-in-out;
-      -ms-transition: all 0.5s ease-in-out;
-      -o-transition: all 0.5s ease-in-out;
-      transition: all 0.5s ease-in-out; }
+    .whiteSection .recommend-container .recommend-areas, .mainContent .recommend-container .recommend-areas {
+      padding-top: 5px; }
+      .whiteSection .recommend-container .recommend-areas:hover, .mainContent .recommend-container .recommend-areas:hover {
+        background-color: whitesmoke;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -ms-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out; }
+      @media (max-width: 479px) {
+        .whiteSection .recommend-container .recommend-areas, .mainContent .recommend-container .recommend-areas {
+          padding-left: 5px;
+          padding-right: 5px; } }
+      @media (min-width: 480px) {
+        .whiteSection .recommend-container .recommend-areas, .mainContent .recommend-container .recommend-areas {
+          padding-left: 5px;
+          padding-right: 5px; } }
+      @media (min-width: 768px) {
+        .whiteSection .recommend-container .recommend-areas, .mainContent .recommend-container .recommend-areas {
+          padding-left: 5px;
+          padding-right: 5px; } }
+      @media (min-width: 992px) {
+        .whiteSection .recommend-container .recommend-areas, .mainContent .recommend-container .recommend-areas {
+          padding-left: 15px;
+          padding-right: 15px;
+          padding-top: 15px; } }
   .whiteSection .container, .mainContent .container {
     width: 70% !important; }
     @media (min-width: 480px) {
