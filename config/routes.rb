@@ -1,7 +1,7 @@
 Myapp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
-  root to: 'gomakdesigns#index'
+  root to: 'gifts#index'
   # 녹턴 routes
   get "knockturns/index"
   get "knockturns/result/:id", to:'knockturns#result'

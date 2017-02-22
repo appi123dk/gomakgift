@@ -1,14 +1,13 @@
+<!-- MAIN CONTENT SECTION -->
+<section class="mainContent clearfix" style="padding-top: 20px">
 <!-- BANNER -->
-<div id="banner" style="margin-top:50px;">
-    <div id="wrapper" style="width:100%; overflow:hidden;">
-        <div id="container" style="width:100%; margin-right:auto;">
-                <img style="width: 100%; background-position: center center; background-repeat: no-repeat; background-size: cover" src="<%= @product.product_banner_image %>" alt="<%= @product.title %>_image"/>
+<div class="single-product-banner">
+    <div class="single-product-wrapper">
+        <div class="single-product-container">
+                <img src="<%= @product.product_banner_image %>" alt="<%= @product.title %>_image"/>
         </div>
     </div>
 </div>
-
-<!-- MAIN CONTENT SECTION -->
-<section class="mainContent clearfix" style="padding-top: 20px">
 <div class="container">
   <div class="row singleProduct">
     <div class="col-xs-12">

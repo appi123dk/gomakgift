@@ -222,6 +222,33 @@
 	}
 
 .whiteSection, .mainContent{
+	.single-product-banner{
+		margin-top: 50px;
+		.single-product-wrapper{
+			width:100%;
+			overflow:hidden;
+			.single-product-container{
+				width:100%;
+				margin-right: auto;
+				img{
+					width:100%;
+					background-position: center center;
+					background-repeat: no-repeat;
+					background-size: cover;
+					cursor: pointer;
+					@include mobile{
+						height: 200px;
+					}
+					@include mobile-xs{
+						height: 150px;
+					}
+					@include tablet{
+						height: 100%;
+					}
+				}
+			}
+		}
+	}
 	// 메인페이지 상품 화면 구성
 	.recommend-container{
 		position: relative;

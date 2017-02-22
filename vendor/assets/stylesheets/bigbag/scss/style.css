@@ -2142,6 +2142,29 @@ body.bodyColor.container {
 
 .whiteSection, .mainContent {
   background-color: #ffffff; }
+  .whiteSection .single-product-banner, .mainContent .single-product-banner {
+    margin-top: 50px; }
+    .whiteSection .single-product-banner .single-product-wrapper, .mainContent .single-product-banner .single-product-wrapper {
+      width: 100%;
+      overflow: hidden; }
+      .whiteSection .single-product-banner .single-product-wrapper .single-product-container, .mainContent .single-product-banner .single-product-wrapper .single-product-container {
+        width: 100%;
+        margin-right: auto; }
+        .whiteSection .single-product-banner .single-product-wrapper .single-product-container img, .mainContent .single-product-banner .single-product-wrapper .single-product-container img {
+          width: 100%;
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          cursor: pointer; }
+          @media (min-width: 480px) {
+            .whiteSection .single-product-banner .single-product-wrapper .single-product-container img, .mainContent .single-product-banner .single-product-wrapper .single-product-container img {
+              height: 200px; } }
+          @media (max-width: 479px) {
+            .whiteSection .single-product-banner .single-product-wrapper .single-product-container img, .mainContent .single-product-banner .single-product-wrapper .single-product-container img {
+              height: 150px; } }
+          @media (min-width: 768px) {
+            .whiteSection .single-product-banner .single-product-wrapper .single-product-container img, .mainContent .single-product-banner .single-product-wrapper .single-product-container img {
+              height: 100%; } }
   .whiteSection .recommend-container, .mainContent .recommend-container {
     position: relative; }
     @media (min-width: 480px) {
