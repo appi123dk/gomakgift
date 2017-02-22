@@ -1,0 +1,45 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div style="padding-top: 70px">
+
+            <h3 class="logo-name" style="font-size: 80px; color: #fed328">GomakGift</h1>
+
+        </div>
+        <h3 style="margin-top: 50px;">공급업체 수정</h3>
+        <p>
+            공급업체 수정할 정보를 입력해주세요
+        </p>
+        <form class="m-t" role="form" action="/suppliers/update/<%= @supplier.id %>" method="GET">
+                <label class="col-lg-4 control-label" style="margin-top: 7px">업체명 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="company_name" value="<%= @supplier.company_name %>" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">판매품목 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="category" value="<%= @supplier.category %>" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">담당자 전화번호 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="company_phone" value="<%= @supplier.company_phone %>" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">팩스번호 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="company_fax" required="" value="<%= @supplier.company_fax %>" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">회사 사이트(url) : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="url" required="" value="<%= @supplier.url %>" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">인쇄비용 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="print_cost" required="" value="<%= @supplier.print_cost %>" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">포장비용 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="package_cost" value="<%= @supplier.package_cost %>" required="" style="text-align: right">
+                </div>
+                <button type="submit" class="btn btn-warning block full-width m-b">등록</button>
+            </form>
+        <!-- <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2015</small> </p> -->
+    </div>
+</div>

@@ -50,7 +50,7 @@
                                     <td style="text-align: center"><%= supplier.company_phone %></td>
                                     <td style="text-align: center"><%= supplier.company_fax %></td>
                                     <td style="text-align: center"><a href="<%= supplier.url %>"><%= supplier.url %></a></td>
-                                    <td><a class="btn btn-xs btn-primary btn-block" href="" style="margin-bottom: 0px;">Edit</a></td>
+                                    <td><a class="btn btn-xs btn-primary btn-block" href="/suppliers/edit/<%= supplier.id %>" style="margin-bottom: 0px;">Edit</a></td>
                                 </tr>
                             <% end %>
                         </tbody>

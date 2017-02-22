@@ -43,6 +43,8 @@ Myapp::Application.routes.draw do
   get 'suppliers/index'
   get 'suppliers/new'
   get 'suppliers/create'
+  get 'suppliers/edit/:id', to: 'suppliers#edit'
+  get 'suppliers/update/:id', to: 'suppliers#update'
 
   # CS DB routes
   get 'comments/create'
