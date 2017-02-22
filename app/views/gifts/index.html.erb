@@ -14,7 +14,7 @@
                 data-speed="800"
                 data-start="1500"
                 data-easing="Back.easeInOut"
-                data-endspeed="300" style="left:90px">
+                data-endspeed="300" style="left:4.3%">
                 <img src="<%= banner.product_url %>" alt="slider-image">
               </div>
             </div>
@@ -51,11 +51,11 @@
       <div class="products-header" style = "margin-top: 40px;">
         <h4>MD 추천상품</h4>  
       </div>
-      <div class="products-content row">
+      <div class="recommend-products row">
         <% @recommends.each do |recommend| %>
         <a href="/gifts/single_product/<%= recommend.product.id %>">
         <div class="col-sm-3 col-xs-6 recommend-areas">
-          <div class="img-box" style="margin-bottom: 20px;">
+          <div class="img-box" style="margin-bottom: 10px;">
             <img src="<%= recommend.img_url %>" alt="" width="100%">
           </div>
           <div class="products-descript">
