@@ -1,0 +1,49 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div style="padding-top: 70px">
+
+            <h3 class="logo-name" style="font-size: 80px; color: #fed328">GomakGift</h1>
+
+        </div>
+        <h3 style="margin-top: 50px;">가격 Set 수정</h3>
+        <p>
+            가격을 수정해주세요
+        </p>
+        <form class="m-t" role="form" action="/options/price_update/<%= @price_set.id %>" method="GET">
+                <label class="col-lg-4 control-label" style="margin-top: 7px">가격이름 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" value="<%= @price_set.price_name %>" name="price_name" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">최저가 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" placeholder="최저가 입력" value="<%= @price_set.price_min %>" name="price_min" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">가격 1 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="price_1" value="<%= @price_set.price_1 %>" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">가격 2 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="price_2" value="<%= @price_set.price_2 %>" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">가격 3 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="price_3" value="<%= @price_set.price_3 %>" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">가격 4 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="price_4" value="<%= @price_set.price_4 %>" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">가격 5 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="price_5" value="<%= @price_set.price_5 %>" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">가격 6 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="price_6" value="<%= @price_set.price_6 %>" placeholder="없는 경우 0을 입력하세요" style="text-align: right">
+                </div>
+                <button type="submit" class="btn btn-warning block full-width m-b">등록</button>
+            </form>
+        <!-- <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2015</small> </p> -->
+    </div>
+</div>

@@ -1,5 +1,5 @@
 <!-- MAIN CONTENT SECTION -->
-<section class="mainContent clearfix" style="padding-top: 20px">
+<section class="mainContent clearfix">
 <!-- BANNER -->
 <div class="single-product-banner">
     <div class="single-product-wrapper">
@@ -81,7 +81,9 @@
                         <th class="qty" style="border-top: 1px solid black"><%= number_with_delimiter(@product_qty.qty_3, delimiter: ',') %></th>
                         <th class="qty" style="border-top: 1px solid black"><%= number_with_delimiter(@product_qty.qty_4, delimiter: ',') %></th>
                         <th class="qty" style="border-top: 1px solid black"><%= number_with_delimiter(@product_qty.qty_5, delimiter: ',') %></th>
-                        <th class="qty" style="border-top: 1px solid black"><%= number_with_delimiter(@product_qty.qty_6, delimiter: ',') %></th>
+                        <% unless @product_qty.qty_6 == 0 %>
+                          <th class="qty" style="border-top: 1px solid black"><%= number_with_delimiter(@product_qty.qty_6, delimiter: ',') %></th>
+                        <% end %>
                         <!-- <th style="border-top: 1px solid black">300</th> -->
                     </tr>
                   </thead>
@@ -94,7 +96,9 @@
                         <td class="price"><%= number_with_delimiter(@product_price.price_3, delimiter: ',') %></td>
                         <td class="price"><%= number_with_delimiter(@product_price.price_4, delimiter: ',') %></td>
                         <td class="price"><%= number_with_delimiter(@product_price.price_5, delimiter: ',') %></td>
-                        <td class="price"><%= number_with_delimiter(@product_price.price_6, delimiter: ',') %></td>
+                        <% unless @product_qty.qty_6 == 0 %>
+                          <td class="price"><%= number_with_delimiter(@product_price.price_6, delimiter: ',') %></td>
+                        <% end %>
                     </tr>
                   </tbody>
                 </table>
@@ -243,7 +247,7 @@ $(function() {
   // 주문서 작성 계산기
   var qty_arr = <%= @qty_arr %>,
       price_arr = <%= @price_arr %>,
-      qty_min = <%= @product_price.price_min %>;
+      qty_min = <%= @product_qty.qty_6 == 0 ? @product_qty.qty_5 : @product_qty.qty_6 %>;
 
   // Hide #MagicMenu on on scroll down
   var didScroll;

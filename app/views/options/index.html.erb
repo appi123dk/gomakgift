@@ -37,6 +37,7 @@
                                 <th>가격_4</th>
                                 <th>가격_5</th>
                                 <th>가격_6</th>
+                                <th>수정</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -51,6 +52,7 @@
                                     <td><%= price.price_4 %></td>
                                     <td><%= price.price_5 %></td>
                                     <td><%= price.price_6 %></td>
+                                    <td><a class="btn btn-xs btn-primary btn-block" href="/options/price_edit/<%= price.id %>" style="margin-bottom: 0px;">Edit</a></td>
                                 </tr>
                             <% end %>
                         </tbody>
@@ -80,6 +82,7 @@
                                 <th>수량_4</th>
                                 <th>수량_5</th>
                                 <th>수량_6</th>
+                                <th>수정</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -94,6 +97,7 @@
                                     <td><%= qty.qty_4 %></td>
                                     <td><%= qty.qty_5 %></td>
                                     <td><%= qty.qty_6 %></td>
+                                    <td><a class="btn btn-xs btn-primary btn-block" href="/options/qty_edit/<%= qty.id %>" style="margin-bottom: 0px;">Edit</a></td>
                                 </tr>
                             <% end %>
                         </tbody>
