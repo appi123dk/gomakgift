@@ -10,7 +10,7 @@ class AdminCommentsController < ApplicationController
 	def create_reply
 		comment = Comment.find(params[:id])
 
-		if comment.replies.nil? 
+		if comment.replies.empty? 
 			reply = Reply.new
 			reply.comment_id = params[:id]
 			reply.content = params[:content]
