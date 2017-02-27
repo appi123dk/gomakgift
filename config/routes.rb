@@ -50,7 +50,8 @@ Myapp::Application.routes.draw do
   get 'comments/create'
   # CS관리 routes
   get 'admin_comments/index'
-  get 'admin_comments/view'
+  get 'admin_comments/view/:id', to: 'admin_comments#view'
+  get 'admin_comments/create_reply/:id', to: 'admin_comments#create_reply'
 
   # 주문 DB routes
   get 'orders/create'

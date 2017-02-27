@@ -6,7 +6,7 @@
         <h1 class="cs-title">나의 문의 내역</h1>
         <div class="row">
           <div class="col-sm-6" style="vertical-align: middle;">
-           <h3>문의건수 : 0 건 / 답변완료 : 0 건</h3>
+           <h3>문의건수 : <%= @comments.count %> 건 / 답변완료 : <%= @comments.where('is_replied = ?', true).count %> 건</h3>
           </div>
           <div class="col-sm-6" style="text-align: right; margin-top: 50px;">
             <h5 style="margin-bottom: 10px">고객문의</h5>
@@ -100,6 +100,7 @@
 
 
 $(function() {
+  $('.question').first().next().css("display","")
   $('.question').click(function(){
     $('.answer').css("display", "none");
     $(this).next().css("display" , "");
