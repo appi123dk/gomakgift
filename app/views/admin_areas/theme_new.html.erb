@@ -1,0 +1,47 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown" style="max-width: 600px;">
+    <div>
+        <div style="padding-top: 70px">
+
+            <h3 class="logo-name" style="font-size: 80px; color: #fed328">GomakGift</h1>
+
+        </div>
+        <h3 style="margin-top: 50px;">영역등록</h3>
+        <p>
+            기획전을 등록해주세요
+        </p>
+        <form class="m-t form-banner" role="form" action="/admin_areas/create_theme" id="form-banner" method="GET">
+                <label class="col-lg-4 control-label" style="margin-top: 7px">공급업체 id : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="supplier_id" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">메인화면 중형배너 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="middle_banner" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">기획전화면 메인배너 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="big_banner" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">기획전 상세이미지 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="detail" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">노출여부 : </label>
+                <div class="form-group col-lg-8" style="margin-top: 8px">
+                    <div class="radio radio-danger radio-inline">
+                        <input type="radio" value="true" name="is_display" checked="" id="displayRadio1">
+                        <label for="displayRadio1"> 배너노출 </label>
+                    </div>
+                    <div class="radio radio-danger radio-inline">
+                        <input type="radio" value="false" name="is_display" id="displayRadio2">
+                        <label for="displayRadio2"> 배너숨김 </label>
+                    </div>
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">순서 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="number" value=0 class="form-control" name="order" required="" style="text-align: right">
+                </div>
+                <button type="submit" form="form-banner" class="btn btn-warning block full-width m-b">등록</button>
+        </form>
+    </div>
+</div>

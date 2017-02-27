@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215070834) do
+ActiveRecord::Schema.define(version: 20170227012755) do
 
   create_table "banners", force: :cascade do |t|
     t.integer  "product_id",     limit: 4
@@ -228,6 +228,19 @@ ActiveRecord::Schema.define(version: 20170215070834) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "themes", force: :cascade do |t|
+    t.integer  "supplier_id",   limit: 4
+    t.string   "middle_banner", limit: 255
+    t.string   "big_banner",    limit: 255
+    t.string   "detail",        limit: 255
+    t.boolean  "is_display",                default: true
+    t.integer  "order",         limit: 4
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
+
+  add_index "themes", ["supplier_id"], name: "index_themes_on_supplier_id", using: :btree
 
   create_table "thumbnails", force: :cascade do |t|
     t.integer  "product_id", limit: 4

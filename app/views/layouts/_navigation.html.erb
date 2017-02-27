@@ -81,9 +81,11 @@
             <li class="<%= is_active_controller('admin_areas') %>">
                 <a href=""><i class="fa fa-th"></i> <span class="nav-label" data-i18n="nav.admin_area">영역관리</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse <%= is_active_controller('admin_areas') %>">
-                    <li class="<%= is_active_action('index') %>"><%= link_to "배너/추천영역 현황", admin_areas_index_path %>
+                    <li class="<%= is_active_action('index') %>"><%= link_to "배너/추천영역/기획전 현황", admin_areas_index_path %>
                     </li>
                     <li class="<%= is_active_action('new') %>"><%= link_to "배너/추천영역 등록", admin_areas_new_path %>
+                    </li>
+                    <li class="<%= is_active_action('theme_new') %>"><%= link_to "기획전 등록", admin_areas_theme_new_path %>
                     </li>
                 </ul>
             </li>

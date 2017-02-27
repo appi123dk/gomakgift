@@ -222,6 +222,38 @@
 	}
 
 .whiteSection, .mainContent{
+	.story-product{
+		cursor: pointer;
+		@include mobile{
+			padding-right: 5px!important;
+			padding-left: 5px;
+		}
+		@include mobile-xs{
+			padding-right: 5px!important;
+			padding-left: 5px;
+		}
+		@include tablet{
+			padding-right: 6.5px!important;
+			padding-left: 6.5px;	
+		}
+		&:hover{
+			text-decoration: underline;
+		}
+		.productCaption{
+			padding-top: 10px;
+			padding-bottom: 20px;
+			.product-title{
+				color: black;
+				font-size: 15px;
+				width: 100%;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;	
+				padding-top: 10px;
+				padding-bottom: 3px;
+			}
+		}
+	}
 	.single-product-banner{
 		margin-top: 50px;
 		.single-product-wrapper{

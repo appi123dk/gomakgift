@@ -2142,6 +2142,34 @@ body.bodyColor.container {
 
 .whiteSection, .mainContent {
   background-color: #ffffff; }
+  .whiteSection .story-product, .mainContent .story-product {
+    cursor: pointer; }
+    @media (min-width: 480px) {
+      .whiteSection .story-product, .mainContent .story-product {
+        padding-right: 5px !important;
+        padding-left: 5px; } }
+    @media (max-width: 479px) {
+      .whiteSection .story-product, .mainContent .story-product {
+        padding-right: 5px !important;
+        padding-left: 5px; } }
+    @media (min-width: 768px) {
+      .whiteSection .story-product, .mainContent .story-product {
+        padding-right: 6.5px !important;
+        padding-left: 6.5px; } }
+    .whiteSection .story-product:hover, .mainContent .story-product:hover {
+      text-decoration: underline; }
+    .whiteSection .story-product .productCaption, .mainContent .story-product .productCaption {
+      padding-top: 10px;
+      padding-bottom: 20px; }
+      .whiteSection .story-product .productCaption .product-title, .mainContent .story-product .productCaption .product-title {
+        color: black;
+        font-size: 15px;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding-top: 10px;
+        padding-bottom: 3px; }
   .whiteSection .single-product-banner, .mainContent .single-product-banner {
     margin-top: 50px; }
     .whiteSection .single-product-banner .single-product-wrapper, .mainContent .single-product-banner .single-product-wrapper {

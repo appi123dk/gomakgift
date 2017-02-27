@@ -3,6 +3,7 @@ class GiftsController < ApplicationController
 		@products = Product.all
 		@recommends = RecommendArea.where('is_display = ?', true)
 		@banners = Banner.where('is_display = ?', true)
+		@themes = Theme.where('is_display = ?', true)
 		render :layout => "bigbag"
 	end
 
@@ -82,6 +83,7 @@ class GiftsController < ApplicationController
 	end
 
 	def single_story
+		@theme = Theme.find(params[:id])
 		render :layout => "bigbag"
 	end
 end

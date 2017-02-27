@@ -33,7 +33,7 @@ Myapp::Application.routes.draw do
   get "gifts/order_index/:id", to: 'gifts#order_index'
   get "gifts/print_product/:id", to: 'gifts#print_product'
   get "gifts/support"
-  get "gifts/single_story"
+  get "gifts/single_story/:id", to: 'gifts#single_story'
   get "gifts/inquire/:id", to: 'gifts#inquire'
   get "gifts/login"
   get "gifts/single_product/:id", to:'gifts#single_product'
@@ -59,13 +59,17 @@ Myapp::Application.routes.draw do
 
   # 영역관련 DB routes
   get 'admin_areas/new'
+  get 'admin_areas/theme_new'
   get 'admin_areas/index'
   get 'admin_areas/create_banner'
+  get 'admin_areas/create_theme'
   get 'admin_areas/create_recommend'
   get 'admin_areas/edit_banner/:id', to: 'admin_areas#edit_banner'
   get 'admin_areas/update_banner/:id', to: 'admin_areas#update_banner'
   get 'admin_areas/edit_recommend/:id', to: 'admin_areas#edit_recommend'
   get 'admin_areas/update_recommend/:id', to: 'admin_areas#update_recommend'
+  get 'admin_areas/edit_theme/:id', to: 'admin_areas#edit_theme'
+  get 'admin_areas/update_theme/:id', to: 'admin_areas#update_theme'
 
   # 유저 DB routes
   post 'users/login_session'

@@ -5,7 +5,7 @@
       <ul>
         <% @banners.each do |banner| %>
           <% if banner.is_left %>
-          <li data-transition="slidehorizontal" data-slotamount="5" data-masterspeed="700"  data-title="Slide 3" onclick="location.href='/gifts/single_product/<%= banner.product.id %>';">
+          <li data-transition="slidehorizontal" data-slotamount="5" data-masterspeed="700"  data-title="Slide 3" onclick="location.href='/gifts/single_product/<%= banner.product.id %>';" style="cursor: pointer;">
             <img src="<%= banner.background_url %>" alt="slidebg" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
             <div class="slider-caption slider-captionV1 container">
               <div class="tp-caption rs-caption-1 sft start"
@@ -73,16 +73,13 @@
   <div class="container-custom">
     <!-- FEATURE COLLECTION SECTION -->
     <div class="row featuredCollection version2" style="margin-top: 20px;">
-      <div class="col-sm-6 col-xs-12" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
-        <div class="slide" style="background-image: url('http://image.29cm.co.kr/contents/site/201701/20170126121152.jpg?cmd=thumb&height=300')">
-          <a href="/gifts/single_story" class="story-box"></a>
-        </div>
-      </div> 
-      <div class="col-sm-6 col-xs-12" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
-        <div class="slide" style="background-image: url(http://image.29cm.co.kr/contents/site/201701/20170126120655.jpg?cmd=thumb&height=300);">
-          <a href="/gifts/single_story" class="story-box"></a>
-        </div>
-      </div> 
+      <% @themes.each do |theme| %>
+        <div class="col-sm-6 col-xs-12" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
+          <div class="slide" style="background-image: url('<%= theme.middle_banner %>')">
+            <a href="/gifts/single_story/<%= theme.id %>" class="story-box"></a>
+          </div>
+        </div> 
+      <% end %>
     </div>
   </div>
 
