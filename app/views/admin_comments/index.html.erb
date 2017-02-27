@@ -44,7 +44,7 @@
                                     <td><%= comment.user.email %></td>
                                     <td><%= comment.user.phone %></td>
                                     <td><%= comment.content %></td>
-                                    <td><%= comment.replies.first.content.nil? ? "" : comment.replies.first.content %></td>
+                                    <td><%= comment.replies.first.nil? ? "" : comment.replies.first.content %></td>
                                     <td><%= comment.is_replied %></td>
                                     <td><a class="btn btn-sm btn-primary btn-block" href="/admin_comments/view/<%= comment.id %>" style="margin: 0px; padding: 0px 10px">comment</a></td>
                                 </tr>
