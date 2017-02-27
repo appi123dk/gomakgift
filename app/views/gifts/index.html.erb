@@ -6,7 +6,7 @@
         <% @banners.each do |banner| %>
           <% if banner.is_left %>
           <li data-transition="slidehorizontal" data-slotamount="5" data-masterspeed="700"  data-title="Slide 3" onclick="location.href='/gifts/single_product/<%= banner.product.id %>';" style="cursor: pointer;">
-            <img src="<%= banner.background_url %>" alt="slidebg" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+            <img src="<%= banner.background_url %>" alt="<%= banner.product.title %>" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
             <div class="slider-caption slider-captionV1 container">
               <div class="tp-caption rs-caption-1 sft start"
                 data-hoffset="0"
@@ -15,13 +15,13 @@
                 data-start="1500"
                 data-easing="Back.easeInOut"
                 data-endspeed="300" style="left:4.3%">
-                <img src="<%= banner.product_url %>" alt="slider-image">
+                <img src="<%= banner.product_url %>" alt="<%= banner.product.title %>">
               </div>
             </div>
           </li>          
           <% else %>
           <li data-transition="slidehorizontal" data-slotamount="5" data-masterspeed="700" data-title="Slide 1" onclick="location.href='/gifts/single_product/<%= banner.product.id %>';">
-            <img src="<%= banner.background_url %>" alt="slidebg1" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+            <img src="<%= banner.background_url %>" alt="<%= banner.product.title %>" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
             <div class="slider-caption slider-captionV1 container">
               
               <div class="tp-caption rs-caption-1 sft start" 
@@ -32,7 +32,7 @@
                 data-start="1500" 
                 data-easing="Back.easeInOut" 
                 data-endspeed="300" >
-                <img src="<%= banner.product_url %>" alt="slider-image">
+                <img src="<%= banner.product_url %>" alt="<%= banner.product.title %>">
               </div>
             </div>
           </li>
@@ -56,7 +56,7 @@
         <a href="/gifts/single_product/<%= recommend.product.id %>">
         <div class="col-sm-3 col-xs-6 recommend-areas">
           <div class="img-box" style="margin-bottom: 10px;">
-            <img src="<%= recommend.img_url %>" alt="" width="100%">
+            <img src="<%= recommend.img_url %>" alt="<%= recommend.title %>" width="100%">
           </div>
           <div class="products-descript">
             <div class="product-detail">
@@ -74,7 +74,7 @@
     <!-- FEATURE COLLECTION SECTION -->
     <div class="row featuredCollection version2" style="margin-top: 20px;">
       <% @themes.each do |theme| %>
-        <div class="col-sm-6 col-xs-12" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
+        <div class="col-sm-6 col-xs-12" title="<%= theme.supplier.company_name %>, <%= theme.supplier.category %>" style="padding-left:0px; padding-right: 0px; border: 0.5px solid white">
           <div class="slide" style="background-image: url('<%= theme.middle_banner %>')">
             <a href="/gifts/single_story/<%= theme.id %>" class="story-box"></a>
           </div>
@@ -91,7 +91,7 @@
       <a href="/gifts/single_product/<%= product.id %>">
         <div class="product-container">
           <div class="img-box">
-            <img src="<%= product.thumbnails.first.img_url %>" alt="" width="100%">
+            <img src="<%= product.thumbnails.first.img_url %>" alt="<%= product.title %>, <%= product.brand_name %>" width="100%">
           </div>
           <div class="products-descript">
             <div class="product-title" style="line-height:30px;">

@@ -4,7 +4,7 @@
 <div class="single-product-banner">
     <div class="single-product-wrapper">
         <div class="single-product-container">
-                <img src="<%= @product.product_banner_image %>" alt="<%= @product.title %>_image" style="cursor: default">
+                <img src="<%= @product.product_banner_image %>" alt="<%= @product.title %>, <%= @product.brand_name %>, 답례품" style="cursor: default">
         </div>
     </div>
 </div>
@@ -18,7 +18,7 @@
               <% data_num = 0 %>
               <% @product.thumbnails.each do |thumbnail| %>
                 <div class="item" data-thumb="<%=raw data_num %>">
-                 <img src="<%= thumbnail.img_url %>" alt="" width="100%">
+                 <img src="<%= thumbnail.img_url %>" alt="<%= @product.title %>, <%= @product.brand_name %>, 판촉물" width="100%">
                 </div>
                 <% data_num += 1 %>
               <% end %>
@@ -29,7 +29,7 @@
               <div class="carousel-inner">
                 <% data_small_num = 0 %>
                 <% @product.thumbnails.each do |thumbnail| %>
-                  <div data-target="#carousel" data-slide-to="<%=raw data_small_num %>" class="thumb"><img src="<%= thumbnail.img_url %>"></div>
+                  <div data-target="#carousel" data-slide-to="<%=raw data_small_num %>" class="thumb"><img src="<%= thumbnail.img_url %>"  alt="<%= @product.category %> 대량제작, 대량주문"></div>
                   <% data_small_num += 1 %>
                 <% end %>
               </div>
@@ -174,7 +174,7 @@
   <!-- FEATURE COLLECTION SECTION -->
   <div class="row featuredCollection version2" style="margin-top: 40px; margin-bottom: 20px;">
     <div class="col-sm-12 col-lg-offset-2 col-lg-8" style="padding-left: 0px; padding-right: 0px;">
-      <img src="<%= @product.product_image %>" class="img-responsive" style="width:100%">      
+      <img src="<%= @product.product_image %>" class="img-responsive"  alt="<%= @product.recommend_festival %>, 답례품, 판촉물" style="width:100%">      
       <hr>
     </div>
   </div>

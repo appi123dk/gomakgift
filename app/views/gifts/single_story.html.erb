@@ -4,7 +4,7 @@
 <div class="single-product-banner">
     <div class="single-product-wrapper">
         <div class="single-product-container">
-            <img src="<%= @theme.big_banner %>" alt="<%= @theme.supplier.company_name %> 스토리" style="cursor:default">
+            <img src="<%= @theme.big_banner %>" alt="<%= @theme.supplier.company_name %> 이야기" style="cursor:default">
         </div>
     </div>
 </div>
@@ -12,7 +12,7 @@
   <!-- FEATURE COLLECTION SECTION -->
   <div class="row featuredCollection version2" style="margin-top: 10px; margin-bottom: 10px;">
     <div class="col-sm-12 col-lg-offset-2 col-lg-8" style="padding-left: 0px; padding-right: 0px;">
-      <img src="<%= @theme.detail %>" alt="<%= @theme.supplier.company_name %> 스토리" class="img-responsive" style="width:100%">      
+      <img src="<%= @theme.detail %>" alt="<%= @theme.supplier.company_name %>, <%= @theme.supplier.category %>" class="img-responsive" style="width:100%">      
     </div>
   </div>
 </div>
@@ -28,7 +28,7 @@
     <div class="col-md-3 col-xs-6 story-product" onclick="location.href='/gifts/single_product/<%= product.id %>';">
       <div class="productBox">
         <div class="productImage clearfix" style="margin-bottom: 0px">
-          <img src="<%= product.thumbnails.first.img_url %>" alt="<%= product.title %>">
+          <img src="<%= product.thumbnails.first.img_url %>" alt="<%= product.title %>, <%= product.category %>">
         </div>
         <div class="productCaption clearfix">
          <p><%= product.category %></p>
