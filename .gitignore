@@ -89,7 +89,7 @@ Procfile.dev
 /.tags_sorted_by_file
 
 # Application specific
-*.txt
+
 /doc
 /public/uploads
 
