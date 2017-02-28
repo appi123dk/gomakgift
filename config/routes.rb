@@ -36,6 +36,7 @@ Myapp::Application.routes.draw do
   get "gifts/single_story/:id", to: 'gifts#single_story'
   get "gifts/inquire/:id", to: 'gifts#inquire'
   get "gifts/login"
+  get "gifts/rss_feed"
   get "gifts/single_product/:id", to:'gifts#single_product'
   get "gifts/cart_delete/:id", to:'gifts#cart_delete' # 보안 각별히 신경써야함
 

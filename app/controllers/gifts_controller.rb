@@ -86,4 +86,12 @@ class GiftsController < ApplicationController
 		@theme = Theme.find(params[:id])
 		render :layout => "bigbag"
 	end
+
+	def rss_feed
+		@products = Product.last(10)
+		respond_to do |format|
+      format.html
+      format.rss { render :layout => false }
+    end
+	end
 end
