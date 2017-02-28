@@ -791,10 +791,10 @@
 	}
 	background-color: $white-color;
 	@include mobile-xs{
-		padding: 40px 0 40px 0;	
+		padding: 0 0 40px 0;	
 	}
 	@include mobile{
-		padding: 90px 0 0 0;	
+		padding: 0px;	
 	}
 	@include tablet{
 		padding: 0 0 60px 0;	

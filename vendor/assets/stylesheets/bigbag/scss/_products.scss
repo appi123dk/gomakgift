@@ -270,6 +270,16 @@
 					font-size: 10px;
 				}
 			}
+			.price-table{
+				@include mobile-xs{
+					overflow: auto;
+					overflow-y: hidden;
+				}
+				@include mobile{
+					overflow: auto;
+					overflow-y: hidden;	
+				}
+			}
 			.list-inline{
 				padding-left: 15px;
 				padding-right: 15px;
