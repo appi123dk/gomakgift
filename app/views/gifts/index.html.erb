@@ -91,7 +91,7 @@
       <a href="/gifts/single_product/<%= product.id %>">
         <div class="product-container">
           <div class="img-box">
-            <img src="<%= product.product_thumb.nil? ? product.thumbnails.first.img_url : product.product_thumb %>" alt="<%= product.title %>, <%= product.brand_name %>" width="100%">
+            <img src="<%= product.product_thumb.nil? || product.product_thumb == "" ? product.thumbnails.first.img_url : product.product_thumb %>" alt="<%= product.title %>, <%= product.brand_name %>" width="100%">
           </div>
           <div class="products-descript">
             <div class="product-title" style="line-height:30px;">
