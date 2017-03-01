@@ -81,6 +81,10 @@
                 <div class="form-group col-lg-8">
                     <textarea required="" name="mainpage_story" class="form-control" cols="30" rows="12"><%= @product.mainpage_story %></textarea>
                 </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품 메인화면 썸네일 : </label>
+                <div class="form-group col-lg-8 thumbnail-form">
+                    <input type="text" class="form-control" name="product_thumb" placeholder="없으면 빈칸" value="<%= @product.product_thumb %>" style="text-align: right">
+                </div>
                 <% @product.thumbnails.each do |thumbnail| %>
                     <label class="col-lg-4 control-label" style="margin-top: 7px">상품 썸네일 : </label>
                     <div class="form-group col-lg-8 thumbnail-form">

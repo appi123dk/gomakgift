@@ -35,7 +35,8 @@ class ProductsController < ApplicationController
 		product.mainpage_title      = params[:mainpage_title]
 		product.mainpage_story      = params[:mainpage_story]
 		product.category            = params[:category]
-		product.product_banner_image  = params[:product_banner_image]
+		product.product_banner_image= params[:product_banner_image]
+		product.product_thumb       = params[:product_thumb]
 		product.save
 
 		params[:img_url].each do |url|
@@ -73,6 +74,7 @@ class ProductsController < ApplicationController
 		product.mainpage_title      = params[:mainpage_title]
 		product.mainpage_story      = params[:mainpage_story]
 		product.category            = params[:category]
+		product.product_thumb       = params[:product_thumb]
 		product.product_banner_image  = params[:product_banner_image]
 		product.save
 

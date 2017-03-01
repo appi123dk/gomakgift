@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227012755) do
+ActiveRecord::Schema.define(version: 20170301073753) do
 
   create_table "banners", force: :cascade do |t|
     t.integer  "product_id",     limit: 4
@@ -152,6 +152,7 @@ ActiveRecord::Schema.define(version: 20170227012755) do
     t.string   "explain_package",      limit: 255
     t.string   "product_banner_image", limit: 255
     t.string   "category",             limit: 255
+    t.string   "product_thumb",        limit: 255
   end
 
   add_index "products", ["price_id"], name: "index_products_on_price_id", using: :btree
