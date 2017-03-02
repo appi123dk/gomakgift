@@ -4,7 +4,9 @@
 <div class="single-product-banner">
     <div class="single-product-wrapper">
         <div class="single-product-container">
+              <% if @product.product_banner_image != "#" %>
                 <img src="<%= @product.product_banner_image %>" alt="<%= @product.title %>, <%= @product.brand_name %>, 답례품" style="cursor: default">
+              <% end %>
         </div>
     </div>
 </div>
