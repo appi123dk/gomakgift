@@ -1154,7 +1154,7 @@ body.bodyColor.container {
     text-align: center; }
     @media (min-width: 768px) {
       .fullscreenbanner-container .tp-bullets.preview4 {
-        display: block; } }
+        display: block; }}
     .fullscreenbanner-container .tp-bullets.preview4::before {
       content: "";
       width: 22px;

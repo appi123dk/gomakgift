@@ -1981,8 +1981,13 @@ img.tp-slider-alternative-image	{	width:100%; height:auto;}
 											    -o-transition: all 0.2s ease-in-out;
 											    transition: all 0.2s ease-in-out;
 												   -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";filter: alpha(opacity=100);-moz-opacity: 1;-khtml-opacity: 1;opacity: 1;
-
 											}
+
+@media (max-width: 768px) {
+		.tparrows.preview4:after{
+			left: 0px;
+		}
+	}
 
 .tp-rightarrow.preview4:after				{	content: '\e825';  }
 .tp-leftarrow.preview4:after				{	content: '\e824';  }
