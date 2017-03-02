@@ -24,18 +24,18 @@
         <h5>스토리 관련 상품</h5>
       </div>
     </div>
-    <% @theme.supplier.products.each do |product| %>
+    <% @theme.supplier.products.order('display_order ASC, id DESC').each do |product| %>
     <div class="col-md-3 col-xs-6 story-product" onclick="location.href='/gifts/single_product/<%= product.id %>';">
       <div class="productBox">
         <div class="productImage clearfix" style="margin-bottom: 0px">
-          <img src="<%= product.thumbnails.first.img_url %>" alt="<%= product.title %>, <%= product.category %>">
+          <img src="<%= product.product_thumb.nil? || product.product_thumb == "" ? product.thumbnails.first.img_url : product.product_thumb %>" alt="<%= product.title %>, <%= product.category %>" width="100%">
         </div>
         <div class="productCaption clearfix">
          <p><%= product.category %></p>
          <div class="product-title">
            <%= product.title %>
          </div>
-         <p><span style="color:#ff2500; font-size: 1.1em;">최저가 : <%= product.price.price_min %>원</span></p>
+         <p><span style="color:#ff2500; font-size: 1.1em;">최저가 : <%= number_with_delimiter(product.price.price_min, delimiter: ',') %>원</span></p>
         </div>
       </div>
     </div>

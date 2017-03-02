@@ -14,7 +14,8 @@ class ProductsController < ApplicationController
 		@price = @product.price
 		@qty = @product.quantity
 	end
-
+	
+	skip_before_action :verify_authenticity_token
 	def create
 		product 										= Product.new
 		product.title               = params[:title]
@@ -53,7 +54,7 @@ class ProductsController < ApplicationController
 		@product = Product.find(params[:id])
 	end
 
-	skip_before_action :verify_authenticity_token
+	
 	def update
 		product 										= Product.find(params[:id])
 		product.title               = params[:title]

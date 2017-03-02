@@ -2310,7 +2310,7 @@ body.bodyColor.container {
   .whiteSection .products-content .product-container, .mainContent .products-content .product-container {
     padding: 15px 15px !important;
     background-color: #f8f8f8;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border: 10px solid white; }
     @media (max-width: 479px) {
       .whiteSection .products-content .product-container, .mainContent .products-content .product-container {
@@ -4328,7 +4328,7 @@ body.bodyColor.container {
   @media (min-width: 992px) {
     .singleProduct .media .productSlider {
       width: 489px;
-      padding: 0 30px 0 0; } }
+      padding: 55px 30px 0 0; } }
   .singleProduct .media .productSlider #carousel {
     margin-bottom: 20px; }
     .singleProduct .media .productSlider #carousel .item img {

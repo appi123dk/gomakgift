@@ -1,9 +1,9 @@
 class GiftsController < ApplicationController
 	def index
-		@products = Product.all
-		@recommends = RecommendArea.where('is_display = ?', true)
-		@banners = Banner.where('is_display = ?', true)
-		@themes = Theme.where('is_display = ?', true)
+		@products = Product.all.order('display_order ASC, id DESC')
+		@recommends = RecommendArea.where('is_display = ?', true).order('display_order ASC')
+		@banners = Banner.where('is_display = ?', true).order('display_order ASC')
+		@themes = Theme.where('is_display = ?', true).order('display_order ASC')
 		render :layout => "bigbag"
 	end
 

@@ -87,7 +87,7 @@ Myapp::Application.routes.draw do
   # 제품 DB routes
   get "products/index"
   get "products/new"
-  get "products/create"
+  post "products/create"
   get "products/edit/:id", to: 'products#edit' 
   post "products/update/:id", to: 'products#update' 
   get "products/single_product/:id", to: 'products#single_product' 

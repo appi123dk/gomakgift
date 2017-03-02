@@ -46,7 +46,7 @@
                                     <td style="width:50%"><img src="<%= banner.background_url %> " alt="" style="width:100%"></td>
                                     <td style="width:20%"><img src="<%= banner.product_url %> " alt="" style="width:100%"></td>
                                     <td><%= banner.is_left ? "왼쪽" : "오른쪽" %></td>
-                                    <td><%= banner.order %></td>
+                                    <td><%= banner.display_order %></td>
                                     <td><%= banner.is_display ? "노출" : "숨김" %></td>
                                     <td><a class="btn btn-xs btn-primary btn-block" href="/admin_areas/edit_banner/<%= banner.id %>" style="margin-bottom: 0px">수정</a></td>
                                 </tr>
@@ -87,7 +87,7 @@
                                     <td style="width:10%"><img src="<%= recommend.img_url %> " alt="" style="width:100%"></td>
                                     <td><%= recommend.title %></td>
                                     <td><%= recommend.subtitle %></td>
-                                    <td><%= recommend.order %></td>
+                                    <td><%= recommend.display_order %></td>
                                     <td><%= recommend.is_display ? "노출" : "숨김" %></td>
                                     <td><a class="btn btn-xs btn-primary btn-block" href="/admin_areas/edit_recommend/<%= recommend.id %>" style="margin-bottom: 0px">수정</a></td>
                                 </tr>
@@ -136,7 +136,7 @@
                                             <img src="<%= theme.detail %> " alt="" style="width:100%">
                                         </div>
                                     </td>
-                                    <td><%= theme.order %></td>
+                                    <td><%= theme.display_order %></td>
                                     <td><%= theme.is_display ? "노출" : "숨김" %></td>
                                     <td><a class="btn btn-xs btn-primary btn-block" href="/admin_areas/edit_theme/<%= theme.id %>" style="margin-bottom: 0px">수정</a></td>
                                 </tr>

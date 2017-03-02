@@ -14,7 +14,7 @@ class AdminAreasController < ApplicationController
 		theme.big_banner = params[:big_banner]
 		theme.detail = params[:detail]
 		theme.is_display = params[:is_display]
-		theme.order = params[:order]
+		theme.display_order = params[:order]
 		theme.save
 
 		redirect_to '/admin_areas/index'
@@ -32,7 +32,7 @@ class AdminAreasController < ApplicationController
 		banner.product_url = params[:product_url]
 		banner.is_display = params[:is_display]
 		banner.is_left = params[:is_left]
-		banner.order = params[:order]
+		banner.display_order = params[:order]
 		banner.save
 
 		redirect_to '/admin_areas/index'
@@ -56,7 +56,7 @@ class AdminAreasController < ApplicationController
 		banner.product_url = params[:product_url]
 		banner.is_display = params[:is_display]
 		banner.is_left = params[:is_left]
-		banner.order = params[:order]
+		banner.display_order = params[:order]
 		banner.save
 
 		redirect_to '/admin_areas/index'
@@ -69,7 +69,7 @@ class AdminAreasController < ApplicationController
 		recommend.title = params[:title]
 		recommend.subtitle = params[:subtitle]
 		recommend.is_display = params[:is_display]
-		recommend.order = params[:order]
+		recommend.display_order = params[:order]
 		recommend.save
 
 		redirect_to '/admin_areas/index'
@@ -86,7 +86,7 @@ class AdminAreasController < ApplicationController
 		recommend.title = params[:title]
 		recommend.subtitle = params[:subtitle]
 		recommend.is_display = params[:is_display]
-		recommend.order = params[:order]
+		recommend.display_order = params[:order]
 		recommend.save
 
 		redirect_to '/admin_areas/index'
@@ -103,7 +103,7 @@ class AdminAreasController < ApplicationController
 		theme.big_banner = params[:big_banner]
 		theme.detail = params[:detail]
 		theme.is_display = params[:is_display]
-		theme.order = params[:order]
+		theme.display_order = params[:order]
 		theme.save
 
 		redirect_to '/admin_areas/index'

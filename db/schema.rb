@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170301073753) do
+ActiveRecord::Schema.define(version: 20170302113005) do
 
   create_table "banners", force: :cascade do |t|
     t.integer  "product_id",     limit: 4
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20170301073753) do
     t.string   "product_url",    limit: 255
     t.boolean  "is_display",                 default: true
     t.boolean  "is_left",                    default: true
-    t.integer  "order",          limit: 4
+    t.integer  "display_order",  limit: 4
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
   end
@@ -172,14 +172,14 @@ ActiveRecord::Schema.define(version: 20170301073753) do
   end
 
   create_table "recommend_areas", force: :cascade do |t|
-    t.integer  "product_id", limit: 4
-    t.string   "img_url",    limit: 255
-    t.string   "title",      limit: 255
-    t.string   "subtitle",   limit: 255
-    t.boolean  "is_display",             default: true
-    t.integer  "order",      limit: 4
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.integer  "product_id",    limit: 4
+    t.string   "img_url",       limit: 255
+    t.string   "title",         limit: 255
+    t.string   "subtitle",      limit: 255
+    t.boolean  "is_display",                default: true
+    t.integer  "display_order", limit: 4
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   add_index "recommend_areas", ["product_id"], name: "index_recommend_areas_on_product_id", using: :btree
@@ -236,7 +236,7 @@ ActiveRecord::Schema.define(version: 20170301073753) do
     t.string   "big_banner",    limit: 255
     t.string   "detail",        limit: 255
     t.boolean  "is_display",                default: true
-    t.integer  "order",         limit: 4
+    t.integer  "display_order", limit: 4
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
   end
