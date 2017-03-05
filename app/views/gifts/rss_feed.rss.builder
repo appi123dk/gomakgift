@@ -10,8 +10,8 @@ xml.rss :version => "2.0" do
         xml.title product.title
         xml.description product.mainpage_story
         xml.pubDate product.created_at.to_s(:rfc822)
-        xml.link request.original_url
-        xml.guid request.original_url
+        xml.link "http://www.gomakgift.com/gifts/single_product/" + product.id.to_s
+        xml.guid "http://www.gomakgift.com/gifts/single_product/" + product.id.to_s
       end
     end
   end
