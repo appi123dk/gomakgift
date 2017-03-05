@@ -7,8 +7,12 @@
 /db/*.sqlite3
 /db/*.javadb/
 
+# Ignore the development log
+/log
+
 # Ignore all logfiles and tempfiles.
 /log/*
+/log/*.log
 /tmp
 .powder
 .virb*
