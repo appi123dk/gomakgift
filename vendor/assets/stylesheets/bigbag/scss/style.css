@@ -136,8 +136,8 @@ h5 {
 #toTop {
   background: none;
   position: fixed;
-  bottom: 1px;
-  right: 1px;
+  bottom: 7px;
+  right: 9px;
   cursor: pointer;
   text-decoration: none;
   border-radius: 5px;

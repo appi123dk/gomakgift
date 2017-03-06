@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170302113005) do
+ActiveRecord::Schema.define(version: 20170306021615) do
 
   create_table "banners", force: :cascade do |t|
     t.integer  "product_id",     limit: 4
@@ -132,7 +132,7 @@ ActiveRecord::Schema.define(version: 20170302113005) do
   create_table "products", force: :cascade do |t|
     t.string   "title",                limit: 255
     t.string   "subtitle",             limit: 255
-    t.string   "detail",               limit: 255
+    t.text     "detail",               limit: 65535
     t.string   "product_image",        limit: 255
     t.integer  "price_id",             limit: 4
     t.integer  "quantity_id",          limit: 4

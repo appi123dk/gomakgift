@@ -108,6 +108,9 @@
   </div>
 </section>
 
+<!-- 위로가기버튼 -->
+<a id="toTop" href="#"><img src="<%= image_path('bigbag/arrows/btop.png') %>" width="40" height="40" alt="맨 위로"></a>
+
 
 <% content_for :javascript do %>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
@@ -190,6 +193,21 @@ $(function() {
       });
     }
   });
+
+
+  $( window ).scroll( function() {
+    if ( $( this ).scrollTop() > 1000 ) {
+      $( '#toTop' ).fadeIn();
+    } else {
+      $( '#toTop' ).fadeOut();
+    }
+  } );
+
+  $( '#toTop' ).click( function() {
+    $( 'html, body' ).animate( { scrollTop : $('.mainContent').offset().top}, 400 );
+    return false;
+  });
+
 });
 
 </script>
