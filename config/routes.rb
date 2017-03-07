@@ -2,6 +2,11 @@ Myapp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root to: 'gifts#index'
+  # 고막컬쳐 routes
+  get "projects/index"
+  get "projects/count/:female/:age", to: 'projects#count'
+  get "projects/del"
+
   # 녹턴 routes
   get "knockturns/index"
   get "knockturns/result/:id", to:'knockturns#result'

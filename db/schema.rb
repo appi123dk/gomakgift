@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306021615) do
+ActiveRecord::Schema.define(version: 20170307090302) do
 
   create_table "banners", force: :cascade do |t|
     t.integer  "product_id",     limit: 4
@@ -159,6 +159,20 @@ ActiveRecord::Schema.define(version: 20170306021615) do
   add_index "products", ["quantity_id"], name: "index_products_on_quantity_id", using: :btree
   add_index "products", ["supplier_id"], name: "index_products_on_supplier_id", using: :btree
 
+  create_table "projects", force: :cascade do |t|
+    t.string   "project_name",   limit: 255
+    t.string   "brand",          limit: 255
+    t.string   "place",          limit: 255
+    t.integer  "media_coverage", limit: 4
+    t.integer  "instagram",      limit: 4,   default: 0
+    t.integer  "facebook",       limit: 4,   default: 0
+    t.integer  "kakao",          limit: 4,   default: 0
+    t.integer  "newspaper",      limit: 4,   default: 0
+    t.integer  "blog",           limit: 4,   default: 0
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
   create_table "quantities", force: :cascade do |t|
     t.integer  "qty_max",    limit: 4
     t.integer  "qty_1",      limit: 4
@@ -229,6 +243,16 @@ ActiveRecord::Schema.define(version: 20170306021615) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "surveys", force: :cascade do |t|
+    t.string   "age",        limit: 255
+    t.boolean  "female"
+    t.integer  "project_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "surveys", ["project_id"], name: "index_surveys_on_project_id", using: :btree
 
   create_table "themes", force: :cascade do |t|
     t.integer  "supplier_id",   limit: 4
