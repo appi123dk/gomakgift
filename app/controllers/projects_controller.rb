@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
 	def index
 		@project = Project.find(1)
-		@count = @project.surveys.count
+		@count = @project.surveys.where.not('age = ?', 000).count
+		@exit_count = @project.surveys.count - @count
 		render :layout => "project"
 	end	
 

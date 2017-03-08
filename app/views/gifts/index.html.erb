@@ -49,7 +49,8 @@
   <div class="container-custom">
     <div class="recommend-container">
       <div class="products-header" style = "margin-top: 40px;">
-        <h4>MD 추천상품</h4>  
+        <h4 style="margin-bottom: 5px">MD 추천상품</h4>
+        <p>지금 가장 HOT한 상품!</p>
       </div>
       <div class="recommend-products row">
         <% @recommends.each do |recommend| %>
@@ -81,6 +82,13 @@
         </div> 
       <% end %>
     </div>
+  </div>
+
+  <div class="main-one-banner" style="text-align: center">
+    <a href="http://localhost:3000/gifts/single_story/1">
+      <img src="https://dl.dropboxusercontent.com/s/cirgswd3m4jbwx9/gogi-main-min.png?dl=0" alt="고막기프트 로고이미지">
+      <h4>선물이 되는 판촉물, 고막기프트</h4>
+    </a>
   </div>
 
   <!-- 상품 구체화 -->

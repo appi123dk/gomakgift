@@ -222,6 +222,21 @@
 	}
 
 .whiteSection, .mainContent{
+	.main-one-banner{
+		padding: 100px 0 50px 0;
+		img{
+			margin-bottom: 10px;
+		}
+		@include mobile-xs{
+			padding: 10px 0 10px 0;
+			img{
+				width: 100px;
+			}
+			h4{
+				font-size: 12px;
+			}
+		}
+	}
 	.story-product{
 		cursor: pointer;
 		@include mobile{
@@ -334,12 +349,15 @@
 		width: 70%!important;
 		@include mobile{
 			width: 100%!important;
+			margin-top: 20px;
 		}
 		@include mobile-xs{
 			width: 100%!important;
+			margin-top: 20px;
 		}
 		@include tablet{
 			width:70%!important;
+			margin-top: 80px;
 			.col-sm-9{
 				padding-left:0px!important;
 			}
@@ -349,6 +367,35 @@
 			}
 			.col-sm-3{
 				padding-right:0px!important;
+			}
+		}
+		.breadcrumb{
+			background-color:transparent;
+			padding-left: 0px;
+			li{
+				&:first-child:before{
+					content: none;
+				}
+				font-size: 16px;
+				&:before{
+					padding: 0 15px;
+					content: '>';
+				}
+				a{
+					color: black;
+					&:hover{
+						color: #fed239;
+					}
+				}
+			}
+		}
+		.product-top-bar{
+			background-color: #f2f2f2;
+			border-top: 1px solid #cbcbcb;
+			border-bottom: 1px solid #cbcbcb;
+			padding: 12px 20px;
+			.media-body{
+				padding-left: 10px;
 			}
 		}
 	}
@@ -364,7 +411,16 @@
 	.products-header{
 		text-align:center;
 		h4 {
-			margin-bottom: 15px;
+			margin-bottom: 5px;
+		}
+		@include mobile-xs{
+			margin-bottom: 30px;
+		}
+		@include mobile{
+			margin-bottom: 30px;
+		}
+		@include tablet{
+			margin-bottom: 50px;
 		}
 	}
 	.grid {

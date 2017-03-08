@@ -2153,6 +2153,17 @@ body.bodyColor.container {
 
 .whiteSection, .mainContent {
   background-color: #ffffff; }
+  .whiteSection .main-one-banner, .mainContent .main-one-banner {
+    padding: 100px 0 50px 0; }
+    .whiteSection .main-one-banner img, .mainContent .main-one-banner img {
+      margin-bottom: 10px; }
+    @media (max-width: 479px) {
+      .whiteSection .main-one-banner, .mainContent .main-one-banner {
+        padding: 10px 0 10px 0; }
+        .whiteSection .main-one-banner img, .mainContent .main-one-banner img {
+          width: 100px; }
+        .whiteSection .main-one-banner h4, .mainContent .main-one-banner h4 {
+          font-size: 12px; } }
   .whiteSection .story-product, .mainContent .story-product {
     cursor: pointer; }
     @media (min-width: 480px) {
@@ -2253,13 +2264,16 @@ body.bodyColor.container {
     width: 70% !important; }
     @media (min-width: 480px) {
       .whiteSection .container, .mainContent .container {
-        width: 100% !important; } }
+        width: 100% !important;
+        margin-top: 20px; } }
     @media (max-width: 479px) {
       .whiteSection .container, .mainContent .container {
-        width: 100% !important; } }
+        width: 100% !important;
+        margin-top: 20px; } }
     @media (min-width: 768px) {
       .whiteSection .container, .mainContent .container {
-        width: 70% !important; }
+        width: 70% !important;
+        margin-top: 80px; }
         .whiteSection .container .col-sm-9, .mainContent .container .col-sm-9 {
           padding-left: 0px !important; }
         .whiteSection .container .col-sm-4, .mainContent .container .col-sm-4 {
@@ -2267,6 +2281,27 @@ body.bodyColor.container {
           padding-left: 0px !important; }
         .whiteSection .container .col-sm-3, .mainContent .container .col-sm-3 {
           padding-right: 0px !important; } }
+    .whiteSection .container .breadcrumb, .mainContent .container .breadcrumb {
+      background-color: transparent;
+      padding-left: 0px; }
+      .whiteSection .container .breadcrumb li, .mainContent .container .breadcrumb li {
+        font-size: 16px; }
+        .whiteSection .container .breadcrumb li:first-child:before, .mainContent .container .breadcrumb li:first-child:before {
+          content: none; }
+        .whiteSection .container .breadcrumb li:before, .mainContent .container .breadcrumb li:before {
+          padding: 0 15px;
+          content: '>'; }
+        .whiteSection .container .breadcrumb li a, .mainContent .container .breadcrumb li a {
+          color: black; }
+          .whiteSection .container .breadcrumb li a:hover, .mainContent .container .breadcrumb li a:hover {
+            color: #fed239; }
+    .whiteSection .container .product-top-bar, .mainContent .container .product-top-bar {
+      background-color: #f2f2f2;
+      border-top: 1px solid #cbcbcb;
+      border-bottom: 1px solid #cbcbcb;
+      padding: 12px 20px; }
+      .whiteSection .container .product-top-bar .media-body, .mainContent .container .product-top-bar .media-body {
+        padding-left: 10px; }
   .whiteSection .stepsPage.col-sm-12, .mainContent .stepsPage.col-sm-12 {
     padding-right: 0px;
     padding-left: 0px; }
@@ -2275,7 +2310,16 @@ body.bodyColor.container {
   .whiteSection .products-header, .mainContent .products-header {
     text-align: center; }
     .whiteSection .products-header h4, .mainContent .products-header h4 {
-      margin-bottom: 15px; }
+      margin-bottom: 5px; }
+    @media (max-width: 479px) {
+      .whiteSection .products-header, .mainContent .products-header {
+        margin-bottom: 30px; } }
+    @media (min-width: 480px) {
+      .whiteSection .products-header, .mainContent .products-header {
+        margin-bottom: 30px; } }
+    @media (min-width: 768px) {
+      .whiteSection .products-header, .mainContent .products-header {
+        margin-bottom: 50px; } }
   @media (min-width: 480px) {
     .whiteSection .grid, .mainContent .grid {
       padding-left: 0px; } }
@@ -2711,6 +2755,16 @@ body.bodyColor.container {
 .featuredCollection.version2 {
   margin-bottom: 50px;
   margin-top: -15px; }
+  .featuredCollection.version2 .additional-info {
+    padding-left: 0px;
+    padding-right: 0px; }
+    .featuredCollection.version2 .additional-info h3 {
+      font-weight: 300;
+      margin-bottom: 5px; }
+    .featuredCollection.version2 .additional-info hr {
+      margin: 100px 0; }
+    .featuredCollection.version2 .additional-info img {
+      width: 100%; }
   .featuredCollection.version2 .information-box {
     padding: 20px 25px 10px 25px;
     background-color: #fdfdfd;
@@ -4328,7 +4382,7 @@ body.bodyColor.container {
   @media (min-width: 992px) {
     .singleProduct .media .productSlider {
       width: 489px;
-      padding: 55px 30px 0 0; } }
+      padding: 10px 30px 0 30px; } }
   .singleProduct .media .productSlider #carousel {
     margin-bottom: 20px; }
     .singleProduct .media .productSlider #carousel .item img {
@@ -4373,8 +4427,9 @@ body.bodyColor.container {
   @media (min-width: 992px) {
     .singleProduct .media .media-body {
       display: table-cell;
-      padding-left: 20%;
-      padding-top: 10%; }
+      padding-left: 10%;
+      padding-right: 30px;
+      padding-top: 5%; }
       .singleProduct .media .media-body .price-table {
         font-size: 10px; } }
   @media (max-width: 479px) {

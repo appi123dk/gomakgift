@@ -11,7 +11,22 @@
     </div>
 </div>
 <div class="container">
-  <div class="row singleProduct">
+  <ol class="breadcrumb">
+    <li><a href="/gifts/index">판촉물</a></li>
+    <li><a href="#"><%= @product.category %></a></li>
+    <li class="active"><a href="#"><%= @product.brand_name %></a></li>
+  </ol> 
+  <div class="media product-top-bar">
+    <div class="media-left">
+      <a href="#">
+        <img class="media-object" src="//image.29cm.co.kr/contents/brand/201506/20150602164913.jpg?cmd=thumb&width=72&height=72" alt="...">
+      </a>
+    </div>
+    <div class="media-body">
+      <h3 class="media-heading"><%= @product.brand_name %></h3>
+    </div>
+  </div>
+  <div class="row singleProduct" style="margin-top: 20px; border: 1px solid #f1f1f1">
     <div class="col-xs-12">
       <div class="media">
         <div class="media-left productSlider">
@@ -120,7 +135,7 @@
                     <input type="hidden" name="product_id" value="<%= @product.id %>" >
                     <input type="hidden" name="product_id" value="<%= @product.id %>" >
                   </ul>
-<!--                   <hr>
+              <!--<hr>
                   <ul class="list-unstyled" style="line-height: 200%">
                     <li>인쇄방법 : 
                       <select name="option1" required>
@@ -177,9 +192,31 @@
   <div class="row featuredCollection version2" style="margin-top: 40px; margin-bottom: 20px;">
     <div class="col-sm-12 col-lg-offset-2 col-lg-8" style="padding-left: 0px; padding-right: 0px;">
       <img src="<%= @product.product_image %>" class="img-responsive"  alt="<%= @product.recommend_festival %>, 답례품, 판촉물" style="width:100%">      
+      <hr style="margin-top: 30px; margin-bottom: 30px;">
+    </div>
+  </div>
+
+  <div class="row featuredCollection version2">
+    <div class="col-sm-12 col-lg-offset-2 col-lg-8 additional-info">
+      <h3>제품구성<small> / COMPOSITION</small></h3>
+      <p>선물로 드리는 제품인데, 무엇이 들었는지 꼼꼼히 확인하셔야죠! <br><strong>본품, 플라스틱 숟가락, 기본패키지</strong> (이)가 포함되어 있습니다</p> 
+      <img src="https://dl.dropboxusercontent.com/s/ts74evfl49uhqze/middle_banner-min.png?dl=0" class="img-responsive" alt="000 제품구성" > 
+      <hr>
+    </div>
+    <div class="col-sm-12 col-lg-offset-2 col-lg-8 additional-info">
+      <h3>인쇄안내<small> / LOGO_PRINTING</small></h3>
+      <p>일반적으로 최소수량 이상 주문 시, 1도 인쇄는 무료로 진행됩니다 <br> <strong>1도 인쇄의 경우, 전문 디자이너들의 캘리 디자인을 무료로 제작</strong>해드리고 있습니다 <br> 인쇄 진행시 꼭 문의해주세요!</p> 
+      <img src="https://dl.dropboxusercontent.com/s/ts74evfl49uhqze/middle_banner-min.png?dl=0" class="img-responsive" alt="000 제품구성"> 
+      <hr>
+    </div>
+    <div class="col-sm-12 col-lg-offset-2 col-lg-8 additional-info">
+      <h3>패키지안내<small> / SPECIAL_PACKAGE</small></h3>
+      <p>옵션을 선택하지 않아도 기본적으롤 패키지에 동봉해서 보내드립니다 <br/> 하지만, <strong>제품이 아닌 회사를 빛내주는 패키지</strong>가 소비자의 마음을 움직일 수 있지 않을까요?</p> 
+      <img src="https://dl.dropboxusercontent.com/s/6qft2fgqihuiy3f/big_banner-min.png?dl=0" class="img-responsive" alt="000 제품구성"> 
       <hr>
     </div>
   </div>
+
   <div class="row featuredCollection version2">
     <div class="col-sm-12 col-lg-offset-2 col-lg-8 information-box">
       <h5><i class="fa fa-info-circle"></i> 제품정보고시</h5>
