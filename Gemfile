@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# mailer gem
+# gem 'actionmailer'
+
 # 아임포트 결제연동
 gem 'iamport', github: 'iamport/iamport-rest-client-ruby'
 

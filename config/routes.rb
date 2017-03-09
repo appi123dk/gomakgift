@@ -123,6 +123,7 @@ Myapp::Application.routes.draw do
   get "admin_orders/edit_delivery/:id", to: 'admin_orders#edit_delivery'
   get "admin_orders/cancle_order/:id", to: 'admin_orders#cancle_order'
   get "admin_orders/refund_order/:id", to: 'admin_orders#refund_order'
+  get "admin_orders/sendmail"
 
   # 대시보드
   get "dashboards/dashboard_1"
