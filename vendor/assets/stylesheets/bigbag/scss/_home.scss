@@ -7,8 +7,11 @@
 	
 	padding: 21px 0 19px 0;
 	border-top: 1px solid $black-color;
+	@include mobile{
+		width: 98%!important;
+	}
 	@include desktops{
-		width: 67.7%!important;
+		width: 77%!important;
 		.col-sm-4 {
 			&:first-child{
 				padding-left: 0px;
@@ -346,7 +349,7 @@
 		}
 	}
 	.container{
-		width: 70%!important;
+		width: 80%!important;
 		@include mobile{
 			width: 100%!important;
 			margin-top: 20px;
@@ -356,8 +359,9 @@
 			margin-top: 20px;
 		}
 		@include tablet{
-			width:70%!important;
+			width:80%!important;
 			margin-top: 80px;
+			left: 15px;
 			.col-sm-9{
 				padding-left:0px!important;
 			}
@@ -372,11 +376,15 @@
 		.breadcrumb{
 			background-color:transparent;
 			padding-left: 0px;
+			margin-bottom: 10px;
 			li{
 				&:first-child:before{
 					content: none;
 				}
-				font-size: 16px;
+				@include mobile-xs{
+					font-size: 13px;
+				}
+				font-size: 15px;
 				&:before{
 					padding: 0 15px;
 					content: '>';
@@ -396,6 +404,24 @@
 			padding: 12px 20px;
 			.media-body{
 				padding-left: 10px;
+				li {
+					padding-left: 10px;
+				}
+				@include mobile-xs{
+					.media-heading{
+						font-size: 18px;
+					}
+				}
+				@include mobile{
+					.media-heading{
+						font-size: 18px;
+					}
+				}
+				@include tablet{
+					.media-heading{
+						font-size: 24px;
+					}
+				}
 			}
 		}
 	}
@@ -468,10 +494,10 @@
 
 	.products-content {
 		.product-container {
-			padding: 15px 15px!important;
+			padding: 10px 10px!important;
 			background-color: #f8f8f8;
 			margin-bottom: 10px;
-			border: 10px solid white;
+			border: 6px solid white;
 			@include mobile-xs{
 				margin-right: 0px!important;
 				border: none;

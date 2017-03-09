@@ -1958,9 +1958,12 @@ body.bodyColor.container {
 .footer-custom {
   padding: 21px 0 19px 0;
   border-top: 1px solid #252525; }
+  @media (min-width: 480px) {
+    .footer-custom {
+      width: 98% !important; } }
   @media (min-width: 992px) {
     .footer-custom {
-      width: 67.7% !important; }
+      width: 77% !important; }
       .footer-custom .col-sm-4:first-child {
         padding-left: 0px; }
       .footer-custom .col-sm-3 {
@@ -2261,7 +2264,7 @@ body.bodyColor.container {
           padding-right: 15px;
           padding-top: 15px; } }
   .whiteSection .container, .mainContent .container {
-    width: 70% !important; }
+    width: 80% !important; }
     @media (min-width: 480px) {
       .whiteSection .container, .mainContent .container {
         width: 100% !important;
@@ -2272,8 +2275,9 @@ body.bodyColor.container {
         margin-top: 20px; } }
     @media (min-width: 768px) {
       .whiteSection .container, .mainContent .container {
-        width: 70% !important;
-        margin-top: 80px; }
+        width: 80% !important;
+        margin-top: 80px;
+        left: 15px; }
         .whiteSection .container .col-sm-9, .mainContent .container .col-sm-9 {
           padding-left: 0px !important; }
         .whiteSection .container .col-sm-4, .mainContent .container .col-sm-4 {
@@ -2283,11 +2287,15 @@ body.bodyColor.container {
           padding-right: 0px !important; } }
     .whiteSection .container .breadcrumb, .mainContent .container .breadcrumb {
       background-color: transparent;
-      padding-left: 0px; }
+      padding-left: 0px;
+      margin-bottom: 10px; }
       .whiteSection .container .breadcrumb li, .mainContent .container .breadcrumb li {
-        font-size: 16px; }
+        font-size: 15px; }
         .whiteSection .container .breadcrumb li:first-child:before, .mainContent .container .breadcrumb li:first-child:before {
           content: none; }
+        @media (max-width: 479px) {
+          .whiteSection .container .breadcrumb li, .mainContent .container .breadcrumb li {
+            font-size: 13px; } }
         .whiteSection .container .breadcrumb li:before, .mainContent .container .breadcrumb li:before {
           padding: 0 15px;
           content: '>'; }
@@ -2302,6 +2310,17 @@ body.bodyColor.container {
       padding: 12px 20px; }
       .whiteSection .container .product-top-bar .media-body, .mainContent .container .product-top-bar .media-body {
         padding-left: 10px; }
+        .whiteSection .container .product-top-bar .media-body li, .mainContent .container .product-top-bar .media-body li {
+          padding-left: 10px; }
+        @media (max-width: 479px) {
+          .whiteSection .container .product-top-bar .media-body .media-heading, .mainContent .container .product-top-bar .media-body .media-heading {
+            font-size: 18px; } }
+        @media (min-width: 480px) {
+          .whiteSection .container .product-top-bar .media-body .media-heading, .mainContent .container .product-top-bar .media-body .media-heading {
+            font-size: 18px; } }
+        @media (min-width: 768px) {
+          .whiteSection .container .product-top-bar .media-body .media-heading, .mainContent .container .product-top-bar .media-body .media-heading {
+            font-size: 24px; } }
   .whiteSection .stepsPage.col-sm-12, .mainContent .stepsPage.col-sm-12 {
     padding-right: 0px;
     padding-left: 0px; }
@@ -2352,10 +2371,10 @@ body.bodyColor.container {
       font-size: 12px;
       color: #888; }
   .whiteSection .products-content .product-container, .mainContent .products-content .product-container {
-    padding: 15px 15px !important;
+    padding: 10px 10px !important;
     background-color: #f8f8f8;
     margin-bottom: 10px;
-    border: 10px solid white; }
+    border: 6px solid white; }
     @media (max-width: 479px) {
       .whiteSection .products-content .product-container, .mainContent .products-content .product-container {
         margin-right: 0px !important;
@@ -2752,6 +2771,11 @@ body.bodyColor.container {
         margin: 0 70px 0; } }
 
 /*=== 3.2.2 FEATURE COLLECTION ===*/
+@media (min-width: 768px) {
+  .product-contents {
+    width: 77%;
+    margin: 0 auto !important; } }
+
 .featuredCollection.version2 {
   margin-bottom: 50px;
   margin-top: -15px; }
@@ -2761,11 +2785,15 @@ body.bodyColor.container {
     .featuredCollection.version2 .additional-info h3 {
       font-weight: 300;
       margin-bottom: 5px; }
+      @media (max-width: 479px) {
+        .featuredCollection.version2 .additional-info h3 {
+          font-size: 18px; } }
     .featuredCollection.version2 .additional-info hr {
       margin: 100px 0; }
     .featuredCollection.version2 .additional-info img {
       width: 100%; }
   .featuredCollection.version2 .information-box {
+    margin-bottom: 30px;
     padding: 20px 25px 10px 25px;
     background-color: #fdfdfd;
     border: 1px solid #e2e2e2; }
@@ -3422,9 +3450,12 @@ body.bodyColor.container {
     @media (max-width: 479px) {
       .copyRight .container {
         width: 100% !important; } }
-    @media (min-width: 768px) {
+    @media (min-width: 480px) {
       .copyRight .container {
-        width: 70% !important; } }
+        width: 100% !important; } }
+    @media (min-width: 992px) {
+      .copyRight .container {
+        width: 79% !important; } }
   .copyRight a {
     color: #acacac; }
     .copyRight a:hover {
@@ -4362,6 +4393,15 @@ body.bodyColor.container {
     color: #fee032; }
 
 /*=== 9.2 SINGLE PRODUCTS ===*/
+@media (max-width: 479px) {
+  .singleProduct {
+    border: none; } }
+@media (min-width: 480px) {
+  .singleProduct {
+    border: none; } }
+@media (min-width: 768px) {
+  .singleProduct {
+    border: 1px solid #f1f1f1; } }
 .singleProduct .col-xs-12 {
   padding-left: 0px;
   padding-right: 0px; }
@@ -4382,11 +4422,20 @@ body.bodyColor.container {
   @media (min-width: 992px) {
     .singleProduct .media .productSlider {
       width: 489px;
-      padding: 10px 30px 0 30px; } }
+      padding: 10px 0 0 30px; } }
   .singleProduct .media .productSlider #carousel {
     margin-bottom: 20px; }
     .singleProduct .media .productSlider #carousel .item img {
       width: 100%; }
+    @media (max-width: 479px) {
+      .singleProduct .media .productSlider #carousel {
+        margin-top: 0; } }
+    @media (min-width: 480px) {
+      .singleProduct .media .productSlider #carousel {
+        margin-top: 0; } }
+    @media (min-width: 992px) {
+      .singleProduct .media .productSlider #carousel {
+        margin-top: 60px; } }
   .singleProduct .media .productSlider #thumbcarousel .thumb {
     width: 23.35%;
     cursor: pointer;

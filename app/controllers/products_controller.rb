@@ -38,6 +38,11 @@ class ProductsController < ApplicationController
 		product.category            = params[:category]
 		product.product_banner_image= params[:product_banner_image]
 		product.product_thumb       = params[:product_thumb]
+		product.remark       				= params[:remark]
+		product.product_composition = params[:product_composition]
+		product.composition_image   = params[:composition_image]
+		product.print_image         = params[:print_image]
+		product.package_image       = params[:package_image]
 		product.save
 
 		params[:img_url].each do |url|
@@ -76,7 +81,12 @@ class ProductsController < ApplicationController
 		product.mainpage_story      = params[:mainpage_story]
 		product.category            = params[:category]
 		product.product_thumb       = params[:product_thumb]
+		product.remark       				= params[:remark]
 		product.product_banner_image  = params[:product_banner_image]
+		product.product_composition = params[:product_composition]
+		product.composition_image   = params[:composition_image]
+		product.print_image         = params[:print_image]
+		product.package_image       = params[:package_image]
 		product.save
 
 		thumbnails = product.thumbnails

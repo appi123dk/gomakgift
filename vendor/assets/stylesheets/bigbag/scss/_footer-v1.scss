@@ -171,8 +171,11 @@
 		@include mobile-xs{
 			width:100%!important;
 		}
-		@include tablet{
-			width:70%!important;
+		@include mobile{
+			width:100%!important;
+		}
+		@include desktops{
+			width:79%!important;	
 		}
 	}
 	display: block;

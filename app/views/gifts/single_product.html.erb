@@ -17,20 +17,21 @@
     <li class="active"><a href="#"><%= @product.brand_name %></a></li>
   </ol> 
   <div class="media product-top-bar">
-    <div class="media-left">
+<!--     <div class="media-left">
       <a href="#">
         <img class="media-object" src="//image.29cm.co.kr/contents/brand/201506/20150602164913.jpg?cmd=thumb&width=72&height=72" alt="...">
       </a>
-    </div>
+    </div> -->
     <div class="media-body">
-      <h3 class="media-heading"><%= @product.brand_name %></h3>
+      <h3 class="media-heading">Brand_Name : <%= @product.brand_name %></h3>
+      <%=raw @product.remark %>
     </div>
   </div>
-  <div class="row singleProduct" style="margin-top: 20px; border: 1px solid #f1f1f1">
+  <div class="row singleProduct" style="margin-top: 20px;">
     <div class="col-xs-12">
       <div class="media">
         <div class="media-left productSlider">
-          <div id="carousel" class="carousel slide" data-ride="carousel" style="margin-top: 60px;">
+          <div id="carousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <% data_num = 0 %>
               <% @product.thumbnails.each do |thumbnail| %>
@@ -189,36 +190,36 @@
 </div>
 <div class="container-custom">
   <!-- FEATURE COLLECTION SECTION -->
-  <div class="row featuredCollection version2" style="margin-top: 40px; margin-bottom: 20px;">
-    <div class="col-sm-12 col-lg-offset-2 col-lg-8" style="padding-left: 0px; padding-right: 0px;">
+  <div class="row featuredCollection version2 product-contents" style="margin-top: 40px; margin-bottom: 20px;">
+    <div class="col-sm-12" style="padding-left: 0px; padding-right: 0px;">
       <img src="<%= @product.product_image %>" class="img-responsive"  alt="<%= @product.recommend_festival %>, 답례품, 판촉물" style="width:100%">      
       <hr style="margin-top: 30px; margin-bottom: 30px;">
     </div>
   </div>
 
-  <div class="row featuredCollection version2">
-    <div class="col-sm-12 col-lg-offset-2 col-lg-8 additional-info">
+  <div class="row featuredCollection version2 product-contents">
+    <div class="col-sm-12 additional-info">
       <h3>제품구성<small> / COMPOSITION</small></h3>
-      <p>선물로 드리는 제품인데, 무엇이 들었는지 꼼꼼히 확인하셔야죠! <br><strong>본품, 플라스틱 숟가락, 기본패키지</strong> (이)가 포함되어 있습니다</p> 
-      <img src="https://dl.dropboxusercontent.com/s/ts74evfl49uhqze/middle_banner-min.png?dl=0" class="img-responsive" alt="000 제품구성" > 
+      <p>선물로 드리는 제품, 꼼꼼히 확인하세요! <br><strong><%= @product.product_composition %></strong> (이)가 포함되어 있습니다</p> 
+      <img src="<%= @product.composition_image %>" class="img-responsive" alt="<%= @product.title %> 제품구성" > 
       <hr>
     </div>
-    <div class="col-sm-12 col-lg-offset-2 col-lg-8 additional-info">
+    <div class="col-sm-12 additional-info">
       <h3>인쇄안내<small> / LOGO_PRINTING</small></h3>
-      <p>일반적으로 최소수량 이상 주문 시, 1도 인쇄는 무료로 진행됩니다 <br> <strong>1도 인쇄의 경우, 전문 디자이너들의 캘리 디자인을 무료로 제작</strong>해드리고 있습니다 <br> 인쇄 진행시 꼭 문의해주세요!</p> 
-      <img src="https://dl.dropboxusercontent.com/s/ts74evfl49uhqze/middle_banner-min.png?dl=0" class="img-responsive" alt="000 제품구성"> 
+      <p>1도 인쇄는 대부분 무료입니다(예외있음)<br><strong>구체적인 비용은 꼭 담당자와 문의</strong>해주세요!</p> 
+      <img src="<%= @product.print_image %>" class="img-responsive" alt="<%= @product.title %> 인쇄안내"> 
       <hr>
     </div>
-    <div class="col-sm-12 col-lg-offset-2 col-lg-8 additional-info">
+    <div class="col-sm-12 additional-info">
       <h3>패키지안내<small> / SPECIAL_PACKAGE</small></h3>
-      <p>옵션을 선택하지 않아도 기본적으롤 패키지에 동봉해서 보내드립니다 <br/> 하지만, <strong>제품이 아닌 회사를 빛내주는 패키지</strong>가 소비자의 마음을 움직일 수 있지 않을까요?</p> 
-      <img src="https://dl.dropboxusercontent.com/s/6qft2fgqihuiy3f/big_banner-min.png?dl=0" class="img-responsive" alt="000 제품구성"> 
+      <strong>제품이 아닌 회사를 빛내주는 패키지</strong>로 <br/>고객들의 마음을 움직여보세요!</p> 
+      <img src="<%= @product.package_image %>" class="img-responsive" alt="<%= @product.title %> 패키지안내"> 
       <hr>
     </div>
   </div>
 
-  <div class="row featuredCollection version2">
-    <div class="col-sm-12 col-lg-offset-2 col-lg-8 information-box">
+  <div class="row featuredCollection version2 product-contents">
+    <div class="col-sm-12 information-box">
       <h5><i class="fa fa-info-circle"></i> 제품정보고시</h5>
       <hr style="margin: 10px 0 10px 0;">
       <ol>
@@ -226,8 +227,8 @@
       </ol>
     </div>
   </div>
-  <div class="row featuredCollection version2">
-    <div class="col-sm-12 col-lg-offset-2 col-lg-8 information-box">
+  <div class="row featuredCollection version2 product-contents">
+    <div class="col-sm-12 information-box">
       <h5> <i class="fa fa-angle-right"></i> 배송정보</h5>
       <hr style="margin: 10px 0 10px 0;">
       <ol>
@@ -240,8 +241,8 @@
       </ol>
     </div>
   </div>
-  <div class="row featuredCollection version2">
-    <div class="col-sm-12 col-lg-offset-2 col-lg-8 information-box">
+  <div class="row featuredCollection version2 product-contents">
+    <div class="col-sm-12 information-box">
       <h5> <i class="fa fa-angle-right"></i> 교환 / 반품 / AS안내</h5>
       <hr style="margin: 10px 0 10px 0;">
       <ol>
@@ -253,8 +254,8 @@
       </ol>
     </div>
   </div>
-  <div class="row featuredCollection version2">
-    <div class="col-sm-12 col-lg-offset-2 col-lg-8 information-box">
+  <div class="row featuredCollection version2 product-contents">
+    <div class="col-sm-12 information-box">
       <h5> <i class="fa fa-angle-right"></i> 기타유의사항</h5>
       <hr style="margin: 10px 0 10px 0;">
       <ol>

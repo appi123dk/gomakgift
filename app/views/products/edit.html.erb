@@ -55,6 +55,14 @@
                 <div class="form-group col-lg-3">
                     <input type="number" class="form-control" value="<%= @product.supply_price %>" name="supply_price" required="" style="text-align: right">
                 </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품 특이사항 작성 : </label>
+                <div class="form-group col-lg-8">
+                    <textarea required="" name="remark" class="form-control" cols="30" rows="6"><%= @product.remark %></textarea>
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">상품구성 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="product_composition" required="" style="text-align: right" placeholder="예시 : 본품, 패키지, 충전">
+                </div>
                 <label class="col-lg-4 control-label" style="margin-top: 7px">상품정보고시 : </label>
                 <div class="form-group col-lg-8">
                     <textarea required="" name="detail" class="form-control" cols="30" rows="12"><%= @product.detail %></textarea>
@@ -101,6 +109,19 @@
                 <div class="form-group col-lg-8">
                     <input type="text" class="form-control" value="<%= @product.product_image %>" name="product_image" required="" style="text-align: right">
                 </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">제품 구성 이미지 :</label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="composition_image" value="<%= @product.composition_image %>" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">인쇄설명 이미지 :</label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="print_image" value="<%= @product.print_image %>" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">패키지설명 이미지 :</label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="package_image" value="<%= @product.package_image %>" style="text-align: right">
+                </div>
+
                 
                 <button type="submit" class="btn btn-primary block full-width m-b">수정완료</button>
             </div>
