@@ -52,6 +52,11 @@ class ProductsController < ApplicationController
 			thumbnail.save
 		end
 
+		option_arr = params[:option_id].split(",").map { |s| s.to_i }
+		option_arr.each do |option|
+			product.options << Option.find(option)
+		end
+
 		redirect_to '/products/new'
 	end
 
@@ -106,6 +111,11 @@ class ProductsController < ApplicationController
 
 				par_idx += 1
 			end
+		end
+
+		option_arr = params[:option_id].split(",").map { |s| s.to_i }
+		option_arr.each do |option|
+			product.options << Option.find(option)
 		end
 
 		redirect_to '/products/index'

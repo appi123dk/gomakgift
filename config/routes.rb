@@ -100,6 +100,10 @@ Myapp::Application.routes.draw do
 
   # 옵션관리 routes
   get "options/index"
+  get "options/option_new"
+  get "options/option_create"
+  get "options/option_edit/:id", to: 'options#option_edit'
+  get "options/option_update/:id", to: 'options#option_update'
   get "options/price_new"
   get "options/price_create"
   get "options/price_edit/:id", to: 'options#price_edit'

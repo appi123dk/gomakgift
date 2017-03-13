@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309003138) do
+ActiveRecord::Schema.define(version: 20170313022820) do
 
   create_table "banners", force: :cascade do |t|
     t.integer  "product_id",     limit: 4
@@ -72,6 +72,42 @@ ActiveRecord::Schema.define(version: 20170309003138) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "optiondetails", force: :cascade do |t|
+    t.integer  "option_id",        limit: 4
+    t.string   "option_content",   limit: 255
+    t.integer  "additional_price", limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "optiondetails", ["option_id"], name: "index_optiondetails_on_option_id", using: :btree
+
+  create_table "optiondetails_shoppingcarts", force: :cascade do |t|
+    t.integer  "shoppingcart_id", limit: 4
+    t.integer  "optiondetail_id", limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "optiondetails_shoppingcarts", ["optiondetail_id"], name: "index_optiondetails_shoppingcarts_on_optiondetail_id", using: :btree
+  add_index "optiondetails_shoppingcarts", ["shoppingcart_id"], name: "index_optiondetails_shoppingcarts_on_shoppingcart_id", using: :btree
+
+  create_table "options", force: :cascade do |t|
+    t.string   "option_name", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "options_products", force: :cascade do |t|
+    t.integer  "product_id", limit: 4
+    t.integer  "option_id",  limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "options_products", ["option_id"], name: "index_options_products_on_option_id", using: :btree
+  add_index "options_products", ["product_id"], name: "index_options_products_on_product_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id",               limit: 4

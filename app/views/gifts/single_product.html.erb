@@ -136,23 +136,20 @@
                     <input type="hidden" name="product_id" value="<%= @product.id %>" >
                     <input type="hidden" name="product_id" value="<%= @product.id %>" >
                   </ul>
-              <!--<hr>
+              <hr>
                   <ul class="list-unstyled" style="line-height: 200%">
-                    <li>인쇄방법 : 
-                      <select name="option1" required>
-                        <option value="" disabled selected>인쇄방법을 선택해주세요</option>
-                        <option value="레이저인쇄">레이저인쇄</option>
-                        <option value="땡땡인쇄">땡땡인쇄</option>
-                      </select>
-                    </li>
-                    <li>인쇄위치 : 
-                      <select name="option2" required>
-                        <option value="" disabled selected>인쇄위치를 선택해주세요</option>
-                        <option value="1">Section 1</option>
-                        <option value="2">Section 2</option>
-                      </select>
-                    </li>
-                  </ul> -->
+                    <% num = 1 %>
+                    <% @options.each do |option| %>
+                      <li>옵션 <%= num %>. <%= option.option_name %> : 
+                        <select name="optiondetails[]" class="product-option" data-order="<%= num - 1 %>" required>
+                          <% option.optiondetails.each do |detail| %>
+                            <option value="<%= detail.id %>" data-price="<%= detail.additional_price %>"><%= detail.option_content %> (개당 +<%= detail.additional_price %>원)</option>
+                          <% end %>
+                        </select>
+                      </li>
+                      <% num += 1 %>  
+                    <% end %>
+                  </ul> 
                   <button class="btn btn-submit btn-product"><i class="fa fa-shopping-cart" style="font-size:18px"></i> <span style="margin-left: 15px;">장바구니담기</span></button>
                 </form>
               </div>
@@ -289,6 +286,9 @@ $(function() {
       price_arr = <%= @price_arr %>,
       qty_min = <%= @product_qty.qty_6 == 0 ? @product_qty.qty_5 : @product_qty.qty_6 %>;
 
+  // 옵션가격
+  var option_price_arr = [];
+
   // Hide #MagicMenu on on scroll down
   var didScroll;
   var lastScrollTop = 0;
@@ -343,6 +343,14 @@ $(function() {
     return price_idx;
   }
 
+  function sum(price_arr){
+    var sum_value = 0;
+    $.each(price_arr, function(index, value){
+      sum_value += value;
+    });
+    return sum_value;
+  }
+
   $( window ).scroll( function() {
     if ( $( this ).scrollTop() > 1000 ) {
       $( '#toTop' ).fadeIn();
@@ -376,12 +384,42 @@ $(function() {
 
 
   $('.input_price').keyup( function(){
+        // 옵션가격 배열 설정
+        var option_price = sum(option_price_arr);
+        console.log(option_price);
+
     var qty = parseInt($(this).val()),
         price_idx = find_price(qty),
-        target_price = price_arr[price_idx],
-        sub_price = qty * target_price;
+        target_price = price_arr[price_idx] + option_price,
+        sub_price = qty * target_price,
         vat = sub_price/10,
         total_price = sub_price + vat;
+
+        $('#target_price').text($.number(target_price));
+        $('#sub_price').text($.number(sub_price));
+        $('#vat').text($.number(vat));
+        $('#total_price').text($.number(total_price));
+        $('#input_total_price').val(total_price);
+  });
+
+  $('.product-option').change(function(){
+    var index = this.getAttribute("data-order"),
+        selected = $(this).find('option:selected'),
+        price = selected.data('price');
+
+        // 옵션가격 배열 설정
+        option_price_arr[index] = price;
+        var option_price = sum(option_price_arr);
+        console.log(option_price);
+
+    var qty = parseInt($('#input_price').val()),
+        price_idx = find_price(qty),
+        target_price = price_arr[price_idx] + option_price,
+        sub_price = qty * target_price,
+        vat = sub_price/10,
+        total_price = sub_price + vat;
+
+        console.log(price_arr[price_idx]);
 
         $('#target_price').text($.number(target_price));
         $('#sub_price').text($.number(sub_price));

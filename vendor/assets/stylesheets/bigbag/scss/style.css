@@ -2526,20 +2526,25 @@ body.bodyColor.container {
   .whiteSection .cart-table tbody tr:last-child, .mainContent .cart-table tbody tr:last-child {
     border-bottom: 1px solid #000000; }
   .whiteSection .cart-table tbody td:nth-child(2), .mainContent .cart-table tbody td:nth-child(2) {
+    vertical-align: middle;
     text-align: center;
     width: 10%;
     border-right: 1px solid rgba(221, 221, 221, 0.15); }
   .whiteSection .cart-table tbody td:nth-child(3), .mainContent .cart-table tbody td:nth-child(3) {
+    vertical-align: middle;
     width: 40%;
     border-right: 1px solid rgba(221, 221, 221, 0.15); }
   .whiteSection .cart-table tbody td:nth-child(4), .mainContent .cart-table tbody td:nth-child(4) {
+    vertical-align: middle;
     text-align: center;
     width: 15%;
     border-right: 1px solid rgba(221, 221, 221, 0.15); }
   .whiteSection .cart-table tbody td:nth-child(5), .mainContent .cart-table tbody td:nth-child(5) {
+    vertical-align: middle;
     text-align: center;
     width: 15%; }
   .whiteSection .cart-table tbody td:nth-child(6), .mainContent .cart-table tbody td:nth-child(6) {
+    vertical-align: middle;
     text-align: center;
     width: 20%; }
   .whiteSection .cart-table tfoot, .mainContent .cart-table tfoot {
@@ -2574,18 +2579,23 @@ body.bodyColor.container {
   .whiteSection .order-table tbody tr:last-child, .mainContent .order-table tbody tr:last-child {
     border-bottom: 1px solid #000000; }
   .whiteSection .order-table tbody td:nth-child(1), .mainContent .order-table tbody td:nth-child(1) {
+    font-size: 14px;
+    vertical-align: middle;
     width: 40%;
     border-right: 1px solid rgba(221, 221, 221, 0.15); }
   .whiteSection .order-table tbody td:nth-child(2), .mainContent .order-table tbody td:nth-child(2) {
+    vertical-align: middle;
     text-align: center;
     width: 20%;
     border-right: 1px solid rgba(221, 221, 221, 0.15); }
   .whiteSection .order-table tbody td:nth-child(3), .mainContent .order-table tbody td:nth-child(3) {
+    vertical-align: middle;
     text-align: center;
     width: 20%;
     border-right: 1px solid rgba(221, 221, 221, 0.15); }
   .whiteSection .order-table tbody td:nth-child(4), .mainContent .order-table tbody td:nth-child(4) {
-    text-align: right;
+    vertical-align: middle;
+    text-align: center;
     width: 20%; }
   .whiteSection .order-table tfoot, .mainContent .order-table tfoot {
     padding-top: 10px;

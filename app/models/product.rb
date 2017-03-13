@@ -7,4 +7,5 @@ class Product < ActiveRecord::Base
 	has_many :thumbnails
 	has_many :banners
 	has_many :recommend_areas
+	has_and_belongs_to_many :options
 end

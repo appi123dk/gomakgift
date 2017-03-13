@@ -1,0 +1,49 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div style="padding-top: 70px">
+
+            <h3 class="logo-name" style="font-size: 80px; color: #fed328">GomakGift</h1>
+
+        </div>
+        <h3 style="margin-top: 50px;">옵션 Set 등록</h3>
+        <p>
+            옵션을 등록해주세요
+        </p>
+        <form class="m-t" role="form" action="<%= options_option_create_path %>" method="GET">
+                <label class="col-lg-4 control-label" style="margin-top: 7px">옵션명 : </label>
+                <div class="form-group col-lg-8">
+                    <input type="text" class="form-control" name="option_name" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">옵션 내용 : </label>
+                <div class="form-group col-lg-8 option-form">
+                    <input type="text" class="form-control" placeholder="기본패키지" name="option_content[]" required="" style="text-align: right">
+                </div>
+                <label class="col-lg-4 control-label" style="margin-top: 7px">옵션 가격 </label>
+                <div class="form-group col-lg-8 option-form">
+                    <input type="text" class="form-control" name="additional_price[]" required="" style="text-align: right">
+                </div>
+                <button type="button" class="btn btn-rounded btn-info btn-sm option-add-btn" style="margin-bottom: 30px;">옵션추가</button>
+                <button type="submit" class="btn btn-warning block full-width m-b">등록</button>
+            </form>
+        <!-- <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2015</small> </p> -->
+    </div>
+</div>
+
+<% content_for :javascript do %>
+    <script type="text/javascript">
+        $(function() {
+            $(".option-add-btn").click(function(){
+                $(".option-form").last().after(
+                    '<label class="col-lg-4 control-label" style="margin-top: 7px">옵션 내용 : </label>' +
+                    '<div class="form-group col-lg-8 option-form">' +
+                        '<input type="text" class="form-control" placeholder="기본패키지" name="option_content[]" required="" style="text-align: right">' +
+                    '</div>' +
+                    '<label class="col-lg-4 control-label" style="margin-top: 7px">옵션 가격 </label>' +
+                    '<div class="form-group col-lg-8 option-form">' +
+                        '<input type="text" class="form-control" name="additional_price[]" required="" style="text-align: right">' +
+                    '</div> '
+                ); 
+            });
+        });
+    </script>
+<% end %>

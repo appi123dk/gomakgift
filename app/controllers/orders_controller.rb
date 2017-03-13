@@ -65,8 +65,10 @@ class OrdersController < ApplicationController
 		cart.is_cart = true
 		cart.ip_address = request.remote_ip
 		cart.total_price = params[:total_price]
-
 		cart.save
+		
+		# 옵션디테일 아이디연결
+		cart.optiondetail_ids = params[:optiondetails]
 
 		redirect_to "/gifts/accounts_form"
 	end

@@ -50,7 +50,11 @@
                       <tr>
                         <td><a href="/gifts/cart_delete/<%= cart.id %>"><i class="fa fa-times" style="color:#999"></i></a></td>
                         <td class="col-xs-4"><%= cart.product.id %></td>
-                        <td class="col-xs-4"><%= cart.product.title %></td>
+                        <td class="col-xs-4"><%= cart.product.title %><br/>
+                          <small>(옵션 : <% cart.optiondetails.each do |detail| %>
+                            <%= detail.option_content %>.
+                          <% end %>)</small>
+                        </td>
                         <td class="col-xs-2"><%= number_with_delimiter((cart.total_price * 10 / 11 / cart.qty).to_i, delimiter: ',') %> 원</td>
                         <td class="col-xs-2"><%= number_with_delimiter(cart.qty, delimiter: ',' )%> 개</td>
                         <td class="col-xs-2"><%= number_with_delimiter((cart.total_price * 10 / 11).to_i, delimiter: ',') %> 원</td>

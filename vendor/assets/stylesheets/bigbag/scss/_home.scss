@@ -704,24 +704,29 @@
 				border-bottom: 1px solid #000000;
 			}
 			td:nth-child(2) {
+				vertical-align: middle;
 				text-align: center;
 				width:10%;
 				border-right: 1px solid rgba(221,221,221,0.15);
 			}
 			td:nth-child(3) {
+				vertical-align: middle;
 				width:40%;
 				border-right: 1px solid rgba(221,221,221,0.15);
 			}
 			td:nth-child(4) {
+				vertical-align: middle;
 				text-align: center;
 				width:15%;
 				border-right: 1px solid rgba(221,221,221,0.15);
 			}
 			td:nth-child(5) {
+				vertical-align: middle;
 				text-align: center;
 				width:15%;
 			}
 			td:nth-child(6) {
+				vertical-align: middle;
 				text-align: center;
 				width:20%;
 			}
@@ -774,21 +779,26 @@
 				border-bottom: 1px solid #000000;
 			}
 			td:nth-child(1) {
+				font-size:14px;
+				vertical-align: middle;
 				width:40%;
 				border-right: 1px solid rgba(221,221,221,0.15);
 			}
 			td:nth-child(2) {
+				vertical-align: middle;
 				text-align: center;
 				width:20%;
 				border-right: 1px solid rgba(221,221,221,0.15);
 			}
 			td:nth-child(3) {
+				vertical-align: middle;
 				text-align: center;
 				width:20%;
 				border-right: 1px solid rgba(221,221,221,0.15);
 			}
 			td:nth-child(4) {
-				text-align: right;
+				vertical-align: middle;
+				text-align: center;
 				width:20%;
 			}
 		}

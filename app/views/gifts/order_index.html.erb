@@ -49,11 +49,11 @@
                     <% order.shoppingcarts.each do |shoppingcart| %>
                       <a href="/gifts/single_product/<%= shoppingcart.product_id %>"><%= shoppingcart.product.title %></a>
                       <small style="color:#676a6c;">(수량 : <%= shoppingcart.qty %>개)</small> <br/>
-                      <small style="color:#676a6c;">주문번호 : <%= order.merchant_uid %></small>
                     <% end %>
+                      <small style="color:#676a6c;">주문번호 : <%= order.merchant_uid.nil? ? "결제 후 배정" : order.merchant_uid %></small>
                   </td>
                   <td style="font-size:15px"><%= number_with_delimiter(order.payment, :delimiter => ',') %> 원</td>
-                  <td><%= is_exist ? "" : payment_product["response"]["status"] == 'ready' ? '미결제' : payment_product["response"]["status"] == 'paid' ? '결제완료' : payment_product["response"]["status"] == 'cancelled' ? '결제취소' : '결제실패' %></td>
+                  <td><%= is_exist ? "미결제" : payment_product["response"]["status"] == 'ready' ? '미결제' : payment_product["response"]["status"] == 'paid' ? '결제완료' : payment_product["response"]["status"] == 'cancelled' ? '결제취소' : '결제실패' %></td>
                   <td><% if order.is_cancled %>
                         <span style="color:#ED5565">주문취소 </span><small><br/>취소일시 : <%= order.datetime_cancled.to_date %>)</small>
                     <% elsif order.is_returned %>

@@ -68,6 +68,7 @@
                 <a href=""><i class="fa fa-cog"></i> <span class="nav-label" data-i18n="nav.option">옵션관리</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse <%= is_active_controller('options') %>">
                     <li class="<%= is_active_action('index') %>"><%= link_to "옵션현황", options_index_path %></li>
+                    <li class="<%= is_active_action('option_new') %>"><%= link_to "옵션set 등록", options_option_new_path %></li>
                     <li class="<%= is_active_action('price_new') %>"><%= link_to "가격set 등록", options_price_new_path %></li>
                     <li class="<%= is_active_action('qty_new') %>"><%= link_to "갯수set 등록", options_qty_new_path %></li>
                 </ul>

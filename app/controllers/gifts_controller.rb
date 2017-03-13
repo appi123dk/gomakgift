@@ -63,6 +63,8 @@ class GiftsController < ApplicationController
 			@product_qty.qty_max, @product_qty.qty_1, @product_qty.qty_2, @product_qty.qty_3, 
 			@product_qty.qty_4, @product_qty.qty_5, @product_qty.qty_6
 		]
+
+		@options = @product.options
 		render :layout => "bigbag"
 	end
 
