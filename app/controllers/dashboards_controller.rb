@@ -33,7 +33,7 @@ class DashboardsController < ApplicationController
     @female_count = []
     @male_count = []
     0.upto(23) do |hour|
-      @hour_arr << hour.to_s + ":00f"
+      @hour_arr << (hour + 9 >= 24 ? hour-15 : hour+9).to_s + ":00"
       @female_count << @female.where('hour(created_at) = ?', hour).count
       @male_count << @male.where('hour(created_at) = ?', hour).count
     end
