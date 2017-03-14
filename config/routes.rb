@@ -6,6 +6,7 @@ Myapp::Application.routes.draw do
   get "projects/index"
   get "projects/count/:female/:age", to: 'projects#count'
   get "projects/del"
+  get "dashboards/piper"
 
   # 녹턴 routes
   get "knockturns/index"

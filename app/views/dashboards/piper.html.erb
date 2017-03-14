@@ -1,0 +1,279 @@
+<div class="wrapper wrapper-content animated fadeIn">
+
+    <div class="p-w-md m-t-sm">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1><%= @project.project_name %> <small>/ <%= @project.place %></small></h1>
+            </div>
+        </div>
+        <hr style="border-top: 1px solid #bbbbbb"/>
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Media Coverage : <%= @project.media_coverage %>개</h3>
+            </div> 
+            <div class="col-sm-2">
+                <div class="alert alert-info">
+                    <i class="fa fa-facebook" style="font-size:25px;"></i> <span style="float:right; font-size:20px;"><%= @project.facebook %> 건</span>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="alert alert-info">
+                    <i class="fa fa-instagram" style="font-size:25px;"></i> <span style="float:right; font-size:20px;"><%= @project.instagram %> 건</span>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="alert alert-info">
+                    <i class="fa fa-comment" style="font-size:25px;"></i> <span style="float:right; font-size:20px;"><%= @project.kakao %> 건</span>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="alert alert-info">
+                    <i class="fa fa-rss" style="font-size:25px;"></i> <span style="float:right; font-size:20px;"><%= @project.blog %> 건</span>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="alert alert-info">
+                    <i class="fa fa-newspaper-o" style="font-size:25px;"></i> <span style="float:right; font-size:20px;"><%= @project.newspaper %> 건</span>
+                </div>
+            </div>
+        </div>
+        <hr style="border-top: 1px solid #bbbbbb"/>
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class="m-b-xs">
+                    <%= @enterance.count %>
+                </h1>
+                <small>
+                    입장객 수
+                </small>
+                <div>
+                    <canvas id="lineChart" height="80"></canvas>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <small class="stats-label">평균 체류시간</small>
+                        <h4><%= @mm %>분</h4>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <small class="stats-label">이용객의 SNS업로드 비율(Viral rate)</small>
+                        <h4><%= (@project.instagram + @project.facebook + @project.kakao + @project.newspaper + @project.blog) * 100 / @enterance.count  %> %</h4>
+                    </div>
+                    <div class="col-xs-3">
+                        <small class="stats-label">게시물 도달 수</small>
+                        <h4><i class="fa fa-eye"></i> 432건</h4>
+                    </div>
+                    <div class="col-xs-3">
+                        <small class="stats-label">좋아요 수</small>
+                        <h4><i class="fa fa-heart"></i> 311개</h4>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-4">
+                <h1>참가자 세부 현황</h1>
+                <small>
+                    연령 / 성별
+                </small>
+                <div class="row m-t-xs" style="margin-top: 20px;">
+                    <div class="col-xs-6">
+                        <h5 class="m-b-xs"><i class="fa fa-female"></i> 여성</h5>
+                        <h1 class="no-margins" style="text-align:center"><%= @female.count %> 명 <small class="text-navy">(<%= @female.count * 100 / @enterance.count %>%)</small></h1>
+                        <!-- <div class="font-bold text-navy">98% <i class="fa fa-bolt"></i></div> -->
+                    </div>
+                    <div class="col-xs-6">
+                        <h5 class="m-b-xs"><i class="fa fa-male"></i> 남성</h5>
+                        <h1 class="no-margins" style="text-align:center"><%= @male.count %> 명 <small class="text-navy">(<%= @male.count * 100 / @enterance.count %>%)</small></h1>
+                        <!-- <div class="font-bold text-navy">98% <i class="fa fa-bolt"></i></div> -->
+                    </div>
+                </div>
+
+
+                <table class="table small m-t-sm">
+                    <tbody>
+                    <tr>
+                        <td>
+                            20대 초반 : <strong><%= @female.where('age = ?', '201').count %> 명 </strong>(<%= @female.where('age = ?', '201').count * 100 / @female.count %>%)
+
+                        </td>
+                        <td>
+                            20대 초반 : <strong><%= @male.where('age = ?', '201').count %> 명 </strong>(<%= @male.where('age = ?', '201').count * 100 / @male.count %>%)</strong>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            20대 후반 : <strong><%= @female.where('age = ?', '202').count %> 명 </strong>(<%= @female.where('age = ?', '202').count * 100 / @female.count %>%)
+                        </td>
+                        <td>
+                            20대 후반 : <strong><%= @male.where('age = ?', '202').count %> 명 </strong>(<%= @male.where('age = ?', '202').count * 100 / @male.count %>%)</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            30대 초반 : <strong><%= @female.where('age = ?', '301').count %> 명 </strong>(<%= @female.where('age = ?', '301').count * 100 / @female.count %>%)
+                        </td>
+                        <td>
+                            30대 초반 : <strong><%= @male.where('age = ?', '301').count %> 명 </strong>(<%= @male.where('age = ?', '301').count * 100 / @male.count %>%)</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            30대 후반 : <strong><%= @female.where('age = ?', '302').count %> 명 </strong>(<%= @female.where('age = ?', '302').count * 100 / @female.count %>%)
+                        </td>
+                        <td>
+                            30대 후반 : <strong><%= @male.where('age = ?', '302').count %> 명 </strong>(<%= @male.where('age = ?', '302').count * 100 / @male.count %>%)</strong>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+<% content_for :javascript do %>
+
+<script type="text/javascript">
+
+$(function() {
+    var lineData = {
+        labels: <%=raw @hour_arr %>,
+        datasets: [
+            {
+                label: "남성",
+                fillColor: 'transparent',
+                strokeColor: "#04b7dc",
+                pointColor: "#04b7dc",
+                pointStrokeColor: "#2e97ad",
+                pointHighlightFill: "#2e97ad",
+                pointHighlightStroke: "#2e97ad",
+                data: <%=raw @male_count %>
+            },
+            {
+                label: "Example dataset",
+                fillColor: "transparent",
+                strokeColor: "#f73dab",
+                pointColor: "#f73dab",
+                pointStrokeColor: "#d41184",
+                pointHighlightFill: "#d41184",
+                pointHighlightStroke: "#d41184",
+                data: <%=raw @female_count %>
+            }
+        ]
+    };
+
+    var lineOptions = {
+        scaleShowGridLines: true,
+        scaleGridLineColor: "rgba(0,0,0,.05)",
+        scaleGridLineWidth: 1,
+        bezierCurve: true,
+        bezierCurveTension: 0.3,
+        pointDot: true,
+        pointDotRadius: 4,
+        pointDotStrokeWidth: 1,
+        pointHitDetectionRadius: 5,
+        datasetStroke: true,
+        datasetStrokeWidth: 2.5,
+        datasetFill: false,
+        responsive: true,
+    };
+
+
+    var ctx = document.getElementById("lineChart").getContext("2d");
+    var myNewChart = new Chart(ctx).Line(lineData, lineOptions);
+
+    var sparklineCharts = function(){
+        $("#sparkline1").sparkline([34, 43, 43, 35, 44, 32, 44, 52], {
+            type: 'line',
+            width: '100%',
+            height: '50',
+            lineColor: '#1ab394',
+            fillColor: "transparent"
+        });
+
+        $("#sparkline2").sparkline([32, 11, 25, 37, 41, 32, 34, 42], {
+            type: 'line',
+            width: '100%',
+            height: '50',
+            lineColor: '#1ab394',
+            fillColor: "transparent"
+        });
+
+        $("#sparkline3").sparkline([34, 22, 24, 41, 10, 18, 16,8], {
+            type: 'line',
+            width: '100%',
+            height: '50',
+            lineColor: '#1C84C6',
+            fillColor: "transparent"
+        });
+    };
+
+    var sparkResize;
+
+    $(window).resize(function(e) {
+        clearTimeout(sparkResize);
+        sparkResize = setTimeout(sparklineCharts, 500);
+    });
+
+    sparklineCharts();
+
+
+
+
+    var data1 = [
+        [0,4],[1,8],[2,5],[3,10],[4,4],[5,16],[6,5],[7,11],[8,6],[9,11],[10,20],[11,10],[12,13],[13,4],[14,7],[15,8],[16,12]
+    ];
+    var data2 = [
+        [0,0],[1,2],[2,7],[3,4],[4,11],[5,4],[6,2],[7,5],[8,11],[9,5],[10,4],[11,1],[12,5],[13,2],[14,5],[15,2],[16,0]
+    ];
+    $("#flot-dashboard5-chart").length && $.plot($("#flot-dashboard5-chart"), [
+                data1,  data2
+            ],
+            {
+                series: {
+                    lines: {
+                        show: false,
+                        fill: true
+                    },
+                    splines: {
+                        show: true,
+                        tension: 0.4,
+                        lineWidth: 1,
+                        fill: 0.4
+                    },
+                    points: {
+                        radius: 0,
+                        show: true
+                    },
+                    shadowSize: 2
+                },
+                grid: {
+                    hoverable: true,
+                    clickable: true,
+
+                    borderWidth: 2,
+                    color: 'transparent'
+                },
+                colors: ["#1ab394", "#1C84C6"],
+                xaxis:{
+                },
+                yaxis: {
+                },
+                tooltip: false
+            }
+    );
+
+});
+
+
+</script>
+
+<% end %>
