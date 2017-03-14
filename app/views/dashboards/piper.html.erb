@@ -62,11 +62,11 @@
                     </div>
                     <div class="col-xs-3">
                         <small class="stats-label">게시물 도달 수</small>
-                        <h4><i class="fa fa-eye"></i> 432건</h4>
+                        <h4><i class="fa fa-eye"></i> <%= number_with_delimiter(@project.reaches, delimiter: ',') %>건</h4>
                     </div>
                     <div class="col-xs-3">
                         <small class="stats-label">좋아요 수</small>
-                        <h4><i class="fa fa-heart"></i> 311개</h4>
+                        <h4><i class="fa fa-heart"></i> <%= number_with_delimiter(@project.likes, delimiter: ',') %>개</h4>
                     </div>
                 </div>
 

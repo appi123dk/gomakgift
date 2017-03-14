@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170313022820) do
+ActiveRecord::Schema.define(version: 20170314084454) do
 
   create_table "banners", force: :cascade do |t|
     t.integer  "product_id",     limit: 4
@@ -212,6 +212,8 @@ ActiveRecord::Schema.define(version: 20170313022820) do
     t.integer  "blog",           limit: 4,   default: 0
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.integer  "likes",          limit: 4
+    t.integer  "reaches",        limit: 4
   end
 
   create_table "quantities", force: :cascade do |t|
