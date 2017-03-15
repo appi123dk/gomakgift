@@ -7,3 +7,4 @@
 //= require bigbag/plugins/countdown/jquery.syotimer.js
 //= require bigbag/custom.js
 //= require validate/jquery.validate.min.js
+

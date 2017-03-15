@@ -111,7 +111,6 @@ class AdminOrdersController < ApplicationController
 	def sendmail
 		# 주문되었음을 고객-직원에게 알리는 메일
 		@alarm_mail = NoticeMailer.order_alarm_mail("appi1234dk@gmail.com").deliver
-
 		redirect_to "/admin_orders/index"
 	end
 end

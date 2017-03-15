@@ -55,6 +55,13 @@ class OrdersController < ApplicationController
 		order.payment = payment
 		order.save
 
+		@alarm_mail = NoticeMailer.order_alarm_mail("ap_cctv@gomakculture.com").deliver
+		if is_user.nil?
+			@alarm_mail_to_user = NoticeMailer.order_mail_to_user(user, order).deliver
+		else
+			@alarm_mail_to_user = NoticeMailer.order_mail_to_user(is_user, order).deliver
+		end
+
 		redirect_to "/gifts/payment/#{order.id}"
 	end
 
