@@ -129,6 +129,9 @@ Myapp::Application.routes.draw do
   get "admin_orders/cancle_order/:id", to: 'admin_orders#cancle_order'
   get "admin_orders/refund_order/:id", to: 'admin_orders#refund_order'
   get "admin_orders/sendmail"
+  get "admin_orders/create_draft/:id", to: 'admin_orders#create_draft'
+  get "admin_orders/update_draft/:id", to: 'admin_orders#update_draft'
+  get "admin_orders/find_draft"
 
   # 대시보드
   get "dashboards/dashboard_1"

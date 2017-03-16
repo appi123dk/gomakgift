@@ -105,14 +105,20 @@
                         <th style="border-top: 1px solid black">No.</th>
                         <th style="border-top: 1px solid black">상품명</th>
                         <th style="border-top: 1px solid black">생성일</th>
+                        <th style="border-top: 1px solid black">다운로드</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td class="col-xs-2">1</td>
-                            <td class="col-xs-6">Samsung_씨앗연필_ver_1</td>
-                            <td class="col-xs-4">2017-01-04, 17:40</td>
-                      </tr>
+                      <% order = 1 %>
+                      <% @drafts.each do |draft| %>
+                        <tr>
+                          <td class="col-xs-2"><%= draft.id %></td>
+                          <td class="col-xs-6"><%= draft.file_name %></td>
+                          <td class="col-xs-4"><%= draft.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+                          <td class="col-xs-4"><a href="<%= draft.file_url %>" download style="color:black"><i class="fa fa-download"></i></a></td>
+                        </tr>
+                        <% order += 1 %>
+                      <% end %>
                     </tbody>
                   </table>
                   <div class="col-sm-offset-6 col-sm-6" style="text-align:right; padding-right: 0px;">

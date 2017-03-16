@@ -14,6 +14,7 @@ class AdminOrdersController < ApplicationController
 		@order = Order.find(params[:id])
 		@shoppingcarts = @order.shoppingcarts
 		@payment_product = Iamport.find(@order.merchant_uid)
+		@drafts = @order.drafts.reverse_order
 	end
 
 	def check_payment
@@ -110,7 +111,33 @@ class AdminOrdersController < ApplicationController
 
 	def sendmail
 		# 주문되었음을 고객-직원에게 알리는 메일
-		@alarm_mail = NoticeMailer.order_alarm_mail("appi1234dk@gmail.com").deliver
+		# @alarm_mail = NoticeMailer.order_alarm_mail("appi1234dk@gmail.com").deliver
+		@alarm_mail_to_user = NoticeMailer.order_mail_to_user(User.find(1), Order.find(1)).deliver
 		redirect_to "/admin_orders/index"
+	end
+
+	def create_draft
+		@order = Order.find(params[:id])
+		draft = Draft.new
+		draft.file_name = params[:file_name]
+		draft.file_url = params[:file_url]
+		@order.drafts << draft
+		draft.save
+
+		redirect_to "/admin_orders/view/#{params[:id]}"
+	end
+
+	def update_draft
+		draft = Draft.find(params[:id])
+		draft.file_name = params[:file_name]
+		draft.file_url = params[:file_url]
+		draft.save
+
+		redirect_to "/admin_orders/view/#{draft.order.id}"
+	end
+
+	def find_draft
+		@draft = Draft.find(params[:draft_id])
+		render :json => @draft
 	end
 end

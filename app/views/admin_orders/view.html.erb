@@ -240,6 +240,59 @@
                             </div>
                             <hr>
                             <div class="row">
+                                <div class="col-md-6">
+                                    <h3>시안내역</h3>
+                                    <table class="table table-hover order-table" style="width:100%; margin-bottom: 5px;">
+                                      <thead style="text-align: center">
+                                        <tr>
+                                            <th style="border-top: 1px solid black">파일명</th>
+                                            <th class="qty" style="border-top: 1px solid black">등록일자</th>
+                                            <th class="qty" style="border-top: 1px solid black">다운로드</th>
+                                            <th class="qty" style="border-top: 1px solid black">수정</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <% @drafts.each do |draft| %>
+                                            <tr class="question">
+                                                <td class="small"><%= draft.file_name %></td>
+                                                <td class="small"><%= draft.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+                                                <td class="small"><a href="<%= draft.file_url %>" download><i class="fa fa-download" aria-hidden="true"></i></a></td>
+                                                <td class="small"><button type="button" class="btn btn-primary btn-xs btn-edit-draft" data-draft="<%= draft.id %>">수정</button></td>
+                                            </tr>
+                                        <% end %>
+                                        <tr class="question">
+                                            <td class="small"></td>
+                                            <td class="small"></td>
+                                            <td class="small"></td>
+                                            <td class="small"></td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3>시안 등록 및 수정</h3>
+                                    <form role="form" class="form-inline new-draft" action="/admin_orders/create_draft/<%= @order.id %>" style="margin-top: 20px;" id="form3">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="파일명" class="form-control input-sm" name="file_name" required="">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" placeholder="파일주소" class="form-control input-sm" name="file_url" required="">
+                                        </div>
+                                        <button class="btn btn-primary btn-sm" form="form3" type="submit">신규등록</button>
+                                    </form>
+                                    <form role="form" class="form-inline edit-draft" action="/admin_orders/update_draft/<%= @order.id %>" style="margin-top: 20px; display: none;" id="form4">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="파일명" class="form-control input-sm file_name" name="file_name" required="">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" placeholder="파일주소" class="form-control input-sm file_url" name="file_url" required="">
+                                        </div>
+                                        <button class="btn btn-warning btn-sm btn-edit" form="form4" type="submit">수정</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
                                 <div class="col-md-12">
                                     <h3>주문 취소 및 환불 요청</h3>
                                     <button type="button" class="btn btn-lg btn-warning btn-order-cancle">주문취소</button>
@@ -324,6 +377,25 @@ $(window).load(function() {
           } else {
             window.location.href = "/admin_orders/refund_order/" + order_id
           }
+        });
+    });
+
+    $('.btn-edit-draft').click(function(){
+        $(".edit-draft").hide();
+        $(".edit-draft").show(300);
+        var draft_id = $(this).data("draft");
+        $.ajax({
+                data: {
+                    draft_id: draft_id
+                },
+                method: "GET",
+                url: "/admin_orders/find_draft",
+                success: function(data){
+                    console.log(data);
+                    $('.file_name').val(data.file_name);
+                    $('.file_url').val(data.file_url);
+                    $('#form4').attr('action', '/admin_orders/update_draft/' + data.id);
+                }
         });
     });
 });

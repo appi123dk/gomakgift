@@ -24,6 +24,7 @@ class GiftsController < ApplicationController
 		require 'httparty'
 		@order = Order.find(params[:id])
 		@payment_product = Iamport.find(@order.merchant_uid)
+		@drafts = @order.drafts.reverse_order
 		if @order.is_confirmed
 			redirect_to "/gifts/print_product/#{@order.id}"
 		else
