@@ -207,12 +207,14 @@
       <img src="<%= @product.print_image %>" class="img-responsive" alt="<%= @product.title %> 인쇄안내"> 
       <hr>
     </div>
-    <div class="col-sm-12 additional-info">
-      <h3>패키지안내<small> / SPECIAL_PACKAGE</small></h3>
-      <strong>제품이 아닌 회사를 빛내주는 패키지</strong>로 <br/>고객들의 마음을 움직여보세요!</p> 
-      <img src="<%= @product.package_image %>" class="img-responsive" alt="<%= @product.title %> 패키지안내"> 
-      <hr>
-    </div>
+    <% if @product.package_image != "#" %>
+      <div class="col-sm-12 additional-info">
+        <h3>패키지안내<small> / SPECIAL_PACKAGE</small></h3>
+        <strong>제품이 아닌 회사를 빛내주는 패키지</strong>로 <br/>고객들의 마음을 움직여보세요!</p> 
+        <img src="<%= @product.package_image %>" class="img-responsive" alt="<%= @product.title %> 패키지안내"> 
+        <hr>
+      </div>
+    <% end %>
   </div>
 
   <div class="row featuredCollection version2 product-contents">
