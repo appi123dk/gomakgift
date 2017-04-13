@@ -21,7 +21,7 @@ class DashboardsController < ApplicationController
 
   def piper
     require 'json'
-    @project = Project.find(1)
+    @project = Project.find(2)
     @dataset = @project.surveys
     @enterance = @dataset.where('age != ?', "000")
     @exit = @dataset.where('age = ?', "000")
